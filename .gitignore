@@ -1,0 +1,20 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Data & Database Artifacts
+data/bronze/*
+!data/bronze/.gitkeep
+data/warehouse.duckdb
+data/warehouse.duckdb.wal
+dashboard_data.json
+
+# IDE & System Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
