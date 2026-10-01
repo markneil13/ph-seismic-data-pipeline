@@ -12,33 +12,33 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "data", "warehouse.duckdb")
 
 def print_ph_seismic_bulletin():
-    """Prints formatted Seismic Bulletin including DS & ML Risk Predictions."""
+    """Prints formatted Seismic Bulletin using nearest_reference_city and oceanic_event."""
     print("[BULLETIN] PHILIPPINE REAL-TIME SEISMIC & DATA SCIENCE BULLETIN")
     print("=" * 95)
     
     con = duckdb.connect(DB_PATH)
     
-    # Query Top Seismic Risk Events with ML Predictions & Fault Zone Clusters
     alerts_df = con.execute("""
         SELECT 
             strftime(f.event_time_pht, '%Y-%m-%d %H:%M PHT') AS time_pht,
             ROUND(f.magnitude, 1) AS mag,
             f.place,
-            f.nearest_ph_city AS nearest_city,
+            f.nearest_reference_city AS nearest_ref_city,
+            f.distance_to_reference_city_km AS dist_km,
             c.fault_zone_label AS fault_cluster,
             m.ml_risk_probability AS ml_risk_pct,
-            m.anomaly_flag AS anomaly
+            a.alert_severity
         FROM gold.fact_earthquakes f
+        LEFT JOIN gold.seismic_high_risk_alerts a ON f.usgs_event_id = a.usgs_event_id
         LEFT JOIN gold.ds_seismic_clusters c ON f.usgs_event_id = c.usgs_event_id
         LEFT JOIN gold.ds_ml_predictions m ON f.usgs_event_id = m.usgs_event_id
         ORDER BY f.magnitude DESC, f.event_time_pht DESC
-        LIMIT 8
+        LIMIT 10
     """).fetchdf()
     
     print(alerts_df.to_string(index=False))
     print("=" * 95)
     
-    # Regional Group Stats from DS EDA
     eda_df = con.execute("""
         SELECT 
             island_group,
@@ -62,30 +62,30 @@ def main():
     
     try:
         # Step 1: Live Ingestion (Bronze)
-        run_ingestion()
+        bronze_df = run_ingestion()
         
-        # Step 2: Spatial & Time Transformation (Silver)
-        run_transformation()
-        
-        # Step 3: Analytics & Star Schema (Gold)
-        run_analytics()
-        
-        # Step 4: Data Science, EDA, Spatial Clustering (DBSCAN) & ML (Random Forest)
-        run_data_science()
-        
-        # Step 5: Data Quality Assertions
-        quality_passed = run_quality_checks()
+        # Step 2: Non-Tautological Bronze Quality Checks
+        quality_passed = run_quality_checks(bronze_df=bronze_df)
         if not quality_passed:
-            print("[STOP] Pipeline halted due to quality check failure.")
+            print("[STOP] Pipeline halted due to Bronze Data Quality failure.")
             sys.exit(1)
             
+        # Step 3: Spatial & Time Transformation (Silver)
+        run_transformation()
+        
+        # Step 4: Analytics & Star Schema (Gold)
+        run_analytics()
+        
+        # Step 5: Data Science & ML Engine
+        run_data_science()
+        
         # Step 6: Print Live Terminal Bulletin
         print_ph_seismic_bulletin()
         
-        # Step 7: Build Interactive Visual Dashboard HTML
+        # Step 7: Export dashboard_data.json and build HTML Dashboard dynamically
         build_dashboard()
         
-        print("[SUCCESS] FULL DE + DA + DS PIPELINE EXECUTED SUCCESSFULLY!")
+        print("[SUCCESS] REFACTORED PIPELINE EXECUTED SUCCESSFULLY!")
         
     except Exception as e:
         print(f"[ERROR] Error during pipeline execution: {e}", file=sys.stderr)

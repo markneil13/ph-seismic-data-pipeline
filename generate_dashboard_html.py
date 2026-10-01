@@ -4,10 +4,11 @@ import duckdb
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "data", "warehouse.duckdb")
-ARTIFACT_DIR = r"C:\Users\marki\.gemini\antigravity\brain\3f02062b-df98-4788-a2f8-8ca1213a27ef"
-OUTPUT_HTML = os.path.join(ARTIFACT_DIR, "seismic_dashboard.html")
+JSON_PATH = os.path.join(BASE_DIR, "dashboard_data.json")
+OUTPUT_HTML = os.path.join(BASE_DIR, "seismic_dashboard.html")
 
-def build_dashboard():
+def export_dashboard_data():
+    """Exports dynamic JSON payload for dashboard generation."""
     con = duckdb.connect(DB_PATH)
     
     events = con.execute("""
@@ -21,9 +22,9 @@ def build_dashboard():
             f.depth_category, 
             f.latitude, 
             f.longitude, 
-            f.nearest_ph_city, 
-            f.distance_to_city_km, 
-            f.tsunami_alert, 
+            f.nearest_reference_city, 
+            f.distance_to_reference_city_km, 
+            f.oceanic_event, 
             COALESCE(a.alert_severity, 'INFORMATIONAL') as alert_severity,
             COALESCE(c.fault_zone_label, 'Isolated Seismic Event') as fault_zone_label,
             c.fault_cluster_id,
@@ -41,13 +42,33 @@ def build_dashboard():
         FROM gold.dim_ph_cities
     """).fetchdf().to_dict(orient='records')
 
-    # DS Stats
+    last_ingested = con.execute("SELECT strftime(MAX(ingested_at), '%Y-%m-%d %H:%M UTC') FROM silver.earthquakes_with_nearest_city").fetchone()[0] or "N/A"
+    con.close()
+
+    payload = {
+        "last_ingested_at": last_ingested,
+        "events": events,
+        "cities": cities
+    }
+    
+    with open(JSON_PATH, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+        
+    return payload
+
+def build_dashboard():
+    payload = export_dashboard_data()
+    events = payload["events"]
+    cities = payload["cities"]
+    last_ingested = payload["last_ingested_at"]
+
     total_events = len(events)
-    max_mag = max([e['magnitude'] for e in events]) if events else 0
+    max_mag = max([e['magnitude'] for e in events]) if events else 0.0
+    
+    # Top City by Quakes within 150km
+    top_city = max(cities, key=lambda x: x['quakes_within_150km']) if cities else {"city_name": "N/A", "quakes_within_150km": 0}
     clusters_count = len(set([e['fault_cluster_id'] for e in events if e['fault_cluster_id'] != -1]))
     anomalies_count = len([e for e in events if e['anomaly_flag'] == 'SEISMIC OUTLIER'])
-    
-    con.close()
 
     events_json = json.dumps(events)
     cities_json = json.dumps(cities)
@@ -74,19 +95,18 @@ def build_dashboard():
     <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
       <div>
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
-          <h1 class="text-2xl font-bold tracking-tight">Philippine Seismic Engine: DE + Data Science & ML</h1>
+          <span class="inline-block w-3 h-3 rounded-full bg-blue-500"></span>
+          <h1 class="text-2xl font-bold tracking-tight">Philippine Real-Time Seismic Engine</h1>
         </div>
-        <p class="text-sm text-[var(--muted-foreground)] mt-1">Live USGS Feed • DuckDB Spatial SQL • DBSCAN Fault Line Clustering • Random Forest Risk ML</p>
+        <p class="text-sm text-[var(--muted-foreground)] mt-1">DuckDB Spatial SQL • PHT Timezone • DBSCAN Fault Line Clustering • ML Risk Model</p>
       </div>
       <div class="flex flex-wrap items-center gap-2">
-        <span class="px-3 py-1 bg-red-500/10 border border-red-500/30 text-red-400 rounded-full text-xs font-semibold">Live Ingestion</span>
+        <span class="px-3 py-1 bg-slate-500/10 border border-slate-500/30 text-slate-300 rounded-full text-xs font-semibold">Last Updated: {last_ingested}</span>
         <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full text-xs font-semibold">DuckDB Gold Layer</span>
-        <span class="px-3 py-1 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-full text-xs font-semibold">Scikit-Learn ML</span>
       </div>
     </div>
 
-    <!-- Metric KPI Cards -->
+    <!-- Dynamic Metric KPI Cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
         <div class="text-xs font-medium text-[var(--muted-foreground)]">Tracked Events</div>
@@ -96,17 +116,17 @@ def build_dashboard():
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
         <div class="text-xs font-medium text-[var(--muted-foreground)]">Max Magnitude</div>
         <div class="text-2xl font-bold mt-1 text-amber-400">M {max_mag:.1f}</div>
-        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Sangani / Mindanao</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Recent Strongest Event</div>
+      </div>
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">High Exposure Hub</div>
+        <div class="text-2xl font-bold mt-1 text-emerald-400">{top_city['city_name']}</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">{top_city['quakes_within_150km']} quakes within 150km</div>
       </div>
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
         <div class="text-xs font-medium text-[var(--muted-foreground)]">Fault Belts (DBSCAN)</div>
         <div class="text-2xl font-bold mt-1 text-purple-400">{clusters_count} Active</div>
-        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Spatial Clustering</div>
-      </div>
-      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
-        <div class="text-xs font-medium text-[var(--muted-foreground)]">ML Model Accuracy</div>
-        <div class="text-2xl font-bold mt-1 text-emerald-400">100.0%</div>
-        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Random Forest Risk Classifier</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Spatial Clusters</div>
       </div>
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
         <div class="text-xs font-medium text-[var(--muted-foreground)]">Seismic Outliers</div>
@@ -115,15 +135,15 @@ def build_dashboard():
       </div>
     </div>
 
-    <!-- Main Content Grid: Map & Fault Line Clusters -->
+    <!-- Main Content Grid: Map & Reference Cities -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       
       <!-- Interactive SVG Map -->
       <div class="lg:col-span-2 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col">
         <div class="flex justify-between items-center mb-4">
           <div>
-            <h2 class="font-semibold text-base">Philippine Seismic Map & Fault Zone Clusters</h2>
-            <p class="text-xs text-[var(--muted-foreground)]">Circles scaled by magnitude & color-coded by ML predicted risk probability</p>
+            <h2 class="font-semibold text-base">Philippine Seismic Map & Reference Cities</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Coordinates: 4.0°N–21.5°N, 116.0°E–127.0°E</p>
           </div>
           <div class="flex gap-2 text-[11px]">
             <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> High Risk (≥80%)</span>
@@ -134,7 +154,6 @@ def build_dashboard():
 
         <div class="map-container relative w-full h-[420px] rounded-xl border border-[var(--border)] overflow-hidden flex items-center justify-center p-2">
           <svg id="ph-map-svg" viewBox="0 0 500 700" class="w-full h-full max-h-[400px]">
-            <!-- Philippines Outlines -->
             <path d="M 210,120 L 250,140 L 270,210 L 260,260 L 220,270 L 190,230 L 200,160 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
             <path d="M 250,300 L 290,320 L 310,360 L 270,390 L 240,360 L 230,320 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
             <path d="M 260,420 L 340,430 L 370,490 L 320,560 L 260,540 L 240,480 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
@@ -147,10 +166,10 @@ def build_dashboard():
         </div>
       </div>
 
-      <!-- Regional City Exposure Panel -->
+      <!-- Reference City Exposure Panel -->
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col justify-between">
         <div>
-          <h2 class="font-semibold text-base mb-1">PH City Proximity & Exposure</h2>
+          <h2 class="font-semibold text-base mb-1">PH Reference City Exposure</h2>
           <p class="text-xs text-[var(--muted-foreground)] mb-3">DuckDB Spatial SQL Haversine Engine (&lt;150km)</p>
           
           <div class="space-y-2.5 overflow-y-auto max-h-[350px] pr-1" id="city-list">
@@ -158,17 +177,17 @@ def build_dashboard():
         </div>
         <div class="pt-3 border-t border-[var(--border)] mt-3 text-[11px] text-[var(--muted-foreground)] flex justify-between">
           <span>Clustering: DBSCAN (eps=1.2°)</span>
-          <span>ML Model: Random Forest</span>
+          <span>Coverage: 14 Reference Cities</span>
         </div>
       </div>
     </div>
 
-    <!-- Live Event Feed & ML Prediction Table -->
+    <!-- Live Event Feed Table -->
     <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 shadow-sm">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
         <div>
-          <h2 class="font-semibold text-base">Live Data Science & ML Event Predictions</h2>
-          <p class="text-xs text-[var(--muted-foreground)]">Includes ML High-Risk Probabilities & DBSCAN Fault Line Clusters</p>
+          <h2 class="font-semibold text-base">Seismic Event Log & ML Predictions</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Converted to Philippine Standard Time (PHT)</p>
         </div>
         
         <div class="flex gap-2">
@@ -189,10 +208,10 @@ def build_dashboard():
               <th class="p-3">Mag</th>
               <th class="p-3">Place</th>
               <th class="p-3">Depth</th>
-              <th class="p-3">Nearest City</th>
+              <th class="p-3">Nearest Reference City</th>
               <th class="p-3">DBSCAN Fault Belt</th>
               <th class="p-3">ML Risk Prob</th>
-              <th class="p-3">Anomaly Status</th>
+              <th class="p-3">Alert Severity</th>
             </tr>
           </thead>
           <tbody id="events-table-body" class="divide-y divide-[var(--border)]">
@@ -210,7 +229,7 @@ def build_dashboard():
       return 50 + ((lon - 116.0) / (127.0 - 116.0)) * 400;
     }}
     function latToY(lat) {{
-      return 650 - ((lat - 4.5) / (21.5 - 4.5)) * 600;
+      return 650 - ((lat - 4.0) / (21.5 - 4.0)) * 600;
     }}
 
     const citiesGroup = document.getElementById("cities-group");
@@ -276,7 +295,7 @@ def build_dashboard():
 
       circle.addEventListener("mouseenter", (e) => {{
         tooltip.style.display = "block";
-        tooltip.innerHTML = `<strong>M ${{ev.magnitude.toFixed(1)}} - ${{ev.richter_category}}</strong><br/>${{ev.place}}<br/>Time: ${{ev.time_pht}}<br/>Fault Belt: <strong>${{ev.fault_zone_label}}</strong><br/>ML Risk Prob: <strong>${{ev.ml_risk_prob}}%</strong><br/>Anomaly: ${{ev.anomaly_flag}}`;
+        tooltip.innerHTML = `<strong>M ${{ev.magnitude ? ev.magnitude.toFixed(1) : 'N/A'}} - ${{ev.richter_category}}</strong><br/>${{ev.place}}<br/>Time: ${{ev.time_pht}}<br/>Nearest Reference City: <strong>${{ev.nearest_reference_city}}</strong> (${{ev.distance_to_reference_city_km}} km)<br/>Fault Belt: <strong>${{ev.fault_zone_label}}</strong>`;
       }});
       circle.addEventListener("mousemove", (e) => {{
         tooltip.style.left = (e.clientX + 10) + "px";
@@ -315,7 +334,7 @@ def build_dashboard():
         const matchRichter = filterRichter === "ALL" || e.richter_category === filterRichter;
         const matchSearch = search === "" || 
           e.place.toLowerCase().includes(search.toLowerCase()) || 
-          e.nearest_ph_city.toLowerCase().includes(search.toLowerCase());
+          e.nearest_reference_city.toLowerCase().includes(search.toLowerCase());
         return matchRichter && matchSearch;
       }});
 
@@ -330,20 +349,22 @@ def build_dashboard():
           riskBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">${{ev.ml_risk_prob}}% MOD</span>`;
         }}
 
-        let anomalyBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-gray-500/10 text-gray-400">NORMAL</span>`;
-        if (ev.anomaly_flag === 'SEISMIC OUTLIER') {{
-          anomalyBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-rose-500/20 text-rose-300 font-bold border border-rose-500/30">OUTLIER</span>`;
+        let severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-gray-500/20 text-gray-300">INFORMATIONAL</span>`;
+        if (ev.alert_severity.includes('MODERATE')) {{
+          severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30">MODERATE ALERT</span>`;
+        }} else if (ev.alert_severity.includes('HIGH') || ev.alert_severity.includes('CRITICAL')) {{
+          severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-red-500/20 text-red-300 border border-red-500/30">HIGH ALERT</span>`;
         }}
 
         tr.innerHTML = `
           <td class="p-3 text-[var(--muted-foreground)] whitespace-nowrap">${{ev.time_pht}}</td>
-          <td class="p-3 font-bold text-amber-400">M ${{ev.magnitude.toFixed(1)}}</td>
+          <td class="p-3 font-bold text-amber-400">M ${{ev.magnitude ? ev.magnitude.toFixed(1) : 'N/A'}}</td>
           <td class="p-3 max-w-xs truncate" title="${{ev.place}}">${{ev.place}}</td>
           <td class="p-3 text-[var(--muted-foreground)]">${{ev.depth_km}} km</td>
-          <td class="p-3 font-medium">${{ev.nearest_ph_city}} (${{ev.distance_to_city_km}} km)</td>
+          <td class="p-3 font-medium">${{ev.nearest_reference_city}} (${{ev.distance_to_reference_city_km}} km)</td>
           <td class="p-3 text-purple-300 font-medium">${{ev.fault_zone_label}}</td>
           <td class="p-3">${{riskBadge}}</td>
-          <td class="p-3">${{anomalyBadge}}</td>
+          <td class="p-3">${{severityBadge}}</td>
         `;
         tableBody.appendChild(tr);
       }});
@@ -365,7 +386,7 @@ def build_dashboard():
     with open(OUTPUT_HTML, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"Generated DS Dashboard at {OUTPUT_HTML}")
+    print(f"Generated Dynamic Dashboard at {OUTPUT_HTML}")
 
 if __name__ == "__main__":
     build_dashboard()

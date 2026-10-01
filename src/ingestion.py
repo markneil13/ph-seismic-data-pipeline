@@ -9,6 +9,7 @@ import pandas as pd
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRONZE_DIR = os.path.join(BASE_DIR, "data", "bronze")
 
+# Bounding box for the Philippines archipelago region
 PH_BOUNDS = {
     "minlatitude": 4.5,
     "maxlatitude": 21.5,
@@ -17,7 +18,7 @@ PH_BOUNDS = {
 }
 
 def fetch_live_ph_earthquakes(retries=3):
-    """Fetches real-time seismic event data from USGS API for the Philippines region with retry logic."""
+    """Fetches real-time seismic event data from USGS API for the Philippines region using standard SSL."""
     url = (
         "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson"
         f"&minlatitude={PH_BOUNDS['minlatitude']}&maxlatitude={PH_BOUNDS['maxlatitude']}"
@@ -26,9 +27,8 @@ def fetch_live_ph_earthquakes(retries=3):
     )
     
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AntigravityDataEngine/1.0"}
+    # Standard default SSL context (removed ssl.CERT_NONE)
     ctx = ssl.create_default_context()
-    ctx.check_hostname = False
-    ctx.verify_mode = ssl.CERT_NONE
     
     for attempt in range(1, retries + 1):
         try:
@@ -51,7 +51,7 @@ def fetch_live_ph_earthquakes(retries=3):
                     "time_epoch_ms": props.get("time"),
                     "updated_epoch_ms": props.get("updated"),
                     "url": props.get("url"),
-                    "tsunami_alert": props.get("tsunami"),
+                    "oceanic_event": props.get("tsunami"), # Renamed from tsunami_alert
                     "sig_score": props.get("sig"),
                     "alert_level": props.get("alert"),
                     "status": props.get("status"),
@@ -84,6 +84,7 @@ def run_ingestion():
     print(f"  + Fetched {len(df)} live seismic events across the Philippines.")
     print(f"  + Written Bronze Parquet file to {output_file}")
     print("[OK] Bronze Ingestion Complete.\n")
+    return df
 
 if __name__ == "__main__":
     run_ingestion()

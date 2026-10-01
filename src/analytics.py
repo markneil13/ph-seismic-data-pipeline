@@ -25,15 +25,15 @@ def run_analytics():
         depth_category,
         latitude,
         longitude,
-        nearest_ph_city,
+        nearest_reference_city,
         island_group,
-        distance_to_city_km,
-        tsunami_alert,
+        distance_to_reference_city_km,
+        oceanic_event,
         sig_score
     FROM silver.earthquakes_with_nearest_city;
     """)
     
-    # 2. Dimension Table: Philippine Cities & Local Seismic Exposure
+    # 2. Dimension Table: Philippine Reference Cities & Exposure
     con.execute("""
     CREATE OR REPLACE TABLE gold.dim_ph_cities AS
     SELECT 
@@ -42,15 +42,15 @@ def run_analytics():
         c.latitude,
         c.longitude,
         COUNT(f.usgs_event_id) AS total_recent_earthquakes,
-        COUNT(CASE WHEN f.distance_to_city_km <= 150 THEN 1 END) AS quakes_within_150km,
+        COUNT(CASE WHEN f.distance_to_reference_city_km <= 150 THEN 1 END) AS quakes_within_150km,
         ROUND(MAX(f.magnitude), 1) AS max_magnitude_nearby,
         MAX(f.event_time_pht) AS latest_quake_at_pht
     FROM silver.ph_ref_cities c
-    LEFT JOIN gold.fact_earthquakes f ON f.nearest_ph_city = c.city_name
+    LEFT JOIN gold.fact_earthquakes f ON f.nearest_reference_city = c.city_name
     GROUP BY c.city_name, c.region, c.latitude, c.longitude;
     """)
     
-    # 3. Gold Alert Mart: High Risk Seismic Alert Bulletin
+    # 3. Gold Alert Mart: High Risk Seismic Alert Bulletin (Seismic Magnitude & Population Proximity)
     con.execute("""
     CREATE OR REPLACE TABLE gold.seismic_high_risk_alerts AS
     SELECT 
@@ -61,18 +61,18 @@ def run_analytics():
         richter_category,
         depth_km,
         depth_category,
-        nearest_ph_city,
+        nearest_reference_city,
         island_group,
-        distance_to_city_km,
-        tsunami_alert,
+        distance_to_reference_city_km,
+        oceanic_event,
         CASE 
-            WHEN tsunami_alert = 1 THEN 'CRITICAL: TSUNAMI WARNING'
-            WHEN magnitude >= 5.5 THEN 'HIGH: STRONG SHAKING EXPECTED'
-            WHEN magnitude >= 4.5 AND distance_to_city_km <= 100 THEN 'MODERATE: NEARBY POPULATION CENTER'
+            WHEN magnitude >= 6.5 THEN 'CRITICAL: MAJOR SEISMIC EVENT'
+            WHEN magnitude >= 5.5 THEN 'HIGH: STRONG SHAKING'
+            WHEN magnitude >= 4.5 AND distance_to_reference_city_km <= 100 THEN 'MODERATE: NEARBY POPULATION CENTER'
             ELSE 'INFORMATIONAL'
         END AS alert_severity
     FROM gold.fact_earthquakes
-    WHERE magnitude >= 4.0 OR tsunami_alert = 1 OR (magnitude >= 3.5 AND distance_to_city_km <= 50)
+    WHERE magnitude >= 4.0 OR (magnitude >= 3.5 AND distance_to_reference_city_km <= 50)
     ORDER BY event_time_pht DESC, magnitude DESC;
     """)
     

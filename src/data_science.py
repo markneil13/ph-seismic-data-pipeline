@@ -17,7 +17,7 @@ def run_data_science():
     
     # Load Fact Data
     df = con.execute("""
-        SELECT usgs_event_id, event_time_pht, place, magnitude, depth_km, latitude, longitude, nearest_ph_city, island_group, distance_to_city_km, tsunami_alert
+        SELECT usgs_event_id, event_time_pht, place, magnitude, depth_km, latitude, longitude, nearest_reference_city, island_group, distance_to_reference_city_km, oceanic_event
         FROM gold.fact_earthquakes
     """).fetchdf()
     
@@ -29,7 +29,7 @@ def run_data_science():
     # ---------------------------------------------------------
     # 1. EXPLORATORY DATA ANALYSIS (EDA) & STATISTICAL PROFILING
     # ---------------------------------------------------------
-    corr_depth_mag = df['depth_km'].corr(df['magnitude'])
+    corr_depth_mag = df['depth_km'].corr(df['magnitude']) if 'depth_km' in df and len(df) > 1 else 0.0
     avg_mag = df['magnitude'].mean()
     max_mag = df['magnitude'].max()
     
@@ -44,7 +44,6 @@ def run_data_science():
         max_magnitude=('magnitude', 'max')
     ).reset_index()
     
-    # Save EDA Summary to DuckDB
     con.execute("CREATE SCHEMA IF NOT EXISTS gold;")
     con.execute("""
     CREATE OR REPLACE TABLE gold.ds_regional_eda AS
@@ -54,13 +53,10 @@ def run_data_science():
     # ---------------------------------------------------------
     # 2. SPATIAL FAULT LINE CLUSTERING (DBSCAN)
     # ---------------------------------------------------------
-    # Group coordinates into spatial seismic clusters (Active Fault Belts)
     coords = df[['latitude', 'longitude']].values
-    # eps=1.2 degrees (~130km), min_samples=2
     db = DBSCAN(eps=1.2, min_samples=2).fit(coords)
     df['fault_cluster_id'] = db.labels_
     
-    # Save Cluster Table to DuckDB
     con.execute("""
     CREATE OR REPLACE TABLE gold.ds_seismic_clusters AS
     SELECT 
@@ -81,11 +77,8 @@ def run_data_science():
     # ---------------------------------------------------------
     # 3. PREDICTIVE MACHINE LEARNING (Random Forest Risk Classifier)
     # ---------------------------------------------------------
-    # Define Target: High Risk Event (Magnitude >= 4.5)
     df['is_high_risk'] = (df['magnitude'] >= 4.5).astype(int)
-    
-    # Features: Latitude, Longitude, Depth, Distance to City
-    X = df[['latitude', 'longitude', 'depth_km', 'distance_to_city_km']]
+    X = df[['latitude', 'longitude', 'depth_km', 'distance_to_reference_city_km']].fillna(0)
     y = df['is_high_risk']
     
     if len(df) >= 5 and len(y.unique()) > 1:
@@ -99,7 +92,6 @@ def run_data_science():
         df['ml_predicted_high_risk'] = preds
         df['ml_risk_probability'] = np.round(probs * 100.0, 1)
         
-        # Feature Importances
         importances = dict(zip(X.columns, np.round(rf_model.feature_importances_, 3)))
         print(f"  + Predictive ML Model (Random Forest Classifier):")
         print(f"    - Training Accuracy: {acc * 100.0:.1f}%")
@@ -114,7 +106,6 @@ def run_data_science():
     df['is_seismic_anomaly'] = iso_forest.fit_predict(X[['depth_km', 'latitude', 'longitude']])
     df['anomaly_flag'] = np.where(df['is_seismic_anomaly'] == -1, 'SEISMIC OUTLIER', 'NORMAL')
     
-    # Save ML Predictions & Anomaly Results to DuckDB
     con.execute("""
     CREATE OR REPLACE TABLE gold.ds_ml_predictions AS
     SELECT 

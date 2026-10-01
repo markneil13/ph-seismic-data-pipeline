@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Philippine Real-Time Seismic & Data Science Dashboard</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .map-container {
+      background: radial-gradient(circle at 50% 50%, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.95));
+    }
+  </style>
+</head>
+<body class="bg-transparent text-[var(--foreground)] antialiased p-4">
+  <div class="max-w-7xl mx-auto space-y-6">
+    
+    <!-- Header -->
+    <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="inline-block w-3 h-3 rounded-full bg-blue-500"></span>
+          <h1 class="text-2xl font-bold tracking-tight">Philippine Real-Time Seismic Engine</h1>
+        </div>
+        <p class="text-sm text-[var(--muted-foreground)] mt-1">DuckDB Spatial SQL • PHT Timezone • DBSCAN Fault Line Clustering • ML Risk Model</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-2">
+        <span class="px-3 py-1 bg-slate-500/10 border border-slate-500/30 text-slate-300 rounded-full text-xs font-semibold">Last Updated: 2026-10-01 06:56 UTC</span>
+        <span class="px-3 py-1 bg-blue-500/10 border border-blue-500/30 text-blue-400 rounded-full text-xs font-semibold">DuckDB Gold Layer</span>
+      </div>
+    </div>
+
+    <!-- Dynamic Metric KPI Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">Tracked Events</div>
+        <div class="text-2xl font-bold mt-1 text-blue-400">43</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Live USGS PH Bounds</div>
+      </div>
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">Max Magnitude</div>
+        <div class="text-2xl font-bold mt-1 text-amber-400">M 5.3</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Recent Strongest Event</div>
+      </div>
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">High Exposure Hub</div>
+        <div class="text-2xl font-bold mt-1 text-emerald-400">General Santos</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">12 quakes within 150km</div>
+      </div>
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">Fault Belts (DBSCAN)</div>
+        <div class="text-2xl font-bold mt-1 text-purple-400">8 Active</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Spatial Clusters</div>
+      </div>
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
+        <div class="text-xs font-medium text-[var(--muted-foreground)]">Seismic Outliers</div>
+        <div class="text-2xl font-bold mt-1 text-rose-400">5 Anomalies</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Isolation Forest Detector</div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid: Map & Reference Cities -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Interactive SVG Map -->
+      <div class="lg:col-span-2 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col">
+        <div class="flex justify-between items-center mb-4">
+          <div>
+            <h2 class="font-semibold text-base">Philippine Seismic Map & Reference Cities</h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Coordinates: 4.0°N–21.5°N, 116.0°E–127.0°E</p>
+          </div>
+          <div class="flex gap-2 text-[11px]">
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> High Risk (≥80%)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Mod Risk (50-79%)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-blue-400"></span> Low Risk (&lt;50%)</span>
+          </div>
+        </div>
+
+        <div class="map-container relative w-full h-[420px] rounded-xl border border-[var(--border)] overflow-hidden flex items-center justify-center p-2">
+          <svg id="ph-map-svg" viewBox="0 0 500 700" class="w-full h-full max-h-[400px]">
+            <path d="M 210,120 L 250,140 L 270,210 L 260,260 L 220,270 L 190,230 L 200,160 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
+            <path d="M 250,300 L 290,320 L 310,360 L 270,390 L 240,360 L 230,320 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
+            <path d="M 260,420 L 340,430 L 370,490 L 320,560 L 260,540 L 240,480 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
+            <path d="M 120,290 L 170,350 L 150,370 L 100,310 Z" fill="rgba(100, 116, 139, 0.2)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.5"/>
+            
+            <g id="cities-group"></g>
+            <g id="events-group"></g>
+          </svg>
+          <div id="map-tooltip" class="absolute pointer-events-none bg-slate-900/90 text-white border border-slate-700 text-xs rounded-lg p-2 shadow-lg hidden z-20"></div>
+        </div>
+      </div>
+
+      <!-- Reference City Exposure Panel -->
+      <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col justify-between">
+        <div>
+          <h2 class="font-semibold text-base mb-1">PH Reference City Exposure</h2>
+          <p class="text-xs text-[var(--muted-foreground)] mb-3">DuckDB Spatial SQL Haversine Engine (&lt;150km)</p>
+          
+          <div class="space-y-2.5 overflow-y-auto max-h-[350px] pr-1" id="city-list">
+          </div>
+        </div>
+        <div class="pt-3 border-t border-[var(--border)] mt-3 text-[11px] text-[var(--muted-foreground)] flex justify-between">
+          <span>Clustering: DBSCAN (eps=1.2°)</span>
+          <span>Coverage: 14 Reference Cities</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Event Feed Table -->
+    <div class="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 shadow-sm">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-4">
+        <div>
+          <h2 class="font-semibold text-base">Seismic Event Log & ML Predictions</h2>
+          <p class="text-xs text-[var(--muted-foreground)]">Converted to Philippine Standard Time (PHT)</p>
+        </div>
+        
+        <div class="flex gap-2">
+          <input type="text" id="search-input" placeholder="Search location or city..." class="bg-[var(--background)] border border-[var(--border)] text-xs rounded-lg px-3 py-2 text-[var(--foreground)] outline-none focus:border-blue-500 w-48">
+          <select id="filter-richter" class="bg-[var(--background)] border border-[var(--border)] text-xs rounded-lg px-3 py-2 text-[var(--foreground)] outline-none">
+            <option value="ALL">All Richter Categories</option>
+            <option value="Moderate">Moderate (≥4.5)</option>
+            <option value="Light">Light (&lt;4.5)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs text-[var(--foreground)] border-collapse">
+          <thead>
+            <tr class="border-b border-[var(--border)] text-[var(--muted-foreground)] font-semibold">
+              <th class="p-3">Time (PHT)</th>
+              <th class="p-3">Mag</th>
+              <th class="p-3">Place</th>
+              <th class="p-3">Depth</th>
+              <th class="p-3">Nearest Reference City</th>
+              <th class="p-3">DBSCAN Fault Belt</th>
+              <th class="p-3">ML Risk Prob</th>
+              <th class="p-3">Alert Severity</th>
+            </tr>
+          </thead>
+          <tbody id="events-table-body" class="divide-y divide-[var(--border)]">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const events = [{"usgs_event_id": "us6000tyq7", "time_pht": "2026-10-01 13:34 PHT", "place": "38 km WSW of Palimbang, Philippines", "magnitude": 5.0, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 6.1116, "longitude": 123.8599, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 145.0, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "Isolated Seismic Event", "fault_cluster_id": -1, "ml_risk_prob": 82.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000tygz", "time_pht": "2026-09-30 10:30 PHT", "place": "104 km SSE of Sarangani, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 156.847, "depth_category": "Intermediate (70-300km)", "latitude": 4.5021, "longitude": 125.7472, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 190.5, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 68.0, "anomaly_flag": "SEISMIC OUTLIER"}, {"usgs_event_id": "us6000tygs", "time_pht": "2026-09-30 09:34 PHT", "place": "18 km SW of Tayaman, Philippines", "magnitude": 4.8, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 13.0922, "longitude": 120.4734, "nearest_reference_city": "Calapan", "distance_to_reference_city_km": 84.4, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #3", "fault_cluster_id": 2, "ml_risk_prob": 94.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000tyf0", "time_pht": "2026-09-30 04:45 PHT", "place": "49 km N of Dicabisagan, Philippines", "magnitude": 4.7, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 17.5267, "longitude": 122.4136, "nearest_reference_city": "Laoag", "distance_to_reference_city_km": 206.6, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #7", "fault_cluster_id": 6, "ml_risk_prob": 80.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000ty3w", "time_pht": "2026-09-28 16:16 PHT", "place": "65 km E of Pilar, Philippines", "magnitude": 4.7, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 9.9585, "longitude": 126.6861, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 232.9, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 84.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000ty1l", "time_pht": "2026-09-28 08:54 PHT", "place": "43 km W of Palauig, Philippines", "magnitude": 4.9, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 15.4374, "longitude": 119.503, "nearest_reference_city": "Baguio", "distance_to_reference_city_km": 158.7, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #1", "fault_cluster_id": 0, "ml_risk_prob": 92.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000tx3l", "time_pht": "2026-09-23 22:19 PHT", "place": "21 km ENE of Lais, Philippines", "magnitude": 4.2, "richter_category": "Light", "depth_km": 150.252, "depth_category": "Intermediate (70-300km)", "latitude": 6.4256, "longitude": 125.8221, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 79.7, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 14.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000twys", "time_pht": "2026-09-23 04:34 PHT", "place": "46 km E of Union, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 9.6886, "longitude": 126.5291, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 240.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 94.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tj3v", "time_pht": "2026-09-22 14:48 PHT", "place": "19 km ENE of Nailong, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 11.0957, "longitude": 124.2096, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 88.2, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #5", "fault_cluster_id": 4, "ml_risk_prob": 88.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tj21", "time_pht": "2026-09-22 08:08 PHT", "place": "67 km N of Claveria, Philippines", "magnitude": 4.8, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 19.2155, "longitude": 121.0898, "nearest_reference_city": "Laoag", "distance_to_reference_city_km": 124.9, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #6", "fault_cluster_id": 5, "ml_risk_prob": 82.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tj1s", "time_pht": "2026-09-22 07:48 PHT", "place": "96 km S of Sarangani, Philippines", "magnitude": 5.3, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 4.5364, "longitude": 125.3444, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 176.7, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 72.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000txlj", "time_pht": "2026-09-21 08:08 PHT", "place": "54 km S of Sarangani, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 4.9141, "longitude": 125.3922, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 135.9, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 74.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us6000txlb", "time_pht": "2026-09-20 23:37 PHT", "place": "2 km S of Buenavista, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 87.203, "depth_category": "Intermediate (70-300km)", "latitude": 9.0946, "longitude": 126.1574, "nearest_reference_city": "Cagayan de Oro", "distance_to_reference_city_km": 182.1, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 90.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000th04", "time_pht": "2026-09-12 23:00 PHT", "place": "10 km NW of Capalonga, Philippines", "magnitude": 4.0, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 14.4051, "longitude": 122.4372, "nearest_reference_city": "Naga", "distance_to_reference_city_km": 119.4, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "Isolated Seismic Event", "fault_cluster_id": -1, "ml_risk_prob": 14.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000ti42", "time_pht": "2026-09-12 20:45 PHT", "place": "96 km ESE of Pondaguitan, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 6.0372, "longitude": 126.9902, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 201.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 28.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000ti3v", "time_pht": "2026-09-12 12:10 PHT", "place": "14 km NNE of Namuac, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 18.7346, "longitude": 121.1983, "nearest_reference_city": "Laoag", "distance_to_reference_city_km": 87.6, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #6", "fault_cluster_id": 5, "ml_risk_prob": 92.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000thee", "time_pht": "2026-09-07 11:42 PHT", "place": "70 km ENE of Gigmoto, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 14.0093, "longitude": 124.9952, "nearest_reference_city": "Legazpi", "distance_to_reference_city_km": 166.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "Isolated Seismic Event", "fault_cluster_id": -1, "ml_risk_prob": 42.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tgp7", "time_pht": "2026-09-07 06:13 PHT", "place": "9 km N of Sabang, Philippines", "magnitude": 4.3, "richter_category": "Light", "depth_km": 139.481, "depth_category": "Intermediate (70-300km)", "latitude": 13.5924, "longitude": 120.9649, "nearest_reference_city": "Calapan", "distance_to_reference_city_km": 30.8, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #3", "fault_cluster_id": 2, "ml_risk_prob": 10.0, "anomaly_flag": "SEISMIC OUTLIER"}, {"usgs_event_id": "us7000tgmb", "time_pht": "2026-09-05 21:10 PHT", "place": "11 km WNW of Putat, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 8.799, "depth_category": "Shallow (<70km)", "latitude": 10.8107, "longitude": 123.7479, "nearest_reference_city": "Cebu City", "distance_to_reference_city_km": 57.1, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #5", "fault_cluster_id": 4, "ml_risk_prob": 80.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000teer", "time_pht": "2026-09-05 04:53 PHT", "place": "1 km SW of Looc, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 120.329, "depth_category": "Intermediate (70-300km)", "latitude": 14.1545, "longitude": 120.6157, "nearest_reference_city": "Manila", "distance_to_reference_city_km": 63.4, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #3", "fault_cluster_id": 2, "ml_risk_prob": 12.0, "anomaly_flag": "SEISMIC OUTLIER"}, {"usgs_event_id": "us7000te95", "time_pht": "2026-09-04 16:48 PHT", "place": "0 km NW of Purac, Philippines", "magnitude": 4.7, "richter_category": "Moderate", "depth_km": 66.174, "depth_category": "Shallow (<70km)", "latitude": 15.2554, "longitude": 120.0131, "nearest_reference_city": "Manila", "distance_to_reference_city_km": 127.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #1", "fault_cluster_id": 0, "ml_risk_prob": 86.0, "anomaly_flag": "SEISMIC OUTLIER"}, {"usgs_event_id": "us7000tgd0", "time_pht": "2026-09-04 16:11 PHT", "place": "7 km WNW of Kalbay, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 80.225, "depth_category": "Intermediate (70-300km)", "latitude": 5.7552, "longitude": 125.4394, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 49.9, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 20.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tgc2", "time_pht": "2026-09-03 22:05 PHT", "place": "128 km SE of Pondaguitan, Philippines", "magnitude": 4.2, "richter_category": "Light", "depth_km": 103.552, "depth_category": "Intermediate (70-300km)", "latitude": 5.4838, "longitude": 126.9428, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 208.2, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 12.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tg3q", "time_pht": "2026-09-03 07:24 PHT", "place": "5 km WNW of Eden, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 17.0572, "longitude": 121.5553, "nearest_reference_city": "Baguio", "distance_to_reference_city_km": 125.5, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #7", "fault_cluster_id": 6, "ml_risk_prob": 20.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tg3m", "time_pht": "2026-09-03 05:00 PHT", "place": "36 km SE of Bobon, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 72.156, "depth_category": "Intermediate (70-300km)", "latitude": 6.6337, "longitude": 126.5571, "nearest_reference_city": "Davao City", "distance_to_reference_city_km": 136.5, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 92.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tg3i", "time_pht": "2026-09-03 03:05 PHT", "place": "57 km WNW of Macabuboni, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 16.3365, "longitude": 119.2663, "nearest_reference_city": "Baguio", "distance_to_reference_city_km": 142.1, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #1", "fault_cluster_id": 0, "ml_risk_prob": 96.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tdpf", "time_pht": "2026-09-03 01:32 PHT", "place": "84 km SE of Hengchun, Taiwan", "magnitude": 4.4, "richter_category": "Light", "depth_km": 35.0, "depth_category": "Shallow (<70km)", "latitude": 21.4744, "longitude": 121.3328, "nearest_reference_city": "Laoag", "distance_to_reference_city_km": 372.7, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #8", "fault_cluster_id": 7, "ml_risk_prob": 36.0, "anomaly_flag": "SEISMIC OUTLIER"}, {"usgs_event_id": "us7000tdbr", "time_pht": "2026-09-01 21:22 PHT", "place": "39 km SSE of Sarangani, Philippines", "magnitude": 5.2, "richter_category": "Moderate", "depth_km": 110.403, "depth_category": "Intermediate (70-300km)", "latitude": 5.1091, "longitude": 125.6579, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 124.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 76.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tfvr", "time_pht": "2026-09-01 10:52 PHT", "place": "29 km E of Pilar, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 35.0, "depth_category": "Shallow (<70km)", "latitude": 9.8558, "longitude": 126.3717, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 214.9, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 96.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000td3j", "time_pht": "2026-08-31 18:05 PHT", "place": "67 km ESE of Caburan, Philippines", "magnitude": 4.3, "richter_category": "Light", "depth_km": 10.234, "depth_category": "Shallow (<70km)", "latitude": 5.6279, "longitude": 126.1753, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 123.6, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 6.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000td2c", "time_pht": "2026-08-31 12:04 PHT", "place": "14 km ESE of Union, Philippines", "magnitude": 4.9, "richter_category": "Moderate", "depth_km": 62.677, "depth_category": "Shallow (<70km)", "latitude": 9.6989, "longitude": 126.2252, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 217.6, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 98.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tebt", "time_pht": "2026-08-30 20:08 PHT", "place": "4 km ENE of Baliton, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 91.264, "depth_category": "Intermediate (70-300km)", "latitude": 5.7536, "longitude": 125.2719, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 41.8, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 6.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tebd", "time_pht": "2026-08-30 11:42 PHT", "place": "56 km ESE of Kalbay, Philippines", "magnitude": 4.3, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 5.511, "longitude": 125.9649, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 110.6, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 6.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000teal", "time_pht": "2026-08-29 17:06 PHT", "place": "33 km ESE of Mangili, Philippines", "magnitude": 4.2, "richter_category": "Light", "depth_km": 155.228, "depth_category": "Intermediate (70-300km)", "latitude": 5.9268, "longitude": 125.9755, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 91.4, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 12.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tcsc", "time_pht": "2026-08-29 14:32 PHT", "place": "6 km NE of Pilar, Philippines", "magnitude": 4.9, "richter_category": "Moderate", "depth_km": 51.096, "depth_category": "Shallow (<70km)", "latitude": 9.9126, "longitude": 126.1403, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 193.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 100.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tcn8", "time_pht": "2026-08-29 01:41 PHT", "place": "54 km ENE of Pondaguitan, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 121.996, "depth_category": "Intermediate (70-300km)", "latitude": 6.462, "longitude": 126.6558, "nearest_reference_city": "Davao City", "distance_to_reference_city_km": 155.3, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 28.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000te0q", "time_pht": "2026-08-28 16:22 PHT", "place": "14 km SSW of Sarangani, Philippines", "magnitude": 4.5, "richter_category": "Moderate", "depth_km": 65.967, "depth_category": "Shallow (<70km)", "latitude": 5.2762, "longitude": 125.4174, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 97.3, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 86.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tcdu", "time_pht": "2026-08-28 02:43 PHT", "place": "5 km NW of Culaman, Philippines", "magnitude": 4.9, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 5.998, "longitude": 125.6277, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 52.1, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 64.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tdwi", "time_pht": "2026-08-27 09:46 PHT", "place": "29 km SE of Sulangan, Philippines", "magnitude": 4.3, "richter_category": "Light", "depth_km": 35.0, "depth_category": "Shallow (<70km)", "latitude": 10.7662, "longitude": 126.0323, "nearest_reference_city": "Tacloban", "distance_to_reference_city_km": 124.2, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #4", "fault_cluster_id": 3, "ml_risk_prob": 34.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tdlz", "time_pht": "2026-08-26 23:58 PHT", "place": "85 km SSE of Sarangani, Philippines", "magnitude": 4.4, "richter_category": "Light", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 4.6543, "longitude": 125.6555, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 171.2, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 22.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tby1", "time_pht": "2026-08-26 17:51 PHT", "place": "94 km N of Basco, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 10.0, "depth_category": "Shallow (<70km)", "latitude": 21.2917, "longitude": 121.8532, "nearest_reference_city": "Laoag", "distance_to_reference_city_km": 368.6, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #8", "fault_cluster_id": 7, "ml_risk_prob": 74.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tddk", "time_pht": "2026-08-25 22:24 PHT", "place": "16 km SW of Balangonan, Philippines", "magnitude": 4.2, "richter_category": "Light", "depth_km": 19.769, "depth_category": "Shallow (<70km)", "latitude": 5.451, "longitude": 125.2684, "nearest_reference_city": "General Santos", "distance_to_reference_city_km": 74.8, "oceanic_event": 0, "alert_severity": "INFORMATIONAL", "fault_zone_label": "PH Active Fault Zone #2", "fault_cluster_id": 1, "ml_risk_prob": 12.0, "anomaly_flag": "NORMAL"}, {"usgs_event_id": "us7000tddi", "time_pht": "2026-08-25 21:17 PHT", "place": "6 km SSE of Paluan, Philippines", "magnitude": 4.6, "richter_category": "Moderate", "depth_km": 17.649, "depth_category": "Shallow (<70km)", "latitude": 13.365, "longitude": 120.495, "nearest_reference_city": "Calapan", "distance_to_reference_city_km": 74.3, "oceanic_event": 0, "alert_severity": "MODERATE: NEARBY POPULATION CENTER", "fault_zone_label": "PH Active Fault Zone #3", "fault_cluster_id": 2, "ml_risk_prob": 92.0, "anomaly_flag": "NORMAL"}];
+    const cities = [{"city_name": "Cebu City", "island_group": "Visayas", "latitude": 10.3157, "longitude": 123.8854, "total_recent_earthquakes": 1, "quakes_within_150km": 1, "max_magnitude_nearby": 4.6, "latest_quake": "2026-09-05 21:10 PHT"}, {"city_name": "Manila", "island_group": "Luzon", "latitude": 14.5995, "longitude": 120.9842, "total_recent_earthquakes": 2, "quakes_within_150km": 2, "max_magnitude_nearby": 4.7, "latest_quake": "2026-09-05 04:53 PHT"}, {"city_name": "Laoag", "island_group": "Luzon", "latitude": 18.196, "longitude": 120.5927, "total_recent_earthquakes": 5, "quakes_within_150km": 2, "max_magnitude_nearby": 4.8, "latest_quake": "2026-09-30 04:45 PHT"}, {"city_name": "Naga", "island_group": "Luzon", "latitude": 13.6218, "longitude": 123.1948, "total_recent_earthquakes": 1, "quakes_within_150km": 1, "max_magnitude_nearby": 4.0, "latest_quake": "2026-09-12 23:00 PHT"}, {"city_name": "Calapan", "island_group": "Mindoro", "latitude": 13.4116, "longitude": 121.1803, "total_recent_earthquakes": 3, "quakes_within_150km": 3, "max_magnitude_nearby": 4.8, "latest_quake": "2026-09-30 09:34 PHT"}, {"city_name": "Puerto Princesa", "island_group": "Palawan", "latitude": 9.7392, "longitude": 118.7353, "total_recent_earthquakes": 0, "quakes_within_150km": 0, "max_magnitude_nearby": NaN, "latest_quake": NaN}, {"city_name": "Davao City", "island_group": "Mindanao", "latitude": 7.1907, "longitude": 125.4553, "total_recent_earthquakes": 2, "quakes_within_150km": 1, "max_magnitude_nearby": 4.5, "latest_quake": "2026-09-03 05:00 PHT"}, {"city_name": "Cagayan de Oro", "island_group": "Mindanao", "latitude": 8.4542, "longitude": 124.6319, "total_recent_earthquakes": 1, "quakes_within_150km": 0, "max_magnitude_nearby": 4.6, "latest_quake": "2026-09-20 23:37 PHT"}, {"city_name": "Catbalogan", "island_group": "Visayas", "latitude": 11.7777, "longitude": 124.8821, "total_recent_earthquakes": 0, "quakes_within_150km": 0, "max_magnitude_nearby": NaN, "latest_quake": NaN}, {"city_name": "Baguio", "island_group": "Luzon", "latitude": 16.4023, "longitude": 120.596, "total_recent_earthquakes": 3, "quakes_within_150km": 2, "max_magnitude_nearby": 4.9, "latest_quake": "2026-09-28 08:54 PHT"}, {"city_name": "Zamboanga City", "island_group": "Mindanao", "latitude": 6.9214, "longitude": 122.079, "total_recent_earthquakes": 0, "quakes_within_150km": 0, "max_magnitude_nearby": NaN, "latest_quake": NaN}, {"city_name": "General Santos", "island_group": "Mindanao", "latitude": 6.1164, "longitude": 125.1716, "total_recent_earthquakes": 17, "quakes_within_150km": 12, "max_magnitude_nearby": 5.3, "latest_quake": "2026-10-01 13:34 PHT"}, {"city_name": "Tacloban", "island_group": "Visayas", "latitude": 11.2444, "longitude": 125.0039, "total_recent_earthquakes": 7, "quakes_within_150km": 2, "max_magnitude_nearby": 4.9, "latest_quake": "2026-09-28 16:16 PHT"}, {"city_name": "Legazpi", "island_group": "Luzon", "latitude": 13.1391, "longitude": 123.7438, "total_recent_earthquakes": 1, "quakes_within_150km": 0, "max_magnitude_nearby": 4.4, "latest_quake": "2026-09-07 11:42 PHT"}];
+
+    function lonToX(lon) {
+      return 50 + ((lon - 116.0) / (127.0 - 116.0)) * 400;
+    }
+    function latToY(lat) {
+      return 650 - ((lat - 4.0) / (21.5 - 4.0)) * 600;
+    }
+
+    const citiesGroup = document.getElementById("cities-group");
+    const eventsGroup = document.getElementById("events-group");
+    const tooltip = document.getElementById("map-tooltip");
+
+    // Cities
+    cities.forEach(c => {
+      const cx = lonToX(c.longitude);
+      const cy = latToY(c.latitude);
+
+      const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      rect.setAttribute("x", cx - 4);
+      rect.setAttribute("y", cy - 4);
+      rect.setAttribute("width", 8);
+      rect.setAttribute("height", 8);
+      rect.setAttribute("fill", "#34d399");
+      rect.setAttribute("transform", `rotate(45 ${cx} ${cy})`);
+      rect.setAttribute("class", "cursor-pointer hover:scale-150 transition-transform");
+      
+      rect.addEventListener("mouseenter", (e) => {
+        tooltip.style.display = "block";
+        tooltip.innerHTML = `<strong>${c.city_name}</strong> (${c.island_group})<br/>Quakes within 150km: <strong>${c.quakes_within_150km}</strong><br/>Max Mag Nearby: <strong>${c.max_magnitude_nearby > 0 ? 'M ' + c.max_magnitude_nearby : 'None'}</strong>`;
+      });
+      rect.addEventListener("mousemove", (e) => {
+        tooltip.style.left = (e.clientX + 10) + "px";
+        tooltip.style.top = (e.clientY + 10) + "px";
+      });
+      rect.addEventListener("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+
+      citiesGroup.appendChild(rect);
+
+      const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", cx + 8);
+      text.setAttribute("y", cy + 4);
+      text.setAttribute("fill", "#94a3b8");
+      text.setAttribute("font-size", "10px");
+      text.setAttribute("font-weight", "600");
+      text.textContent = c.city_name;
+      citiesGroup.appendChild(text);
+    });
+
+    // Events
+    events.forEach(ev => {
+      const cx = lonToX(ev.longitude);
+      const cy = latToY(ev.latitude);
+      const radius = Math.max(4, (ev.magnitude - 2) * 4);
+
+      let color = "#3b82f6";
+      if (ev.ml_risk_prob >= 80) color = "#ef4444";
+      else if (ev.ml_risk_prob >= 50) color = "#f59e0b";
+
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", cx);
+      circle.setAttribute("cy", cy);
+      circle.setAttribute("r", radius);
+      circle.setAttribute("fill", color + "99");
+      circle.setAttribute("stroke", color);
+      circle.setAttribute("stroke-width", "1.5");
+      circle.setAttribute("class", "cursor-pointer hover:opacity-100 transition-opacity");
+
+      circle.addEventListener("mouseenter", (e) => {
+        tooltip.style.display = "block";
+        tooltip.innerHTML = `<strong>M ${ev.magnitude ? ev.magnitude.toFixed(1) : 'N/A'} - ${ev.richter_category}</strong><br/>${ev.place}<br/>Time: ${ev.time_pht}<br/>Nearest Reference City: <strong>${ev.nearest_reference_city}</strong> (${ev.distance_to_reference_city_km} km)<br/>Fault Belt: <strong>${ev.fault_zone_label}</strong>`;
+      });
+      circle.addEventListener("mousemove", (e) => {
+        tooltip.style.left = (e.clientX + 10) + "px";
+        tooltip.style.top = (e.clientY + 10) + "px";
+      });
+      circle.addEventListener("mouseleave", () => {
+        tooltip.style.display = "none";
+      });
+
+      eventsGroup.appendChild(circle);
+    });
+
+    // City Cards
+    const cityListEl = document.getElementById("city-list");
+    cities.sort((a, b) => b.quakes_within_150km - a.quakes_within_150km).forEach(c => {
+      const div = document.createElement("div");
+      div.className = "p-2.5 rounded-xl bg-[var(--background)] border border-[var(--border)] flex justify-between items-center";
+      div.innerHTML = `
+        <div>
+          <div class="font-semibold text-xs text-[var(--foreground)]">${c.city_name} <span class="text-[10px] text-[var(--muted-foreground)]">(${c.island_group})</span></div>
+          <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">Max Mag: <span class="text-amber-400 font-medium">${c.max_magnitude_nearby > 0 ? 'M ' + c.max_magnitude_nearby : 'N/A'}</span></div>
+        </div>
+        <div class="text-right">
+          <div class="text-xs font-bold ${c.quakes_within_150km > 0 ? 'text-blue-400' : 'text-gray-400'}">${c.quakes_within_150km} quakes</div>
+          <div class="text-[9px] text-[var(--muted-foreground)]">&lt;150km</div>
+        </div>
+      `;
+      cityListEl.appendChild(div);
+    });
+
+    // Events Table
+    const tableBody = document.getElementById("events-table-body");
+    function renderTable(filterRichter = "ALL", search = "") {
+      tableBody.innerHTML = "";
+      const filtered = events.filter(e => {
+        const matchRichter = filterRichter === "ALL" || e.richter_category === filterRichter;
+        const matchSearch = search === "" || 
+          e.place.toLowerCase().includes(search.toLowerCase()) || 
+          e.nearest_reference_city.toLowerCase().includes(search.toLowerCase());
+        return matchRichter && matchSearch;
+      });
+
+      filtered.forEach(ev => {
+        const tr = document.createElement("tr");
+        tr.className = "hover:bg-white/5 transition-colors";
+        
+        let riskBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-blue-500/10 text-blue-400">${ev.ml_risk_prob}% Low</span>`;
+        if (ev.ml_risk_prob >= 80) {
+          riskBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-red-500/20 text-red-300 font-bold border border-red-500/30">${ev.ml_risk_prob}% HIGH</span>`;
+        } else if (ev.ml_risk_prob >= 50) {
+          riskBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 font-bold border border-amber-500/30">${ev.ml_risk_prob}% MOD</span>`;
+        }
+
+        let severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-gray-500/20 text-gray-300">INFORMATIONAL</span>`;
+        if (ev.alert_severity.includes('MODERATE')) {
+          severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-amber-500/20 text-amber-300 border border-amber-500/30">MODERATE ALERT</span>`;
+        } else if (ev.alert_severity.includes('HIGH') || ev.alert_severity.includes('CRITICAL')) {
+          severityBadge = `<span class="px-2 py-0.5 rounded text-[10px] bg-red-500/20 text-red-300 border border-red-500/30">HIGH ALERT</span>`;
+        }
+
+        tr.innerHTML = `
+          <td class="p-3 text-[var(--muted-foreground)] whitespace-nowrap">${ev.time_pht}</td>
+          <td class="p-3 font-bold text-amber-400">M ${ev.magnitude ? ev.magnitude.toFixed(1) : 'N/A'}</td>
+          <td class="p-3 max-w-xs truncate" title="${ev.place}">${ev.place}</td>
+          <td class="p-3 text-[var(--muted-foreground)]">${ev.depth_km} km</td>
+          <td class="p-3 font-medium">${ev.nearest_reference_city} (${ev.distance_to_reference_city_km} km)</td>
+          <td class="p-3 text-purple-300 font-medium">${ev.fault_zone_label}</td>
+          <td class="p-3">${riskBadge}</td>
+          <td class="p-3">${severityBadge}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    renderTable();
+
+    document.getElementById("filter-richter").addEventListener("change", (e) => {
+      renderTable(e.target.value, document.getElementById("search-input").value);
+    });
+    document.getElementById("search-input").addEventListener("input", (e) => {
+      renderTable(document.getElementById("filter-richter").value, e.target.value);
+    });
+  </script>
+</body>
+</html>
