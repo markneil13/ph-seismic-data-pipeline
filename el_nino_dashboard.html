@@ -9,7 +9,27 @@
       font-family: system-ui, -apple-system, sans-serif;
     }
     .sea-map-container {
-      background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), rgba(2, 6, 23, 0.98));
+      background: radial-gradient(circle at 50% 45%, #0f172a 0%, #090d16 85%, #020617 100%);
+    }
+    .sea-landmass {
+      transition: fill 0.2s ease, stroke 0.2s ease;
+    }
+    .sea-landmass:hover {
+      fill: rgba(71, 85, 105, 0.75);
+      stroke: rgba(226, 232, 240, 0.85);
+    }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.35); opacity: 0.2; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .pulse-alert {
+      animation: pulse-ring 2.5s infinite ease-in-out;
+      transform-origin: center;
+    }
+    @media print {
+      body { background: white !important; color: black !important; }
+      .no-print { display: none !important; }
     }
   </style>
 </head>
@@ -20,16 +40,16 @@
     <div class="bg-[var(--card)] text-[var(--foreground)] border border-[var(--border)] rounded-2xl p-6 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
       <div>
         <div class="flex items-center gap-2">
-          <span class="inline-block w-3.5 h-3.5 rounded-full bg-amber-500 animate-pulse"></span>
+          <span class="inline-block w-3.5 h-3.5 rounded-full bg-red-500 animate-pulse"></span>
           <h1 class="text-2xl font-bold tracking-tight">Southeast Asia Super El Niño & Drought Tracker</h1>
         </div>
-        <p class="text-sm text-[var(--muted-foreground)] mt-1">NOAA ERSST Niño 3.4 Oceanic Index • Open-Meteo Regional Soil & Climate Feed • DuckDB Analytical Engine</p>
+        <p class="text-sm text-[var(--muted-foreground)] mt-1">NOAA ERSST Niño 3.4 Oceanic Index • Open-Meteo Regional Climate Feed • DuckDB Analytical Engine</p>
       </div>
       <div class="flex flex-wrap items-center gap-2">
         <span class="px-3 py-1 bg-red-500/20 border border-red-500/40 text-red-400 rounded-full text-xs font-bold tracking-wide">
           SUPER EL NIÑO (+3.25°C)
         </span>
-        <button onclick="window.print()" class="px-3 py-1 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-full text-xs font-semibold cursor-pointer transition-colors flex items-center gap-1.5">
+        <button onclick="window.print()" class="no-print px-3 py-1 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-slate-200 rounded-full text-xs font-semibold cursor-pointer transition-colors flex items-center gap-1.5">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
           Export / Print PDF
         </button>
@@ -71,47 +91,113 @@
       <div class="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 shadow-sm">
         <div class="text-xs font-medium text-[var(--muted-foreground)]">Monitored Nations</div>
         <div class="text-2xl font-bold mt-1 text-emerald-400">5 Countries</div>
-        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">PH, ID, VN, TH, MY</div>
+        <div class="text-[10px] text-[var(--muted-foreground)] mt-0.5">PH, ID, VN, TH, MY (12 Basins)</div>
       </div>
     </div>
 
-    <!-- Main Grid: SEA Drought Map & Regional Vulnerability Ranking -->
+    <!-- Main Grid: Real Coastline SEA Drought Map & Regional Vulnerability Ranking -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       
-      <!-- Interactive SVG Map of Southeast Asia -->
+      <!-- Interactive Real SVG Map of Southeast Asia -->
       <div class="lg:col-span-2 bg-[var(--card)] border border-[var(--border)] rounded-2xl p-5 shadow-sm flex flex-col">
         <div class="flex justify-between items-center mb-3">
           <div>
-            <h2 class="font-semibold text-base">Southeast Asian Drought & Soil Moisture Map</h2>
-            <p class="text-xs text-[var(--muted-foreground)]">Coordinates: 10°S–22°N, 95°E–130°E • Circles scaled by Drought Severity Index (SEDI)</p>
+            <h2 class="font-semibold text-base flex items-center gap-2">
+              <span>Southeast Asian Real Coastline Drought Map</span>
+              <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded font-mono">Real GeoJSON Topology</span>
+            </h2>
+            <p class="text-xs text-[var(--muted-foreground)]">Geographic Bounds: 11.5°S–21.5°N, 94.0°E–130.0°E • Stations scaled by Drought Severity Index (SEDI)</p>
           </div>
           <div class="flex gap-2 text-[11px]">
-            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Crisis (≥80)</span>
-            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Mod/Severe (45-79)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span> Crisis/Severe (≥65)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span> Moderate (45-64)</span>
             <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Normal (&lt;45)</span>
           </div>
         </div>
 
-        <div class="sea-map-container relative w-full h-[430px] rounded-xl border border-[var(--border)] overflow-hidden flex items-center justify-center p-2">
-          <svg id="sea-map-svg" viewBox="0 0 800 500" class="w-full h-full max-h-[410px]">
-            <!-- Rough Landmass outlines for SEA region -->
-            <!-- Indochina / Thailand / Vietnam -->
-            <path d="M 120,40 L 220,50 L 250,150 L 240,240 L 190,260 L 160,200 L 130,120 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <!-- Malay Peninsula -->
-            <path d="M 190,260 L 220,330 L 210,360 L 180,310 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <!-- Sumatra -->
-            <path d="M 170,330 L 290,430 L 260,450 L 150,360 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <!-- Borneo / Kalimantan -->
-            <path d="M 330,260 L 440,270 L 460,360 L 360,370 L 320,310 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <!-- Java -->
-            <path d="M 270,450 L 450,470 L 440,490 L 260,470 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <!-- Philippines -->
-            <path d="M 520,100 L 580,120 L 610,210 L 590,260 L 530,230 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            <path d="M 560,260 L 640,320 L 590,370 L 530,320 Z" fill="rgba(71, 85, 105, 0.25)" stroke="rgba(148, 163, 184, 0.4)" stroke-width="1.2"/>
-            
+        <div class="sea-map-container relative w-full h-[450px] rounded-xl border border-[var(--border)] overflow-hidden flex items-center justify-center p-1">
+          <svg id="sea-map-svg" viewBox="0 0 850 520" class="w-full h-full max-h-[440px]">
+            <!-- Graticules (Lat/Lon Grid) -->
+            <g id="graticules-group">
+            <line x1="30" y1="50.9" x2="820" y2="50.9" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="47.9" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">20°N</text>
+            <line x1="30" y1="120.6" x2="820" y2="120.6" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="117.6" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">15°N</text>
+            <line x1="30" y1="190.3" x2="820" y2="190.3" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="187.3" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">10°N</text>
+            <line x1="30" y1="260.0" x2="820" y2="260.0" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="257.0" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">5°N</text>
+            <line x1="30" y1="329.7" x2="820" y2="329.7" stroke="rgba(239, 68, 68, 0.4)" stroke-dasharray="none" stroke-width="0.8" />
+            <text x="36" y="326.7" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">0° (Equator)</text>
+            <line x1="30" y1="399.4" x2="820" y2="399.4" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="396.4" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">5°S</text>
+            <line x1="30" y1="469.1" x2="820" y2="469.1" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="36" y="466.1" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">10°S</text>
+            <line x1="51.9" y1="30" x2="51.9" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="54.9" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">95°E</text>
+            <line x1="161.7" y1="30" x2="161.7" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="164.7" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">100°E</text>
+            <line x1="271.4" y1="30" x2="271.4" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="274.4" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">105°E</text>
+            <line x1="381.1" y1="30" x2="381.1" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="384.1" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">110°E</text>
+            <line x1="490.8" y1="30" x2="490.8" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="493.8" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">115°E</text>
+            <line x1="600.6" y1="30" x2="600.6" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="603.6" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">120°E</text>
+            <line x1="710.3" y1="30" x2="710.3" y2="490" stroke="rgba(100, 116, 139, 0.2)" stroke-dasharray="3 3" stroke-width="0.8" />
+            <text x="713.3" y="486" fill="rgba(148, 163, 184, 0.5)" font-size="8.5" font-family="monospace">125°E</text>
+            </g>
+
+            <!-- Real Country Coastline Landmasses -->
+            <g id="landmass-group">
+            <path d="M 473.4,266.6 L 482.1,261.4 L 500.7,253.8 L 499.7,260.6 L 498.5,269.5 L 488.0,269.1 L 483.4,273.8 L 473.4,266.6 Z" data-country="Brunei" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 616.3,472.4 L 607.0,472.7 L 577.9,462.9 L 598.4,460.2 L 609.9,464.4 L 617.6,468.7 L 616.3,472.4 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 697.9,471.0 L 679.1,474.1 L 676.5,472.4 L 678.5,467.7 L 687.9,459.2 L 709.6,453.7 L 711.8,456.4 L 712.2,460.6 L 697.9,471.0 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 554.5,442.5 L 562.4,446.3 L 575.9,445.1 L 581.4,451.1 L 556.0,453.9 L 540.8,455.7 L 529.0,455.6 L 536.6,447.6 L 548.6,447.5 L 554.5,442.5 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 664.3,442.5 L 661.1,450.3 L 628.1,454.2 L 598.9,452.5 L 598.8,447.4 L 616.2,444.5 L 630.0,448.7 L 644.6,447.6 L 664.3,442.5 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 350.9,424.2 L 392.9,425.6 L 397.8,419.8 L 438.5,426.5 L 446.5,435.6 L 479.4,438.1 L 506.3,446.4 L 481.3,451.7 L 457.1,446.1 L 437.3,446.5 L 414.5,445.4 L 394.0,442.9 L 368.6,437.6 L 352.4,436.2 L 343.3,438.0 L 303.3,432.2 L 299.5,426.2 L 279.4,425.2 L 294.5,411.9 L 321.1,412.7 L 338.8,418.2 L 347.9,419.2 L 350.9,424.2 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 923.7,416.3 L 912.4,425.8 L 910.3,415.3 L 914.1,410.3 L 918.7,405.6 L 923.7,409.7 L 923.7,416.3 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 759.6,377.9 L 751.4,382.5 L 736.3,380.0 L 732.0,374.0 L 754.2,373.3 L 759.6,377.9 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 830.3,372.8 L 838.3,383.5 L 819.8,377.7 L 801.5,376.6 L 789.1,377.5 L 773.9,377.0 L 779.1,369.3 L 806.2,368.8 L 830.3,372.8 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 910.9,345.8 L 917.1,368.3 L 900.4,379.0 L 893.9,385.8 L 885.5,387.0 L 880.5,381.9 L 880.4,375.9 L 863.7,369.0 L 887.3,364.0 L 903.0,364.3 L 901.1,360.6 L 869.0,360.5 L 860.3,352.2 L 840.7,349.7 L 831.4,342.8 L 861.0,339.4 L 872.2,334.8 L 907.5,340.6 L 910.9,345.8 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 715.6,309.9 L 697.9,323.7 L 681.4,326.4 L 660.3,323.7 L 623.7,324.4 L 604.6,326.4 L 601.5,336.9 L 621.1,349.3 L 632.9,343.0 L 673.9,338.3 L 672.1,344.7 L 662.5,342.7 L 653.0,350.8 L 633.7,356.2 L 654.4,374.1 L 650.4,378.9 L 670.1,395.0 L 670.0,404.1 L 658.2,408.2 L 649.6,403.3 L 660.2,391.9 L 638.7,397.3 L 633.2,393.5 L 636.1,388.1 L 620.3,379.9 L 621.9,366.3 L 607.3,370.6 L 609.1,386.8 L 610.0,406.8 L 596.1,408.8 L 586.7,404.7 L 593.0,391.9 L 589.6,378.4 L 580.3,378.3 L 573.5,368.8 L 582.6,359.6 L 585.7,348.6 L 596.7,327.5 L 601.3,321.8 L 620.0,311.4 L 637.1,315.6 L 664.8,317.5 L 690.0,316.9 L 711.7,306.8 L 715.6,309.9 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 791.2,313.9 L 790.1,326.1 L 778.7,324.7 L 775.4,333.2 L 784.4,340.6 L 778.3,342.2 L 769.5,333.4 L 762.9,315.6 L 767.3,304.5 L 774.6,299.4 L 776.2,307.0 L 789.2,308.2 L 791.2,313.9 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 553.9,304.2 L 578.5,317.1 L 552.5,318.8 L 545.2,328.3 L 546.2,340.9 L 525.1,350.4 L 524.5,364.3 L 516.0,385.6 L 512.8,380.7 L 487.9,386.9 L 479.2,378.4 L 463.5,377.6 L 452.6,373.2 L 426.5,378.2 L 418.5,371.4 L 404.1,372.2 L 386.0,370.6 L 382.7,351.9 L 371.7,348.0 L 361.2,336.1 L 358.1,323.9 L 360.7,311.0 L 373.7,301.7 L 377.4,311.0 L 392.4,318.9 L 406.5,316.1 L 420.6,317.1 L 433.3,310.0 L 443.9,308.8 L 464.6,312.7 L 482.5,309.8 L 493.8,290.4 L 502.2,285.5 L 509.8,269.7 L 535.1,269.7 L 554.1,272.0 L 541.6,284.6 L 557.7,297.8 L 553.9,304.2 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 289.3,411.3 L 265.0,411.6 L 246.6,399.9 L 218.4,388.5 L 209.0,380.1 L 192.4,368.7 L 181.5,358.3 L 164.8,338.8 L 145.5,327.1 L 139.1,315.2 L 131.0,304.3 L 111.2,295.5 L 99.7,283.6 L 83.2,275.8 L 60.3,260.4 L 58.4,253.3 L 72.5,253.9 L 106.5,256.6 L 125.9,270.2 L 142.9,279.6 L 155.0,285.4 L 175.7,300.4 L 198.1,300.7 L 216.5,310.2 L 229.2,321.9 L 245.9,328.2 L 237.1,339.6 L 249.7,344.5 L 257.6,344.8 L 261.3,354.5 L 268.9,362.3 L 285.0,363.6 L 295.7,372.4 L 290.2,389.7 L 289.3,411.3 Z" data-country="Indonesia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 238.4,181.5 L 229.5,174.2 L 218.4,159.8 L 213.2,143.0 L 227.2,131.4 L 255.6,128.7 L 276.2,130.7 L 294.3,136.2 L 304.2,126.6 L 323.7,131.7 L 328.8,141.0 L 326.1,157.7 L 289.2,168.5 L 298.8,176.9 L 275.8,177.9 L 256.8,183.5 L 238.4,181.5 Z" data-country="Cambodia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 276.2,130.7 L 283.3,124.5 L 284.3,112.7 L 266.5,100.5 L 265.2,86.7 L 248.5,75.4 L 231.9,74.5 L 227.5,79.3 L 214.6,79.7 L 208.0,77.3 L 184.9,85.6 L 184.4,73.1 L 189.8,58.4 L 175.0,57.8 L 173.7,49.4 L 164.2,45.1 L 168.9,40.0 L 187.6,30.9 L 189.5,34.2 L 201.2,34.5 L 197.9,18.6 L 209.3,16.6 L 222.1,27.6 L 232.0,40.2 L 259.0,40.3 L 267.5,52.5 L 253.5,56.1 L 247.2,61.2 L 273.5,69.5 L 291.7,86.0 L 305.5,98.2 L 322.1,107.9 L 327.7,117.8 L 323.7,131.7 L 304.2,126.6 L 294.3,136.2 L 276.2,130.7 Z" data-country="Laos" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 151.6,48.3 L 138.8,54.4 L 123.3,55.0 L 113.3,70.0 L 104.1,72.6 L 114.7,84.8 L 128.6,95.0 L 137.6,104.2 L 129.6,116.3 L 122.0,118.9 L 127.2,125.9 L 141.9,136.9 L 144.4,144.7 L 144.0,151.2 L 152.6,163.9 L 140.6,176.9 L 129.9,191.2 L 127.8,180.9 L 134.6,170.2 L 127.2,162.0 L 129.0,146.8 L 120.1,139.6 L 112.9,122.9 L 108.9,105.3 L 99.4,93.7 L 85.0,100.7 L 60.0,110.6 L 47.7,109.4 L 34.1,106.1 L 41.7,88.9 L 37.1,75.8 L 19.9,59.7 L 22.6,54.7 L 9.8,52.9 L -5.8,41.6 L -7.2,30.3 L 0.4,32.5 L 0.9,22.5 L 11.7,19.1 L 9.4,13.2 L 14.3,8.5 L 15.2,-5.9 L 32.3,-2.8 L 42.1,-14.3 L 109.1,-3.4 L 132.3,-5.7 L 137.5,7.1 L 151.4,9.8 L 145.0,21.4 L 161.3,26.6 L 170.8,29.2 L 186.9,25.1 L 187.6,30.9 L 168.9,40.0 L 164.2,45.1 L 151.6,48.3 Z" data-country="Myanmar" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 185.3,243.2 L 187.0,250.4 L 201.5,248.7 L 208.7,243.0 L 213.7,244.3 L 226.7,252.7 L 235.9,262.0 L 237.1,271.4 L 234.8,277.7 L 236.9,282.5 L 238.5,290.8 L 246.3,294.6 L 254.9,307.0 L 254.5,311.7 L 238.9,312.6 L 218.1,302.3 L 192.2,291.2 L 189.6,284.1 L 176.9,274.8 L 173.9,263.2 L 166.0,255.6 L 168.4,245.5 L 163.5,239.6 L 167.4,237.1 L 185.3,243.2 Z" data-country="Malaysia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 570.2,267.3 L 554.1,272.0 L 535.1,269.7 L 509.8,269.7 L 502.2,285.5 L 493.8,290.4 L 482.5,309.8 L 464.6,312.7 L 443.9,308.8 L 433.3,310.0 L 420.6,317.1 L 406.5,316.1 L 392.4,318.9 L 377.4,311.0 L 373.7,301.7 L 389.8,306.5 L 406.8,303.9 L 411.2,292.1 L 420.5,289.5 L 446.8,286.5 L 462.6,275.4 L 473.4,266.6 L 483.4,273.8 L 488.0,269.1 L 498.5,269.5 L 499.7,260.6 L 500.7,253.8 L 517.6,244.1 L 528.7,233.2 L 537.6,233.1 L 548.8,240.2 L 549.8,246.2 L 564.3,250.1 L 582.6,254.3 L 581.0,259.8 L 566.3,260.5 L 570.2,267.3 Z" data-country="Malaysia" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 740.5,212.4 L 742.7,221.7 L 744.0,229.5 L 736.5,242.2 L 728.5,228.0 L 718.3,235.1 L 725.3,245.4 L 719.0,251.9 L 693.2,243.8 L 687.0,233.7 L 693.7,227.1 L 679.8,220.5 L 672.9,226.3 L 662.6,225.7 L 646.3,233.5 L 642.7,229.4 L 651.3,217.7 L 665.1,213.8 L 677.1,208.5 L 684.8,214.8 L 701.5,211.0 L 705.1,204.8 L 720.6,204.4 L 719.3,193.6 L 737.1,200.3 L 739.0,207.3 L 740.5,212.4 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 687.9,186.4 L 680.1,191.0 L 673.2,199.8 L 666.3,203.9 L 652.8,194.3 L 657.3,190.6 L 662.8,186.7 L 665.2,178.0 L 677.3,177.2 L 673.8,186.6 L 690.0,173.1 L 687.9,186.4 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 567.7,199.8 L 538.5,213.1 L 549.3,203.3 L 565.2,194.7 L 578.3,185.1 L 589.8,171.2 L 593.7,182.6 L 579.3,190.3 L 567.7,199.8 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 641.9,163.9 L 655.1,168.2 L 669.0,168.2 L 668.6,174.1 L 658.4,180.0 L 644.5,184.2 L 643.7,177.7 L 645.3,170.6 L 641.9,163.9 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 721.3,160.2 L 727.5,175.7 L 710.5,172.0 L 711.0,176.7 L 716.4,185.3 L 705.9,188.4 L 705.0,178.6 L 698.4,177.9 L 695.0,169.5 L 707.9,170.6 L 707.6,165.3 L 694.2,154.6 L 715.3,155.0 L 721.3,160.2 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 634.1,147.5 L 628.3,159.6 L 618.9,152.6 L 607.7,142.0 L 626.5,142.5 L 634.1,147.5 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 629.6,71.8 L 643.1,75.7 L 649.8,72.1 L 651.8,75.7 L 648.3,81.4 L 655.8,91.4 L 650.0,103.0 L 637.0,107.6 L 633.6,118.9 L 638.5,130.0 L 650.1,131.5 L 659.8,129.9 L 687.2,137.6 L 685.2,145.2 L 692.3,148.5 L 690.0,154.9 L 672.9,148.1 L 664.8,140.8 L 659.2,145.9 L 645.2,137.5 L 625.3,139.6 L 614.4,136.5 L 615.5,130.8 L 622.3,127.2 L 615.8,124.0 L 612.9,129.0 L 602.1,121.0 L 598.8,114.9 L 598.0,101.6 L 606.8,106.2 L 609.1,84.4 L 616.3,71.7 L 629.6,71.8 Z" data-country="Philippines" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 218.4,159.8 L 198.7,153.4 L 179.9,153.7 L 183.1,142.7 L 163.8,142.8 L 162.1,158.1 L 150.2,178.5 L 143.1,190.8 L 144.6,200.9 L 158.9,201.3 L 167.8,214.1 L 171.7,226.1 L 184.0,234.1 L 197.3,235.7 L 208.7,243.0 L 201.5,248.7 L 187.0,250.4 L 185.3,243.2 L 167.4,237.1 L 163.5,239.6 L 154.9,234.2 L 151.1,227.3 L 139.5,219.5 L 128.8,212.9 L 125.2,221.0 L 121.1,213.3 L 123.5,204.6 L 129.9,191.2 L 140.6,176.9 L 152.6,163.9 L 144.0,151.2 L 144.4,144.7 L 141.9,136.9 L 127.2,125.9 L 122.0,118.9 L 129.6,116.3 L 137.6,104.2 L 128.6,95.0 L 114.7,84.8 L 104.1,72.6 L 113.3,70.0 L 123.3,55.0 L 138.8,54.4 L 151.6,48.3 L 164.2,45.1 L 173.7,49.4 L 175.0,57.8 L 189.8,58.4 L 184.4,73.1 L 184.9,85.6 L 208.0,77.3 L 214.6,79.7 L 227.5,79.3 L 231.9,74.5 L 248.5,75.4 L 265.2,86.7 L 266.5,100.5 L 284.3,112.7 L 283.3,124.5 L 276.2,130.7 L 255.6,128.7 L 227.2,131.4 L 213.2,143.0 L 218.4,159.8 Z" data-country="Thailand" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            <path d="M 338.3,29.3 L 309.0,41.2 L 290.7,54.4 L 285.9,64.0 L 302.7,78.7 L 323.2,96.9 L 343.1,105.6 L 356.5,116.7 L 366.5,142.5 L 363.6,167.1 L 345.3,176.2 L 320.1,185.2 L 302.2,196.8 L 274.9,209.8 L 266.9,200.9 L 273.1,191.4 L 256.8,183.5 L 275.8,177.9 L 298.8,176.9 L 289.2,168.5 L 326.1,157.7 L 328.8,141.0 L 323.7,131.7 L 327.7,117.8 L 322.1,107.9 L 305.5,98.2 L 291.7,86.0 L 273.5,69.5 L 247.2,61.2 L 253.5,56.1 L 267.5,52.5 L 259.0,40.3 L 232.0,40.2 L 222.1,27.6 L 209.3,16.6 L 221.1,13.2 L 238.6,13.2 L 259.9,11.6 L 278.6,4.2 L 289.2,9.4 L 309.3,12.0 L 305.8,20.0 L 316.2,25.7 L 338.3,29.3 Z" data-country="Vietnam" class="sea-landmass" fill="rgba(51, 65, 85, 0.55)" stroke="rgba(148, 163, 184, 0.65)" stroke-width="1.1" stroke-linejoin="round" />
+            </g>
+
+            <!-- Geographic Water Body Watermarks -->
+            <text x="320" y="160" fill="rgba(100, 116, 139, 0.25)" font-size="11" font-weight="700" letter-spacing="3" font-family="sans-serif">SOUTH CHINA SEA</text>
+            <text x="630" y="140" fill="rgba(100, 116, 139, 0.22)" font-size="10" font-weight="700" letter-spacing="3" font-family="sans-serif">PHILIPPINE SEA</text>
+            <text x="80" y="440" fill="rgba(100, 116, 139, 0.22)" font-size="10" font-weight="700" letter-spacing="3" font-family="sans-serif">INDIAN OCEAN</text>
+            <text x="360" y="445" fill="rgba(100, 116, 139, 0.22)" font-size="9" font-weight="700" letter-spacing="2" font-family="sans-serif">JAVA SEA</text>
+
+            <!-- Geographic Country Name Labels -->
+            <text x="565" y="150" fill="rgba(226, 232, 240, 0.65)" font-size="9" font-weight="800" letter-spacing="1.5">PHILIPPINES</text>
+            <text x="280" y="490" fill="rgba(226, 232, 240, 0.65)" font-size="9" font-weight="800" letter-spacing="1.5">INDONESIA</text>
+            <text x="210" y="130" fill="rgba(226, 232, 240, 0.65)" font-size="9" font-weight="800" letter-spacing="1.5">VIETNAM</text>
+            <text x="140" y="110" fill="rgba(226, 232, 240, 0.65)" font-size="9" font-weight="800" letter-spacing="1.5">THAILAND</text>
+            <text x="180" y="295" fill="rgba(226, 232, 240, 0.65)" font-size="8.5" font-weight="800" letter-spacing="1.5">MALAYSIA</text>
+
+            <!-- Station Nodes Layer -->
             <g id="map-nodes-group"></g>
           </svg>
-          <div id="map-tooltip" class="absolute pointer-events-none bg-slate-900/95 text-white border border-slate-700 text-xs rounded-xl p-3 shadow-xl hidden z-20 max-w-xs"></div>
+          <div id="map-tooltip" class="absolute pointer-events-none bg-slate-900/95 text-white border border-slate-700 text-xs rounded-xl p-3 shadow-2xl hidden z-20 max-w-xs"></div>
         </div>
       </div>
 
@@ -121,12 +207,12 @@
           <h2 class="font-semibold text-base mb-1">Drought Vulnerability Index</h2>
           <p class="text-xs text-[var(--muted-foreground)] mb-3">Ranked by Composite SEDI Score (0 to 100)</p>
           
-          <div class="space-y-2.5 overflow-y-auto max-h-[350px] pr-1" id="ranking-list">
+          <div class="space-y-2.5 overflow-y-auto max-h-[370px] pr-1" id="ranking-list">
           </div>
         </div>
         <div class="pt-3 border-t border-[var(--border)] mt-3 text-[11px] text-[var(--muted-foreground)] flex justify-between">
           <span>Engine: DuckDB Rolling Window</span>
-          <span>Baseline: 30-Day Monthly Norm</span>
+          <span>Coverage: 12 Core Basins</span>
         </div>
       </div>
     </div>
@@ -172,15 +258,13 @@
 
   <script>
     const bulletin = [{"region_id": "PH_CENTRAL_LUZON", "region_name": "Central Luzon (Cabanatuan)", "country": "Philippines", "latitude": 15.4858, "longitude": 120.9673, "economic_role": "National Rice Granary", "critical_infrastructure": "Pantabangan Reservoir", "as_of_date": "2026-11-21", "current_tmax_c": 31.1, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 33.9, "baseline_monthly_rain_mm": 180.0, "precip_deficit_pct": 81.2, "current_rootzone_moisture": 0.174, "soil_moisture_depletion_pct": 89.6, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 55.3, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "ID_EAST_JAVA", "region_name": "East Java (Brantas Basin)", "country": "Indonesia", "latitude": -7.5361, "longitude": 112.2384, "economic_role": "Java Agricultural & Sugar Cane Bowl", "critical_infrastructure": "Sutami Reservoir", "as_of_date": "2026-11-21", "current_tmax_c": 32.3, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 98.5, "baseline_monthly_rain_mm": 195.0, "precip_deficit_pct": 49.5, "current_rootzone_moisture": 0.213, "soil_moisture_depletion_pct": 73.8, "rolling_30d_extreme_heat_days": 9.0, "drought_severity_index": 46.2, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_ILOILO_PANAY", "region_name": "Iloilo Agricultural Plains", "country": "Philippines", "latitude": 10.7202, "longitude": 122.5621, "economic_role": "Western Visayas Rice & Sugar Center", "critical_infrastructure": "Jalaur River Basin", "as_of_date": "2026-11-21", "current_tmax_c": 31.4, "consecutive_dry_days": 2, "rolling_30d_precip_mm": 75.7, "baseline_monthly_rain_mm": 175.0, "precip_deficit_pct": 56.7, "current_rootzone_moisture": 0.191, "soil_moisture_depletion_pct": 81.4, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 45.6, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_ANGAT_BASIN", "region_name": "Angat Dam Catchment", "country": "Philippines", "latitude": 14.9083, "longitude": 121.1444, "economic_role": "Metro Manila Primary Potable Water Supply", "critical_infrastructure": "Angat Hydro Reservoir", "as_of_date": "2026-11-21", "current_tmax_c": 29.4, "consecutive_dry_days": 2, "rolling_30d_precip_mm": 47.3, "baseline_monthly_rain_mm": 210.0, "precip_deficit_pct": 77.5, "current_rootzone_moisture": 0.286, "soil_moisture_depletion_pct": 47.5, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 42.7, "drought_tier": "DRY SPELL WATCH"}, {"region_id": "VN_CENTRAL_HIGHLANDS", "region_name": "Central Highlands (Dak Lak)", "country": "Vietnam", "latitude": 12.6667, "longitude": 108.0333, "economic_role": "Global Robusta Coffee & Rubber Production", "critical_infrastructure": "Srepok River Hydropower", "as_of_date": "2026-11-21", "current_tmax_c": 28.6, "consecutive_dry_days": 9, "rolling_30d_precip_mm": 44.3, "baseline_monthly_rain_mm": 170.0, "precip_deficit_pct": 73.9, "current_rootzone_moisture": 0.321, "soil_moisture_depletion_pct": 13.2, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 35.8, "drought_tier": "DRY SPELL WATCH"}, {"region_id": "VN_MEKONG_CANTHO", "region_name": "Mekong Delta (Can Tho)", "country": "Vietnam", "latitude": 10.0452, "longitude": 105.7469, "economic_role": "Global Rice Export Core & Salinity Intrusion Zone", "critical_infrastructure": "Lower Mekong Estuary", "as_of_date": "2026-11-21", "current_tmax_c": 31.8, "consecutive_dry_days": 2, "rolling_30d_precip_mm": 120.5, "baseline_monthly_rain_mm": 160.0, "precip_deficit_pct": 24.7, "current_rootzone_moisture": 0.327, "soil_moisture_depletion_pct": 35.8, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 20.7, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "TH_CHAO_PHRAYA", "region_name": "Chao Phraya Basin (Nakhon Sawan)", "country": "Thailand", "latitude": 15.7031, "longitude": 100.1371, "economic_role": "Central Thailand Rice Heart", "critical_infrastructure": "Bhumibol & Sirikit Storage Cascade", "as_of_date": "2026-11-21", "current_tmax_c": 30.6, "consecutive_dry_days": 4, "rolling_30d_precip_mm": 94.9, "baseline_monthly_rain_mm": 140.0, "precip_deficit_pct": 32.2, "current_rootzone_moisture": 0.321, "soil_moisture_depletion_pct": 17.7, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 19.2, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "ID_SUMATRA_PALEMBANG", "region_name": "South Sumatra Peatlands", "country": "Indonesia", "latitude": -2.9909, "longitude": 104.7565, "economic_role": "Peatland Fire & Palm Oil Corridor", "critical_infrastructure": "Musi River Basin", "as_of_date": "2026-11-21", "current_tmax_c": 29.4, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 235.6, "baseline_monthly_rain_mm": 220.0, "precip_deficit_pct": 0.0, "current_rootzone_moisture": 0.356, "soil_moisture_depletion_pct": 34.8, "rolling_30d_extreme_heat_days": 2.0, "drought_severity_index": 11.9, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "ID_KALIMANTAN_BANJAR", "region_name": "South Kalimantan Forest Corridor", "country": "Indonesia", "latitude": -3.3194, "longitude": 114.5908, "economic_role": "Peat Forest & Transboundary Haze Epicenter", "critical_infrastructure": "Barito River Basin", "as_of_date": "2026-11-21", "current_tmax_c": 32.4, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 248.2, "baseline_monthly_rain_mm": 230.0, "precip_deficit_pct": 0.0, "current_rootzone_moisture": 0.379, "soil_moisture_depletion_pct": 22.6, "rolling_30d_extreme_heat_days": 6.0, "drought_severity_index": 11.3, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "TH_CHIANG_MAI", "region_name": "Northern Thailand Valleys", "country": "Thailand", "latitude": 18.7883, "longitude": 98.9853, "economic_role": "Northern Watershed & Forest Fire Monitoring", "critical_infrastructure": "Mae Kuang Reservoir", "as_of_date": "2026-11-21", "current_tmax_c": 29.3, "consecutive_dry_days": 3, "rolling_30d_precip_mm": 110.0, "baseline_monthly_rain_mm": 125.0, "precip_deficit_pct": 12.0, "current_rootzone_moisture": 0.324, "soil_moisture_depletion_pct": 7.6, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 8.5, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "MY_KEDAH_RICE_BOWL", "region_name": "Kedah Rice Plains (Alor Setar)", "country": "Malaysia", "latitude": 6.1256, "longitude": 100.3673, "economic_role": "Rice Bowl of Malaysia", "critical_infrastructure": "MADA Muda / Pedu Irrigation Dams", "as_of_date": "2026-11-21", "current_tmax_c": 31.3, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 425.0, "baseline_monthly_rain_mm": 215.0, "precip_deficit_pct": 0.0, "current_rootzone_moisture": 0.484, "soil_moisture_depletion_pct": 0.0, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 0.0, "drought_tier": "NORMAL / SATISFACTORY"}, {"region_id": "PH_MINDANAO_BUKIDNON", "region_name": "Bukidnon Highlands", "country": "Philippines", "latitude": 8.1575, "longitude": 125.1278, "economic_role": "Mindanao Grain & Agro-Plantation Hub", "critical_infrastructure": "Pulangi IV Reservoir", "as_of_date": "2026-11-21", "current_tmax_c": 28.2, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 207.1, "baseline_monthly_rain_mm": 190.0, "precip_deficit_pct": 0.0, "current_rootzone_moisture": 0.477, "soil_moisture_depletion_pct": 0.0, "rolling_30d_extreme_heat_days": 0.0, "drought_severity_index": 0.0, "drought_tier": "NORMAL / SATISFACTORY"}];
+    const cfg = {"width": 850, "height": 520, "pad_x": 30, "pad_y": 30, "lon_min": 94.0, "lon_max": 130.0, "lat_min": -11.5, "lat_max": 21.5};
 
-    // Geospatial Mapping:
-    // Longitude: 95°E to 130°E -> SVG X: 60 to 740
-    // Latitude: -10°S to 22°N -> SVG Y: 460 to 40
     function lonToX(lon) {
-      return 60 + ((lon - 95.0) / (130.0 - 95.0)) * 680;
+      return cfg.pad_x + ((lon - cfg.lon_min) / (cfg.lon_max - cfg.lon_min)) * (cfg.width - 2 * cfg.pad_x);
     }
     function latToY(lat) {
-      return 460 - ((lat - (-10.0)) / (22.0 - (-10.0))) * 420;
+      return (cfg.height - cfg.pad_y) - ((lat - cfg.lat_min) / (cfg.lat_max - cfg.lat_min)) * (cfg.height - 2 * cfg.pad_y);
     }
 
     const nodesGroup = document.getElementById("map-nodes-group");
@@ -189,32 +273,50 @@
     bulletin.forEach(b => {
       const cx = lonToX(b.longitude);
       const cy = latToY(b.latitude);
-      const radius = Math.max(7, (b.drought_severity_index / 100) * 18);
+      const radius = Math.max(7, (b.drought_severity_index / 100) * 16);
 
       let color = "#10b981"; // Emerald
       if (b.drought_severity_index >= 65) color = "#ef4444"; // Red
       else if (b.drought_severity_index >= 45) color = "#f59e0b"; // Amber
       else if (b.drought_severity_index >= 25) color = "#3b82f6"; // Blue
 
+      const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+
+      // Outer pulse ring if under moderate or severe drought
+      if (b.drought_severity_index >= 45) {
+        const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        ring.setAttribute("cx", cx);
+        ring.setAttribute("cy", cy);
+        ring.setAttribute("r", radius + 6);
+        ring.setAttribute("fill", "none");
+        ring.setAttribute("stroke", color);
+        ring.setAttribute("stroke-width", "1.5");
+        ring.setAttribute("class", "pulse-alert");
+        g.appendChild(ring);
+      }
+
+      // Station node circle
       const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
       circle.setAttribute("cx", cx);
       circle.setAttribute("cy", cy);
       circle.setAttribute("r", radius);
-      circle.setAttribute("fill", color + "cc");
-      circle.setAttribute("stroke", color);
-      circle.setAttribute("stroke-width", "2");
-      circle.setAttribute("class", "cursor-pointer hover:scale-125 transition-transform");
+      circle.setAttribute("fill", color + "dd");
+      circle.setAttribute("stroke", "#ffffff");
+      circle.setAttribute("stroke-width", "1.5");
+      circle.setAttribute("class", "cursor-pointer transition-transform hover:scale-125");
 
+      // Hover Tooltip Interactions
       circle.addEventListener("mouseenter", (e) => {
         tooltip.style.display = "block";
         tooltip.innerHTML = `
           <div class="font-bold text-sm text-white">${b.region_name} (${b.country})</div>
           <div class="text-[11px] text-slate-300 mt-1">${b.economic_role}</div>
           <div class="mt-2 pt-2 border-t border-slate-700 space-y-1 text-[11px]">
-            <div>Drought Index (SEDI): <strong class="text-amber-400">${b.drought_severity_index}/100</strong> (${b.drought_tier})</div>
+            <div>Drought Index (SEDI): <strong class="text-amber-400 font-bold">${b.drought_severity_index}/100</strong> (${b.drought_tier})</div>
             <div>Rain Deficit: <strong>${b.precip_deficit_pct}%</strong> (${b.rolling_30d_precip_mm}mm vs ${b.baseline_monthly_rain_mm}mm)</div>
             <div>Consecutive Dry Days: <strong>${b.consecutive_dry_days} days</strong></div>
             <div>Rootzone Soil Moisture: <strong>${b.current_rootzone_moisture} m³/m³</strong> (Depleted: ${b.soil_moisture_depletion_pct}%)</div>
+            <div class="text-[10px] text-slate-400">Infra: ${b.critical_infrastructure}</div>
           </div>
         `;
       });
@@ -226,17 +328,20 @@
         tooltip.style.display = "none";
       });
 
-      nodesGroup.appendChild(circle);
+      g.appendChild(circle);
 
-      // Node label
+      // Station label text
       const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
       text.setAttribute("x", cx + radius + 4);
-      text.setAttribute("y", cy + 4);
-      text.setAttribute("fill", "#cbd5e1");
-      text.setAttribute("font-size", "10px");
-      text.setAttribute("font-weight", "600");
+      text.setAttribute("y", cy + 3);
+      text.setAttribute("fill", "#f1f5f9");
+      text.setAttribute("font-size", "9.5px");
+      text.setAttribute("font-weight", "700");
+      text.setAttribute("style", "text-shadow: 0 1px 3px rgba(0,0,0,0.9);");
       text.textContent = b.region_name.split(" ")[0];
-      nodesGroup.appendChild(text);
+      g.appendChild(text);
+
+      nodesGroup.appendChild(g);
     });
 
     // Populate Ranking List
