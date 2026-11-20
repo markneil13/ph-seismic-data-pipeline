@@ -9,9 +9,10 @@ ENV/
 # Data & Database Artifacts
 data/bronze/*
 !data/bronze/.gitkeep
-data/warehouse.duckdb
-data/warehouse.duckdb.wal
+data/*.duckdb
+data/*.duckdb.wal
 dashboard_data.json
+el_nino_dashboard_data.json
 
 # IDE & System Files
 .vscode/
