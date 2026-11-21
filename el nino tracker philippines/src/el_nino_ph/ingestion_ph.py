@@ -3,40 +3,72 @@ import sys
 import json
 import time
 import urllib.request
+import urllib.error
 import ssl
-from datetime import datetime, timezone
+from datetime import datetime, date, timedelta, timezone
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
+from src.el_nino_ph.config_ph import (
+    CLIMATOLOGY_START_YEAR,
+    CLIMATOLOGY_END_YEAR,
+    RECENT_WINDOW_DAYS
+)
 from src.el_nino_ph.regions_ph import PH_REGIONS
+
 BRONZE_DIR = os.path.join(BASE_DIR, "data", "bronze", "el_nino_ph")
+CLIMATOLOGY_DIR = os.path.join(BRONZE_DIR, "climatology")
 
 NOAA_SSTOI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/sstoi.indices"
 NOAA_ONI_URL = "https://www.cpc.ncep.noaa.gov/data/indices/oni.ascii.txt"
+ARCHIVE_API_URL = "https://archive-api.open-meteo.com/v1/archive"
 
-def fetch_noaa_enso_data():
-    """Fetches and parses NOAA CPC Niño 3.4 SST index and ONI records."""
-    headers = {"User-Agent": "AntigravityPHElNinoTracker/1.0 (Climate Research; contact@local)"}
+def fetch_with_retry(url: str, retries: int = 5, base_backoff: float = 12.0, timeout: int = 35):
+    """Fetches a URL with exponential backoff on HTTP 429/5xx and network errors."""
+    headers = {"User-Agent": "AntigravityPHElNinoTracker/2.0 (Climate Research; contact@local)"}
     ctx = ssl.create_default_context()
+    last_err = None
     
-    req = urllib.request.Request(NOAA_SSTOI_URL, headers=headers)
-    with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
-        sstoi_lines = resp.read().decode('utf-8').strip().split('\n')
-        
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, context=ctx, timeout=timeout) as resp:
+                return resp.read().decode('utf-8')
+        except urllib.error.HTTPError as e:
+            last_err = e
+            # Retry on 429 (rate limit) or 5xx (server error)
+            if e.code == 429 or 500 <= e.code < 600:
+                sleep_sec = base_backoff * (attempt + 1)
+                print(f"    [RETRY] HTTP {e.code} on attempt {attempt+1}/{retries}. Cooling down {sleep_sec:.1f}s...")
+                time.sleep(sleep_sec)
+            else:
+                raise
+        except Exception as e:
+            last_err = e
+            sleep_sec = base_backoff * (attempt + 1)
+            print(f"    [RETRY] Error on attempt {attempt+1}/{retries}: {e}. Backing off {sleep_sec:.1f}s...")
+            time.sleep(sleep_sec)
+            
+    raise RuntimeError(f"Failed to fetch {url} after {retries} retries: {last_err}")
+
+def fetch_noaa_nino34_data():
+    """Fetches and parses NOAA CPC Niño 3.4 SST index (sstoi.indices)."""
+    raw_text = fetch_with_retry(NOAA_SSTOI_URL)
+    sstoi_lines = raw_text.strip().split('\n')
     records = []
+    
     for line in sstoi_lines[1:]:
         parts = line.split()
         if len(parts) >= 10:
             try:
                 yr = int(parts[0])
                 mon = int(parts[1])
-                if yr >= 2020:
+                if yr >= 1950:
                     nino34_sst = float(parts[8])
                     nino34_anom = float(parts[9])
-                    
                     records.append({
                         "year_month": f"{yr:04d}-{mon:02d}",
                         "year": yr,
@@ -48,91 +80,218 @@ def fetch_noaa_enso_data():
             except ValueError:
                 continue
 
-    df_enso = pd.DataFrame(records)
-    if not df_enso.empty:
-        df_enso = df_enso.sort_values(by="year_month").reset_index(drop=True)
-    return df_enso
+    df = pd.DataFrame(records)
+    if not df.empty:
+        df = df.sort_values(by="year_month").reset_index(drop=True)
+    return df
 
-def fetch_ph_climate_data(past_days=60):
-    """Fetches daily climate and soil moisture data for all 16 Philippine agricultural regions and reservoirs."""
-    headers = {"User-Agent": "AntigravityPHElNinoTracker/1.0"}
-    ctx = ssl.create_default_context()
+def fetch_noaa_oni_data():
+    """Fetches and parses NOAA CPC Oceanic Niño Index (oni.ascii.txt)."""
+    raw_text = fetch_with_retry(NOAA_ONI_URL)
+    oni_lines = raw_text.strip().split('\n')
+    records = []
     
-    all_climate_records = []
+    for line in oni_lines[1:]:
+        parts = line.split()
+        if len(parts) >= 4:
+            try:
+                seas = parts[0].strip()
+                yr = int(parts[1])
+                total = float(parts[2])
+                anom = float(parts[3])
+                records.append({
+                    "season": seas,
+                    "year": yr,
+                    "season_year": f"{yr}_{seas}",
+                    "oni_total": total,
+                    "oni_anomaly": anom,
+                    "ingested_at": datetime.now(timezone.utc).isoformat()
+                })
+            except ValueError:
+                continue
+
+    df = pd.DataFrame(records)
+    if not df.empty:
+        df = df.sort_values(by=["year", "season"]).reset_index(drop=True)
+    return df
+
+def fetch_region_climate_range(lat: float, lon: float, start_year: int, end_year: int):
+    """Fetches daily climate observations for a region from Open-Meteo ERA5 archive across a year range."""
+    start_d = f"{start_year}-01-01"
+    end_d = f"{end_year}-12-31"
+    url = (
+        f"{ARCHIVE_API_URL}?latitude={lat}&longitude={lon}"
+        f"&start_date={start_d}&end_date={end_d}"
+        "&daily=temperature_2m_max,temperature_2m_mean,precipitation_sum,soil_moisture_7_to_28cm_mean"
+        "&timezone=auto"
+    )
+    raw_json = fetch_with_retry(url, retries=4, timeout=35)
+    data = json.loads(raw_json)
+    daily = data.get("daily", {})
+    times = daily.get("time", [])
+    tmax = daily.get("temperature_2m_max", [])
+    tmean = daily.get("temperature_2m_mean", [])
+    precip = daily.get("precipitation_sum", [])
+    soil = daily.get("soil_moisture_7_to_28cm_mean", [])
     
-    for region in PH_REGIONS:
-        lat = region["latitude"]
-        lon = region["longitude"]
-        reg_id = region["region_id"]
+    records = []
+    for i, d_str in enumerate(times):
+        d_obj = datetime.strptime(d_str, "%Y-%m-%d").date()
+        records.append({
+            "date": d_str,
+            "year": d_obj.year,
+            "day_of_year": d_obj.timetuple().tm_yday,
+            "temp_max_c": float(tmax[i]) if i < len(tmax) and tmax[i] is not None else None,
+            "temp_mean_c": float(tmean[i]) if i < len(tmean) and tmean[i] is not None else None,
+            "precipitation_mm": float(precip[i]) if i < len(precip) and precip[i] is not None else None,
+            "soil_moisture_rootzone": float(soil[i]) if i < len(soil) and soil[i] is not None else None
+        })
+    return records
+
+def ingest_climatology_cache():
+    """Ingests and caches historical ERA5 climatology per region (2005-2025)."""
+    os.makedirs(CLIMATOLOGY_DIR, exist_ok=True)
+    target_years = set(range(CLIMATOLOGY_START_YEAR, CLIMATOLOGY_END_YEAR + 1))
+    total_regions = len(PH_REGIONS)
+    
+    print(f"\n-> Checking historical ERA5 climatology cache ({CLIMATOLOGY_START_YEAR}-{CLIMATOLOGY_END_YEAR}) for {total_regions} basins...")
+    
+    for idx, reg in enumerate(PH_REGIONS, start=1):
+        reg_id = reg["region_id"]
+        cache_path = os.path.join(CLIMATOLOGY_DIR, f"{reg_id}.parquet")
+        existing_df = None
+        missing_years = sorted(list(target_years))
+        
+        if os.path.exists(cache_path):
+            try:
+                existing_df = pd.read_parquet(cache_path)
+                cached_years = set(existing_df["year"].unique())
+                missing_years = sorted(list(target_years - cached_years))
+            except Exception as e:
+                print(f"  [WARN] Corrupt cache for {reg_id}, refetching: {e}")
+                existing_df = None
+                missing_years = sorted(list(target_years))
+                
+        if not missing_years:
+            print(f"  [{idx}/{total_regions}] {reg_id}: Cache valid ({len(existing_df)} historical days)")
+            continue
+            
+        print(f"  [{idx}/{total_regions}] {reg_id}: Fetching {len(missing_years)} missing years ({min(missing_years)}-{max(missing_years)})...")
+        new_records = fetch_region_climate_range(reg["latitude"], reg["longitude"], min(missing_years), max(missing_years))
+        for r in new_records:
+            r["region_id"] = reg_id
+        time.sleep(2.5) # respect rate limit between multi-year queries
+            
+        new_df = pd.DataFrame(new_records)
+        if existing_df is not None and not existing_df.empty:
+            combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+        else:
+            combined_df = new_df
+            
+        combined_df = combined_df.sort_values(by="date").drop_duplicates(subset=["region_id", "date"]).reset_index(drop=True)
+        combined_df.to_parquet(cache_path, index=False)
+        print(f"  [{idx}/{total_regions}] {reg_id}: Saved {len(combined_df)} climatology days -> {os.path.basename(cache_path)}")
+
+def fetch_recent_completed_climate(window_days: int = RECENT_WINDOW_DAYS):
+    """
+    Fetches recent daily climate observations using Open-Meteo ERA5 archive.
+    Filters exclusively for completed days (lagging by 1-2 days) up to yesterday.
+    No forecast or partial day is ever included.
+    """
+    yesterday = date.today() - timedelta(days=1)
+    start_date = yesterday - timedelta(days=window_days)
+    
+    all_records = []
+    total_regions = len(PH_REGIONS)
+    
+    for idx, reg in enumerate(PH_REGIONS, start=1):
+        reg_id = reg["region_id"]
+        lat = reg["latitude"]
+        lon = reg["longitude"]
         
         url = (
-            f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}"
-            f"&past_days={past_days}&forecast_days=1"
-            "&daily=temperature_2m_max,temperature_2m_mean,precipitation_sum,et0_fao_evapotranspiration,"
-            "soil_moisture_0_to_7cm_mean,soil_moisture_7_to_28cm_mean"
+            f"{ARCHIVE_API_URL}?latitude={lat}&longitude={lon}"
+            f"&start_date={start_date.isoformat()}&end_date={yesterday.isoformat()}"
+            "&daily=temperature_2m_max,temperature_2m_mean,precipitation_sum,soil_moisture_7_to_28cm_mean"
             "&timezone=auto"
         )
         
-        try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
-                data = json.loads(resp.read().decode('utf-8'))
+        raw_json = fetch_with_retry(url)
+        data = json.loads(raw_json)
+        daily = data.get("daily", {})
+        times = daily.get("time", [])
+        tmax = daily.get("temperature_2m_max", [])
+        tmean = daily.get("temperature_2m_mean", [])
+        precip = daily.get("precipitation_sum", [])
+        soil = daily.get("soil_moisture_7_to_28cm_mean", [])
+        
+        valid_days = 0
+        for i, d_str in enumerate(times):
+            # Verify completed day (not null)
+            p_val = float(precip[i]) if i < len(precip) and precip[i] is not None else None
+            t_val = float(tmax[i]) if i < len(tmax) and tmax[i] is not None else None
+            
+            # Open-Meteo archive returns null for unfinished days
+            if p_val is None and t_val is None:
+                continue
                 
-            daily = data.get("daily", {})
-            times = daily.get("time", [])
-            tmax = daily.get("temperature_2m_max", [])
-            tmean = daily.get("temperature_2m_mean", [])
-            precip = daily.get("precipitation_sum", [])
-            et0 = daily.get("et0_fao_evapotranspiration", [])
-            soil_surf = daily.get("soil_moisture_0_to_7cm_mean", [])
-            soil_root = daily.get("soil_moisture_7_to_28cm_mean", [])
+            d_obj = datetime.strptime(d_str, "%Y-%m-%d").date()
+            all_records.append({
+                "record_id": f"{reg_id}_{d_str}",
+                "region_id": reg_id,
+                "date": d_str,
+                "temp_max_c": t_val,
+                "temp_mean_c": float(tmean[i]) if i < len(tmean) and tmean[i] is not None else None,
+                "precipitation_mm": p_val,
+                "soil_moisture_rootzone": float(soil[i]) if i < len(soil) and soil[i] is not None else None,
+                "ingested_at": datetime.now(timezone.utc).isoformat()
+            })
+            valid_days += 1
             
-            for i, d_str in enumerate(times):
-                all_climate_records.append({
-                    "record_id": f"{reg_id}_{d_str}",
-                    "region_id": reg_id,
-                    "date": d_str,
-                    "temp_max_c": tmax[i] if i < len(tmax) else None,
-                    "temp_mean_c": tmean[i] if i < len(tmean) else None,
-                    "precipitation_mm": precip[i] if i < len(precip) else None,
-                    "et0_evapotranspiration_mm": et0[i] if i < len(et0) else None,
-                    "soil_moisture_surface": soil_surf[i] if i < len(soil_surf) else None,
-                    "soil_moisture_rootzone": soil_root[i] if i < len(soil_root) else None,
-                    "ingested_at": datetime.now(timezone.utc).isoformat()
-                })
-            print(f"  [OK] Ingested {len(times)} daily records for {region['region_name']}")
-            time.sleep(0.15) # respect rate limit
-        except Exception as e:
-            print(f"  [WARN] Failed to fetch climate for {reg_id}: {e}")
-            
-    df_climate = pd.DataFrame(all_climate_records)
-    return df_climate
+        print(f"  [OK] [{idx}/{total_regions}] Ingested {valid_days} completed daily records for {reg['region_name']}")
+        time.sleep(0.08)
+        
+    df = pd.DataFrame(all_records)
+    return df
 
 def ingest_ph_bronze_layer():
-    """Runs ingestion and saves Bronze parquet files."""
+    """Runs ingestion and saves Bronze parquet files with robust retries and validation."""
     os.makedirs(BRONZE_DIR, exist_ok=True)
-    print("\n=== [BRONZE] Starting Philippine Super El Nino Ingestion ===")
+    total_regions = len(PH_REGIONS)
+    print("\n" + "="*70)
+    print(f"=== [BRONZE] Ingesting Feeds for {total_regions} Philippine Agricultural Basins ===")
+    print("="*70)
     
-    # 1. Ingest NOAA ENSO
-    print("-> Pulling NOAA CPC Nino 3.4 SST & Anomaly indices...")
-    df_enso = fetch_noaa_enso_data()
-    enso_path = os.path.join(BRONZE_DIR, "raw_noaa_nino34.parquet")
-    df_enso.to_parquet(enso_path, index=False)
-    print(f"  [SAVED] {len(df_enso)} NOAA ENSO records -> {enso_path}")
+    # 1. Ingest NOAA Niño 3.4 SST
+    print("-> Pulling NOAA CPC Niño 3.4 SST & Anomaly indices...")
+    df_nino = fetch_noaa_nino34_data()
+    nino_path = os.path.join(BRONZE_DIR, "raw_noaa_nino34.parquet")
+    df_nino.to_parquet(nino_path, index=False)
+    print(f"  [SAVED] {len(df_nino)} NOAA Niño 3.4 monthly records -> {os.path.basename(nino_path)}")
     
-    # 2. Ingest Open-Meteo Philippine climate
-    print("-> Pulling Open-Meteo 60-day climate feeds for 16 Philippine basins & reservoirs...")
-    df_climate = fetch_ph_climate_data(past_days=60)
+    # 2. Ingest NOAA ONI
+    print("-> Pulling NOAA CPC Oceanic Niño Index (oni.ascii.txt)...")
+    df_oni = fetch_noaa_oni_data()
+    oni_path = os.path.join(BRONZE_DIR, "raw_noaa_oni.parquet")
+    df_oni.to_parquet(oni_path, index=False)
+    print(f"  [SAVED] {len(df_oni)} NOAA ONI seasonal records -> {os.path.basename(oni_path)}")
+    
+    # 3. Ingest Historical ERA5 Climatology Cache (2005-2025)
+    ingest_climatology_cache()
+    
+    # 4. Ingest Recent Completed Window (Open-Meteo ERA5 Archive, completed days only)
+    print(f"\n-> Pulling completed observed ERA5 daily series for {total_regions} basins...")
+    df_climate = fetch_recent_completed_climate(window_days=RECENT_WINDOW_DAYS)
     climate_path = os.path.join(BRONZE_DIR, "raw_ph_climate_daily.parquet")
     df_climate.to_parquet(climate_path, index=False)
-    print(f"  [SAVED] {len(df_climate)} Daily Climate records -> {climate_path}")
+    print(f"  [SAVED] {len(df_climate)} Recent Daily Climate records -> {os.path.basename(climate_path)}")
     
-    # 3. Save Region Metadata
+    # 5. Save Region Metadata
     regions_path = os.path.join(BRONZE_DIR, "dim_ph_regions_raw.parquet")
     pd.DataFrame(PH_REGIONS).to_parquet(regions_path, index=False)
-    print(f"  [SAVED] {len(PH_REGIONS)} Philippine Basins Metadata -> {regions_path}")
+    print(f"  [SAVED] {total_regions} Philippine Basins Metadata -> {os.path.basename(regions_path)}\n")
     
-    return enso_path, climate_path, regions_path
+    return nino_path, oni_path, climate_path, regions_path
 
 if __name__ == "__main__":
     ingest_ph_bronze_layer()

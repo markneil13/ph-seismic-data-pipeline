@@ -39,7 +39,7 @@ def test_portfolio_analytics():
 
 def test_monte_carlo_simulation():
     simulator = MonteCarloSimulator(expected_annual_return=0.10, annual_volatility=0.15)
-    res = simulator.run_simulation(initial_investment=50000, monthly_contribution=500, years=10, num_simulations=500)
+    res = simulator.run_simulation(initial_investment=50000, monthly_cashflow=500, years=10, num_simulations=500)
     
     p5 = res["percentiles"]["5th_conservative"][-1]
     p50 = res["percentiles"]["50th_median"][-1]

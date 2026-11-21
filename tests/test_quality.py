@@ -15,6 +15,9 @@ from src.quality import (
     check_ph_bounding_box
 )
 
+def test_quality_suite():
+    assert run_failure_proof_unit_tests() == 5
+
 def run_failure_proof_unit_tests():
     print("==========================================================================")
     print("  UNIT TESTS: PROVING BRONZE DATA QUALITY CHECKS FAIL ON BAD DATA  ")
@@ -91,6 +94,7 @@ def run_failure_proof_unit_tests():
 
     if passed_test_cases != total_test_cases:
         sys.exit(1)
+    return passed_test_cases
 
 if __name__ == "__main__":
     run_failure_proof_unit_tests()

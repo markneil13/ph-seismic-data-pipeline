@@ -1,8 +1,5 @@
 # High-precision Natural Earth 50m Philippine Archipelago SVG Island Coastlines
-PH_MAP_CONFIG = {
-    "width": 650, "height": 820, "pad_x": 35, "pad_y": 35,
-    "lon_min": 116.5, "lon_max": 127.0, "lat_min": 4.5, "lat_max": 21.5
-}
+from src.el_nino_ph.config_ph import MAP_CONFIG as PH_MAP_CONFIG
 
 PH_ISLAND_PATHS = [
   {

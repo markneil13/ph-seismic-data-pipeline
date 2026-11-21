@@ -10,6 +10,9 @@ if BASE_DIR not in sys.path:
 from src.el_nino.quality import check_enso_bronze, check_climate_bronze
 from src.el_nino.regions import SEA_REGIONS
 
+def test_el_nino_quality_suite():
+    assert run_failure_proof_unit_tests() == 6
+
 def run_failure_proof_unit_tests():
     print("==========================================================================")
     print("  UNIT TESTS: PROVING EL NIÑO DATA QUALITY CHECKS FAIL ON BAD DATA  ")
@@ -122,6 +125,7 @@ def run_failure_proof_unit_tests():
 
     if passed_tests != total_tests:
         sys.exit(1)
+    return passed_tests
 
 if __name__ == "__main__":
     run_failure_proof_unit_tests()
