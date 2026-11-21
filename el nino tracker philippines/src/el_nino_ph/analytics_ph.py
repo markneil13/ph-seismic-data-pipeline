@@ -24,7 +24,7 @@ def run_ph_el_nino_analytics():
     con = duckdb.connect(DB_PATH)
     con.execute("CREATE SCHEMA IF NOT EXISTS gold;")
     
-    # 1. Dimension Table: Philippine Basins & Reservoirs (cleaned of old hand-picked thresholds)
+    # 1. Dimension Table: Philippine Basins & Reservoirs
     regions_tuples = []
     for r in PH_REGIONS:
         regions_tuples.append(
@@ -70,6 +70,7 @@ def run_ph_el_nino_analytics():
         c.temp_mean_c,
         c.precipitation_mm,
         c.consecutive_dry_days,
+        c.max_cdd_30d,
         c.rolling_30d_precip_mm,
         c.rolling_30d_avg_tmax_c,
         c.soil_moisture_rootzone,
@@ -79,12 +80,21 @@ def run_ph_el_nino_analytics():
     JOIN gold.dim_ph_regions r ON c.region_id = r.region_id;
     """)
     
-    # 4. Gold Data Mart: Percentile-based Climatological SEDI Drought Bulletin
+    # 4. Gold Data Mart: Climatological SEDI Drought Bulletin
     # Evaluate each basin's recent status against its own historical distribution in the same calendar window (+/- 15 days)
+    # Uses Mid-Rank percentile rule for all components: (count(h < cur) + 0.5 * count(h = cur)) / n * 100
+    # Drought tiers derived from historical SEDI percentile distribution using TIER_DEFINITIONS
     w_rain = SEDI_WEIGHTS["rain"]
     w_soil = SEDI_WEIGHTS["soil"]
     w_heat = SEDI_WEIGHTS["heat"]
     w_cdd = SEDI_WEIGHTS["dry_spell"]
+    
+    # Dynamically generate SQL CASE statement for tiers from TIER_DEFINITIONS
+    tier_cases = "\n".join([
+        f"        WHEN r.sedi_historical_percentile >= {t['min_percentile']} THEN '{t['tier']}'"
+        for t in TIER_DEFINITIONS[:-1]
+    ])
+    tier_sql_expr = f"CASE\n{tier_cases}\n        ELSE '{TIER_DEFINITIONS[-1]['tier']}'\n    END"
     
     con.execute(f"""
     CREATE OR REPLACE TABLE gold.dm_ph_el_nino_bulletin AS
@@ -98,6 +108,12 @@ def run_ph_el_nino_analytics():
         SELECT nino34_anomaly_c, oni_anomaly, oni_season, enso_state, intensity
         FROM silver.enso_monthly
         WHERE oni_anomaly IS NOT NULL
+        ORDER BY year_month DESC
+        LIMIT 1
+    ),
+    latest_nino34_only AS (
+        SELECT nino34_anomaly_c
+        FROM silver.enso_monthly
         ORDER BY year_month DESC
         LIMIT 1
     ),
@@ -115,13 +131,15 @@ def run_ph_el_nino_analytics():
             c.date AS as_of_date,
             DATEDIFF('day', c.date, CURRENT_DATE) AS data_latency_days,
             c.day_of_year,
+            c.cal_day,
             c.temp_max_c AS current_tmax_c,
             c.consecutive_dry_days,
+            c.max_cdd_30d,
             c.rolling_30d_precip_mm,
             c.soil_moisture_rootzone AS current_rootzone_moisture,
             c.rolling_30d_avg_soil_rootzone,
             c.rolling_30d_extreme_heat_days,
-            e.nino34_anomaly_c,
+            n34.nino34_anomaly_c,
             e.oni_anomaly,
             e.oni_season,
             e.enso_state,
@@ -130,63 +148,67 @@ def run_ph_el_nino_analytics():
         JOIN latest_date_per_region l ON c.region_id = l.region_id AND c.date = l.max_date
         JOIN gold.dim_ph_regions r ON c.region_id = r.region_id
         CROSS JOIN latest_enso e
+        CROSS JOIN latest_nino34_only n34
     ),
     -- Match each region with historical observations in the same seasonal calendar window (+/- 15 days)
     matched_climatology AS (
         SELECT 
             cur.region_id,
-            h.date AS hist_date,
-            h.rolling_30d_precip_mm AS h_precip,
-            h.rolling_30d_avg_soil_rootzone AS h_soil,
-            h.consecutive_dry_days AS h_cdd,
-            -- Historical extreme heat days in that window
-            CASE WHEN h.temp_max_c >= hp.tmax_p90_c THEN 1 ELSE 0 END AS h_is_heat_day
+            h.date,
+            h.rolling_30d_precip_mm,
+            h.rolling_30d_avg_soil_rootzone,
+            h.max_cdd_30d,
+            h.rolling_30d_extreme_heat_days
         FROM latest_recent cur
         JOIN silver.ph_climatology_daily h ON cur.region_id = h.region_id
             AND (
                 -- Standard window
-                (h.day_of_year BETWEEN cur.day_of_year - {CALENDAR_WINDOW_DAYS} AND cur.day_of_year + {CALENDAR_WINDOW_DAYS})
+                (h.cal_day BETWEEN cur.cal_day - {CALENDAR_WINDOW_DAYS} AND cur.cal_day + {CALENDAR_WINDOW_DAYS})
                 -- Year boundary wrap-around
-                OR (cur.day_of_year <= {CALENDAR_WINDOW_DAYS} AND h.day_of_year >= 365 - ({CALENDAR_WINDOW_DAYS} - cur.day_of_year))
-                OR (cur.day_of_year >= 365 - {CALENDAR_WINDOW_DAYS} AND h.day_of_year <= {CALENDAR_WINDOW_DAYS} - (365 - cur.day_of_year))
+                OR (cur.cal_day <= {CALENDAR_WINDOW_DAYS} AND h.cal_day >= 365 - ({CALENDAR_WINDOW_DAYS} - cur.cal_day))
+                OR (cur.cal_day >= 365 - {CALENDAR_WINDOW_DAYS} AND h.cal_day <= {CALENDAR_WINDOW_DAYS} - (365 - cur.cal_day))
             )
-        LEFT JOIN silver.ph_climatology_heat_p90 hp ON h.region_id = hp.region_id AND h.day_of_year = hp.day_of_year
     ),
-    -- Compute Empirical Percentile Ranks for all 4 components (each 0 to 100)
+    -- Compute Empirical Percentile Ranks for all 4 components using the Mid-Rank Rule:
+    -- (count(h < cur) + 0.5 * count(h = cur)) / n * 100
     percentiles_calc AS (
         SELECT 
             cur.region_id,
-            COUNT(h.hist_date) AS hist_sample_count,
+            COUNT(h.date) AS hist_sample_count,
             
-            -- Rain percentile in historical window:
-            -- rain_severity = 100 - empirical percentile of rolling 30d precip
+            -- Rain severity: deficit percentile (lower rain = higher severity)
             ROUND(100.0 - (
-                COUNT(CASE WHEN h.h_precip <= cur.rolling_30d_precip_mm THEN 1 END) * 100.0 / NULLIF(COUNT(h.hist_date), 0)
+                (COUNT(CASE WHEN h.rolling_30d_precip_mm < cur.rolling_30d_precip_mm THEN 1 END) 
+                 + 0.5 * COUNT(CASE WHEN h.rolling_30d_precip_mm = cur.rolling_30d_precip_mm THEN 1 END)) * 100.0 
+                / NULLIF(COUNT(h.date), 0)
             ), 1) AS rain_severity,
             
-            -- Soil moisture severity:
-            -- soil_severity = 100 - empirical percentile of rolling 30d avg rootzone moisture
+            -- Soil severity: depletion percentile (lower soil moisture = higher severity)
             ROUND(100.0 - (
-                COUNT(CASE WHEN h.h_soil <= cur.rolling_30d_avg_soil_rootzone THEN 1 END) * 100.0 / NULLIF(COUNT(h.hist_date), 0)
+                (COUNT(CASE WHEN h.rolling_30d_avg_soil_rootzone < cur.rolling_30d_avg_soil_rootzone THEN 1 END) 
+                 + 0.5 * COUNT(CASE WHEN h.rolling_30d_avg_soil_rootzone = cur.rolling_30d_avg_soil_rootzone THEN 1 END)) * 100.0 
+                / NULLIF(COUNT(h.date), 0)
             ), 1) AS soil_severity,
             
-            -- Dry spell severity:
-            -- percentile of current CDD against historical CDD distribution
+            -- Dry spell severity: percentile of max CDD observed in last 30 days
             ROUND(
-                COUNT(CASE WHEN h.h_cdd <= cur.consecutive_dry_days THEN 1 END) * 100.0 / NULLIF(COUNT(h.hist_date), 0),
+                (COUNT(CASE WHEN h.max_cdd_30d < cur.max_cdd_30d THEN 1 END) 
+                 + 0.5 * COUNT(CASE WHEN h.max_cdd_30d = cur.max_cdd_30d THEN 1 END)) * 100.0 
+                / NULLIF(COUNT(h.date), 0),
                 1
             ) AS dry_spell_severity,
             
-            -- Heat stress severity:
-            -- Count percentile of extreme heat days
+            -- Heat stress severity: percentile of 30-day extreme heat days count
             ROUND(
-                COUNT(CASE WHEN h.h_is_heat_day = 1 THEN 1 END) * 100.0 / NULLIF(COUNT(h.hist_date), 0),
+                (COUNT(CASE WHEN h.rolling_30d_extreme_heat_days < cur.rolling_30d_extreme_heat_days THEN 1 END) 
+                 + 0.5 * COUNT(CASE WHEN h.rolling_30d_extreme_heat_days = cur.rolling_30d_extreme_heat_days THEN 1 END)) * 100.0 
+                / NULLIF(COUNT(h.date), 0),
                 1
             ) AS heat_severity
             
         FROM latest_recent cur
         JOIN matched_climatology h ON cur.region_id = h.region_id
-        GROUP BY cur.region_id, cur.rolling_30d_precip_mm, cur.rolling_30d_avg_soil_rootzone, cur.consecutive_dry_days, cur.rolling_30d_extreme_heat_days
+        GROUP BY cur.region_id, cur.rolling_30d_precip_mm, cur.rolling_30d_avg_soil_rootzone, cur.max_cdd_30d, cur.rolling_30d_extreme_heat_days
     ),
     composite_sedi AS (
         SELECT 
@@ -209,19 +231,43 @@ def run_ph_el_nino_analytics():
     ),
     -- Historical SEDI distribution across all climatology years for the same calendar window
     -- to compute empirical percentile rank of today's SEDI
+    historical_sedi_calc AS (
+        SELECT 
+            region_id,
+            date,
+            ROUND(100.0 - ((RANK() OVER (PARTITION BY region_id ORDER BY rolling_30d_precip_mm) - 1 
+              + 0.5 * COUNT(*) OVER (PARTITION BY region_id, rolling_30d_precip_mm)) * 100.0 / COUNT(*) OVER (PARTITION BY region_id)), 1) AS h_rain_sev,
+            ROUND(100.0 - ((RANK() OVER (PARTITION BY region_id ORDER BY rolling_30d_avg_soil_rootzone) - 1 
+              + 0.5 * COUNT(*) OVER (PARTITION BY region_id, rolling_30d_avg_soil_rootzone)) * 100.0 / COUNT(*) OVER (PARTITION BY region_id)), 1) AS h_soil_sev,
+            ROUND(((RANK() OVER (PARTITION BY region_id ORDER BY max_cdd_30d) - 1 
+              + 0.5 * COUNT(*) OVER (PARTITION BY region_id, max_cdd_30d)) * 100.0 / COUNT(*) OVER (PARTITION BY region_id)), 1) AS h_cdd_sev,
+            ROUND(((RANK() OVER (PARTITION BY region_id ORDER BY rolling_30d_extreme_heat_days) - 1 
+              + 0.5 * COUNT(*) OVER (PARTITION BY region_id, rolling_30d_extreme_heat_days)) * 100.0 / COUNT(*) OVER (PARTITION BY region_id)), 1) AS h_heat_sev
+        FROM matched_climatology
+    ),
+    historical_sedi AS (
+        SELECT 
+            region_id,
+            date,
+            ROUND(({w_rain} * h_rain_sev) + ({w_soil} * h_soil_sev) + ({w_cdd} * h_cdd_sev) + ({w_heat} * h_heat_sev), 1) AS h_sedi
+        FROM historical_sedi_calc
+    ),
+    ranked_sedi AS (
+        SELECT 
+            cur.region_id,
+            ROUND((COUNT(CASE WHEN hs.h_sedi < cur.drought_severity_index THEN 1 END) 
+              + 0.5 * COUNT(CASE WHEN hs.h_sedi = cur.drought_severity_index THEN 1 END)) * 100.0 / NULLIF(COUNT(hs.h_sedi), 0), 1) AS sedi_historical_percentile
+        FROM composite_sedi cur
+        JOIN historical_sedi hs ON cur.region_id = hs.region_id
+        GROUP BY cur.region_id, cur.drought_severity_index
+    ),
     ranked_bulletin AS (
         SELECT 
-            *,
-            -- Rank within USDM-style tiers
-            CASE 
-                WHEN drought_severity_index >= 85.0 THEN 'EXTREME DROUGHT'
-                WHEN drought_severity_index >= 70.0 THEN 'SEVERE DROUGHT'
-                WHEN drought_severity_index >= 55.0 THEN 'MODERATE DROUGHT'
-                WHEN drought_severity_index >= 40.0 THEN 'DRY SPELL WATCH'
-                ELSE 'NORMAL'
-            END AS drought_tier,
-            drought_severity_index AS sedi_historical_percentile
-        FROM composite_sedi
+            c.*,
+            r.sedi_historical_percentile,
+            {tier_sql_expr} AS drought_tier
+        FROM composite_sedi c
+        JOIN ranked_sedi r ON c.region_id = r.region_id
     )
     SELECT 
         region_id,
@@ -237,6 +283,7 @@ def run_ph_el_nino_analytics():
         data_latency_days,
         current_tmax_c,
         consecutive_dry_days,
+        max_cdd_30d,
         rolling_30d_precip_mm,
         current_rootzone_moisture,
         rolling_30d_extreme_heat_days,
@@ -258,14 +305,14 @@ def run_ph_el_nino_analytics():
     
     bulletin_count = con.execute("SELECT COUNT(*) FROM gold.dm_ph_el_nino_bulletin").fetchone()[0]
     avg_sedi = con.execute("SELECT ROUND(AVG(drought_severity_index), 1) FROM gold.dm_ph_el_nino_bulletin").fetchone()[0]
-    top_stressed = con.execute("SELECT region_name, island_group, drought_severity_index, drought_tier FROM gold.dm_ph_el_nino_bulletin LIMIT 1").fetchone()
+    top_stressed = con.execute("SELECT region_name, island_group, drought_severity_index, drought_tier, sedi_historical_percentile FROM gold.dm_ph_el_nino_bulletin LIMIT 1").fetchone()
     tier_counts = con.execute("SELECT drought_tier, COUNT(*) FROM gold.dm_ph_el_nino_bulletin GROUP BY drought_tier ORDER BY COUNT(*) DESC").fetchall()
     
     print(f"  + Gold Dimension `dim_ph_regions`: {len(PH_REGIONS)} basins modeled without hardcoded thresholds.")
-    print(f"  + Gold Fact `fact_ph_climate_daily`: daily time series with rolling 30-day metrics.")
+    print(f"  + Gold Fact `fact_ph_climate_daily`: daily time series with rolling 30-day metrics & max_cdd_30d.")
     print(f"  + Gold Data Mart `dm_ph_el_nino_bulletin`: {bulletin_count} regional drought assessments.")
     print(f"  + Archipelago Average SEDI: {avg_sedi}/100")
-    print(f"  + Top Drought Severity Basin: {top_stressed[0]} ({top_stressed[1]}) (SEDI: {top_stressed[2]}/100 -> {top_stressed[3]})")
+    print(f"  + Top Drought Severity Basin: {top_stressed[0]} ({top_stressed[1]}) (SEDI: {top_stressed[2]}/100 -> {top_stressed[3]}, P{top_stressed[4]})")
     print(f"  + Tier Distribution: {dict(tier_counts)}")
     
     con.close()

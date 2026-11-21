@@ -15,7 +15,9 @@ if BASE_DIR not in sys.path:
 from src.el_nino_ph.config_ph import (
     CLIMATOLOGY_START_YEAR,
     CLIMATOLOGY_END_YEAR,
-    RECENT_WINDOW_DAYS
+    RECENT_WINDOW_DAYS,
+    OPEN_METEO_MODEL,
+    ERA5_LAG_DAYS
 )
 from src.el_nino_ph.regions_ph import PH_REGIONS
 
@@ -123,7 +125,7 @@ def fetch_region_climate_range(lat: float, lon: float, start_year: int, end_year
         f"{ARCHIVE_API_URL}?latitude={lat}&longitude={lon}"
         f"&start_date={start_d}&end_date={end_d}"
         "&daily=temperature_2m_max,temperature_2m_mean,precipitation_sum,soil_moisture_7_to_28cm_mean"
-        "&timezone=auto"
+        f"&timezone=auto&models={OPEN_METEO_MODEL}"
     )
     raw_json = fetch_with_retry(url, retries=4, timeout=35)
     data = json.loads(raw_json)
@@ -195,11 +197,12 @@ def ingest_climatology_cache():
 def fetch_recent_completed_climate(window_days: int = RECENT_WINDOW_DAYS):
     """
     Fetches recent daily climate observations using Open-Meteo ERA5 archive.
-    Filters exclusively for completed days (lagging by 1-2 days) up to yesterday.
+    Filters exclusively for completed days up to today - ERA5_LAG_DAYS.
+    Uses the exact same reanalysis model (OPEN_METEO_MODEL) as climatology.
     No forecast or partial day is ever included.
     """
-    yesterday = date.today() - timedelta(days=1)
-    start_date = yesterday - timedelta(days=window_days)
+    end_date = date.today() - timedelta(days=ERA5_LAG_DAYS)
+    start_date = end_date - timedelta(days=window_days)
     
     all_records = []
     total_regions = len(PH_REGIONS)
@@ -211,9 +214,9 @@ def fetch_recent_completed_climate(window_days: int = RECENT_WINDOW_DAYS):
         
         url = (
             f"{ARCHIVE_API_URL}?latitude={lat}&longitude={lon}"
-            f"&start_date={start_date.isoformat()}&end_date={yesterday.isoformat()}"
+            f"&start_date={start_date.isoformat()}&end_date={end_date.isoformat()}"
             "&daily=temperature_2m_max,temperature_2m_mean,precipitation_sum,soil_moisture_7_to_28cm_mean"
-            "&timezone=auto"
+            f"&timezone=auto&models={OPEN_METEO_MODEL}"
         )
         
         raw_json = fetch_with_retry(url)
@@ -268,13 +271,17 @@ def ingest_ph_bronze_layer():
     nino_path = os.path.join(BRONZE_DIR, "raw_noaa_nino34.parquet")
     df_nino.to_parquet(nino_path, index=False)
     print(f"  [SAVED] {len(df_nino)} NOAA Niño 3.4 monthly records -> {os.path.basename(nino_path)}")
+    print("\n  [NOAA Niño 3.4 - Last 6 Published Rows]:")
+    print("  " + df_nino.tail(6)[['year_month', 'nino34_sst', 'nino34_anom']].to_string(index=False).replace("\n", "\n  "))
     
     # 2. Ingest NOAA ONI
-    print("-> Pulling NOAA CPC Oceanic Niño Index (oni.ascii.txt)...")
+    print("\n-> Pulling NOAA CPC Oceanic Niño Index (oni.ascii.txt)...")
     df_oni = fetch_noaa_oni_data()
     oni_path = os.path.join(BRONZE_DIR, "raw_noaa_oni.parquet")
     df_oni.to_parquet(oni_path, index=False)
     print(f"  [SAVED] {len(df_oni)} NOAA ONI seasonal records -> {os.path.basename(oni_path)}")
+    print("\n  [NOAA ONI - Last 6 Published Rows]:")
+    print("  " + df_oni.tail(6)[['year', 'season', 'oni_total', 'oni_anomaly']].to_string(index=False).replace("\n", "\n  "))
     
     # 3. Ingest Historical ERA5 Climatology Cache (2005-2025)
     ingest_climatology_cache()

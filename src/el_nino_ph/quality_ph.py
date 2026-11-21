@@ -176,7 +176,8 @@ def run_ph_quality_checks(df_enso=None, df_oni=None, df_climate=None, db_path=No
                OR soil_severity < 0.0 OR soil_severity > 100.0
                OR dry_spell_severity < 0.0 OR dry_spell_severity > 100.0
                OR heat_severity < 0.0 OR heat_severity > 100.0
-               OR drought_severity_index < 0.0 OR drought_severity_index > 100.0;
+               OR drought_severity_index < 0.0 OR drought_severity_index > 100.0
+               OR sedi_historical_percentile < 0.0 OR sedi_historical_percentile > 100.0;
         """).fetchone()[0]
         ok = (oob_severities == 0)
         print(f"  [{'PASS' if ok else 'FAIL'}] Check 8: Severity score boundary check [0, 100] (Out of bounds: {oob_severities})")
@@ -221,6 +222,57 @@ def run_ph_quality_checks(df_enso=None, df_oni=None, df_climate=None, db_path=No
         print(f"  [{'PASS' if ok else 'FAIL'}] Check 10: Contiguous ONI seasons sequence (Gaps found: {oni_sequence_breaks})")
         if ok: passed += 1
         else: failed += 1
+
+        # Check 11: SEDI Historical Percentile and Drought Tier Consistency
+        tier_mismatches = con.execute("""
+            SELECT COUNT(*) FROM gold.dm_ph_el_nino_bulletin
+            WHERE (sedi_historical_percentile >= 95.0 AND drought_tier != 'EXTREME DROUGHT')
+               OR (sedi_historical_percentile >= 90.0 AND sedi_historical_percentile < 95.0 AND drought_tier != 'SEVERE DROUGHT')
+               OR (sedi_historical_percentile >= 80.0 AND sedi_historical_percentile < 90.0 AND drought_tier != 'MODERATE DROUGHT')
+               OR (sedi_historical_percentile >= 70.0 AND sedi_historical_percentile < 80.0 AND drought_tier != 'DRY SPELL WATCH')
+               OR (sedi_historical_percentile < 70.0 AND drought_tier != 'NORMAL');
+        """).fetchone()[0]
+        ok = (tier_mismatches == 0)
+        print(f"  [{'PASS' if ok else 'FAIL'}] Check 11: SEDI historical percentile tier consistency (Mismatches: {tier_mismatches})")
+        if ok: passed += 1
+        else: failed += 1
+
+        # Check 12: Published ONI validation and season verification
+        latest_oni = con.execute("""
+            SELECT oni_season, oni_anomaly FROM gold.fact_enso_monthly 
+            WHERE oni_anomaly IS NOT NULL ORDER BY year_month DESC LIMIT 1
+        """).fetchone()
+        valid_seasons = {"DJF", "JFM", "FMA", "MAM", "AMJ", "MJJ", "JJA", "JAS", "ASO", "SON", "OND", "NDJ"}
+        ok = (latest_oni is not None and latest_oni[0] in valid_seasons)
+        print(f"  [{'PASS' if ok else 'FAIL'}] Check 12: Published ONI season validity (Latest: {latest_oni[0]} Anom: {latest_oni[1]:+.2f}°C)")
+        if ok: passed += 1
+        else: failed += 1
+
+        # Check 13: Heat severity spread & correlation across regions
+        heat_stats = con.execute("""
+            SELECT 
+                ROUND(MAX(heat_severity) - MIN(heat_severity), 1) AS heat_spread,
+                ROUND(CORR(rolling_30d_extreme_heat_days, heat_severity), 3) AS heat_corr
+            FROM gold.dm_ph_el_nino_bulletin;
+        """).fetchone()
+        heat_spread, heat_corr = heat_stats[0], heat_stats[1]
+        ok = (heat_spread >= 10.0 and heat_corr >= 0.70)
+        print(f"  [{'PASS' if ok else 'FAIL'}] Check 13: Heat severity spread & correlation (Spread: {heat_spread} >= 10.0, Corr: {heat_corr} >= 0.70)")
+        if ok: passed += 1
+        else: failed += 1
+
+        # Tripwire Assertions / Warnings:
+        # Warn if >50% regions Severe/Extreme (>9 of 18) OR >80% regions soil >= 95 (>14 of 18)
+        severe_ext_count = con.execute("""
+            SELECT COUNT(*) FROM gold.dm_ph_el_nino_bulletin WHERE drought_tier IN ('SEVERE DROUGHT', 'EXTREME DROUGHT');
+        """).fetchone()[0]
+        high_soil_count = con.execute("""
+            SELECT COUNT(*) FROM gold.dm_ph_el_nino_bulletin WHERE soil_severity >= 95.0;
+        """).fetchone()[0]
+        if severe_ext_count > total_regions * 0.5:
+            print(f"  [TRIPWIRE WARNING] Over 50% of regions ({severe_ext_count}/{total_regions}) classified in Severe or Extreme Drought!")
+        if high_soil_count > total_regions * 0.8:
+            print(f"  [TRIPWIRE WARNING] Over 80% of basins ({high_soil_count}/{total_regions}) exhibit soil severity >= 95/100!")
         
         con.close()
         

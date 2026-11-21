@@ -76,7 +76,7 @@
         <div class="flex items-center gap-2">
           <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-sm border border-emerald-500/40">🇵🇭</span>
           <h1 class="text-xl md:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-            PHILIPPINES SUPER EL NIÑO & DROUGHT INTELLIGENCE
+            PHILIPPINES COMPOSITE DROUGHT SEVERITY INDEX (SEDI)
           </h1>
           <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
             PERCENTILE ENGINE
@@ -90,21 +90,24 @@
       <!-- Live Global ENSO Metric Pill -->
       <div class="flex items-center gap-4 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700/60 shadow-inner">
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">NOAA ONI Season (SON)</div>
-          <div class="text-lg font-bold text-slate-300 flex items-center gap-1.5">
-            <span>+3.25°C</span>
-            <span class="text-xs font-medium text-amber-300">(Neutral)</span>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">NOAA ONI (ASO 2026)</div>
+          <div class="text-lg font-bold text-red-400 flex items-center gap-1.5">
+            <span>+2.46°C</span>
+            <span class="text-xs font-medium text-amber-300">(El Niño)</span>
           </div>
         </div>
         <div class="h-8 w-px bg-slate-700"></div>
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Niño 3.4 Anomaly</div>
-          <div class="text-lg font-bold text-white">+3.25°C</div>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Niño 3.4 Monthly (2026-10)</div>
+          <div class="text-lg font-bold text-white flex items-center gap-1.5">
+            <span>+3.25°C</span>
+            <span class="text-xs text-slate-400 font-mono">(30.0°C)</span>
+          </div>
         </div>
         <div class="h-8 w-px bg-slate-700"></div>
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Intensity Status</div>
-          <div class="text-xs font-medium text-slate-300 mt-0.5">Neutral</div>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Episode Status</div>
+          <div class="text-xs font-medium text-slate-300 mt-0.5">Very Strong (informal 'Super')</div>
         </div>
       </div>
     </div>
@@ -122,14 +125,14 @@
           <span>Highest Drought Severity</span>
           <span class="w-2 h-2 rounded-full" style="background-color: #ef4444"></span>
         </div>
-        <div class="mt-2 text-xl font-bold text-white truncate" id="kpi-top-region">Negros Occidental</div>
+        <div class="mt-2 text-xl font-bold text-white truncate" id="kpi-top-region">Central Luzon</div>
         <div class="mt-1 text-xs text-slate-400 flex items-center justify-between">
           <span>Climatological SEDI</span>
-          <span class="text-base font-extrabold" style="color: #ef4444" id="kpi-top-sedi">86.1 / 100</span>
+          <span class="text-base font-extrabold" style="color: #ef4444" id="kpi-top-sedi">94.2 / 100</span>
         </div>
         <div class="mt-2 text-[11px] px-2 py-1 rounded border flex justify-between items-center" style="background-color: rgba(239, 68, 68, 0.2); border-color: #b91c1c">
           <span class="font-bold text-white">EXTREME DROUGHT</span>
-          <span class="text-slate-300">Lag: 1d</span>
+          <span class="text-slate-300">Lag: 6d</span>
         </div>
       </div>
 
@@ -143,11 +146,11 @@
         <div class="mt-1 text-xs text-slate-400 flex items-center justify-between">
           <span>Rain Severity Percentile</span>
           <span class="text-base font-extrabold text-amber-400">
-            92.9/100
+            94.7/100
           </span>
         </div>
         <div class="mt-2 text-[11px] text-slate-300 bg-slate-950/60 px-2 py-1 rounded border border-slate-800 flex justify-between items-center">
-          <span>30d Rain: 48.2 mm</span>
+          <span>30d Rain: 51.9 mm</span>
           <span class="font-semibold text-emerald-400">SEVERE DROUGHT</span>
         </div>
       </div>
@@ -162,12 +165,12 @@
         <div class="mt-1 text-xs text-slate-400 flex items-center justify-between">
           <span>Dry Streak (CDD)</span>
           <span class="text-base font-extrabold text-amber-400">
-            0 Days Dry
+            14 Days Dry
           </span>
         </div>
         <div class="mt-2 text-[11px] text-slate-300 bg-slate-950/60 px-2 py-1 rounded border border-slate-800 flex justify-between items-center">
-          <span>Soil Severity: 100.0/100</span>
-          <span class="font-semibold text-emerald-400">SEVERE DROUGHT</span>
+          <span>Soil Severity: 89.6/100</span>
+          <span class="font-semibold text-emerald-400">EXTREME DROUGHT</span>
         </div>
       </div>
 
@@ -181,15 +184,11 @@
         <div class="mt-1 text-xs text-slate-400 flex items-center justify-between">
           <span>Archipelago Average SEDI</span>
           <span class="text-base font-extrabold text-emerald-400">
-            74.7 / 100
+            77.6 / 100
           </span>
         </div>
         <div class="mt-2 text-[10px] text-slate-300 bg-slate-950/60 px-2 py-1 rounded border border-slate-800 flex justify-between">
-          <span class="text-red-400 font-bold">Ext: 1</span>
-          <span class="text-orange-400 font-bold">Sev: 14</span>
-          <span class="text-yellow-400 font-bold">Mod: 2</span>
-          <span class="text-cyan-400 font-bold">Wat: 1</span>
-          <span class="text-emerald-400 font-bold">Norm: 0</span>
+          <span class="font-bold" style="color: #ef4444">Extr: 7</span>\n          <span class="font-bold" style="color: #f97316">Seve: 2</span>\n          <span class="font-bold" style="color: #eab308">Mode: 3</span>\n          <span class="font-bold" style="color: #38bdf8">Watc: 2</span>\n          <span class="font-bold" style="color: #10b981">Norm: 4</span>
         </div>
       </div>
     </div>
@@ -232,11 +231,7 @@
           <!-- Alert Radar Severity -->
           <div class="flex items-center gap-2">
             <span class="text-slate-400 font-semibold uppercase text-[10px]">Severity Tiers:</span>
-            <span class="inline-flex items-center gap-1 text-red-400"><span class="w-2 h-2 rounded-full bg-red-500"></span> Extreme (95+)</span>
-            <span class="inline-flex items-center gap-1 text-orange-400"><span class="w-2 h-2 rounded-full bg-orange-500"></span> Severe (90+)</span>
-            <span class="inline-flex items-center gap-1 text-yellow-400"><span class="w-2 h-2 rounded-full bg-yellow-500"></span> Mod (80+)</span>
-            <span class="inline-flex items-center gap-1 text-cyan-400"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Watch (70+)</span>
-            <span class="inline-flex items-center gap-1 text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Normal</span>
+            <span class="inline-flex items-center gap-1" style="color: #ef4444"><span class="w-2 h-2 rounded-full" style="background-color: #ef4444"></span> Extreme Drought (95+)</span>\n            <span class="inline-flex items-center gap-1" style="color: #f97316"><span class="w-2 h-2 rounded-full" style="background-color: #f97316"></span> Severe Drought (90+)</span>\n            <span class="inline-flex items-center gap-1" style="color: #eab308"><span class="w-2 h-2 rounded-full" style="background-color: #eab308"></span> Moderate Drought (80+)</span>\n            <span class="inline-flex items-center gap-1" style="color: #38bdf8"><span class="w-2 h-2 rounded-full" style="background-color: #38bdf8"></span> Dry Spell Watch (70+)</span>\n            <span class="inline-flex items-center gap-1" style="color: #10b981"><span class="w-2 h-2 rounded-full" style="background-color: #10b981"></span> Normal (0+)</span>
           </div>
         </div>
 
@@ -356,83 +351,73 @@
             <!-- 18 Agricultural & Dam Basin Hotspot Pins -->
             <g id="ph-pins">
               
-            <g class="region-pin group cursor-pointer" data-region-id="PH_NEGROS_OCCIDENTAL" data-group="Visayas" onclick="selectRegion('PH_NEGROS_OCCIDENTAL')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_CENTRAL_LUZON" data-group="Luzon" onclick="selectRegion('PH_CENTRAL_LUZON')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="391.3" cy="512.5" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
+              <circle cx="281.8" cy="300.3" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
               <!-- Radar Core -->
-              <circle cx="391.3" cy="512.5" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="281.8" cy="300.3" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="400.3" y="515.5" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Negros Occidental</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_PALAWAN_CENTRAL" data-group="Palawan" onclick="selectRegion('PH_PALAWAN_CENTRAL')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="158.5" cy="553.9" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="158.5" cy="553.9" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="167.5" y="556.9" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Palawan Mainland</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_METRO_CEBU" data-group="Visayas" onclick="selectRegion('PH_METRO_CEBU')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="443.0" cy="528.4" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="443.0" cy="528.4" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="452.0" y="531.4" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Metro Cebu</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_CAGAYAN_ISABELA" data-group="Luzon" onclick="selectRegion('PH_CAGAYAN_ISABELA')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="332.7" cy="227.0" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="332.7" cy="227.0" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="341.7" y="230.0" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Cagayan Valley</text>
+              <text x="290.8" y="303.3" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Central Luzon</text>
             </g>
         
 
             <g class="region-pin group cursor-pointer" data-region-id="PH_PANGASINAN_AGNO" data-group="Luzon" onclick="selectRegion('PH_PANGASINAN_AGNO')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="246.8" cy="280.8" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
+              <circle cx="246.8" cy="280.8" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
               <!-- Radar Core -->
-              <circle cx="246.8" cy="280.8" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="246.8" cy="280.8" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
               <text x="255.8" y="283.8" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Pangasinan</text>
             </g>
         
 
-            <g class="region-pin group cursor-pointer" data-region-id="PH_BICOL_ALBAY" data-group="Luzon" onclick="selectRegion('PH_BICOL_ALBAY')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_NORTH_COTABATO" data-group="Mindanao" onclick="selectRegion('PH_NORTH_COTABATO')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="435.1" cy="403.9" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
+              <circle cx="498.9" cy="666.3" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
               <!-- Radar Core -->
-              <circle cx="435.1" cy="403.9" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="498.9" cy="666.3" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="444.1" y="406.9" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bicol Basin</text>
+              <text x="507.9" y="669.3" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">North Cotabato</text>
             </g>
         
 
-            <g class="region-pin group cursor-pointer" data-region-id="PH_SOUTH_COTABATO" data-group="Mindanao" onclick="selectRegion('PH_SOUTH_COTABATO')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_BENGUET_HIGHLANDS" data-group="Luzon" onclick="selectRegion('PH_BENGUET_HIGHLANDS')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="514.0" cy="713.7" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
+              <circle cx="260.8" cy="257.6" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
               <!-- Radar Core -->
-              <circle cx="514.0" cy="713.7" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="260.8" cy="257.6" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="523.0" y="716.7" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">South Cotabato / General Santos</text>
+              <text x="269.8" y="260.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Benguet Highlands</text>
             </g>
         
 
-            <g class="region-pin group cursor-pointer" data-region-id="PH_LEYTE_VALLEY" data-group="Visayas" onclick="selectRegion('PH_LEYTE_VALLEY')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_MINDORO_ORIENTAL" data-group="Luzon" onclick="selectRegion('PH_MINDORO_ORIENTAL')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="504.4" cy="487.5" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
+              <circle cx="293.5" cy="391.8" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
               <!-- Radar Core -->
-              <circle cx="504.4" cy="487.5" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="293.5" cy="391.8" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="513.4" y="490.5" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Leyte Valley</text>
+              <text x="302.5" y="394.8" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Oriental Mindoro</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_CAGAYAN_ISABELA" data-group="Luzon" onclick="selectRegion('PH_CAGAYAN_ISABELA')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="332.7" cy="227.0" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
+              <!-- Radar Core -->
+              <circle cx="332.7" cy="227.0" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="341.7" y="230.0" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Cagayan Valley</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_MINDANAO_BUKIDNON" data-group="Mindanao" onclick="selectRegion('PH_MINDANAO_BUKIDNON')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="511.6" cy="623.6" r="14" fill="#ef4444" opacity="0.25" class="pulse-crisis" />
+              <!-- Radar Core -->
+              <circle cx="511.6" cy="623.6" r="5.5" fill="#ef4444" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="520.6" y="626.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bukidnon Highlands</text>
             </g>
         
 
@@ -446,93 +431,103 @@
             </g>
         
 
-            <g class="region-pin group cursor-pointer" data-region-id="PH_ILOILO_PANAY" data-group="Visayas" onclick="selectRegion('PH_ILOILO_PANAY')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_PALAWAN_CENTRAL" data-group="Palawan" onclick="selectRegion('PH_PALAWAN_CENTRAL')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="369.9" cy="510.6" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
+              <circle cx="158.5" cy="553.9" r="14" fill="#eab308" opacity="0.25" class="pulse-moderate" />
               <!-- Radar Core -->
-              <circle cx="369.9" cy="510.6" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="158.5" cy="553.9" r="5.5" fill="#eab308" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="378.9" y="513.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Iloilo Plains</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_NORTH_COTABATO" data-group="Mindanao" onclick="selectRegion('PH_NORTH_COTABATO')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="498.9" cy="666.3" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="498.9" cy="666.3" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="507.9" y="669.3" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">North Cotabato</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_BENGUET_HIGHLANDS" data-group="Luzon" onclick="selectRegion('PH_BENGUET_HIGHLANDS')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="260.8" cy="257.6" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="260.8" cy="257.6" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="269.8" y="260.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Benguet Highlands</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_MINDORO_ORIENTAL" data-group="Luzon" onclick="selectRegion('PH_MINDORO_ORIENTAL')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="293.5" cy="391.8" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="293.5" cy="391.8" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="302.5" y="394.8" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Oriental Mindoro</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_BOHOL_BASIN" data-group="Visayas" onclick="selectRegion('PH_BOHOL_BASIN')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="460.9" cy="547.6" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="460.9" cy="547.6" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="469.9" y="550.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bohol Basin</text>
-            </g>
-        
-
-            <g class="region-pin group cursor-pointer" data-region-id="PH_CENTRAL_LUZON" data-group="Luzon" onclick="selectRegion('PH_CENTRAL_LUZON')">
-              <!-- Animated Pulse Ripple -->
-              <circle cx="281.8" cy="300.3" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
-              <!-- Radar Core -->
-              <circle cx="281.8" cy="300.3" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
-              <!-- Label -->
-              <text x="290.8" y="303.3" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Central Luzon</text>
+              <text x="167.5" y="556.9" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Palawan Mainland</text>
             </g>
         
 
             <g class="region-pin group cursor-pointer" data-region-id="PH_ILOCOS_NORTE" data-group="Luzon" onclick="selectRegion('PH_ILOCOS_NORTE')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="261.1" cy="180.8" r="14" fill="#eab308" opacity="0.25" class="pulse-moderate" />
+              <circle cx="261.1" cy="180.8" r="14" fill="#f97316" opacity="0.25" class="pulse-severe" />
               <!-- Radar Core -->
-              <circle cx="261.1" cy="180.8" r="5.5" fill="#eab308" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="261.1" cy="180.8" r="5.5" fill="#f97316" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
               <text x="270.1" y="183.8" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Ilocos Norte</text>
             </g>
         
 
-            <g class="region-pin group cursor-pointer" data-region-id="PH_MINDANAO_BUKIDNON" data-group="Mindanao" onclick="selectRegion('PH_MINDANAO_BUKIDNON')">
+            <g class="region-pin group cursor-pointer" data-region-id="PH_ILOILO_PANAY" data-group="Visayas" onclick="selectRegion('PH_ILOILO_PANAY')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="511.6" cy="623.6" r="14" fill="#eab308" opacity="0.25" class="pulse-moderate" />
+              <circle cx="369.9" cy="510.6" r="14" fill="#eab308" opacity="0.25" class="pulse-moderate" />
               <!-- Radar Core -->
-              <circle cx="511.6" cy="623.6" r="5.5" fill="#eab308" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="369.9" cy="510.6" r="5.5" fill="#eab308" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
-              <text x="520.6" y="626.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bukidnon Highlands</text>
+              <text x="378.9" y="513.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Iloilo Plains</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_BICOL_ALBAY" data-group="Luzon" onclick="selectRegion('PH_BICOL_ALBAY')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="435.1" cy="403.9" r="14" fill="#eab308" opacity="0.25" class="pulse-moderate" />
+              <!-- Radar Core -->
+              <circle cx="435.1" cy="403.9" r="5.5" fill="#eab308" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="444.1" y="406.9" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bicol Basin</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_SOUTH_COTABATO" data-group="Mindanao" onclick="selectRegion('PH_SOUTH_COTABATO')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="514.0" cy="713.7" r="14" fill="#38bdf8" opacity="0.25" class="pulse-watch" />
+              <!-- Radar Core -->
+              <circle cx="514.0" cy="713.7" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="523.0" y="716.7" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">South Cotabato / General Santos</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_LEYTE_VALLEY" data-group="Visayas" onclick="selectRegion('PH_LEYTE_VALLEY')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="504.4" cy="487.5" r="14" fill="#10b981" opacity="0.25" class="pulse-normal" />
+              <!-- Radar Core -->
+              <circle cx="504.4" cy="487.5" r="5.5" fill="#10b981" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="513.4" y="490.5" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Leyte Valley</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_BOHOL_BASIN" data-group="Visayas" onclick="selectRegion('PH_BOHOL_BASIN')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="460.9" cy="547.6" r="14" fill="#38bdf8" opacity="0.25" class="pulse-watch" />
+              <!-- Radar Core -->
+              <circle cx="460.9" cy="547.6" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="469.9" y="550.6" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Bohol Basin</text>
             </g>
         
 
             <g class="region-pin group cursor-pointer" data-region-id="PH_DAVAO_NORTE" data-group="Mindanao" onclick="selectRegion('PH_DAVAO_NORTE')">
               <!-- Animated Pulse Ripple -->
-              <circle cx="549.1" cy="655.0" r="14" fill="#38bdf8" opacity="0.25" class="pulse-watch" />
+              <circle cx="549.1" cy="655.0" r="14" fill="#10b981" opacity="0.25" class="pulse-normal" />
               <!-- Radar Core -->
-              <circle cx="549.1" cy="655.0" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <circle cx="549.1" cy="655.0" r="5.5" fill="#10b981" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
               <!-- Label -->
               <text x="558.1" y="658.0" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Davao del Norte</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_NEGROS_OCCIDENTAL" data-group="Visayas" onclick="selectRegion('PH_NEGROS_OCCIDENTAL')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="391.3" cy="512.5" r="14" fill="#10b981" opacity="0.25" class="pulse-normal" />
+              <!-- Radar Core -->
+              <circle cx="391.3" cy="512.5" r="5.5" fill="#10b981" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="400.3" y="515.5" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Negros Occidental</text>
+            </g>
+        
+
+            <g class="region-pin group cursor-pointer" data-region-id="PH_METRO_CEBU" data-group="Visayas" onclick="selectRegion('PH_METRO_CEBU')">
+              <!-- Animated Pulse Ripple -->
+              <circle cx="443.0" cy="528.4" r="14" fill="#10b981" opacity="0.25" class="pulse-normal" />
+              <!-- Radar Core -->
+              <circle cx="443.0" cy="528.4" r="5.5" fill="#10b981" stroke="#ffffff" stroke-width="1.8" filter="url(#pinGlow)" />
+              <!-- Label -->
+              <text x="452.0" y="531.4" fill="#f8fafc" font-size="9" font-weight="600" class="pointer-events-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">Metro Cebu</text>
             </g>
         
             </g>
@@ -549,18 +544,18 @@
             <div>
               <div class="flex items-center gap-2">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">TELEMETRY INSPECTOR</span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono" id="inspector-latency">As of: 2026-11-20 (lag 1d)</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono" id="inspector-latency">As of: 2026-11-15 (lag 6d)</span>
               </div>
               <h3 class="text-lg font-bold text-white flex items-center gap-2 mt-0.5" id="inspector-name">
-                Negros Occidental (Bacolod Sugarcane Belt)
+                Central Luzon (Nueva Ecija / Pampanga)
               </h3>
             </div>
             <div class="flex flex-col items-end gap-1">
               <span class="px-2.5 py-1 text-xs font-extrabold rounded-full" id="inspector-tier-badge">
                 EXTREME DROUGHT
               </span>
-              <span class="text-[10px] px-2 py-0.5 rounded border bg-slate-800 text-slate-300 border-slate-700 font-semibold">
-                ENSO: Neutral (Neutral)
+              <span class="text-[10px] px-2 py-0.5 rounded border bg-red-500/20 text-red-400 border-red-500/40 font-semibold">
+                ENSO: El Niño (Very Strong (informal 'Super'))
               </span>
             </div>
           </div>
@@ -570,10 +565,10 @@
             <div>
               <div class="flex justify-between text-xs mb-1">
                 <span class="text-slate-400">Standardized Drought Index (SEDI)</span>
-                <span class="font-bold text-white" id="inspector-sedi">86.1 / 100</span>
+                <span class="font-bold text-white" id="inspector-sedi">94.2 / 100</span>
               </div>
               <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div class="h-full bg-gradient-to-r from-emerald-500 via-yellow-500 via-orange-500 to-red-500 rounded-full" id="inspector-sedi-bar" style="width: 86.1%"></div>
+                <div class="h-full bg-gradient-to-r from-emerald-500 via-yellow-500 via-orange-500 to-red-500 rounded-full" id="inspector-sedi-bar" style="width: 94.2%"></div>
               </div>
             </div>
 
@@ -587,36 +582,36 @@
                 <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800">
                   <div class="flex justify-between text-[10px] text-slate-400">
                     <span>Rain Deficit (35%)</span>
-                    <span class="font-mono text-cyan-300" id="inspector-rain-vol">78.4mm 30d</span>
+                    <span class="font-mono text-cyan-300" id="inspector-rain-vol">11.7mm 30d</span>
                   </div>
-                  <div class="text-base font-extrabold text-cyan-400 mt-0.5" id="inspector-rain-sev">97.4 / 100</div>
+                  <div class="text-base font-extrabold text-cyan-400 mt-0.5" id="inspector-rain-sev">98.2 / 100</div>
                   <div class="text-[9px] text-slate-500">Historical seasonal percentile deficit</div>
                 </div>
 
                 <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800">
                   <div class="flex justify-between text-[10px] text-slate-400">
                     <span>Soil Depletion (30%)</span>
-                    <span class="font-mono text-emerald-300" id="inspector-soil-vol">0.151 m³/m³</span>
+                    <span class="font-mono text-emerald-300" id="inspector-soil-vol">0.222 m³/m³</span>
                   </div>
-                  <div class="text-base font-extrabold text-emerald-400 mt-0.5" id="inspector-soil-sev">99.5 / 100</div>
+                  <div class="text-base font-extrabold text-emerald-400 mt-0.5" id="inspector-soil-sev">89.6 / 100</div>
                   <div class="text-[9px] text-slate-500">Rootzone (7-28cm) seasonal depletion</div>
                 </div>
 
                 <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800">
                   <div class="flex justify-between text-[10px] text-slate-400">
                     <span>Dry Spell Streak (20%)</span>
-                    <span class="font-mono text-amber-300" id="inspector-cdd">10 Days CDD</span>
+                    <span class="font-mono text-amber-300" id="inspector-cdd">14 Days CDD</span>
                   </div>
-                  <div class="text-base font-extrabold text-amber-400 mt-0.5" id="inspector-cdd-sev">99.8 / 100</div>
+                  <div class="text-base font-extrabold text-amber-400 mt-0.5" id="inspector-cdd-sev">91.6 / 100</div>
                   <div class="text-[9px] text-slate-500">CDD vs historical distribution</div>
                 </div>
 
                 <div class="bg-slate-950/60 p-2.5 rounded-lg border border-slate-800">
                   <div class="flex justify-between text-[10px] text-slate-400">
                     <span>Heat Stress (15%)</span>
-                    <span class="font-mono text-orange-300" id="inspector-heat-days">26 Days</span>
+                    <span class="font-mono text-orange-300" id="inspector-heat-days">16 Days</span>
                   </div>
-                  <div class="text-base font-extrabold text-orange-400 mt-0.5" id="inspector-heat-sev">14.9 / 100</div>
+                  <div class="text-base font-extrabold text-orange-400 mt-0.5" id="inspector-heat-sev">97.6 / 100</div>
                   <div class="text-[9px] text-slate-500">Days Tmax ≥ 90th percentile of date</div>
                 </div>
               </div>
@@ -626,11 +621,11 @@
             <div class="bg-slate-950/70 p-3.5 rounded-xl border border-slate-800 space-y-2 text-xs">
               <div class="flex items-start gap-2">
                 <span class="text-emerald-400 font-bold min-w-[70px]">Agri-Role:</span>
-                <span class="text-slate-300" id="inspector-role">Sugar Capital of the Philippines (>50% Output)</span>
+                <span class="text-slate-300" id="inspector-role">National Rice Granary (Palay Hub)</span>
               </div>
               <div class="flex items-start gap-2">
                 <span class="text-cyan-400 font-bold min-w-[70px]">Lifeline Infra:</span>
-                <span class="text-slate-300" id="inspector-infra">Binalbagan-Isabela River Basin</span>
+                <span class="text-slate-300" id="inspector-infra">Pantabangan Reservoir & Pampanga River</span>
               </div>
             </div>
           </div>
@@ -708,8 +703,7 @@
 
   <!-- INTERACTIVE CLIENT-SIDE ENGINE -->
   <script>
-    const REGIONS = [{"region_id": "PH_NEGROS_OCCIDENTAL", "region_name": "Negros Occidental (Bacolod Sugarcane Belt)", "island_group": "Visayas", "latitude": 10.6765, "longitude": 122.9509, "svg_x": 391.3, "svg_y": 512.5, "economic_role": "Sugar Capital of the Philippines (>50% Output)", "critical_infrastructure": "Binalbagan-Isabela River Basin", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 32.9, "consecutive_dry_days": 10, "rolling_30d_precip_mm": 78.4, "current_rootzone_moisture": 0.151, "rolling_30d_extreme_heat_days": 26, "rain_severity": 97.4, "soil_severity": 99.5, "dry_spell_severity": 99.8, "heat_severity": 14.9, "drought_severity_index": 86.1, "sedi_historical_percentile": 86.1, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_PALAWAN_CENTRAL", "region_name": "Palawan Mainland (Puerto Princesa)", "island_group": "Palawan", "latitude": 9.7392, "longitude": 118.7353, "svg_x": 158.5, "svg_y": 553.9, "economic_role": "Biosphere Frontier, Fisheries & Cashew Belt", "critical_infrastructure": "Iwahig Catchment & Montible River", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 30.4, "consecutive_dry_days": 2, "rolling_30d_precip_mm": 135.5, "current_rootzone_moisture": 0.276, "rolling_30d_extreme_heat_days": 16, "rain_severity": 90.8, "soil_severity": 100.0, "dry_spell_severity": 97.7, "heat_severity": 15.7, "drought_severity_index": 83.7, "sedi_historical_percentile": 83.7, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_METRO_CEBU", "region_name": "Metro Cebu (Central Visayas)", "island_group": "Visayas", "latitude": 10.3157, "longitude": 123.8854, "svg_x": 443.0, "svg_y": 528.4, "economic_role": "Regional Industrial & Urban Hub", "critical_infrastructure": "Buhisan Dam & Mananga Aquifer (Severe Karst Stress)", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 31.7, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 116.8, "current_rootzone_moisture": 0.132, "rolling_30d_extreme_heat_days": 27, "rain_severity": 96.6, "soil_severity": 98.9, "dry_spell_severity": 85.1, "heat_severity": 15.2, "drought_severity_index": 82.8, "sedi_historical_percentile": 82.8, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_CAGAYAN_ISABELA", "region_name": "Cagayan Valley (Isabela / Ilagan)", "island_group": "Luzon", "latitude": 17.1485, "longitude": 121.8889, "svg_x": 332.7, "svg_y": 227.0, "economic_role": "Major Corn & Grain Production Valley", "critical_infrastructure": "Magat Dam & Cagayan River Basin", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 27.6, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 108.3, "current_rootzone_moisture": 0.278, "rolling_30d_extreme_heat_days": 12, "rain_severity": 94.3, "soil_severity": 100.0, "dry_spell_severity": 76.8, "heat_severity": 15.7, "drought_severity_index": 80.7, "sedi_historical_percentile": 80.7, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_PANGASINAN_AGNO", "region_name": "Pangasinan (Agno River Basin)", "island_group": "Luzon", "latitude": 15.9281, "longitude": 120.3347, "svg_x": 246.8, "svg_y": 280.8, "economic_role": "Agri-Fisheries & Lowland Rice Bowl", "critical_infrastructure": "San Roque Hydro Dam", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 33.8, "consecutive_dry_days": 12, "rolling_30d_precip_mm": 28.6, "current_rootzone_moisture": 0.174, "rolling_30d_extreme_heat_days": 24, "rain_severity": 85.7, "soil_severity": 100.0, "dry_spell_severity": 85.4, "heat_severity": 14.7, "drought_severity_index": 79.3, "sedi_historical_percentile": 79.3, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_BICOL_ALBAY", "region_name": "Bicol Basin (Albay / Legazpi)", "island_group": "Luzon", "latitude": 13.1391, "longitude": 123.7438, "svg_x": 435.1, "svg_y": 403.9, "economic_role": "Coconut & Abaca Agricultural Cluster", "critical_infrastructure": "Yawa & Quinale River Basin", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 30.4, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 143.7, "current_rootzone_moisture": 0.179, "rolling_30d_extreme_heat_days": 18, "rain_severity": 83.1, "soil_severity": 100.0, "dry_spell_severity": 88.2, "heat_severity": 16.3, "drought_severity_index": 79.2, "sedi_historical_percentile": 79.2, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_SOUTH_COTABATO", "region_name": "South Cotabato / General Santos (SOCCSKSARGEN)", "island_group": "Mindanao", "latitude": 6.1164, "longitude": 125.1716, "svg_x": 514.0, "svg_y": 713.7, "economic_role": "Tuna Capital & DOLE Pineapple Export Basin", "critical_infrastructure": "Silway River & Lake Sebu Watershed", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 30.3, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 125.6, "current_rootzone_moisture": 0.133, "rolling_30d_extreme_heat_days": 28, "rain_severity": 85.6, "soil_severity": 100.0, "dry_spell_severity": 79.7, "heat_severity": 14.7, "drought_severity_index": 78.1, "sedi_historical_percentile": 78.1, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_LEYTE_VALLEY", "region_name": "Leyte Valley (Tacloban Ag-Corridor)", "island_group": "Visayas", "latitude": 11.2444, "longitude": 124.9984, "svg_x": 504.4, "svg_y": 487.5, "economic_role": "Eastern Visayas Agri-Trading & Geothermal Hub", "critical_infrastructure": "Binahaan River Catchment", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 29.7, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 146.7, "current_rootzone_moisture": 0.187, "rolling_30d_extreme_heat_days": 18, "rain_severity": 81.0, "soil_severity": 98.9, "dry_spell_severity": 86.8, "heat_severity": 16.0, "drought_severity_index": 77.8, "sedi_historical_percentile": 77.8, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_ANGAT_BASIN", "region_name": "Angat Dam Catchment (Bulacan)", "island_group": "Luzon", "latitude": 14.9083, "longitude": 121.1444, "svg_x": 291.5, "svg_y": 325.8, "economic_role": "Metro Manila Primary Potable Water Supply", "critical_infrastructure": "Angat Hydro Reservoir (212m Spill Level)", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 27.1, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 48.2, "current_rootzone_moisture": 0.288, "rolling_30d_extreme_heat_days": 20, "rain_severity": 92.9, "soil_severity": 100.0, "dry_spell_severity": 56.4, "heat_severity": 15.5, "drought_severity_index": 76.1, "sedi_historical_percentile": 76.1, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_ILOILO_PANAY", "region_name": "Iloilo Plains (Western Visayas)", "island_group": "Visayas", "latitude": 10.7202, "longitude": 122.5621, "svg_x": 369.9, "svg_y": 510.6, "economic_role": "Western Visayas Rice & Sugar Center", "critical_infrastructure": "Jalaur River Multipurpose Dam", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 31.0, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 79.3, "current_rootzone_moisture": 0.191, "rolling_30d_extreme_heat_days": 26, "rain_severity": 85.7, "soil_severity": 96.5, "dry_spell_severity": 65.9, "heat_severity": 14.9, "drought_severity_index": 74.4, "sedi_historical_percentile": 74.4, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_NORTH_COTABATO", "region_name": "North Cotabato (Central Mindanao Rice & Rubber)", "island_group": "Mindanao", "latitude": 7.1895, "longitude": 124.8988, "svg_x": 498.9, "svg_y": 666.3, "economic_role": "Liguasan Marsh Agro-Ecological Catchment", "critical_infrastructure": "Rio Grande de Mindanao / Kabacan River", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 27.4, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 211.9, "current_rootzone_moisture": 0.354, "rolling_30d_extreme_heat_days": 17, "rain_severity": 75.9, "soil_severity": 93.7, "dry_spell_severity": 81.0, "heat_severity": 15.8, "drought_severity_index": 73.2, "sedi_historical_percentile": 73.2, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_BENGUET_HIGHLANDS", "region_name": "Benguet Highlands (La Trinidad)", "island_group": "Luzon", "latitude": 16.455, "longitude": 120.588, "svg_x": 260.8, "svg_y": 257.6, "economic_role": "Salad Bowl of the Philippines (Highland Veg)", "critical_infrastructure": "Ambuklao / Binga Dam Cascade", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 24.2, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 80.7, "current_rootzone_moisture": 0.279, "rolling_30d_extreme_heat_days": 11, "rain_severity": 86.8, "soil_severity": 96.0, "dry_spell_severity": 56.4, "heat_severity": 15.2, "drought_severity_index": 72.7, "sedi_historical_percentile": 72.7, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_MINDORO_ORIENTAL", "region_name": "Oriental Mindoro (Calapan Plains)", "island_group": "Luzon", "latitude": 13.4115, "longitude": 121.1803, "svg_x": 293.5, "svg_y": 391.8, "economic_role": "MIMAROPA Food Gateway & Citrus Orchards", "critical_infrastructure": "Naujan Lake Basin & Bucayao River", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 29.6, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 257.0, "current_rootzone_moisture": 0.392, "rolling_30d_extreme_heat_days": 25, "rain_severity": 61.9, "soil_severity": 97.2, "dry_spell_severity": 91.6, "heat_severity": 15.1, "drought_severity_index": 71.4, "sedi_historical_percentile": 71.4, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_BOHOL_BASIN", "region_name": "Bohol Basin (Wahig-Inabanga)", "island_group": "Visayas", "latitude": 9.88, "longitude": 124.21, "svg_x": 460.9, "svg_y": 547.6, "economic_role": "Central Visayas Rice Reservoir Hub", "critical_infrastructure": "Malinao & Bayongan Reservoirs", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 28.1, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 195.9, "current_rootzone_moisture": 0.245, "rolling_30d_extreme_heat_days": 16, "rain_severity": 68.5, "soil_severity": 92.2, "dry_spell_severity": 86.5, "heat_severity": 15.2, "drought_severity_index": 71.2, "sedi_historical_percentile": 71.2, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_CENTRAL_LUZON", "region_name": "Central Luzon (Nueva Ecija / Pampanga)", "island_group": "Luzon", "latitude": 15.4858, "longitude": 120.9673, "svg_x": 281.8, "svg_y": 300.3, "economic_role": "National Rice Granary (Palay Hub)", "critical_infrastructure": "Pantabangan Reservoir & Pampanga River", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 28.9, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 32.1, "current_rootzone_moisture": 0.166, "rolling_30d_extreme_heat_days": 24, "rain_severity": 91.6, "soil_severity": 100.0, "dry_spell_severity": 32.3, "heat_severity": 15.5, "drought_severity_index": 70.8, "sedi_historical_percentile": 70.8, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_ILOCOS_NORTE", "region_name": "Ilocos Norte (Laoag Arid Corridor)", "island_group": "Luzon", "latitude": 18.196, "longitude": 120.5927, "svg_x": 261.1, "svg_y": 180.8, "economic_role": "High-Value Cash Crops & Garlic/Onion Belt", "critical_infrastructure": "Padsan River Irrigation System", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 32.7, "consecutive_dry_days": 3, "rolling_30d_precip_mm": 47.3, "current_rootzone_moisture": 0.183, "rolling_30d_extreme_heat_days": 20, "rain_severity": 73.6, "soil_severity": 98.2, "dry_spell_severity": 58.5, "heat_severity": 14.6, "drought_severity_index": 69.1, "sedi_historical_percentile": 69.1, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_MINDANAO_BUKIDNON", "region_name": "Bukidnon Highlands (Northern Mindanao)", "island_group": "Mindanao", "latitude": 8.1575, "longitude": 125.1278, "svg_x": 511.6, "svg_y": 623.6, "economic_role": "Mindanao Grain & Agro-Plantation Hub (Del Monte/Pineapple)", "critical_infrastructure": "Pulangi IV Hydro Reservoir", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 24.8, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 214.5, "current_rootzone_moisture": 0.471, "rolling_30d_extreme_heat_days": 20, "rain_severity": 67.3, "soil_severity": 74.2, "dry_spell_severity": 82.2, "heat_severity": 16.1, "drought_severity_index": 64.7, "sedi_historical_percentile": 64.7, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_DAVAO_NORTE", "region_name": "Davao del Norte (Tagum Banana Belt)", "island_group": "Mindanao", "latitude": 7.4478, "longitude": 125.8078, "svg_x": 549.1, "svg_y": 655.0, "economic_role": "Cavendish Banana & Cacao Export Epicenter", "critical_infrastructure": "Libuganon River Catchment", "as_of_date": "2026-11-20", "data_latency_days": 1, "current_tmax_c": 27.3, "consecutive_dry_days": 0, "rolling_30d_precip_mm": 258.1, "current_rootzone_moisture": 0.354, "rolling_30d_extreme_heat_days": 16, "rain_severity": 20.1, "soil_severity": 97.4, "dry_spell_severity": 73.3, "heat_severity": 14.6, "drought_severity_index": 53.1, "sedi_historical_percentile": 53.1, "drought_tier": "DRY SPELL WATCH"}];
-    const ENSO_DATA = {"year_month": "2026-10", "nino34_sst": 30.01, "nino34_anom": 3.25, "oni_anom": 3.25, "oni_season": "SON", "enso_state": "Neutral", "intensity": "Neutral"};
+    const REGIONS = [{"region_id": "PH_CENTRAL_LUZON", "region_name": "Central Luzon (Nueva Ecija / Pampanga)", "island_group": "Luzon", "latitude": 15.4858, "longitude": 120.9673, "svg_x": 281.8, "svg_y": 300.3, "economic_role": "National Rice Granary (Palay Hub)", "critical_infrastructure": "Pantabangan Reservoir & Pampanga River", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 32.5, "consecutive_dry_days": 14, "max_cdd_30d": 14, "rolling_30d_precip_mm": 11.7, "current_rootzone_moisture": 0.222, "rolling_30d_extreme_heat_days": 16, "rain_severity": 98.2, "soil_severity": 89.6, "dry_spell_severity": 91.6, "heat_severity": 97.6, "drought_severity_index": 94.2, "sedi_historical_percentile": 99.1, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_PANGASINAN_AGNO", "region_name": "Pangasinan (Agno River Basin)", "island_group": "Luzon", "latitude": 15.9281, "longitude": 120.3347, "svg_x": 246.8, "svg_y": 280.8, "economic_role": "Agri-Fisheries & Lowland Rice Bowl", "critical_infrastructure": "San Roque Hydro Dam", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 32.1, "consecutive_dry_days": 15, "max_cdd_30d": 15, "rolling_30d_precip_mm": 10.3, "current_rootzone_moisture": 0.185, "rolling_30d_extreme_heat_days": 11, "rain_severity": 94.7, "soil_severity": 99.4, "dry_spell_severity": 86.0, "heat_severity": 87.6, "drought_severity_index": 93.3, "sedi_historical_percentile": 100.0, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_NORTH_COTABATO", "region_name": "North Cotabato (Central Mindanao Rice & Rubber)", "island_group": "Mindanao", "latitude": 7.1895, "longitude": 124.8988, "svg_x": 498.9, "svg_y": 666.3, "economic_role": "Liguasan Marsh Agro-Ecological Catchment", "critical_infrastructure": "Rio Grande de Mindanao / Kabacan River", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 32.7, "consecutive_dry_days": 0, "max_cdd_30d": 3, "rolling_30d_precip_mm": 160.2, "current_rootzone_moisture": 0.327, "rolling_30d_extreme_heat_days": 21, "rain_severity": 91.4, "soil_severity": 96.2, "dry_spell_severity": 79.0, "heat_severity": 100.0, "drought_severity_index": 91.6, "sedi_historical_percentile": 100.0, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_BENGUET_HIGHLANDS", "region_name": "Benguet Highlands (La Trinidad)", "island_group": "Luzon", "latitude": 16.455, "longitude": 120.588, "svg_x": 260.8, "svg_y": 257.6, "economic_role": "Salad Bowl of the Philippines (Highland Veg)", "critical_infrastructure": "Ambuklao / Binga Dam Cascade", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 23.7, "consecutive_dry_days": 6, "max_cdd_30d": 7, "rolling_30d_precip_mm": 35.6, "current_rootzone_moisture": 0.251, "rolling_30d_extreme_heat_days": 6, "rain_severity": 97.5, "soil_severity": 99.4, "dry_spell_severity": 74.9, "heat_severity": 81.5, "drought_severity_index": 91.1, "sedi_historical_percentile": 96.9, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_MINDORO_ORIENTAL", "region_name": "Oriental Mindoro (Calapan Plains)", "island_group": "Luzon", "latitude": 13.4115, "longitude": 121.1803, "svg_x": 293.5, "svg_y": 391.8, "economic_role": "MIMAROPA Food Gateway & Citrus Orchards", "critical_infrastructure": "Naujan Lake Basin & Bucayao River", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 29.1, "consecutive_dry_days": 1, "max_cdd_30d": 6, "rolling_30d_precip_mm": 138.8, "current_rootzone_moisture": 0.405, "rolling_30d_extreme_heat_days": 4, "rain_severity": 96.0, "soil_severity": 89.5, "dry_spell_severity": 99.9, "heat_severity": 71.2, "drought_severity_index": 91.1, "sedi_historical_percentile": 98.8, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_CAGAYAN_ISABELA", "region_name": "Cagayan Valley (Isabela / Ilagan)", "island_group": "Luzon", "latitude": 17.1485, "longitude": 121.8889, "svg_x": 332.7, "svg_y": 227.0, "economic_role": "Major Corn & Grain Production Valley", "critical_infrastructure": "Magat Dam & Cagayan River Basin", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 32.2, "consecutive_dry_days": 3, "max_cdd_30d": 3, "rolling_30d_precip_mm": 69.5, "current_rootzone_moisture": 0.31, "rolling_30d_extreme_heat_days": 12, "rain_severity": 98.2, "soil_severity": 94.1, "dry_spell_severity": 60.5, "heat_severity": 97.9, "drought_severity_index": 89.4, "sedi_historical_percentile": 99.6, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_MINDANAO_BUKIDNON", "region_name": "Bukidnon Highlands (Northern Mindanao)", "island_group": "Mindanao", "latitude": 8.1575, "longitude": 125.1278, "svg_x": 511.6, "svg_y": 623.6, "economic_role": "Mindanao Grain & Agro-Plantation Hub (Del Monte/Pineapple)", "critical_infrastructure": "Pulangi IV Hydro Reservoir", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 27.5, "consecutive_dry_days": 1, "max_cdd_30d": 2, "rolling_30d_precip_mm": 145.5, "current_rootzone_moisture": 0.45, "rolling_30d_extreme_heat_days": 4, "rain_severity": 96.3, "soil_severity": 90.9, "dry_spell_severity": 68.0, "heat_severity": 70.0, "drought_severity_index": 85.1, "sedi_historical_percentile": 97.9, "drought_tier": "EXTREME DROUGHT"}, {"region_id": "PH_ANGAT_BASIN", "region_name": "Angat Dam Catchment (Bulacan)", "island_group": "Luzon", "latitude": 14.9083, "longitude": 121.1444, "svg_x": 291.5, "svg_y": 325.8, "economic_role": "Metro Manila Primary Potable Water Supply", "critical_infrastructure": "Angat Hydro Reservoir (212m Spill Level)", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 31.7, "consecutive_dry_days": 3, "max_cdd_30d": 5, "rolling_30d_precip_mm": 51.9, "current_rootzone_moisture": 0.326, "rolling_30d_extreme_heat_days": 7, "rain_severity": 94.7, "soil_severity": 92.6, "dry_spell_severity": 60.1, "heat_severity": 79.6, "drought_severity_index": 84.9, "sedi_historical_percentile": 90.8, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_PALAWAN_CENTRAL", "region_name": "Palawan Mainland (Puerto Princesa)", "island_group": "Palawan", "latitude": 9.7392, "longitude": 118.7353, "svg_x": 158.5, "svg_y": 553.9, "economic_role": "Biosphere Frontier, Fisheries & Cashew Belt", "critical_infrastructure": "Iwahig Catchment & Montible River", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 30.6, "consecutive_dry_days": 2, "max_cdd_30d": 2, "rolling_30d_precip_mm": 139.9, "current_rootzone_moisture": 0.365, "rolling_30d_extreme_heat_days": 16, "rain_severity": 90.3, "soil_severity": 74.7, "dry_spell_severity": 62.9, "heat_severity": 98.5, "drought_severity_index": 81.4, "sedi_historical_percentile": 88.0, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_ILOCOS_NORTE", "region_name": "Ilocos Norte (Laoag Arid Corridor)", "island_group": "Luzon", "latitude": 18.196, "longitude": 120.5927, "svg_x": 261.1, "svg_y": 180.8, "economic_role": "High-Value Cash Crops & Garlic/Onion Belt", "critical_infrastructure": "Padsan River Irrigation System", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 30.4, "consecutive_dry_days": 5, "max_cdd_30d": 15, "rolling_30d_precip_mm": 43.6, "current_rootzone_moisture": 0.226, "rolling_30d_extreme_heat_days": 2, "rain_severity": 80.0, "soil_severity": 85.9, "dry_spell_severity": 86.2, "heat_severity": 62.6, "drought_severity_index": 80.4, "sedi_historical_percentile": 92.5, "drought_tier": "SEVERE DROUGHT"}, {"region_id": "PH_ILOILO_PANAY", "region_name": "Iloilo Plains (Western Visayas)", "island_group": "Visayas", "latitude": 10.7202, "longitude": 122.5621, "svg_x": 369.9, "svg_y": 510.6, "economic_role": "Western Visayas Rice & Sugar Center", "critical_infrastructure": "Jalaur River Multipurpose Dam", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 31.1, "consecutive_dry_days": 2, "max_cdd_30d": 3, "rolling_30d_precip_mm": 83.7, "current_rootzone_moisture": 0.281, "rolling_30d_extreme_heat_days": 3, "rain_severity": 86.6, "soil_severity": 78.8, "dry_spell_severity": 56.8, "heat_severity": 76.0, "drought_severity_index": 76.7, "sedi_historical_percentile": 84.0, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_BICOL_ALBAY", "region_name": "Bicol Basin (Albay / Legazpi)", "island_group": "Luzon", "latitude": 13.1391, "longitude": 123.7438, "svg_x": 435.1, "svg_y": 403.9, "economic_role": "Coconut & Abaca Agricultural Cluster", "critical_infrastructure": "Yawa & Quinale River Basin", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 30.4, "consecutive_dry_days": 1, "max_cdd_30d": 1, "rolling_30d_precip_mm": 98.4, "current_rootzone_moisture": 0.35, "rolling_30d_extreme_heat_days": 10, "rain_severity": 95.2, "soil_severity": 73.7, "dry_spell_severity": 28.0, "heat_severity": 89.8, "drought_severity_index": 74.5, "sedi_historical_percentile": 81.0, "drought_tier": "MODERATE DROUGHT"}, {"region_id": "PH_SOUTH_COTABATO", "region_name": "South Cotabato / General Santos (SOCCSKSARGEN)", "island_group": "Mindanao", "latitude": 6.1164, "longitude": 125.1716, "svg_x": 514.0, "svg_y": 713.7, "economic_role": "Tuna Capital & DOLE Pineapple Export Basin", "critical_infrastructure": "Silway River & Lake Sebu Watershed", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 31.8, "consecutive_dry_days": 0, "max_cdd_30d": 2, "rolling_30d_precip_mm": 118.3, "current_rootzone_moisture": 0.322, "rolling_30d_extreme_heat_days": 5, "rain_severity": 87.7, "soil_severity": 68.4, "dry_spell_severity": 41.7, "heat_severity": 82.7, "drought_severity_index": 72.0, "sedi_historical_percentile": 78.0, "drought_tier": "DRY SPELL WATCH"}, {"region_id": "PH_LEYTE_VALLEY", "region_name": "Leyte Valley (Tacloban Ag-Corridor)", "island_group": "Visayas", "latitude": 11.2444, "longitude": 124.9984, "svg_x": 504.4, "svg_y": 487.5, "economic_role": "Eastern Visayas Agri-Trading & Geothermal Hub", "critical_infrastructure": "Binahaan River Catchment", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 29.7, "consecutive_dry_days": 0, "max_cdd_30d": 1, "rolling_30d_precip_mm": 135.4, "current_rootzone_moisture": 0.387, "rolling_30d_extreme_heat_days": 5, "rain_severity": 83.6, "soil_severity": 58.5, "dry_spell_severity": 24.8, "heat_severity": 75.2, "drought_severity_index": 63.1, "sedi_historical_percentile": 69.7, "drought_tier": "NORMAL"}, {"region_id": "PH_BOHOL_BASIN", "region_name": "Bohol Basin (Wahig-Inabanga)", "island_group": "Visayas", "latitude": 9.88, "longitude": 124.21, "svg_x": 460.9, "svg_y": 547.6, "economic_role": "Central Visayas Rice Reservoir Hub", "critical_infrastructure": "Malinao & Bayongan Reservoirs", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 29.3, "consecutive_dry_days": 2, "max_cdd_30d": 2, "rolling_30d_precip_mm": 210.0, "current_rootzone_moisture": 0.381, "rolling_30d_extreme_heat_days": 13, "rain_severity": 68.0, "soil_severity": 46.8, "dry_spell_severity": 51.6, "heat_severity": 94.1, "drought_severity_index": 62.3, "sedi_historical_percentile": 70.7, "drought_tier": "DRY SPELL WATCH"}, {"region_id": "PH_DAVAO_NORTE", "region_name": "Davao del Norte (Tagum Banana Belt)", "island_group": "Mindanao", "latitude": 7.4478, "longitude": 125.8078, "svg_x": 549.1, "svg_y": 655.0, "economic_role": "Cavendish Banana & Cacao Export Epicenter", "critical_infrastructure": "Libuganon River Catchment", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 30.2, "consecutive_dry_days": 1, "max_cdd_30d": 5, "rolling_30d_precip_mm": 109.3, "current_rootzone_moisture": 0.386, "rolling_30d_extreme_heat_days": 0, "rain_severity": 69.8, "soil_severity": 45.2, "dry_spell_severity": 84.9, "heat_severity": 28.9, "drought_severity_index": 59.3, "sedi_historical_percentile": 69.0, "drought_tier": "NORMAL"}, {"region_id": "PH_NEGROS_OCCIDENTAL", "region_name": "Negros Occidental (Bacolod Sugarcane Belt)", "island_group": "Visayas", "latitude": 10.6765, "longitude": 122.9509, "svg_x": 391.3, "svg_y": 512.5, "economic_role": "Sugar Capital of the Philippines (>50% Output)", "critical_infrastructure": "Binalbagan-Isabela River Basin", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 31.8, "consecutive_dry_days": 2, "max_cdd_30d": 2, "rolling_30d_precip_mm": 188.2, "current_rootzone_moisture": 0.295, "rolling_30d_extreme_heat_days": 4, "rain_severity": 64.2, "soil_severity": 57.0, "dry_spell_severity": 44.3, "heat_severity": 69.5, "drought_severity_index": 58.9, "sedi_historical_percentile": 63.6, "drought_tier": "NORMAL"}, {"region_id": "PH_METRO_CEBU", "region_name": "Metro Cebu (Central Visayas)", "island_group": "Visayas", "latitude": 10.3157, "longitude": 123.8854, "svg_x": 443.0, "svg_y": 528.4, "economic_role": "Regional Industrial & Urban Hub", "critical_infrastructure": "Buhisan Dam & Mananga Aquifer (Severe Karst Stress)", "as_of_date": "2026-11-15", "data_latency_days": 6, "current_tmax_c": 28.9, "consecutive_dry_days": 0, "max_cdd_30d": 1, "rolling_30d_precip_mm": 214.4, "current_rootzone_moisture": 0.369, "rolling_30d_extreme_heat_days": 0, "rain_severity": 67.6, "soil_severity": 48.2, "dry_spell_severity": 24.7, "heat_severity": 28.1, "drought_severity_index": 47.3, "sedi_historical_percentile": 50.1, "drought_tier": "NORMAL"}];
     const TIER_DEFS = [{"tier": "EXTREME DROUGHT", "min_percentile": 95.0, "code": "EXTREME", "color": "#ef4444", "border_color": "#b91c1c", "bg_color": "rgba(239, 68, 68, 0.2)", "pulse_class": "pulse-crisis"}, {"tier": "SEVERE DROUGHT", "min_percentile": 90.0, "code": "SEVERE", "color": "#f97316", "border_color": "#c2410c", "bg_color": "rgba(249, 115, 22, 0.2)", "pulse_class": "pulse-severe"}, {"tier": "MODERATE DROUGHT", "min_percentile": 80.0, "code": "MODERATE", "color": "#eab308", "border_color": "#a16207", "bg_color": "rgba(234, 179, 8, 0.2)", "pulse_class": "pulse-moderate"}, {"tier": "DRY SPELL WATCH", "min_percentile": 70.0, "code": "WATCH", "color": "#38bdf8", "border_color": "#0284c7", "bg_color": "rgba(56, 189, 248, 0.2)", "pulse_class": "pulse-watch"}, {"tier": "NORMAL", "min_percentile": 0.0, "code": "NORMAL", "color": "#10b981", "border_color": "#047857", "bg_color": "rgba(16, 185, 129, 0.2)", "pulse_class": "pulse-normal"}];
 
     const tierMap = {};
@@ -740,7 +734,7 @@
                 ${reg.region_name.split(' (')[0]}
                 <span class="text-[9px] px-1 py-0.2 rounded bg-slate-800 text-slate-400 font-normal">${reg.island_group}</span>
               </div>
-              <div class="text-[10px] text-slate-400">${reg.consecutive_dry_days} CDD · ${reg.rolling_30d_precip_mm}mm 30d rain</div>
+              <div class="text-[10px] text-slate-400">${reg.consecutive_dry_days}d CDD (30d max: ${reg.max_cdd_30d}d) · ${reg.rolling_30d_precip_mm}mm 30d rain</div>
             </div>
           </div>
           <div class="text-right">
@@ -774,7 +768,7 @@
           <td class="py-2.5 px-2"><span class="px-2 py-0.5 rounded border text-[10px] font-semibold" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg_color}; border-color: ${tierInfo.border_color}">${reg.drought_tier}</span></td>
           <td class="py-2.5 px-2 text-cyan-300 font-mono font-semibold">${reg.rain_severity}</td>
           <td class="py-2.5 px-2 text-emerald-300 font-mono font-semibold">${reg.soil_severity}</td>
-          <td class="py-2.5 px-2 text-amber-300 font-mono font-semibold">${reg.dry_spell_severity} (${reg.consecutive_dry_days}d)</td>
+          <td class="py-2.5 px-2 text-amber-300 font-mono font-semibold">${reg.dry_spell_severity} (${reg.consecutive_dry_days}d / max ${reg.max_cdd_30d}d)</td>
           <td class="py-2.5 px-2 text-orange-300 font-mono font-semibold">${reg.heat_severity}</td>
           <td class="py-2.5 px-2 text-slate-400 font-mono">${reg.as_of_date} (${reg.data_latency_days}d lag)</td>
           <td class="py-2.5 px-3 text-slate-400 truncate max-w-xs">${reg.critical_infrastructure}</td>
@@ -809,7 +803,7 @@
       document.getElementById('inspector-soil-vol').innerText = `${reg.current_rootzone_moisture} m³/m³`;
       document.getElementById('inspector-soil-sev').innerText = `${reg.soil_severity} / 100`;
       
-      document.getElementById('inspector-cdd').innerText = `${reg.consecutive_dry_days} Days CDD`;
+      document.getElementById('inspector-cdd').innerText = `${reg.consecutive_dry_days} Days (30d Peak: ${reg.max_cdd_30d}d)`;
       document.getElementById('inspector-cdd-sev').innerText = `${reg.dry_spell_severity} / 100`;
       
       document.getElementById('inspector-heat-days').innerText = `${reg.rolling_30d_extreme_heat_days} Days`;

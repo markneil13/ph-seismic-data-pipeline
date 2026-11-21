@@ -28,6 +28,11 @@ CLIMATOLOGY_START_YEAR = 2005
 CLIMATOLOGY_END_YEAR = 2025
 RECENT_WINDOW_DAYS = 60
 
+# Model Pinning & Latency Configuration
+# Pin identical reanalysis model for climatology and recent window: era5_seamless
+OPEN_METEO_MODEL = "era5_seamless"
+ERA5_LAG_DAYS = 6
+
 # WMO standard precipitation day threshold: >= 1.0 mm
 RAIN_DAY_THRESHOLD_MM = 1.0
 

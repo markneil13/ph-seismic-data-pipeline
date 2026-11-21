@@ -8,7 +8,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
-from src.el_nino_ph.config_ph import MAP_CONFIG, TIER_DEFINITIONS, SEDI_WEIGHTS
+from src.el_nino_ph.config_ph import (
+    MAP_CONFIG,
+    TIER_DEFINITIONS,
+    SEDI_WEIGHTS,
+    CLIMATOLOGY_START_YEAR,
+    CLIMATOLOGY_END_YEAR
+)
 from src.el_nino_ph.ph_map_paths import PH_ISLAND_PATHS
 from src.el_nino_ph.regions_ph import PH_REGIONS
 
@@ -21,26 +27,37 @@ def build_ph_el_nino_dashboard():
     print(f"[DASHBOARD] Compiling Philippine Super El Niño & Drought Dashboard ({total_regions} Basins)...")
     con = duckdb.connect(DB_PATH)
     
-    # 1. Fetch Latest Global ENSO Status from fact_enso_monthly
-    latest_enso_row = con.execute("""
-        SELECT year_month, nino34_sst_c, nino34_anomaly_c, oni_anomaly, oni_season, enso_state, intensity
+    # 1. Fetch Latest Published Global ENSO Status & Monthly Niño 3.4
+    latest_oni_row = con.execute("""
+        SELECT year_month, year, oni_anomaly, oni_season, enso_state, intensity
         FROM gold.fact_enso_monthly
         WHERE oni_anomaly IS NOT NULL
         ORDER BY year_month DESC
         LIMIT 1
     """).fetchone()
     
-    if not latest_enso_row:
+    latest_nino_row = con.execute("""
+        SELECT year_month, nino34_sst_c, nino34_anomaly_c
+        FROM gold.fact_enso_monthly
+        ORDER BY year_month DESC
+        LIMIT 1
+    """).fetchone()
+    
+    if not latest_oni_row or not latest_nino_row:
         raise RuntimeError("No ENSO records found in gold.fact_enso_monthly!")
         
-    enso_data = {
-        "year_month": latest_enso_row[0],
-        "nino34_sst": float(latest_enso_row[1]),
-        "nino34_anom": float(latest_enso_row[2]),
-        "oni_anom": float(latest_enso_row[3]),
-        "oni_season": str(latest_enso_row[4]),
-        "enso_state": str(latest_enso_row[5]),
-        "intensity": str(latest_enso_row[6])
+    oni_data = {
+        "year_month": latest_oni_row[0],
+        "oni_year": latest_oni_row[1],
+        "oni_anom": float(latest_oni_row[2]),
+        "oni_season": str(latest_oni_row[3]),
+        "enso_state": str(latest_oni_row[4]),
+        "intensity": str(latest_oni_row[5])
+    }
+    nino_data = {
+        "year_month": latest_nino_row[0],
+        "nino34_sst": float(latest_nino_row[1]),
+        "nino34_anom": float(latest_nino_row[2])
     }
     
     # 2. Fetch Regional Bulletin Data
@@ -59,6 +76,7 @@ def build_ph_el_nino_dashboard():
             data_latency_days,
             current_tmax_c,
             consecutive_dry_days,
+            max_cdd_30d,
             rolling_30d_precip_mm,
             current_rootzone_moisture,
             rolling_30d_extreme_heat_days,
@@ -94,16 +112,17 @@ def build_ph_el_nino_dashboard():
             "data_latency_days": int(r[10]) if r[10] is not None else 0,
             "current_tmax_c": float(r[11]) if r[11] is not None else None,
             "consecutive_dry_days": int(r[12]) if r[12] is not None else 0,
-            "rolling_30d_precip_mm": float(r[13]) if r[13] is not None else 0.0,
-            "current_rootzone_moisture": float(r[14]) if r[14] is not None else 0.0,
-            "rolling_30d_extreme_heat_days": int(r[15]) if r[15] is not None else 0,
-            "rain_severity": float(r[16]) if r[16] is not None else 0.0,
-            "soil_severity": float(r[17]) if r[17] is not None else 0.0,
-            "dry_spell_severity": float(r[18]) if r[18] is not None else 0.0,
-            "heat_severity": float(r[19]) if r[19] is not None else 0.0,
-            "drought_severity_index": float(r[20]) if r[20] is not None else 0.0,
-            "sedi_historical_percentile": float(r[21]) if r[21] is not None else 0.0,
-            "drought_tier": str(r[22])
+            "max_cdd_30d": int(r[13]) if r[13] is not None else 0,
+            "rolling_30d_precip_mm": float(r[14]) if r[14] is not None else 0.0,
+            "current_rootzone_moisture": float(r[15]) if r[15] is not None else 0.0,
+            "rolling_30d_extreme_heat_days": int(r[16]) if r[16] is not None else 0,
+            "rain_severity": float(r[17]) if r[17] is not None else 0.0,
+            "soil_severity": float(r[18]) if r[18] is not None else 0.0,
+            "dry_spell_severity": float(r[19]) if r[19] is not None else 0.0,
+            "heat_severity": float(r[20]) if r[20] is not None else 0.0,
+            "drought_severity_index": float(r[21]) if r[21] is not None else 0.0,
+            "sedi_historical_percentile": float(r[22]) if r[22] is not None else 0.0,
+            "drought_tier": str(r[23])
         })
         
     cfg = MAP_CONFIG
@@ -181,7 +200,7 @@ def build_ph_el_nino_dashboard():
     cluzon_reg = next((r for r in regions if r['region_id'] == 'PH_CENTRAL_LUZON'), None)
     
     # ENSO badge coloring
-    enso_state = enso_data["enso_state"]
+    enso_state = oni_data["enso_state"]
     if "El Niño" in enso_state:
         enso_bg = "bg-red-500/20 text-red-400 border-red-500/40"
         enso_pill_class = "text-red-400"
@@ -193,8 +212,25 @@ def build_ph_el_nino_dashboard():
         enso_pill_class = "text-slate-300"
         
     regions_json_str = json.dumps(regions, default=str)
-    enso_json_str = json.dumps(enso_data, default=str)
     tier_json_str = json.dumps(TIER_DEFINITIONS, default=str)
+
+    # Dynamic Legend Tiers from TIER_DEFINITIONS
+    legend_tiers = []
+    for t in TIER_DEFINITIONS:
+        legend_tiers.append(
+            f'<span class="inline-flex items-center gap-1" style="color: {t["color"]}">'
+            f'<span class="w-2 h-2 rounded-full" style="background-color: {t["color"]}"></span> '
+            f'{t["tier"].title()} ({int(t["min_percentile"])}+)'
+            f'</span>'
+        )
+    legend_tiers_html = "\\n            ".join(legend_tiers)
+
+    # Dynamic KPI 4 Summary Counts from TIER_DEFINITIONS
+    kpi4_items = []
+    for t in TIER_DEFINITIONS:
+        cnt = tier_counts.get(t["tier"], 0)
+        kpi4_items.append(f'<span class="font-bold" style="color: {t["color"]}">{t["code"][:4].title()}: {cnt}</span>')
+    kpi4_tiers_html = "\\n          ".join(kpi4_items)
     
     html_content = f"""<!DOCTYPE html>
 <html lang="en">
@@ -274,35 +310,38 @@ def build_ph_el_nino_dashboard():
         <div class="flex items-center gap-2">
           <span class="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-emerald-500/20 text-emerald-400 font-black text-sm border border-emerald-500/40">🇵🇭</span>
           <h1 class="text-xl md:text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-            PHILIPPINES SUPER EL NIÑO & DROUGHT INTELLIGENCE
+            PHILIPPINES COMPOSITE DROUGHT SEVERITY INDEX (SEDI)
           </h1>
           <span class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
             PERCENTILE ENGINE
           </span>
         </div>
         <p class="text-xs text-slate-400 mt-1">
-          Historical Climatology Benchmark (2005–2025) across {total_regions} Key Agricultural Basins, Hydro Dams & Watersheds
+          Historical Climatology Benchmark ({CLIMATOLOGY_START_YEAR}–{CLIMATOLOGY_END_YEAR}) across {total_regions} Key Agricultural Basins, Hydro Dams & Watersheds
         </p>
       </div>
 
       <!-- Live Global ENSO Metric Pill -->
       <div class="flex items-center gap-4 bg-slate-800/80 px-4 py-2.5 rounded-xl border border-slate-700/60 shadow-inner">
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">NOAA ONI Season ({enso_data['oni_season']})</div>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">NOAA ONI ({oni_data['oni_season']} {oni_data['oni_year']})</div>
           <div class="text-lg font-bold {enso_pill_class} flex items-center gap-1.5">
-            <span>{enso_data['oni_anom']:+.2f}°C</span>
-            <span class="text-xs font-medium text-amber-300">({enso_data['enso_state']})</span>
+            <span>{oni_data['oni_anom']:+.2f}°C</span>
+            <span class="text-xs font-medium text-amber-300">({oni_data['enso_state']})</span>
           </div>
         </div>
         <div class="h-8 w-px bg-slate-700"></div>
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Niño 3.4 Anomaly</div>
-          <div class="text-lg font-bold text-white">{enso_data['nino34_anom']:+.2f}°C</div>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Niño 3.4 Monthly ({nino_data['year_month']})</div>
+          <div class="text-lg font-bold text-white flex items-center gap-1.5">
+            <span>{nino_data['nino34_anom']:+.2f}°C</span>
+            <span class="text-xs text-slate-400 font-mono">({nino_data['nino34_sst']:.1f}°C)</span>
+          </div>
         </div>
         <div class="h-8 w-px bg-slate-700"></div>
         <div>
-          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Intensity Status</div>
-          <div class="text-xs font-medium text-slate-300 mt-0.5">{enso_data['intensity']}</div>
+          <div class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Episode Status</div>
+          <div class="text-xs font-medium text-slate-300 mt-0.5">{oni_data['intensity']}</div>
         </div>
       </div>
     </div>
@@ -383,11 +422,7 @@ def build_ph_el_nino_dashboard():
           </span>
         </div>
         <div class="mt-2 text-[10px] text-slate-300 bg-slate-950/60 px-2 py-1 rounded border border-slate-800 flex justify-between">
-          <span class="text-red-400 font-bold">Ext: {tier_counts.get('EXTREME DROUGHT', 0)}</span>
-          <span class="text-orange-400 font-bold">Sev: {tier_counts.get('SEVERE DROUGHT', 0)}</span>
-          <span class="text-yellow-400 font-bold">Mod: {tier_counts.get('MODERATE DROUGHT', 0)}</span>
-          <span class="text-cyan-400 font-bold">Wat: {tier_counts.get('DRY SPELL WATCH', 0)}</span>
-          <span class="text-emerald-400 font-bold">Norm: {tier_counts.get('NORMAL', 0)}</span>
+          {kpi4_tiers_html}
         </div>
       </div>
     </div>
@@ -430,11 +465,7 @@ def build_ph_el_nino_dashboard():
           <!-- Alert Radar Severity -->
           <div class="flex items-center gap-2">
             <span class="text-slate-400 font-semibold uppercase text-[10px]">Severity Tiers:</span>
-            <span class="inline-flex items-center gap-1 text-red-400"><span class="w-2 h-2 rounded-full bg-red-500"></span> Extreme (95+)</span>
-            <span class="inline-flex items-center gap-1 text-orange-400"><span class="w-2 h-2 rounded-full bg-orange-500"></span> Severe (90+)</span>
-            <span class="inline-flex items-center gap-1 text-yellow-400"><span class="w-2 h-2 rounded-full bg-yellow-500"></span> Mod (80+)</span>
-            <span class="inline-flex items-center gap-1 text-cyan-400"><span class="w-2 h-2 rounded-full bg-cyan-400"></span> Watch (70+)</span>
-            <span class="inline-flex items-center gap-1 text-emerald-400"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> Normal</span>
+            {legend_tiers_html}
           </div>
         </div>
 
@@ -507,7 +538,7 @@ def build_ph_el_nino_dashboard():
                 {regions[0]['drought_tier']}
               </span>
               <span class="text-[10px] px-2 py-0.5 rounded border {enso_bg} font-semibold">
-                ENSO: {enso_data['enso_state']} ({enso_data['intensity']})
+                ENSO: {oni_data['enso_state']} ({oni_data['intensity']})
               </span>
             </div>
           </div>
@@ -656,7 +687,6 @@ def build_ph_el_nino_dashboard():
   <!-- INTERACTIVE CLIENT-SIDE ENGINE -->
   <script>
     const REGIONS = {regions_json_str};
-    const ENSO_DATA = {enso_json_str};
     const TIER_DEFS = {tier_json_str};
 
     const tierMap = {{}};
@@ -687,7 +717,7 @@ def build_ph_el_nino_dashboard():
                 ${{reg.region_name.split(' (')[0]}}
                 <span class="text-[9px] px-1 py-0.2 rounded bg-slate-800 text-slate-400 font-normal">${{reg.island_group}}</span>
               </div>
-              <div class="text-[10px] text-slate-400">${{reg.consecutive_dry_days}} CDD · ${{reg.rolling_30d_precip_mm}}mm 30d rain</div>
+              <div class="text-[10px] text-slate-400">${{reg.consecutive_dry_days}}d CDD (30d max: ${{reg.max_cdd_30d}}d) · ${{reg.rolling_30d_precip_mm}}mm 30d rain</div>
             </div>
           </div>
           <div class="text-right">
@@ -721,7 +751,7 @@ def build_ph_el_nino_dashboard():
           <td class="py-2.5 px-2"><span class="px-2 py-0.5 rounded border text-[10px] font-semibold" style="color: ${{tierInfo.color}}; background-color: ${{tierInfo.bg_color}}; border-color: ${{tierInfo.border_color}}">${{reg.drought_tier}}</span></td>
           <td class="py-2.5 px-2 text-cyan-300 font-mono font-semibold">${{reg.rain_severity}}</td>
           <td class="py-2.5 px-2 text-emerald-300 font-mono font-semibold">${{reg.soil_severity}}</td>
-          <td class="py-2.5 px-2 text-amber-300 font-mono font-semibold">${{reg.dry_spell_severity}} (${{reg.consecutive_dry_days}}d)</td>
+          <td class="py-2.5 px-2 text-amber-300 font-mono font-semibold">${{reg.dry_spell_severity}} (${{reg.consecutive_dry_days}}d / max ${{reg.max_cdd_30d}}d)</td>
           <td class="py-2.5 px-2 text-orange-300 font-mono font-semibold">${{reg.heat_severity}}</td>
           <td class="py-2.5 px-2 text-slate-400 font-mono">${{reg.as_of_date}} (${{reg.data_latency_days}}d lag)</td>
           <td class="py-2.5 px-3 text-slate-400 truncate max-w-xs">${{reg.critical_infrastructure}}</td>
@@ -756,7 +786,7 @@ def build_ph_el_nino_dashboard():
       document.getElementById('inspector-soil-vol').innerText = `${{reg.current_rootzone_moisture}} m³/m³`;
       document.getElementById('inspector-soil-sev').innerText = `${{reg.soil_severity}} / 100`;
       
-      document.getElementById('inspector-cdd').innerText = `${{reg.consecutive_dry_days}} Days CDD`;
+      document.getElementById('inspector-cdd').innerText = `${{reg.consecutive_dry_days}} Days (30d Peak: ${{reg.max_cdd_30d}}d)`;
       document.getElementById('inspector-cdd-sev').innerText = `${{reg.dry_spell_severity}} / 100`;
       
       document.getElementById('inspector-heat-days').innerText = `${{reg.rolling_30d_extreme_heat_days}} Days`;
