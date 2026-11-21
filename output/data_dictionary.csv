@@ -1,0 +1,67 @@
+sheet,column,data_type,description,example_value
+customers,customer_id,string,Unique identifier for each customer (Primary Key),CUST-00001
+customers,full_name,string,Customer's full legal name,Maria Santos
+customers,gender,string,Customer self-identified gender (Male/Female),Female
+customers,birth_date,date,Customer date of birth (YYYY-MM-DD),1988-04-15
+customers,city,string,Residential city of customer,Quezon City
+customers,region,string,Administrative province/region,National Capital Region (NCR)
+customers,country,string,Country of residence across Asia,Philippines
+customers,occupation,string,Primary occupation / profession,Software Engineer
+customers,annual_income_php,float,Gross annual income in Philippine Pesos (PHP),780000.00
+customers,risk_profile,string,Investment risk tolerance profile (Conservative/Moderate/Aggressive),Moderate
+customers,kyc_status,string,Customer due diligence status (Verified/Pending/Rejected),Verified
+customers,signup_date,date,Platform account registration date (YYYY-MM-DD),2023-08-14
+customers,acquisition_channel,string,"Marketing attribution source (Facebook, Referral, Google, etc.)",Referral
+customers,is_active,boolean,Current platform active engagement flag (True/False),True
+accounts,account_id,string,Unique account number (Primary Key),ACC-00001
+accounts,customer_id,string,Customer reference ID (Foreign Key -> customers.customer_id),CUST-00012
+accounts,account_type,string,"Account product tier (Trading, Savings, Loan)",Trading
+accounts,currency,string,Base operating currency of the account (PHP or USD),USD
+accounts,open_date,date,Account activation date (YYYY-MM-DD),2023-08-20
+accounts,close_date,date,Account deactivation date (nullable),2024-11-12
+accounts,status,string,Account operational status (Active/Inactive/Closed),Active
+accounts,current_balance,float,Reconciled ledger cash balance in base currency,12540.50
+transactions,transaction_id,string,Unique transaction reference ID (Primary Key),TXN-000001
+transactions,account_id,string,Target account reference (Foreign Key -> accounts.account_id),ACC-00045
+transactions,timestamp,datetime,Transaction execution timestamp (YYYY-MM-DD HH:MM:SS),2025-03-15 14:22:10
+transactions,transaction_type,string,"Transaction event type (Deposit, Withdrawal, Transfer, Fee, Interest, Loan Disbursement, Loan Repayment)",Deposit
+transactions,amount,float,Gross transaction monetary magnitude in account currency,15000.00
+transactions,currency,string,Currency denomination matching target account,PHP
+transactions,payment_method,string,"Funding rail/channel (GCash, Maya, Bank Transfer, Card, Crypto)",GCash
+transactions,status,string,"Settlement state (Completed, Pending, Failed, Reversed)",Completed
+transactions,description,string,Narrative ledger memo / payment description,GCash Express Cash-In via App
+index_prices,date,date,Trading session business date (YYYY-MM-DD),2025-01-02
+index_prices,symbol,string,"Global CFD index ticker symbol (US500, US30, NAS100, GER40, JPN225, HK50, UK100)",US500
+index_prices,open,float,Session opening price,5882.10
+index_prices,high,float,Highest recorded intraday session price,5925.40
+index_prices,low,float,Lowest recorded intraday session price,5871.20
+index_prices,close,float,Session closing settlement price,5910.80
+index_prices,volume,integer,Total estimated daily contract trading volume,145200
+trades,trade_id,string,Unique CFD order ticket ID (Primary Key),TRD-00001
+trades,account_id,string,Trading account reference (Foreign Key -> accounts.account_id),ACC-00015
+trades,symbol,string,"Tradable index asset ticker (e.g., NAS100)",NAS100
+trades,direction,string,Order market side (Buy/Long or Sell/Short),Buy
+trades,open_time,datetime,Order execution entry timestamp (YYYY-MM-DD HH:MM:SS),2025-04-10 10:15:30
+trades,close_time,datetime,Order settlement exit timestamp (YYYY-MM-DD HH:MM:SS),2025-04-10 15:45:00
+trades,lot_size,float,CFD contract trade volume in standard lots,1.25
+trades,open_price,float,Order execution entry fill price,21150.20
+trades,close_price,float,Order settlement exit fill price,21310.50
+trades,stop_loss,float,Predefined risk limit stop loss price level,20980.00
+trades,take_profit,float,Predefined profit target price level,21450.00
+trades,leverage,integer,"Account leverage multiplier utilized (20, 50, 100, 200)",100
+trades,swap_fee,float,Financing overnight rollover interest fee in USD,4.62
+trades,commission,float,Brokerage execution commission fee in USD,6.25
+trades,profit_loss,float,Realized net financial profit or loss after fees in USD,189.38
+trades,close_reason,string,"Order exit trigger condition (TP Hit, SL Hit, Manual, Margin Call)",TP Hit
+loans,loan_id,string,Unique credit agreement ID (Primary Key),LN-00001
+loans,customer_id,string,Borrower customer ID (Foreign Key -> customers.customer_id),CUST-00108
+loans,loan_type,string,"Credit product category (Salary, Personal, SME)",Personal
+loans,principal,float,Original loan principal amount disbursed in PHP,150000.00
+loans,interest_rate,float,Fixed annual contractual interest rate,0.1450
+loans,term_months,integer,Contract repayment tenure in months,24
+loans,start_date,date,Loan origination date (YYYY-MM-DD),2024-02-01
+loans,monthly_payment,float,Contractual fixed monthly amortization payment in PHP,7236.42
+loans,amount_paid,float,Cumulative principal and interest amount repaid to date,115782.72
+loans,days_past_due,integer,Current delinquency tracking counter in days,0
+loans,status,string,"Loan repayment status (Current, Late, Default, Paid Off)",Current
+loans,credit_score,integer,Credit bureau risk score at underwriting (300-850),685

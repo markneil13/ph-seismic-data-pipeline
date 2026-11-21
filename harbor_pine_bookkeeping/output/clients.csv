@@ -1,0 +1,401 @@
+client_id,business_name,industry,country,plan_tier,monthly_fee,signup_date,status,churn_date,acquisition_source
+1,Hall & Garcia Contracting,Construction,UK,Standard,560.75,2022-01-02,Active,,Referral
+2,Ramirez Solutions,Consulting,AU,Standard,435.14,2022-01-14,Active,,Google
+3,Reid Health Group,Healthcare,US,Standard,578.73,2022-01-21,Active,,Google
+4,Diaz & Wood Realty,Real Estate,UK,Basic,269.4,2022-02-04,Active,,Facebook
+5,Clark Digital Goods,E-commerce,NZ,Premium,1003.27,2022-02-13,Active,,Accountant Partner
+6,Adams Contracting,Construction,US,Premium,926.71,2022-02-19,Active,,Accountant Partner
+7,Zuniga & Wong Electrical,Trades,UK,Standard,415.6,2022-02-22,Active,,LinkedIn
+8,Lynch Dental Care,Healthcare,UK,Standard,493.1,2022-02-23,Active,,Google
+9,Jackson Properties,Real Estate,US,Premium,954.23,2022-03-22,Active,,Google
+10,Daniel Structures,Construction,AU,Basic,221.6,2022-03-30,Churned,2024-03-06,Facebook
+11,Martin Solutions,Consulting,US,Standard,548.09,2022-04-02,Active,,Referral
+12,Gray Structures,Construction,US,Basic,196.19,2022-04-16,Active,,LinkedIn
+13,Mayo Digital Goods,E-commerce,US,Premium,993.11,2022-05-11,Active,,Accountant Partner
+14,Bowman & Hawkins Properties,Real Estate,UK,Premium,1007.39,2022-05-15,Active,,Referral
+15,Cohen & Cameron Electrical,Trades,UK,Basic,243.44,2022-06-11,Churned,2022-09-25,Facebook
+16,Parsons Realty,Real Estate,UK,Standard,431.45,2022-06-16,Active,,Facebook
+17,Perez & Johnson Goods,Retail,NZ,Basic,195.42,2022-07-09,Active,,Accountant Partner
+18,Stewart & Adams Advisory,Consulting,US,Standard,456.99,2022-07-10,Active,,Referral
+19,Clark Clinic,Healthcare,AU,Standard,474.14,2022-07-21,Active,,Accountant Partner
+20,Hahn Electrical,Trades,NZ,Basic,237.82,2022-07-25,Churned,2024-12-01,LinkedIn
+21,Walter Realty,Real Estate,US,Standard,538.69,2022-08-03,Active,,Facebook
+22,Edwards Builders,Construction,US,Basic,210.32,2022-08-06,Active,,Facebook
+23,Rios Medical Practice,Healthcare,NZ,Basic,245.8,2022-08-30,Active,,Facebook
+24,Foster Commerce,E-commerce,US,Basic,242.54,2022-09-09,Churned,2024-03-09,Facebook
+25,Rocha Roofing,Trades,US,Standard,485.55,2022-09-17,Active,,Google
+26,Ellis Online Emporium,E-commerce,AU,Basic,265.01,2022-09-21,Churned,2023-06-14,Referral
+27,Baker Apparel,Retail,AU,Premium,1080.64,2022-09-22,Active,,Accountant Partner
+28,Wright Consulting,Consulting,UK,Premium,1051.93,2022-09-27,Active,,Referral
+29,Hoffman Wellness,Healthcare,AU,Premium,828.98,2022-09-28,Active,,Google
+30,Baker Boutique,Retail,US,Standard,477.34,2022-10-01,Active,,LinkedIn
+31,Richards Mechanical,Trades,US,Basic,240.64,2022-10-23,Active,,Accountant Partner
+32,Hurst & Ross Wellness,Healthcare,US,Premium,928.16,2022-10-31,Active,,LinkedIn
+33,Robinson & Bright Medical Practice,Healthcare,UK,Basic,205.86,2022-11-03,Active,,Facebook
+34,Hicks Apparel,Retail,AU,Standard,425.81,2022-11-06,Active,,Referral
+35,Davis Wellness,Healthcare,US,Premium,895.65,2022-11-12,Active,,Accountant Partner
+36,Williams Supply Co,E-commerce,UK,Basic,235.84,2022-11-25,Churned,2023-01-30,Facebook
+37,Rodriguez & Burton Online Emporium,E-commerce,AU,Basic,264.14,2022-12-06,Churned,2024-10-26,Accountant Partner
+38,Conner Estates,Real Estate,US,Standard,375.44,2022-12-12,Churned,2024-07-18,Google
+39,Henderson Boutique,Retail,AU,Basic,265.38,2022-12-17,Active,,Facebook
+40,Brown Apparel,Retail,US,Standard,507.43,2022-12-26,Active,,Accountant Partner
+41,James & Ferrell Clinic,Healthcare,NZ,Basic,208.23,2023-01-05,Churned,2024-05-24,Facebook
+42,Rice Developments,Construction,US,Premium,903.6,2023-01-09,Churned,2024-01-25,Facebook
+43,Maddox Partners,Consulting,US,Standard,520.8,2023-01-13,Active,,Referral
+44,Valencia & Smith Developments,Construction,AU,Basic,235.48,2023-01-15,Churned,2023-10-26,Facebook
+45,Le Properties,Real Estate,AU,Basic,214.84,2023-01-15,Active,,Facebook
+46,Maldonado & Herrera Health Group,Healthcare,US,Basic,232.96,2023-01-28,Active,,Accountant Partner
+47,Adams Clinic,Healthcare,US,Standard,374.89,2023-01-28,Active,,Referral
+48,Davidson Solutions,Consulting,NZ,Standard,443.23,2023-01-29,Active,,Facebook
+49,Rodriguez & Graham Grill,Restaurant,AU,Premium,976.01,2023-02-02,Churned,2024-01-18,Accountant Partner
+50,Chavez Construction,Construction,AU,Premium,919.21,2023-02-04,Active,,Google
+51,Mckay Electrical,Trades,UK,Standard,380.37,2023-02-05,Active,,LinkedIn
+52,Liu Real Estate,Real Estate,UK,Premium,1072.05,2023-02-10,Active,,Facebook
+53,Baker Contracting,Construction,UK,Basic,233.87,2023-02-10,Active,,Google
+54,Mason Digital Goods,E-commerce,AU,Basic,255.52,2023-02-11,Active,,Facebook
+55,White Outfitters,Retail,UK,Basic,256.74,2023-02-13,Churned,2023-05-30,Google
+56,Gaines Apparel,Retail,US,Standard,459.12,2023-02-14,Active,,LinkedIn
+57,Harrell & Evans Partners,Consulting,US,Basic,209.51,2023-02-17,Active,,Google
+58,Fowler Health Group,Healthcare,US,Standard,415.12,2023-02-21,Churned,2024-07-24,Google
+59,Lynch Partners,Consulting,AU,Standard,492.16,2023-02-21,Active,,Facebook
+60,Hernandez Plumbing,Trades,AU,Standard,428.29,2023-02-22,Churned,2024-05-31,LinkedIn
+61,Farmer Direct,E-commerce,AU,Premium,1163.93,2023-03-03,Active,,Referral
+62,Ryan Boutique,Retail,AU,Basic,234.28,2023-03-03,Churned,2023-12-31,Facebook
+63,Osborne Direct,E-commerce,US,Standard,487.81,2023-03-04,Churned,2023-10-28,Google
+64,Moreno & Smith Commerce,E-commerce,US,Standard,518.7,2023-03-04,Active,,Referral
+65,Nguyen & Smith Medical Practice,Healthcare,UK,Premium,929.78,2023-03-06,Active,,Referral
+66,Hickman & Koch Real Estate,Real Estate,UK,Basic,192.64,2023-03-07,Active,,Facebook
+67,Decker Commerce,E-commerce,US,Basic,228.15,2023-03-22,Churned,2024-05-25,Facebook
+68,Parker & Brown Strategy Group,Consulting,UK,Basic,253.06,2023-03-22,Active,,LinkedIn
+69,Humphrey Construction,Construction,US,Premium,1063.86,2023-03-27,Active,,Google
+70,Arroyo Mechanical,Trades,US,Basic,223.33,2023-04-06,Active,,LinkedIn
+71,Miller Tavern,Restaurant,AU,Premium,1089.85,2023-04-06,Active,,LinkedIn
+72,Tucker & Jones Commerce,E-commerce,AU,Premium,984.11,2023-04-09,Churned,2023-06-14,Accountant Partner
+73,Hodges & Cannon Living Group,Real Estate,AU,Standard,550.33,2023-04-11,Active,,Facebook
+74,Anderson & Alvarez Market,Retail,AU,Standard,528.27,2023-04-11,Active,,LinkedIn
+75,Pierce HVAC Services,Trades,UK,Premium,923.4,2023-04-18,Active,,Google
+76,Baker Plumbing,Trades,US,Basic,226.9,2023-04-23,Active,,Google
+77,Brennan Living Group,Real Estate,US,Standard,535.98,2023-04-23,Active,,LinkedIn
+78,Henderson & Lewis Eatery,Restaurant,US,Standard,538.58,2023-04-23,Active,,Referral
+79,Ryan Boutique,Retail,US,Premium,969.66,2023-04-23,Active,,LinkedIn
+80,Blair & Harris Provisions,Retail,NZ,Standard,529.56,2023-04-26,Active,,Google
+81,Collins Partners,Consulting,NZ,Basic,185.21,2023-05-01,Active,,Referral
+82,Carney & Santos Tavern,Restaurant,AU,Premium,995.2,2023-05-08,Active,,LinkedIn
+83,Kim HVAC Services,Trades,US,Standard,493.81,2023-05-09,Active,,Accountant Partner
+84,Holmes Boutique,Retail,UK,Basic,212.72,2023-05-11,Churned,2023-07-26,Google
+85,Martinez & Walker Construction,Construction,UK,Basic,233.6,2023-05-14,Active,,Referral
+86,Morgan Clinic,Healthcare,US,Premium,991.35,2023-05-15,Active,,LinkedIn
+87,Chapman Realty,Real Estate,US,Standard,507.64,2023-05-16,Active,,LinkedIn
+88,Hall Consulting,Consulting,US,Basic,250.47,2023-05-17,Active,,Google
+89,Robinson Kitchen,Restaurant,US,Basic,201.48,2023-05-19,Active,,Facebook
+90,Jones & Welch Apparel,Retail,UK,Basic,210.66,2023-05-23,Active,,Facebook
+91,Perez Goods,Retail,UK,Standard,531.48,2023-06-01,Active,,LinkedIn
+92,Whitehead Strategy Group,Consulting,UK,Standard,477.6,2023-06-06,Active,,Referral
+93,Heath & Jones Roofing,Trades,UK,Basic,239.66,2023-06-09,Active,,Accountant Partner
+94,Young Eatery,Restaurant,UK,Basic,221.24,2023-06-09,Active,,Facebook
+95,Caldwell Provisions,Retail,US,Premium,918.6,2023-06-12,Active,,Accountant Partner
+96,Lewis & Anderson Boutique,Retail,US,Standard,466.66,2023-06-14,Active,,Referral
+97,Walls Diner,Restaurant,AU,Premium,901.97,2023-06-19,Active,,Accountant Partner
+98,Duncan & Kennedy Digital Goods,E-commerce,UK,Premium,1012.94,2023-06-20,Active,,Facebook
+99,Mueller & Aguirre Strategy Group,Consulting,AU,Standard,460.45,2023-06-21,Active,,Facebook
+100,Lee & Davis Living Group,Real Estate,US,Premium,942.13,2023-06-21,Active,,Referral
+101,Jordan Builders,Construction,AU,Basic,205.89,2023-06-28,Active,,Referral
+102,Henderson Online Emporium,E-commerce,NZ,Premium,999.34,2023-06-29,Churned,2024-12-15,LinkedIn
+103,Owens Eatery,Restaurant,NZ,Premium,1001.39,2023-07-06,Churned,2024-12-18,Google
+104,Daniel Mechanical,Trades,AU,Standard,586.87,2023-07-06,Active,,Google
+105,Nunez Wellness,Healthcare,NZ,Basic,254.25,2023-07-07,Active,,Facebook
+106,Joyce Dental Care,Healthcare,US,Premium,976.44,2023-07-09,Active,,LinkedIn
+107,Garcia Diner,Restaurant,US,Standard,530.93,2023-07-17,Active,,Facebook
+108,Powell & Morgan Dental Care,Healthcare,NZ,Premium,1073.84,2023-07-20,Churned,2024-02-24,LinkedIn
+109,Hensley Living Group,Real Estate,US,Standard,442.62,2023-07-26,Active,,Accountant Partner
+110,Wright & Lee Kitchen,Restaurant,UK,Standard,523.23,2023-07-27,Active,,Google
+111,West Structures,Construction,AU,Standard,463.44,2023-08-01,Churned,2023-11-05,Google
+112,Henderson & Ramirez Solutions,Consulting,AU,Premium,1038.0,2023-08-02,Active,,Google
+113,Wright Outfitters,Retail,UK,Basic,205.05,2023-08-04,Active,,Google
+114,Leblanc & Ramos Real Estate,Real Estate,US,Standard,581.07,2023-08-05,Active,,Referral
+115,Callahan Living Group,Real Estate,UK,Premium,846.09,2023-08-06,Churned,2024-10-13,Google
+116,Pierce Advisory,Consulting,AU,Standard,385.26,2023-08-10,Active,,Accountant Partner
+117,Williams Roofing,Trades,UK,Premium,924.24,2023-08-13,Churned,2023-12-08,Facebook
+118,Kidd Outfitters,Retail,US,Standard,560.43,2023-08-13,Active,,Referral
+119,Huff & Novak Roofing,Trades,US,Premium,1005.34,2023-08-15,Active,,Referral
+120,House Health Group,Healthcare,US,Premium,1006.53,2023-08-19,Active,,Facebook
+121,Allison Tavern,Restaurant,US,Standard,497.87,2023-08-19,Churned,2024-08-31,Referral
+122,Martin & Tucker Medical Practice,Healthcare,UK,Premium,837.22,2023-08-19,Active,,LinkedIn
+123,Lewis & Morales HVAC Services,Trades,US,Standard,498.2,2023-08-19,Churned,2024-05-18,LinkedIn
+124,Brown & Gray Cafe,Restaurant,US,Premium,987.1,2023-08-21,Active,,Accountant Partner
+125,Galloway Provisions,Retail,UK,Standard,434.25,2023-08-21,Active,,Referral
+126,Baker Real Estate,Real Estate,US,Basic,212.7,2023-08-22,Active,,Accountant Partner
+127,Bowers Tavern,Restaurant,NZ,Premium,980.36,2023-08-25,Active,,Referral
+128,Gibson Properties,Real Estate,US,Standard,513.85,2023-08-25,Active,,Accountant Partner
+129,Henderson Realty,Real Estate,UK,Standard,512.25,2023-08-29,Active,,Google
+130,Bernard Market,Retail,US,Premium,1076.91,2023-08-31,Active,,Accountant Partner
+131,Cowan & Peters Developments,Construction,US,Standard,504.91,2023-09-09,Active,,Google
+132,Higgins Structures,Construction,US,Premium,809.7,2023-09-12,Active,,Referral
+133,Moore Health Group,Healthcare,AU,Basic,182.4,2023-09-14,Active,,Facebook
+134,Phillips & Novak Market,Retail,AU,Premium,1114.99,2023-09-16,Active,,Google
+135,Riley & Daniels Wellness,Healthcare,UK,Standard,499.67,2023-09-18,Active,,Facebook
+136,Adkins Digital Goods,E-commerce,UK,Standard,448.19,2023-09-25,Active,,Facebook
+137,Brown & Silva Digital Goods,E-commerce,UK,Standard,493.05,2023-09-25,Active,,Referral
+138,Shaw & Farrell Medical Practice,Healthcare,US,Premium,897.28,2023-10-07,Active,,Referral
+139,Moore Realty,Real Estate,US,Standard,452.44,2023-10-10,Active,,LinkedIn
+140,Yu Solutions,Consulting,UK,Premium,812.64,2023-10-10,Active,,Accountant Partner
+141,Miller Developments,Construction,AU,Basic,239.49,2023-10-11,Active,,Facebook
+142,Lopez & Larson Consulting,Consulting,US,Basic,247.17,2023-10-11,Active,,Google
+143,Leonard Living Group,Real Estate,US,Premium,956.0,2023-10-13,Churned,2024-09-12,Facebook
+144,Young Contracting,Construction,US,Basic,173.1,2023-10-16,Active,,Google
+145,Wilson Advisory,Consulting,UK,Basic,221.69,2023-10-20,Churned,2024-11-23,Facebook
+146,Zamora Clinic,Healthcare,UK,Premium,959.21,2023-10-22,Active,,Facebook
+147,Sanchez Apparel,Retail,US,Basic,224.91,2023-10-28,Active,,Google
+148,Wheeler Online Emporium,E-commerce,NZ,Basic,224.45,2023-11-03,Active,,Referral
+149,Harvey Bistro,Restaurant,US,Basic,181.27,2023-11-11,Active,,Accountant Partner
+150,Barnes & Silva Tavern,Restaurant,US,Basic,246.0,2023-11-14,Active,,Referral
+151,Mills & Donovan Direct,E-commerce,UK,Standard,465.93,2023-11-14,Active,,Google
+152,Harris & Moran Bistro,Restaurant,US,Basic,259.49,2023-11-23,Active,,Facebook
+153,Allen Bistro,Restaurant,UK,Standard,502.15,2023-11-23,Active,,Google
+154,Foster Boutique,Retail,NZ,Standard,432.2,2023-11-24,Churned,2024-06-24,Google
+155,Powers Outfitters,Retail,UK,Standard,531.67,2023-11-27,Active,,Accountant Partner
+156,Evans Health Group,Healthcare,AU,Basic,169.24,2023-12-04,Active,,LinkedIn
+157,Stewart & Walton Strategy Group,Consulting,NZ,Premium,894.39,2023-12-06,Active,,Accountant Partner
+158,Jones Developments,Construction,NZ,Standard,466.71,2023-12-10,Active,,Accountant Partner
+159,Ellis & Murillo Market,Retail,US,Premium,872.86,2023-12-11,Active,,Accountant Partner
+160,Ferrell Estates,Real Estate,US,Basic,221.67,2023-12-12,Active,,Google
+161,Jones Living Group,Real Estate,AU,Basic,232.82,2023-12-14,Active,,Accountant Partner
+162,Lewis Cafe,Restaurant,AU,Basic,223.71,2023-12-18,Active,,Google
+163,Baker Plumbing,Trades,UK,Standard,520.13,2023-12-25,Active,,LinkedIn
+164,Mahoney Contracting,Construction,UK,Standard,453.84,2023-12-25,Churned,2024-04-11,Referral
+165,Ibarra & Suarez Cafe,Restaurant,US,Basic,193.64,2023-12-26,Churned,2024-03-05,Referral
+166,Wood Medical Practice,Healthcare,UK,Premium,895.39,2024-01-01,Active,,Referral
+167,Moore & Bass Market,Retail,UK,Standard,494.75,2024-01-02,Active,,Referral
+168,Warner & Carr HVAC Services,Trades,UK,Basic,206.34,2024-01-02,Active,,Accountant Partner
+169,Archer Properties,Real Estate,US,Premium,911.22,2024-01-04,Active,,Referral
+170,Valdez Consulting,Consulting,US,Basic,225.49,2024-01-04,Churned,2024-08-22,LinkedIn
+171,Smith & Montoya Builders,Construction,AU,Basic,235.24,2024-01-05,Active,,Accountant Partner
+172,Evans Outfitters,Retail,US,Premium,955.79,2024-01-06,Churned,2024-07-19,Referral
+173,Alvarado Digital Goods,E-commerce,US,Premium,894.44,2024-01-09,Active,,Accountant Partner
+174,Mcmillan Outfitters,Retail,AU,Standard,519.42,2024-01-10,Active,,Referral
+175,Taylor Commerce,E-commerce,US,Basic,182.96,2024-01-12,Churned,2024-09-07,Google
+176,Wilson & Rodriguez Estates,Real Estate,US,Standard,426.12,2024-01-13,Active,,LinkedIn
+177,Tran Real Estate,Real Estate,US,Standard,498.25,2024-01-16,Active,,Google
+178,Nelson Solutions,Consulting,AU,Basic,279.74,2024-01-17,Churned,2024-10-08,Facebook
+179,Jacobs & Robbins Market,Retail,AU,Standard,525.85,2024-01-18,Churned,2024-11-10,Referral
+180,Harris & Walters Developments,Construction,US,Standard,409.12,2024-01-20,Churned,2024-04-13,Referral
+181,Baker & Freeman Strategy Group,Consulting,NZ,Standard,359.59,2024-01-22,Active,,Accountant Partner
+182,Whitehead Goods,Retail,AU,Basic,227.88,2024-01-23,Active,,LinkedIn
+183,Mathis & Davis Provisions,Retail,UK,Basic,205.61,2024-01-26,Churned,2024-10-01,Google
+184,Henderson & Hill Electrical,Trades,AU,Standard,460.68,2024-01-27,Active,,Referral
+185,Smith Strategy Group,Consulting,US,Standard,503.13,2024-02-02,Active,,Accountant Partner
+186,Wise & Walsh Construction,Construction,UK,Basic,240.14,2024-02-02,Active,,Facebook
+187,Green Medical Practice,Healthcare,US,Standard,485.25,2024-02-04,Active,,Facebook
+188,Figueroa Dental Care,Healthcare,NZ,Basic,192.36,2024-02-05,Churned,2024-10-09,Google
+189,Arnold Partners,Consulting,US,Basic,208.6,2024-02-06,Active,,Facebook
+190,Patterson & Smith Advisory,Consulting,NZ,Standard,439.35,2024-02-06,Active,,Google
+191,Jones Roofing,Trades,US,Premium,935.09,2024-02-07,Active,,Referral
+192,Ware Advisory,Consulting,UK,Basic,210.2,2024-02-08,Active,,Google
+193,Mckee & Gardner Strategy Group,Consulting,UK,Basic,222.35,2024-02-08,Active,,Facebook
+194,Davenport Living Group,Real Estate,AU,Standard,570.21,2024-02-08,Churned,2024-04-24,Facebook
+195,Aguilar HVAC Services,Trades,US,Standard,513.79,2024-02-12,Active,,Accountant Partner
+196,Hernandez & Anderson Clinic,Healthcare,AU,Basic,252.79,2024-02-13,Churned,2024-11-18,Google
+197,Parker Electrical,Trades,US,Standard,464.76,2024-02-15,Active,,Referral
+198,Nolan Provisions,Retail,UK,Basic,213.48,2024-02-16,Churned,2024-12-29,Google
+199,Flynn Roofing,Trades,AU,Basic,199.17,2024-02-16,Active,,Accountant Partner
+200,Valencia & Nolan Provisions,Retail,NZ,Basic,225.39,2024-02-17,Active,,Accountant Partner
+201,Clark & Wright Health Group,Healthcare,US,Standard,593.88,2024-02-18,Active,,Referral
+202,Garcia & Deleon Mechanical,Trades,UK,Basic,238.95,2024-02-20,Active,,LinkedIn
+203,Henson Medical Practice,Healthcare,AU,Premium,952.32,2024-02-20,Active,,Accountant Partner
+204,Russell & Oliver Medical Practice,Healthcare,UK,Basic,183.94,2024-02-22,Active,,LinkedIn
+205,Moore Strategy Group,Consulting,UK,Basic,213.49,2024-02-22,Active,,Facebook
+206,Spears Strategy Group,Consulting,US,Standard,479.06,2024-02-23,Active,,Google
+207,Hancock & Cherry Properties,Real Estate,UK,Basic,227.46,2024-02-23,Churned,2024-07-21,Google
+208,Cochran Kitchen,Restaurant,US,Premium,1067.26,2024-02-23,Active,,Referral
+209,Keith & Johnson Real Estate,Real Estate,US,Premium,889.88,2024-02-23,Active,,LinkedIn
+210,Doyle Direct,E-commerce,UK,Basic,171.11,2024-02-27,Churned,2024-10-31,Facebook
+211,Cook & Galvan Eatery,Restaurant,UK,Standard,454.87,2024-02-27,Churned,2024-12-26,Accountant Partner
+212,Pham Electrical,Trades,AU,Standard,494.79,2024-02-27,Churned,2024-09-20,Google
+213,Shields Builders,Construction,US,Standard,483.93,2024-02-27,Active,,Facebook
+214,Cochran Apparel,Retail,US,Standard,547.0,2024-02-29,Active,,Referral
+215,Adams Digital Goods,E-commerce,UK,Standard,420.32,2024-02-29,Active,,Referral
+216,Cobb & Rodriguez Kitchen,Restaurant,NZ,Basic,219.58,2024-03-03,Churned,2024-06-20,Facebook
+217,Brennan Eatery,Restaurant,UK,Standard,452.8,2024-03-05,Active,,Facebook
+218,Garrison Goods,Retail,NZ,Basic,188.2,2024-03-08,Churned,2024-12-23,Accountant Partner
+219,Walker Electrical,Trades,AU,Basic,195.16,2024-03-09,Active,,Referral
+220,Velasquez Digital Goods,E-commerce,US,Basic,228.11,2024-03-09,Churned,2024-10-17,Google
+221,Stevens & Torres Apparel,Retail,US,Premium,896.98,2024-03-15,Active,,Google
+222,Pope Provisions,Retail,UK,Basic,207.58,2024-03-16,Active,,Facebook
+223,Perez Provisions,Retail,AU,Premium,1004.91,2024-03-26,Churned,2024-09-21,LinkedIn
+224,Johnson Boutique,Retail,NZ,Standard,484.67,2024-03-29,Churned,2024-12-29,Facebook
+225,Lee Diner,Restaurant,NZ,Standard,446.0,2024-04-01,Active,,Accountant Partner
+226,Murphy Electrical,Trades,US,Standard,442.64,2024-04-01,Active,,Google
+227,Lin Supply Co,E-commerce,US,Standard,501.42,2024-04-03,Active,,Google
+228,Rasmussen Supply Co,E-commerce,US,Standard,525.41,2024-04-04,Active,,Accountant Partner
+229,Ramirez Mechanical,Trades,US,Basic,252.92,2024-04-04,Active,,Facebook
+230,May Solutions,Consulting,NZ,Premium,893.36,2024-04-05,Active,,LinkedIn
+231,Ross Realty,Real Estate,UK,Premium,936.38,2024-04-05,Churned,2024-11-30,LinkedIn
+232,Zavala Developments,Construction,AU,Basic,322.72,2024-04-06,Churned,2024-06-12,LinkedIn
+233,Herrera Solutions,Consulting,US,Standard,483.27,2024-04-06,Active,,Referral
+234,Crosby Apparel,Retail,US,Basic,243.71,2024-04-07,Active,,LinkedIn
+235,Wilson & Waller Tavern,Restaurant,UK,Standard,454.28,2024-04-08,Active,,Facebook
+236,White Mechanical,Trades,US,Standard,527.53,2024-04-08,Active,,LinkedIn
+237,Estes Dental Care,Healthcare,AU,Basic,215.11,2024-04-08,Active,,Google
+238,Baker Structures,Construction,UK,Premium,1027.95,2024-04-08,Active,,Referral
+239,Rodriguez Consulting,Consulting,NZ,Premium,971.99,2024-04-08,Active,,Accountant Partner
+240,Hamilton & Chandler Consulting,Consulting,US,Premium,917.96,2024-04-09,Active,,Google
+241,Edwards Consulting,Consulting,AU,Basic,209.9,2024-04-09,Active,,Referral
+242,Obrien Real Estate,Real Estate,UK,Premium,882.42,2024-04-10,Active,,Referral
+243,Dixon Advisory,Consulting,AU,Basic,208.07,2024-04-10,Active,,Google
+244,Cruz Tavern,Restaurant,AU,Standard,489.75,2024-04-12,Active,,LinkedIn
+245,Ray Clinic,Healthcare,US,Basic,229.23,2024-04-13,Active,,Facebook
+246,Scott & Fletcher Dental Care,Healthcare,NZ,Premium,966.87,2024-04-13,Active,,LinkedIn
+247,Smith HVAC Services,Trades,US,Standard,468.7,2024-04-15,Active,,Accountant Partner
+248,Frost Tavern,Restaurant,UK,Premium,876.0,2024-04-17,Churned,2024-09-06,Google
+249,Ryan & Ball Outfitters,Retail,AU,Basic,244.76,2024-04-21,Active,,Accountant Partner
+250,Harmon Direct,E-commerce,US,Basic,206.52,2024-04-21,Churned,2024-08-22,Accountant Partner
+251,Lambert Eatery,Restaurant,AU,Basic,249.55,2024-04-22,Churned,2024-08-27,Facebook
+252,Diaz Grill,Restaurant,US,Premium,886.56,2024-04-23,Active,,Referral
+253,Jones & Beck Roofing,Trades,US,Basic,229.53,2024-04-25,Active,,LinkedIn
+254,Rivera & Edwards Advisory,Consulting,US,Basic,260.03,2024-04-25,Churned,2024-07-28,Facebook
+255,Charles Roofing,Trades,UK,Standard,429.12,2024-04-26,Active,,Facebook
+256,Cortez & Evans Roofing,Trades,NZ,Premium,941.68,2024-04-27,Active,,Accountant Partner
+257,Parker & Ortiz Direct,E-commerce,AU,Standard,485.95,2024-04-29,Active,,LinkedIn
+258,Powell Commerce,E-commerce,US,Basic,235.05,2024-04-29,Churned,2024-07-03,Referral
+259,Phillips Structures,Construction,US,Standard,603.91,2024-05-01,Active,,Referral
+260,Martinez & Fisher Eatery,Restaurant,UK,Basic,207.02,2024-05-02,Churned,2024-08-12,Referral
+261,Bentley Boutique,Retail,UK,Basic,175.67,2024-05-03,Active,,Facebook
+262,Byrd & Orr Bistro,Restaurant,UK,Basic,223.06,2024-05-03,Active,,Facebook
+263,Gilbert Mechanical,Trades,AU,Standard,556.6,2024-05-04,Active,,LinkedIn
+264,Turner Consulting,Consulting,AU,Premium,897.59,2024-05-05,Active,,Referral
+265,Kelley Eatery,Restaurant,UK,Standard,520.95,2024-05-05,Active,,Facebook
+266,Smith Contracting,Construction,UK,Premium,862.7,2024-05-06,Active,,Accountant Partner
+267,Mitchell Realty,Real Estate,UK,Standard,539.91,2024-05-06,Churned,2024-08-24,Facebook
+268,Jordan Partners,Consulting,US,Standard,403.59,2024-05-07,Active,,LinkedIn
+269,Carpenter Plumbing,Trades,AU,Standard,473.87,2024-05-07,Active,,Referral
+270,Pena Digital Goods,E-commerce,UK,Premium,817.22,2024-05-07,Active,,Referral
+271,Marshall Developments,Construction,UK,Basic,251.59,2024-05-08,Active,,LinkedIn
+272,Ramos Contracting,Construction,UK,Premium,960.04,2024-05-08,Active,,Accountant Partner
+273,Lewis & Kennedy Outfitters,Retail,US,Standard,551.97,2024-05-09,Churned,2024-07-14,Accountant Partner
+274,Santana Cafe,Restaurant,US,Standard,653.6,2024-05-09,Active,,Accountant Partner
+275,Flynn Construction,Construction,US,Standard,536.37,2024-05-10,Active,,LinkedIn
+276,Jackson HVAC Services,Trades,NZ,Basic,190.88,2024-05-14,Churned,2024-09-19,Referral
+277,Miller & Robertson Dental Care,Healthcare,US,Basic,216.11,2024-05-19,Active,,LinkedIn
+278,Schultz & Rogers Health Group,Healthcare,US,Standard,516.68,2024-05-21,Active,,Facebook
+279,Cardenas Estates,Real Estate,UK,Premium,941.88,2024-05-22,Active,,Google
+280,Potter Kitchen,Restaurant,UK,Basic,232.14,2024-05-23,Churned,2024-10-16,Google
+281,Chambers & Walker Outfitters,Retail,US,Basic,280.79,2024-05-23,Churned,2024-12-07,LinkedIn
+282,Gonzalez & Johnson Partners,Consulting,UK,Basic,222.26,2024-05-23,Active,,Facebook
+283,Sanchez & Alvarez Medical Practice,Healthcare,NZ,Standard,533.96,2024-05-23,Active,,Accountant Partner
+284,Atkinson Dental Care,Healthcare,UK,Premium,902.99,2024-05-24,Active,,Accountant Partner
+285,Jones Builders,Construction,US,Basic,228.8,2024-05-26,Churned,2024-08-13,Accountant Partner
+286,Perry Solutions,Consulting,NZ,Standard,564.92,2024-05-26,Active,,LinkedIn
+287,Soto Supply Co,E-commerce,UK,Standard,627.12,2024-05-26,Active,,Google
+288,Lee Cafe,Restaurant,US,Premium,1025.57,2024-05-26,Active,,Referral
+289,Horton Realty,Real Estate,AU,Premium,962.47,2024-05-26,Churned,2024-10-13,Accountant Partner
+290,Snyder Mechanical,Trades,US,Standard,479.63,2024-05-27,Active,,LinkedIn
+291,Sanchez Mechanical,Trades,AU,Basic,222.1,2024-05-27,Active,,Facebook
+292,Douglas Apparel,Retail,US,Basic,250.43,2024-05-29,Active,,LinkedIn
+293,Smith Mechanical,Trades,NZ,Standard,505.37,2024-05-30,Churned,2024-12-11,LinkedIn
+294,Potter Bistro,Restaurant,AU,Premium,1005.98,2024-05-30,Churned,2024-08-20,Accountant Partner
+295,Carrillo & Rodriguez Commerce,E-commerce,UK,Basic,222.84,2024-05-31,Active,,LinkedIn
+296,Coleman & Thompson Construction,Construction,UK,Basic,216.47,2024-05-31,Active,,Google
+297,Rubio Supply Co,E-commerce,US,Standard,429.93,2024-06-01,Active,,Google
+298,Holmes Direct,E-commerce,US,Basic,237.46,2024-06-01,Active,,LinkedIn
+299,Williams Commerce,E-commerce,NZ,Basic,262.8,2024-06-02,Churned,2024-08-23,Facebook
+300,Wright & Charles Roofing,Trades,UK,Standard,457.57,2024-06-03,Active,,Accountant Partner
+301,Bryant & Solis Wellness,Healthcare,AU,Basic,201.34,2024-06-06,Active,,Accountant Partner
+302,Contreras Boutique,Retail,AU,Premium,1020.1,2024-06-06,Active,,Referral
+303,Travis Apparel,Retail,AU,Basic,242.9,2024-06-06,Active,,Referral
+304,Larson Construction,Construction,US,Premium,886.33,2024-06-08,Active,,LinkedIn
+305,Dodson & Vance Wellness,Healthcare,UK,Standard,516.77,2024-06-08,Active,,Accountant Partner
+306,Salazar Dental Care,Healthcare,AU,Basic,222.95,2024-06-08,Active,,Facebook
+307,Ball Estates,Real Estate,NZ,Basic,236.87,2024-06-09,Churned,2024-11-16,Referral
+308,Wagner & Rivas Builders,Construction,UK,Standard,541.41,2024-06-09,Active,,Google
+309,Kelley Kitchen,Restaurant,US,Standard,461.33,2024-06-09,Active,,Facebook
+310,Merritt Digital Goods,E-commerce,US,Standard,503.73,2024-06-11,Churned,2024-12-24,Facebook
+311,Manning & Wells Solutions,Consulting,NZ,Standard,438.66,2024-06-11,Active,,Accountant Partner
+312,Green Medical Practice,Healthcare,US,Standard,511.64,2024-06-16,Churned,2024-10-27,Google
+313,Wright Electrical,Trades,AU,Basic,214.32,2024-06-17,Active,,Referral
+314,Walsh & Cannon Advisory,Consulting,US,Premium,769.2,2024-06-18,Churned,2024-11-14,LinkedIn
+315,Boyd & Sims Strategy Group,Consulting,US,Standard,468.73,2024-06-18,Active,,Referral
+316,Hill Real Estate,Real Estate,UK,Standard,489.32,2024-06-20,Active,,Accountant Partner
+317,Jones Medical Practice,Healthcare,NZ,Basic,224.62,2024-06-20,Active,,LinkedIn
+318,Mitchell Solutions,Consulting,NZ,Basic,226.54,2024-06-21,Active,,Facebook
+319,Nelson Solutions,Consulting,UK,Standard,593.73,2024-06-22,Active,,Google
+320,Flores Bistro,Restaurant,US,Standard,501.24,2024-06-24,Active,,Accountant Partner
+321,Fernandez Dental Care,Healthcare,US,Standard,421.56,2024-06-24,Active,,Facebook
+322,Taylor Realty,Real Estate,NZ,Standard,562.05,2024-06-26,Churned,2024-09-19,Accountant Partner
+323,Hall Strategy Group,Consulting,UK,Basic,179.64,2024-06-27,Active,,LinkedIn
+324,Benson & Mccarthy Supply Co,E-commerce,US,Standard,446.69,2024-06-28,Churned,2024-11-29,Google
+325,Brown & Russell Clinic,Healthcare,UK,Basic,232.15,2024-06-28,Active,,Facebook
+326,Daniels Contracting,Construction,UK,Premium,978.63,2024-06-29,Active,,LinkedIn
+327,Perry Goods,Retail,UK,Premium,992.63,2024-07-02,Active,,Google
+328,Clark Construction,Construction,UK,Premium,906.84,2024-07-03,Active,,Google
+329,Fisher & Stein Mechanical,Trades,US,Standard,507.76,2024-07-04,Active,,Referral
+330,Silva & Dominguez Wellness,Healthcare,US,Basic,231.3,2024-07-05,Active,,Accountant Partner
+331,Gates & Cannon Market,Retail,UK,Basic,205.77,2024-07-06,Active,,LinkedIn
+332,James Bistro,Restaurant,US,Premium,845.49,2024-07-07,Active,,LinkedIn
+333,Smith Eatery,Restaurant,UK,Premium,818.23,2024-07-08,Active,,Accountant Partner
+334,Bell Wellness,Healthcare,US,Premium,1029.74,2024-07-09,Active,,Accountant Partner
+335,Molina Strategy Group,Consulting,US,Basic,225.72,2024-07-10,Active,,LinkedIn
+336,Castaneda & Ashley HVAC Services,Trades,UK,Standard,470.99,2024-07-10,Active,,LinkedIn
+337,Barnes & Adkins Consulting,Consulting,UK,Premium,1063.53,2024-07-12,Active,,Google
+338,Payne Clinic,Healthcare,US,Standard,460.93,2024-07-13,Churned,2024-12-29,LinkedIn
+339,Morrison Goods,Retail,NZ,Basic,203.42,2024-07-14,Active,,Facebook
+340,Walker & Robinson Realty,Real Estate,US,Standard,541.92,2024-07-16,Churned,2024-11-05,Accountant Partner
+341,Graham Kitchen,Restaurant,US,Standard,452.86,2024-07-16,Churned,2024-12-06,Facebook
+342,Johnson Digital Goods,E-commerce,AU,Standard,452.59,2024-07-17,Active,,Accountant Partner
+343,Rogers Clinic,Healthcare,AU,Basic,253.89,2024-07-19,Active,,Google
+344,Shelton Structures,Construction,NZ,Premium,878.28,2024-07-21,Active,,Accountant Partner
+345,Powell Plumbing,Trades,AU,Standard,486.44,2024-07-22,Active,,LinkedIn
+346,Martin Diner,Restaurant,UK,Standard,402.97,2024-07-26,Churned,2024-11-27,Accountant Partner
+347,Mcdonald Consulting,Consulting,NZ,Standard,464.85,2024-07-26,Active,,Google
+348,Anderson Digital Goods,E-commerce,US,Premium,1096.72,2024-08-02,Churned,2024-10-13,Google
+349,Dean Contracting,Construction,US,Premium,999.4,2024-08-05,Active,,Referral
+350,Johnson Consulting,Consulting,AU,Standard,484.24,2024-08-05,Churned,2024-11-07,Accountant Partner
+351,Long Apparel,Retail,UK,Standard,579.41,2024-08-07,Active,,Accountant Partner
+352,Elliott Dental Care,Healthcare,AU,Premium,950.76,2024-08-07,Active,,Facebook
+353,Johnson Contracting,Construction,NZ,Basic,192.4,2024-08-07,Active,,Referral
+354,Day & Taylor HVAC Services,Trades,US,Premium,876.11,2024-08-09,Active,,LinkedIn
+355,Murray Electrical,Trades,US,Standard,434.21,2024-08-10,Active,,Referral
+356,Williams Wellness,Healthcare,AU,Basic,192.75,2024-08-10,Active,,Facebook
+357,Gray Contracting,Construction,AU,Basic,234.76,2024-08-11,Active,,LinkedIn
+358,Lewis Clinic,Healthcare,US,Basic,215.99,2024-08-12,Active,,Facebook
+359,Murphy & Juarez Boutique,Retail,UK,Basic,263.82,2024-08-13,Active,,Google
+360,Gray & Walton Kitchen,Restaurant,US,Standard,451.44,2024-08-14,Active,,LinkedIn
+361,Decker & King Solutions,Consulting,UK,Standard,476.01,2024-08-16,Churned,2024-11-02,Google
+362,Miller Apparel,Retail,US,Standard,489.0,2024-08-17,Active,,Google
+363,Smith & Ryan Grill,Restaurant,AU,Standard,595.45,2024-08-20,Churned,2024-12-08,Referral
+364,Cooke Online Emporium,E-commerce,UK,Basic,195.65,2024-08-20,Active,,Referral
+365,Bell Tavern,Restaurant,UK,Premium,1039.41,2024-08-24,Churned,2024-11-23,LinkedIn
+366,Santos Eatery,Restaurant,UK,Standard,464.23,2024-08-25,Churned,2024-11-17,LinkedIn
+367,Harrington & Pearson Strategy Group,Consulting,UK,Standard,584.24,2024-08-25,Active,,Referral
+368,Webster & Herring Cafe,Restaurant,AU,Basic,234.72,2024-08-26,Churned,2024-12-06,Accountant Partner
+369,Gonzalez Wellness,Healthcare,UK,Standard,404.2,2024-08-27,Active,,Google
+370,Smith & Hernandez Builders,Construction,UK,Standard,545.27,2024-09-02,Active,,Facebook
+371,Martinez Builders,Construction,UK,Standard,418.29,2024-09-02,Active,,LinkedIn
+372,Caldwell Cafe,Restaurant,NZ,Basic,211.21,2024-09-03,Active,,Referral
+373,Elliott Construction,Construction,UK,Standard,427.7,2024-09-03,Active,,Google
+374,Robinson Online Emporium,E-commerce,AU,Basic,223.02,2024-09-03,Churned,2024-11-08,Google
+375,Lyons & Wang Mechanical,Trades,NZ,Premium,1092.69,2024-09-03,Active,,Referral
+376,Jackson Medical Practice,Healthcare,AU,Standard,433.53,2024-09-06,Active,,Accountant Partner
+377,Lawson Builders,Construction,US,Basic,217.27,2024-09-06,Active,,Facebook
+378,Adkins & Wilson Living Group,Real Estate,US,Premium,1011.15,2024-09-08,Active,,Referral
+379,Weiss Provisions,Retail,US,Premium,1034.48,2024-09-08,Active,,Google
+380,Oconnell & Rodriguez Clinic,Healthcare,AU,Standard,387.52,2024-09-09,Active,,Referral
+381,Johnson & Collins Grill,Restaurant,US,Basic,200.65,2024-09-09,Active,,Facebook
+382,Byrd & Rubio Electrical,Trades,NZ,Standard,556.44,2024-09-10,Active,,Facebook
+383,Sanders Commerce,E-commerce,US,Premium,974.13,2024-09-10,Active,,Google
+384,Espinoza Partners,Consulting,US,Basic,197.92,2024-09-10,Active,,LinkedIn
+385,Jones & Vaughn Properties,Real Estate,AU,Standard,535.06,2024-09-11,Active,,Referral
+386,Burton Clinic,Healthcare,NZ,Basic,249.7,2024-09-12,Active,,Google
+387,Garcia Wellness,Healthcare,US,Standard,494.21,2024-09-13,Active,,Google
+388,Barton Dental Care,Healthcare,AU,Premium,918.24,2024-09-14,Active,,Referral
+389,Jefferson Clinic,Healthcare,US,Basic,255.43,2024-09-15,Active,,Google
+390,Burke Structures,Construction,US,Basic,223.51,2024-09-18,Active,,Facebook
+391,Martinez & Riggs Developments,Construction,US,Premium,946.75,2024-09-19,Churned,2024-12-09,Referral
+392,Patton Plumbing,Trades,NZ,Standard,482.79,2024-09-20,Active,,Accountant Partner
+393,Reed Dental Care,Healthcare,NZ,Premium,817.57,2024-09-20,Active,,Accountant Partner
+394,Patterson Partners,Consulting,UK,Basic,236.98,2024-09-20,Active,,Accountant Partner
+395,Wood Outfitters,Retail,AU,Standard,444.73,2024-09-23,Churned,2024-12-16,Referral
+396,Hunter & Peterson Outfitters,Retail,UK,Basic,226.67,2024-09-24,Active,,Facebook
+397,Atkinson & Short Medical Practice,Healthcare,US,Premium,916.92,2024-09-25,Active,,Accountant Partner
+398,Garcia Plumbing,Trades,AU,Standard,457.53,2024-09-27,Active,,LinkedIn
+399,Yu Digital Goods,E-commerce,AU,Standard,434.85,2024-09-28,Churned,2024-11-28,Accountant Partner
+400,Reid Construction,Construction,US,Standard,526.95,2024-09-29,Churned,2024-12-23,Referral

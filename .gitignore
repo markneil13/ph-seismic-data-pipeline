@@ -1,5 +1,6 @@
 # Python & Virtual Environments
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 .venv/
@@ -9,8 +10,14 @@ ENV/
 # Data & Database Artifacts
 data/bronze/*
 !data/bronze/.gitkeep
-data/*.duckdb
-data/*.duckdb.wal
+*.duckdb
+*.duckdb.wal
+**/*.duckdb
+**/*.duckdb.wal
+*.db
+**/*.db
+*.sqlite
+**/*.sqlite
 dashboard_data.json
 el_nino_dashboard_data.json
 

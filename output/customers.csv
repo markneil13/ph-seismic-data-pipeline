@@ -1,0 +1,1005 @@
+customer_id,full_name,gender,birth_date,city,region,country,occupation,annual_income_php,risk_profile,kyc_status,signup_date,acquisition_channel,is_active
+CUST-00001,Margaret Johnson,Female,1958-02-27,Singapore,Central,Singapore,Registered Nurse,1.8437e+06,Aggressive,Verified,2025-04-08,Organic,True
+CUST-00002,Denise Walker,Female,1963-01-06,Calamba,Calabarzon (Region IV-A),Philippines,Graphic Designer,326200.0,Conservative,Verified,2023-08-20,Google,True
+CUST-00003,Noah Rhodes,Male,1977-12-16,Jakarta,DKI Jakarta,Indonesia,E-Commerce Merchant,489000.0,Conservative,Verified,2023-01-13,LinkedIn,True
+CUST-00004,Steven Miller,Male,1972-02-15,Pasig,National Capital Region (NCR),Philippines,Architect,686800.0,Moderate,Verified,2024-08-23,Organic,True
+CUST-00005,Jennifer Johnson,Female,1988-06-21,Cebu City,Central Visayas (Region VII),Philippines,Corporate Lawyer,505900.0,Moderate,Verified,2024-02-23,LinkedIn,True
+CUST-00006,Colleen Wagner,Female,1999-10-10,Kowloon,Kowloon,Hong Kong,Registered Nurse,365700.0,Aggressive,Verified,2023-01-19,Referral,True
+CUST-00007,Alexander Gonzalez,Male,1985-04-16,Singapore,Central,Singapore,Logistics Coordinator,180000.0,Aggressive,Verified,2023-09-04,Organic,True
+CUST-00008,Matthew Gardner,Male,1976-03-14,Kuala Lumpur,Federal Territories,Malaysia,High School Teacher,363200.0,Conservative,Verified,2025-06-21,LinkedIn,False
+CUST-00009,Connie Lawrence,Female,1995-06-18,Cebu City,Central Visayas (Region VII),Philippines,Registered Nurse,247700.0,Conservative,Verified,2023-11-28,LinkedIn,True
+CUST-00010,Robert Smith,Male,1993-08-09,quezon city,National Capital Region (NCR),Philippines,SME Retail Owner,180000.0,Moderate,Verified,2023-08-26,Organic,False
+CUST-00011,Renee Wolfe,Female,2003-04-25,Baguio City,Cordillera Administrative Region (CAR),Philippines,Corporate Lawyer,299200.0,Moderate,Pending,2024-08-19,Google,True
+CUST-00012,Gerald Moore,Male,1969-07-17,Chiang Mai,North,Thailand,Data Analyst,252200.0,Moderate,Verified,2024-08-28,Google,True
+CUST-00013,Tyler Rogers,Male,1961-10-10,Cebu City,Central Visayas (Region VII),Philippines,Virtual Assistant,764500.0,Aggressive,Verified,2023-10-30,Organic,True
+CUST-00014,Brandon Davis,Male,1965-02-26,Penang,Penang,Malaysia,Virtual Assistant,773500.0,Aggressive,Verified,2025-02-12,Referral,True
+CUST-00015,Ryan Munoz,Male,1986-03-04,Quezon City,National Capital Region (NCR),Philippines,Bank Branch Officer,278000.0,Conservative,Verified,2024-06-12,LinkedIn,True
+CUST-00016,Robert Blair,Male,1976-02-23,Angeles City,Central Luzon (Region III),Philippines,SME Retail Owner,430600.0,Moderate,Verified,2023-05-27,Facebook,True
+CUST-00017,Joshua Dudley,Male,1958-11-22,Iloilo City,Western Visayas (Region VI),Philippines,Certified Public Accountant,180000.0,Moderate,Verified,2023-10-24,Facebook,True
+CUST-00018,Jamie Arnold,Female,1976-03-30,Taguig,National Capital Region (NCR),Philippines,High School Teacher,367300.0,Moderate,Verified,2025-02-11,Google,True
+CUST-00019,Ronald Montgomery,Male,1990-02-14,Penang,Penang,Malaysia,Architect,674200.0,Conservative,Verified,2023-03-23,Facebook,False
+CUST-00020,Scott Ray,Male,1988-02-12,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Certified Public Accountant,900700.0,Moderate,Verified,2023-01-12,IB Partner,True
+CUST-00021,Michael Williams,Male,1969-11-13,Singapore,Central,Singapore,SME Retail Owner,316500.0,Moderate,Verified,2024-08-21,Facebook,True
+CUST-00022,Darren Roberts, Male,1983-01-22,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Physician,1.051e+06,Conservative,Verified,2024-02-07,LinkedIn,True
+CUST-00023,Angela Hall,Female,1964-09-10,Hong Kong,Hong Kong Island,Hong Kong,Certified Public Accountant,183400.0,Moderate,Verified,2024-03-06,Facebook,True
+CUST-00024,Brian Ramirez,Male,1963-06-08,Bangkok,Central,Thailand,E-Commerce Merchant,220100.0,Moderate,Verified,2023-06-17,IB Partner,True
+CUST-00025,Madison Diaz,Female,2002-05-03,Singapore,Central,Singapore,SME Retail Owner,832800.0,Moderate,Verified,2023-12-07,Referral,True
+CUST-00026,Jacob Clark,Male,1970-01-17,Iloilo City,Western Visayas (Region VI),Philippines,Registered Nurse,1.6014e+06,Moderate,Verified,2023-08-02,Facebook,True
+CUST-00027,Debra Zuniga,Female,1986-08-23,Iloilo City,Western Visayas (Region VI),Philippines,SME Retail Owner,718900.0,Aggressive,Verified,2024-06-18,Facebook,True
+CUST-00028,Matthew Lynch,Male,1979-08-10,Iloilo City,Western Visayas (Region VI),Philippines,Corporate Lawyer,500100.0,Conservative,Verified,2024-09-05,Google,True
+CUST-00029,Carolyn Daniel,Female,1991-08-01,MNL,National Capital Region (NCR),Philippines,Corporate Lawyer,180000.0,Conservative,Verified,2025-04-13,IB Partner,True
+CUST-00030,Christopher Gray,Male,1986-09-21,Cebu City,Central Visayas (Region VII),Philippines,Data Analyst,180000.0,Moderate,Rejected,2023-03-03,IB Partner,False
+CUST-00031,William Bowman,Male,1988-07-02,Singapore,Central,Singapore,Civil Engineer,561300.0,Moderate,Verified,2023-10-25,Referral,False
+CUST-00032,Kristin Cohen,Female,2001-08-26,Kowloon,Kowloon,Hong Kong,Bank Branch Officer,402900.0,Conservative,Verified,2023-08-29,Referral,True
+CUST-00033,Sarah Parsons,Female,1967-04-03,Angeles City,Central Luzon (Region III),Philippines,Certified Public Accountant,242300.0,Aggressive,Verified,2024-06-11,Facebook,True
+CUST-00034,Crystal Johnson,Female,1997-04-20,Davao City,Davao Region (Region XI),Philippines,E-Commerce Merchant,537400.0,Conservative,Verified,2024-04-30,Google,True
+CUST-00035,Ethan Adams,Male,1986-05-15,Pasig,National Capital Region (NCR),Philippines,E-Commerce Merchant,555900.0,Conservative,Verified,2025-03-10,Google,True
+CUST-00036,Christine Hahn,Female,1994-12-14,Davao City,Davao Region (Region XI),Philippines,Logistics Coordinator,977000.0,Moderate,Verified,2025-04-17,Facebook,True
+CUST-00037,Sherri Edwards,Female,1996-06-22,Makati,National Capital Region (NCR),Philippines,Digital Marketing Lead,564000.0,Aggressive,Verified,2024-12-05,,False
+CUST-00038,Mary Foster,Female,1986-06-25, Quezon City,National Capital Region (NCR),Philippines,Logistics Coordinator,1.1851e+06,Aggressive,Verified,2023-07-01,Organic,True
+CUST-00039,Thomas Ellis,Male,1960-11-12,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Sales Executive,516800.0,Moderate,Verified,2023-02-07,Facebook,True
+CUST-00040,Deborah Wright,Female,1959-09-04,Angeles City,Central Luzon (Region III),Philippines,Customer Service Specialist,475200.0,Moderate,Pending,2025-03-30,Facebook,True
+CUST-00041,Kristina Baker,Female,1986-02-02,Calamba,Calabarzon (Region IV-A),Philippines,Certified Public Accountant,1.0599e+06,Moderate,Verified,2025-05-08,Facebook,True
+CUST-00042,Lauren Hurst,Female,1980-04-17,Penang,Penang,Malaysia,Sales Executive,264300.0,Moderate,Verified,2023-08-17,Facebook,True
+CUST-00043,James Robinson,Male,1957-09-21,Singapore,Central,Singapore,Bank Branch Officer,3.4845e+06,Conservative,Pending,2023-02-12,Facebook,True
+CUST-00044,Zachary Hicks,Male,1992-12-27,Manila,National Capital Region (NCR),Philippines,SME Retail Owner,663400.0,Moderate,Verified,2024-09-12,Google,True
+CUST-00045,Ann Williams,Female,1959-08-25,Johor Bahru,Johor,Malaysia,Logistics Coordinator,665900.0,Aggressive,Verified,2025-03-20,Facebook,True
+CUST-00046,Brian Burton,Male,1999-01-19,Penang,Penang,Malaysia,BPO Operations Manager,734600.0,Moderate,Verified,2024-06-08,LinkedIn,True
+CUST-00047,Rebecca Henderson,Female,1993-05-30,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,1.8422e+06,Moderate,Verified,2024-11-23,Organic,True
+CUST-00048,Arthur James,Male,1988-02-17,Calamba,Calabarzon (Region IV-A),Philippines,Sales Executive,881100.0,Moderate,Verified,2024-12-17,IB Partner,True
+CUST-00049,Zachary Rice,Male,2002-04-11,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Certified Public Accountant,180000.0,Moderate,Verified,2023-01-09,Google,True
+CUST-00050,Tricia Valencia,Female,1965-09-15,Cagayan de Oro,Northern Mindanao (Region X),Philippines,BPO Operations Manager,1.3349e+06,Conservative,Verified,2023-05-16,Facebook,True
+CUST-00051,Adam Le,Male,1963-11-04,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,407700.0,Moderate,Verified,2024-12-11,Facebook,True
+CUST-00052,Michael Herrera,Male,1986-01-05,Angeles City,Central Luzon (Region III),Philippines,Digital Marketing Lead,552900.0,Aggressive,Verified,2023-06-13,Facebook,True
+CUST-00053,Debra Davidson,Female,1964-09-25,Penang,Penang,Malaysia,Physician,215400.0,Conservative,Verified,2023-07-07,IB Partner,False
+CUST-00054,Ashley Graham,Female,1967-09-26,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,735100.0,Moderate,Verified,2024-11-16,IB Partner,True
+CUST-00055,Jody Mckay,Female,1966-05-18,Singapore,Central,Singapore,Architect,330100.0,Conservative,Pending,07/06/2023,Referral,True
+CUST-00056,Shawn Baker,Male,1966-04-26,Johor Bahru,Johor,Malaysia,Data Analyst,550200.0,Conservative,Verified,2023-05-17,Referral,False
+CUST-00057,Jonathan White,Male,1977-01-30,Iloilo City,Western Visayas (Region VI),Philippines,Corporate Lawyer,423700.0,Aggressive,Verified,2023-01-13,Google,True
+CUST-00058,Susan Harrell,Female,1998-10-24,Makati,National Capital Region (NCR),Philippines,Certified Public Accountant,1.9031e+06,Moderate,Verified,2024-03-03,Referral,True
+CUST-00059,Edwin Fowler,Male,1960-08-23,Taguig,National Capital Region (NCR),Philippines,Digital Marketing Lead,1.9787e+06,Moderate,Verified,2024-08-03,IB Partner,True
+CUST-00060,Lee Hernandez,Male,1975-06-07,Pasig,National Capital Region (NCR),Philippines,Sales Executive,530500.0,Conservative,Verified,2024-10-28,Facebook,True
+CUST-00061,Phillip Ryan,Male,1961-09-08,Angeles City,Central Luzon (Region III),Philippines,Sales Executive,536900.0,Aggressive,Rejected,2025-04-04,Referral,False
+CUST-00062,Richard Moreno, Male,1958-12-21,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Graphic Designer,398700.0,Conservative,Verified,2024-08-16,Referral,True
+CUST-00063,April Nguyen,Female,1995-03-25,Pasig,National Capital Region (NCR),Philippines,Corporate Lawyer,1.0904e+06,Moderate,Verified,2024-11-20,Facebook,False
+CUST-00064,Alicia Hickman, Female,1985-02-17,Singapore,Central,Singapore,Bank Branch Officer,411000.0,Conservative,Verified,2023-07-11,Referral,True
+CUST-00065,Sherry Decker,Female,1994-12-23,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Registered Nurse,386000.0,Conservative,Verified,2023-11-07,Organic,True
+CUST-00066,Eric Brown,Male,2001-08-17,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Virtual Assistant,999900.0,Moderate,Verified,2023-10-04,Facebook,True
+CUST-00067,Shawn Arroyo,Male,1958-08-18,Pasig,National Capital Region (NCR),Philippines,Corporate Lawyer,356500.0,Conservative,Verified,2023-03-01,Google,True
+CUST-00068,Bradley Tucker,Male,1960-08-26,Pasig,National Capital Region (NCR),Philippines,Data Analyst,501000.0,Moderate,Verified,2025-06-01,Referral,False
+CUST-00069,Benjamin Hodges,Male,1960-04-03,Calamba,Calabarzon (Region IV-A),Philippines,Customer Service Specialist,180000.0,Conservative,Verified,2023-08-08,Facebook,True
+CUST-00070,Ralph Anderson,Male,1962-07-07,Davao City,Davao Region (Region XI),Philippines,High School Teacher,829700.0,Moderate,Verified,2024-02-13,Facebook,True
+CUST-00071,John Pierce,Male,1973-07-19,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,1.9238e+06,Aggressive,Verified,2023-11-22,Facebook,True
+CUST-00072,Derek Brennan,Male,1979-06-30,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Physician,839400.0,Moderate,Verified,2023-02-10,Facebook,True
+CUST-00073,Jenny Lewis,Female,1957-06-14,Surabaya,East Java,Indonesia,Bank Branch Officer,1.3889e+06,Conservative,Verified,2025-04-02,Referral,False
+CUST-00074,Kimberly Blair,Female,1978-01-30,Davao City,Davao Region (Region XI),Philippines,E-Commerce Merchant,289100.0,Moderate,Verified,2023-07-20,LinkedIn,True
+CUST-00075,Curtis Collins,Male,1973-11-05,Cagayan de Oro,Northern Mindanao (Region X),Philippines,,603600.0,Aggressive,Pending,2023-04-02,LinkedIn,True
+CUST-00076,Zachary Santos,Male,1994-01-27,Calamba,Calabarzon (Region IV-A),Philippines,Digital Marketing Lead,270700.0,Conservative,Verified,2023-11-08,IB Partner,True
+CUST-00077,Jessica Holmes,Female,1968-12-12,Taguig,National Capital Region (NCR),Philippines,Customer Service Specialist,440300.0,Conservative,Verified,2023-05-11,Referral,True
+CUST-00078,Barbara Walker,Female,1965-07-13,Cebu City,Central Visayas (Region VII),Philippines,Architect,869000.0,Aggressive,Verified,2025-06-29,LinkedIn,False
+CUST-00079,Gina Chapman,F,1972-02-24,Makati,National Capital Region (NCR),Philippines,Graphic Designer,550900.0,Conservative,Pending,2023-06-22,,True
+CUST-00080,David Robinson,Male,1980-08-07,Penang,Penang,Malaysia,BPO Operations Manager,196700.0,Moderate,Verified,2023-10-03,Facebook,True
+CUST-00081,Andrea Welch,F,1994-09-22,Pasig,National Capital Region (NCR),Philippines,Sales Executive,210200.0,Moderate,Verified,2023-09-05,Referral,True
+CUST-00082,Darryl Whitehead,Male,2002-06-05,Pasig,National Capital Region (NCR),Philippines,Bank Branch Officer,200900.0,Conservative,Verified,2023-01-25,Google,True
+CUST-00083,Scott Jones,Male,1974-07-22,Johor Bahru,Johor,Malaysia,Sales Executive,718000.0,Moderate,Verified,2023-01-12,LinkedIn,False
+CUST-00084,David Caldwell,Male,1971-12-09,Pasig,National Capital Region (NCR),Philippines,High School Teacher,2.0916e+06,Moderate,Verified,2024-04-12,Referral,True
+CUST-00085,Daniel Anderson,Male,1967-09-24,Cebu City,Central Visayas (Region VII),Philippines,Physician,1.2982e+06,Moderate,Verified,2023-08-01,Facebook,True
+CUST-00086,Timothy Duncan,Male,1959-05-18,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,180000.0,Aggressive,Verified,2023-03-18,IB Partner,True
+CUST-00087,John Mueller,Male,1980-08-28,Singapore,Central,Singapore,SME Retail Owner,1.351e+06,Conservative,Verified,2023-09-23,Facebook,False
+CUST-00088,Rhonda Lee,Female,1965-01-27,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,971700.0,Moderate,Verified,2023-09-07,IB Partner,False
+CUST-00089,Brent Jordan,Male,1970-05-18,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,180000.0,Aggressive,Verified,2024-01-22,LinkedIn,True
+CUST-00090,Jeff Owens,Male,1990-12-31,Baguio City,Cordillera Administrative Region (CAR),Philippines,BPO Operations Manager,418200.0,Conservative,Verified,2025-06-23,Organic,True
+CUST-00091,Nicholas Nunez,Male,1964-04-28,Quezon City,National Capital Region (NCR),Philippines,Financial Analyst,1.0827e+06,Aggressive,Rejected,2023-10-07,,False
+CUST-00092,William Garcia,Male,2001-07-07,Taguig,National Capital Region (NCR),Philippines,Graphic Designer,747400.0,Conservative,Verified,2024-10-03,Facebook,True
+CUST-00093,James Morgan,Male,1975-11-22,Cagayan de Oro,Northern Mindanao (Region X),Philippines,E-Commerce Merchant,211000.0,Moderate,Verified,2024-12-01,Google,True
+CUST-00094,Scott Wright,Male,1959-11-08,QC,National Capital Region (NCR),Philippines,High School Teacher,778600.0,Conservative,Verified,2023-02-16,LinkedIn,True
+CUST-00095,Connor West,Male,1973-01-25,Iloilo City,Western Visayas (Region VI),Philippines,Data Analyst,180000.0,Moderate,Verified,04/01/2024,LinkedIn,False
+CUST-00096,Jennifer Ramirez,female,1960-01-03,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Registered Nurse,441700.0,Aggressive,Verified,2024-02-13,Facebook,True
+CUST-00097,Danielle Leblanc,Female,2001-05-19,Iloilo City,Western Visayas (Region VI),Philippines,,1.1144e+06,Aggressive,Verified,2024-04-07,Facebook,True
+CUST-00098,Jeremy Callahan,Male,1979-01-05,Taguig,National Capital Region (NCR),Philippines,BPO Operations Manager,520500.0,Aggressive,Verified,2023-06-06,Referral,True
+CUST-00099,Krista Williams,female,1967-05-10,Manila,National Capital Region (NCR),Philippines,Graphic Designer,366100.0,Moderate,Verified,2024-02-28,Referral,True
+CUST-00100,Yvonne Huff,Female,1973-11-07,Kowloon,Kowloon,Hong Kong,Graphic Designer,941100.0,Aggressive,Pending,2023-04-23,Google,True
+CUST-00101,Tracy House,Female,1962-08-30,Bangkok,Central,Thailand,SME Retail Owner,997300.0,Moderate,Verified,2025-05-11,Organic,True
+CUST-00102,Sarah Martin, Female,1982-04-17,Baguio City,Cordillera Administrative Region (CAR),Philippines,SME Retail Owner,1.2527e+06,Aggressive,Verified,2024-06-18,LinkedIn,False
+CUST-00103,Karla Lewis,F,1971-12-16,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,931500.0,Moderate,Verified,2023-02-01,Google,True
+CUST-00104,Jennifer Brown,Female,1984-04-20,Hong Kong,Hong Kong Island,Hong Kong,Customer Service Specialist,1.0723e+06,Aggressive,Verified,2024-04-05,Facebook,True
+CUST-00105,Jamie Galloway,Female,1963-01-21,Singapore,Central,Singapore,Physician,846100.0,Conservative,Verified,2025-04-23,Referral,True
+CUST-00106,Derek Bowers,Male,1998-05-29,Singapore,Central,Singapore,Graphic Designer,615700.0,Moderate,Verified,2024-11-07,Referral,True
+CUST-00107,Jesse Henderson,Male,1992-01-31,Baguio City,Cordillera Administrative Region (CAR),Philippines,Civil Engineer,546300.0,Moderate,Verified,2023-09-06,Facebook,True
+CUST-00108,Tyler Cowan,Male,1999-06-23,Angeles City,Central Luzon (Region III),Philippines,E-Commerce Merchant,437400.0,Conservative,Verified,2025-03-23,Facebook,False
+CUST-00109,Justin Higgins,Male,1971-01-16,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,225400.0,Conservative,Verified,2023-06-19,Referral,True
+CUST-00110,Christopher Phillips,M,1993-02-01,Phuket,South,Thailand,SME Retail Owner,268400.0,Aggressive,Verified,08/13/2023,Facebook,True
+CUST-00111,Wayne Riley,Male,1989-02-14,Makati,National Capital Region (NCR),Philippines,Customer Service Specialist,424300.0,Moderate,Pending,2023-05-22,Google,True
+CUST-00112,Kimberly Adkins,Female,1964-09-21,Calamba,Calabarzon (Region IV-A),Philippines,Logistics Coordinator,605700.0,Conservative,Verified,2025-04-20,Facebook,True
+CUST-00113,Amy Silva,Female,1987-02-07,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Graphic Designer,1.3692e+06,Moderate,Verified,2024-10-15,,True
+CUST-00114,Kathryn Farrell,Female,1997-03-03,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,499600.0,Moderate,Verified,2024-04-16,Facebook,True
+CUST-00115,Christopher Yu,Male,2003-01-13,Quezon City,National Capital Region (NCR),Philippines,Digital Marketing Lead,1.017e+06,Moderate,Verified,2024-08-31,Google,True
+CUST-00116,Bobby Lopez,Male,1993-05-15,Bandung,West Java,Indonesia,BPO Operations Manager,1.0708e+06,Aggressive,Verified,2023-08-24,Google,True
+CUST-00117,Linda Leonard,Female,1961-01-21,Singapore,Central,Singapore,High School Teacher,439200.0,Aggressive,Pending,2023-03-06,Referral,True
+CUST-00118,Cynthia Wilson,Female,1978-04-02,Singapore,Central,Singapore,Virtual Assistant,770200.0,Moderate,Pending,2025-02-09,Facebook,True
+CUST-00119,Stefanie Sanchez,Female,1957-04-17,Taguig,National Capital Region (NCR),Philippines,Civil Engineer,435600.0,Moderate,Verified,2025-05-28,IB Partner,True
+CUST-00120,Linda Harvey,Female,1993-11-30,Baguio City,Cordillera Administrative Region (CAR),Philippines,Digital Marketing Lead,1.2631e+06,Moderate,Verified,2023-02-02,Google,True
+CUST-00121,Jennifer Silva,Female,1987-07-06,QC,National Capital Region (NCR),Philippines,Financial Analyst,792000.0,Aggressive,Verified,2023-02-17,Google,False
+CUST-00122,Joseph Donovan,Male,1996-05-09,Taguig,National Capital Region (NCR),Philippines,Financial Analyst,228800.0,Conservative,Verified,2024-05-24,Google,True
+CUST-00123,Dan Moran,Male,1985-04-22,Taguig,National Capital Region (NCR),Philippines,Financial Analyst,573700.0,Conservative,Verified,2023-02-09,LinkedIn,True
+CUST-00124,David Foster,Male,1977-07-24,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,1.5765e+06,Aggressive,Verified,2024-10-19,Organic,False
+CUST-00125,Megan Evans,Female,1966-01-23,Cagayan de Oro,Northern Mindanao (Region X),Philippines,High School Teacher,454400.0,Aggressive,Verified,2025-05-11,Referral,True
+CUST-00126,Emily Walton,Female,1986-09-24,Calamba,Calabarzon (Region IV-A),Philippines,Physician,696900.0,Moderate,Verified,2023-09-13,Google,True
+CUST-00127,Benjamin Ellis,Male,1967-10-13,Calamba,Calabarzon (Region IV-A),Philippines,Registered Nurse,745000.0,Moderate,Verified,2023-09-26,Facebook,True
+CUST-00128,Yvette Ferrell,Female,1974-08-11,Cagayan de Oro,Northern Mindanao (Region X),Philippines,,254000.0,Moderate,Verified,2025-02-25,Google,True
+CUST-00129,Benjamin Lewis, Male,1990-04-24,Makati,National Capital Region (NCR),Philippines,Certified Public Accountant,727400.0,Moderate,Verified,2023-11-21,Referral,True
+CUST-00130,Derek Mahoney,Male,1961-03-05,Angeles City,Central Luzon (Region III),Philippines,Virtual Assistant,199200.0,Conservative,Verified,2023-08-07,Facebook,True
+CUST-00131,Stanley Suarez, Male,1983-08-16,Davao City,Davao Region (Region XI),Philippines,Civil Engineer,335900.0,Conservative,Verified,2023-03-18,IB Partner,True
+CUST-00132,Jacob Moore,Male,1996-12-04,Chiang Mai,North,Thailand,Registered Nurse,1.0682e+06,Moderate,Verified,2025-02-04,Organic,True
+CUST-00133,Sandra Warner,Female,1958-10-20,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Financial Analyst,655100.0,Moderate,Verified,2025-04-23,Referral,False
+CUST-00134,Logan Archer,Male,1961-02-12,Baguio City,Cordillera Administrative Region (CAR),Philippines,SME Retail Owner,417900.0,Moderate,Verified,2023-03-13,IB Partner,True
+CUST-00135,Martha Smith,Female,2001-09-10,Angeles City,Central Luzon (Region III),Philippines,Bank Branch Officer,696300.0,Conservative,Verified,2025-01-01,Referral,True
+CUST-00136,Ruth Evans,Female,1961-08-18,Davao City,Davao Region (Region XI),Philippines,Customer Service Specialist,493400.0,Aggressive,Verified,2023-05-26,Referral,True
+CUST-00137,Matthew Mcmillan,Male,1959-07-10,Hanoi,Red River Delta,Vietnam,Software Engineer,518400.0,Moderate,Verified,2023-05-07,Organic,True
+CUST-00138,Chad Wilson,Male,1965-01-29,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Sales Executive,803400.0,Aggressive,Verified,12/14/2023,,True
+CUST-00139,Ashley Tran,Female,1992-01-16,Kuala Lumpur,Federal Territories,Malaysia,Sales Executive,313400.0,Conservative,Verified,2024-02-02,Referral,True
+CUST-00140,Dominic Jacobs,Male,1974-05-15,Taguig,National Capital Region (NCR),Philippines,Financial Analyst,528300.0,Moderate,Verified,2025-02-17,Google,False
+CUST-00141,Michelle Harris,Female,1978-09-27,Iloilo City,Western Visayas (Region VI),Philippines,Physician,415700.0,Aggressive,Verified,2024-09-29,Facebook,True
+CUST-00142,Mark Baker,Male,1974-11-22,Manila,National Capital Region (NCR),Philippines,Graphic Designer,180000.0,Moderate,Verified,2023-05-12,Referral,True
+CUST-00143,Katherine Whitehead,Female,1975-01-24,Ho Chi Minh City,Southeast,Vietnam,Financial Analyst,274900.0,Conservative,Verified,2024-06-16,Referral,True
+CUST-00144,Sarah Davis,F,1973-12-30,Cagayan de Oro,Northern Mindanao (Region X),Philippines,BPO Operations Manager,1.4931e+06,Conservative,Verified,2025-03-08,Google,True
+CUST-00145,Jeff Hill,male,1979-11-17,Angeles City,Central Luzon (Region III),Philippines,Financial Analyst,667700.0,Conservative,Verified,2024-08-26,Facebook,True
+CUST-00146,Aaron Wise,Male,1971-08-03,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,209000.0,Moderate,Verified,2023-07-29,Facebook,True
+CUST-00147,Mandy Green,Female,1979-04-15,Pasig,National Capital Region (NCR),Philippines,Financial Analyst,180300.0,Moderate,Verified,2023-04-28,LinkedIn,True
+CUST-00148,Patrick Arnold,Male,2003-03-31,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,476300.0,Conservative,Verified,2024-02-17,Facebook,True
+CUST-00149,Jeffrey Smith,Male,2002-05-12,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Registered Nurse,1.486e+06,Moderate,Verified,2024-03-06,Referral,True
+CUST-00150,Benjamin Ware,Male,1959-01-07,Davao City,Davao Region (Region XI),Philippines,Architect,452700.0,Conservative,Verified,2023-11-18,LinkedIn,True
+CUST-00151,Stuart Gardner,Male,1961-04-24,Kuala Lumpur,Federal Territories,Malaysia,Registered Nurse,1.2501e+06,Moderate,Verified,2023-04-18,LinkedIn,True
+CUST-00152,Sandra Aguilar,Female,1976-07-06,Chiang Mai,North,Thailand,Logistics Coordinator,653000.0,Moderate,Verified,2024-04-26,Facebook,True
+CUST-00153,Brittany Anderson,Female,1995-10-26,Pasig,National Capital Region (NCR),Philippines,Logistics Coordinator,708200.0,Conservative,Verified,2025-05-10,Organic,True
+CUST-00154,Eric Nolan,Male,1967-04-25,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Sales Executive,207300.0,Conservative,Verified,2024-06-28,LinkedIn,True
+CUST-00155,Rebecca Valencia,Female,1997-04-15,Calamba,Calabarzon (Region IV-A),Philippines,Corporate Lawyer,972400.0,Conservative,Verified,2024-02-04,Referral,True
+CUST-00156,Steven Clark,Male,1986-04-19,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,409300.0,Conservative,Verified,2025-04-28,LinkedIn,True
+CUST-00157,David Garcia,Male,1988-07-11,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,924400.0,Moderate,Verified,2024-09-20,LinkedIn,True
+CUST-00158,Penny Henson, Female,2003-06-09,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,295500.0,Conservative,Verified,2024-10-16,Google,True
+CUST-00159,Jennifer Oliver,Female,1966-02-11,Singapore,Central,Singapore,High School Teacher,579800.0,Conservative,Verified,2024-06-08,Google,True
+CUST-00160,Christopher Spears,Male,1980-01-29,Singapore,Central,Singapore,,653000.0,Aggressive,Verified,2024-11-25,LinkedIn,True
+CUST-00161,Sean Cherry,Male,1989-03-01,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,462900.0,Aggressive,Verified,2024-04-02,IB Partner,True
+CUST-00162,Robert Keith,Male,1980-03-13,Bangkok,Central,Thailand,Financial Analyst,676800.0,Conservative,Verified,2024-07-20,Google,False
+CUST-00163,Allison Doyle,Female,2004-01-07,Angeles City,Central Luzon (Region III),Philippines,Digital Marketing Lead,428800.0,Moderate,Verified,2024-07-15,LinkedIn,True
+CUST-00164,Gary Galvan,Male,1983-06-30,Calamba,Calabarzon (Region IV-A),Philippines,Corporate Lawyer,330600.0,Moderate,Verified,2024-11-16,LinkedIn,False
+CUST-00165,Robert Shields,Male,1979-08-13,Calamba,Calabarzon (Region IV-A),Philippines,E-Commerce Merchant,1.5315e+06,Aggressive,Verified,2025-03-29,Organic,False
+CUST-00166,Rita Adams,Female,1988-01-24,Taguig,National Capital Region (NCR),Philippines,Graphic Designer,1.0489e+06,Aggressive,Verified,2023-09-26,IB Partner,True
+CUST-00167,Richard Rodriguez,Male,1965-01-06,Kuala Lumpur,Federal Territories,Malaysia,Civil Engineer,306400.0,Conservative,Verified,2024-09-29,Facebook,True
+CUST-00168,Shane Garrison,Male,1992-04-14,Johor Bahru,Johor,Malaysia,Civil Engineer,756600.0,Conservative,Verified,2023-01-29,Facebook,True
+CUST-00169,Daniel Velasquez,Male,1997-07-18,Davao City,Davao Region (Region XI),Philippines,Financial Analyst,310200.0,Moderate,Verified,2024-04-30,Google,True
+CUST-00170,Joe Torres,Male,1979-03-29,Da Nang,South Central,Vietnam,Logistics Coordinator,229700.0,Aggressive,Verified,2025-03-29,Referral,True
+CUST-00171,Robert Perez,Male,1962-05-06,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,1.0382e+06,Aggressive,Pending,2024-08-10,Google,True
+CUST-00172,Allison Lee,Female,1986-05-24,Cebu City,Central Visayas (Region VII),Philippines,Architect,180000.0,Conservative,Verified,2023-09-01,LinkedIn,True
+CUST-00173,Erin Lin,F,2001-10-30,Iloilo City,Western Visayas (Region VI),Philippines,Certified Public Accountant,965400.0,Moderate,Verified,2024-07-06,IB Partner,True
+CUST-00174,Tracy Ramirez,Female,1958-06-18,Da Nang,South Central,Vietnam,Physician,432900.0,Conservative,Verified,2023-11-22,Referral,True
+CUST-00175,Margaret Ross,Female,1983-02-25,Pasig,National Capital Region (NCR),Philippines,Virtual Assistant,445100.0,Moderate,Verified,2024-01-30,LinkedIn,True
+CUST-00176,William Herrera,Male,1995-11-24,Baguio City,Cordillera Administrative Region (CAR),Philippines,Sales Executive,679200.0,Aggressive,Verified,2023-07-27,Facebook,False
+CUST-00177,Todd Wilson,Male,1975-02-08,Makati,National Capital Region (NCR),Philippines,E-Commerce Merchant,763200.0,Moderate,Verified,2024-07-23,Google,True
+CUST-00178,Tracy White,Female,1989-01-02,Tokyo,Kanto,Japan,Corporate Lawyer,293000.0,Conservative,Verified,2023-06-30,Facebook,True
+CUST-00179,Victor Baker,Male,1959-12-22,Phuket,South,Thailand,Graphic Designer,837400.0,Moderate,Verified,2024-02-09,Google,False
+CUST-00180,Ashley Hamilton,Female,1990-03-19,Singapore,Central,Singapore,Digital Marketing Lead,555200.0,Moderate,Verified,2025-05-05,Google,True
+CUST-00181,Monica Edwards,Female,1978-03-07,Phuket,South,Thailand,Digital Marketing Lead,218800.0,Aggressive,Verified,2024-11-21,LinkedIn,True
+CUST-00182,Larry Dixon,Male,1978-07-02,Phuket,South,Thailand,Customer Service Specialist,457900.0,Moderate,Pending,2024-01-13,Google,True
+CUST-00183,James Ray,Male,1992-08-18,Taguig,National Capital Region (NCR),Philippines,Physician,1.3149e+06,Aggressive,Verified,2025-06-01,Referral,True
+CUST-00184,David Fletcher,Male,1980-07-26,Calamba,Calabarzon (Region IV-A),Philippines,BPO Operations Manager,1.6073e+06,Conservative,Verified,2025-05-24,Facebook,False
+CUST-00185,Aaron Frost,Male,1998-11-23,Singapore,Central,Singapore,Bank Branch Officer,837200.0,Conservative,Verified,2023-11-17,Facebook,True
+CUST-00186,Joshua Ball,Male,1973-10-13,Angeles City,Central Luzon (Region III),Philippines,Sales Executive,228800.0,Moderate,Verified,2025-01-17,IB Partner,True
+CUST-00187,Patrick Lambert,Male,1968-05-27,Angeles City,Central Luzon (Region III),Philippines,,717600.0,Conservative,Verified,2025-05-13,IB Partner,True
+CUST-00188,Helen Jones,Female,1959-05-26,Manila,National Capital Region (NCR),Philippines,Graphic Designer,916700.0,Conservative,Verified,2024-07-02,Referral,True
+CUST-00189,Mary Rivera,Female,1988-09-19,Singapore,Central,Singapore,Sales Executive,842000.0,Moderate,Verified,2024-07-10,Facebook,True
+CUST-00190,Emily Charles,Female,1990-08-16,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Sales Executive,876600.0,Conservative,Pending,2024-11-13,Referral,True
+CUST-00191,Nathan Evans,Male,1978-03-30,Da Nang,South Central,Vietnam,Customer Service Specialist,658000.0,Conservative,Verified,2023-08-07,Google,True
+CUST-00192,Eric Ortiz,Male,1971-06-25,Baguio City,Cordillera Administrative Region (CAR),Philippines,Physician,489300.0,Conservative,Verified,2023-06-12,Referral,True
+CUST-00193,James Phillips,Male,1957-05-28,Makati,National Capital Region (NCR),Philippines,Physician,339900.0,Conservative,Verified,2023-11-10,Facebook,True
+CUST-00194,Cameron Fisher,Male,2002-11-04,Johor Bahru,Johor,Malaysia,Sales Executive,180000.0,Aggressive,Verified,2024-03-12,Referral,False
+CUST-00195,Teresa Byrd,Female,1992-10-28,QC,National Capital Region (NCR),Philippines,Certified Public Accountant,647600.0,Aggressive,Verified,2024-11-07,Facebook,True
+CUST-00196,Steven Gilbert,Male,1991-09-11,Cebu City,Central Visayas (Region VII),Philippines,Certified Public Accountant,583300.0,Conservative,Verified,2023-08-23,Referral,True
+CUST-00197,Eric Kelley,Male,1992-01-09,Iloilo City,Western Visayas (Region VI),Philippines,Bank Branch Officer,751000.0,Aggressive,Verified,2024-05-29,Facebook,True
+CUST-00198,April Mitchell,Female,1982-03-28,Surabaya,East Java,Indonesia,Digital Marketing Lead,207000.0,Moderate,Verified,2023-01-04,Google,True
+CUST-00199,Jeffrey Carpenter,Male,1963-01-08,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Data Analyst,797000.0,Aggressive,Verified,2023-01-29,Google,True
+CUST-00200,Matthew Marshall,Male,2002-07-25,Makati,National Capital Region (NCR),Philippines,SME Retail Owner,2.0784e+06,Moderate,Verified,2025-05-30,Facebook,True
+CUST-00201,Jeremy Lewis,Male,1965-09-13,Singapore,Central,Singapore,Digital Marketing Lead,542200.0,Conservative,Verified,2025-02-13,Google,True
+CUST-00202,Kara Santana,Female,1975-01-03,Kowloon,Kowloon,Hong Kong,High School Teacher,492900.0,Moderate,Verified,2025-02-25,Referral,False
+CUST-00203,Rebecca Jackson, Female,1975-02-15,Iloilo City,Western Visayas (Region VI),Philippines,Bank Branch Officer,634200.0,Aggressive,Verified,2023-10-27,LinkedIn,False
+CUST-00204,Bradley Robertson,Male,1972-02-28,Iloilo City,Western Visayas (Region VI),Philippines,Civil Engineer,2.0472e+06,Moderate,Pending,2024-04-12,IB Partner,True
+CUST-00205,Mackenzie Rogers,Female,1998-08-07,Taguig,National Capital Region (NCR),Philippines,Registered Nurse,256300.0,Moderate,Verified,2024-09-06,Facebook,True
+CUST-00206,Sabrina Potter,Female,1968-12-11,Taguig,National Capital Region (NCR),Philippines,Digital Marketing Lead,590200.0,Conservative,Verified,2023-08-20,Organic,True
+CUST-00207,Megan Walker,Female,1992-05-13,Taguig,National Capital Region (NCR),Philippines,Certified Public Accountant,298400.0,Moderate,Verified,2024-11-09,LinkedIn,True
+CUST-00208,Curtis Johnson,Male,1979-10-04,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,354300.0,Aggressive,Verified,2024-09-23,Google,True
+CUST-00209,David Alvarez,Male,1972-03-24,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,497000.0,Moderate,Verified,2024-01-07,Referral,True
+CUST-00210,Sarah Jones,Female,1975-08-27,Pasig,National Capital Region (NCR),Philippines,Financial Analyst,1.2849e+06,Moderate,Verified,2024-02-01,Referral,False
+CUST-00211,Jason Soto,Male,1988-11-03,Pasig,National Capital Region (NCR),Philippines,BPO Operations Manager,1.7492e+06,Moderate,Verified,2023-10-07,Facebook,True
+CUST-00212,Cheyenne Horton,Female,1985-06-01,Taguig,National Capital Region (NCR),Philippines,Civil Engineer,697100.0,Moderate,Pending,2025-01-01,IB Partner,True
+CUST-00213,Kathleen Sanchez,Female,1981-08-21,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,397900.0,Moderate,Verified,2025-06-18,Google,True
+CUST-00214,Matthew Smith,Male,2002-01-30,Penang,Penang,Malaysia,Civil Engineer,2.7998e+06,Aggressive,Verified,2025-06-29,Referral,True
+CUST-00215,Nicole Carrillo,Female,1969-12-01,Singapore,Central,Singapore,E-Commerce Merchant,384300.0,Aggressive,Verified,2024-12-03,Google,True
+CUST-00216,Ashley Coleman,Female,1999-04-29,Singapore,Central,Singapore,Certified Public Accountant,348600.0,Moderate,Verified,2023-11-15,Facebook,True
+CUST-00217,Casey Rubio,Female,1982-06-24,Baguio City,Cordillera Administrative Region (CAR),Philippines,Registered Nurse,180000.0,Moderate,Verified,2024-12-12,Facebook,True
+CUST-00218,Joseph Williams,Male,1973-04-03,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,1.3282e+06,Moderate,Verified,2023-08-11,Google,False
+CUST-00219,Danielle Charles,Female,2000-03-29,Phuket,South,Thailand,BPO Operations Manager,992900.0,Conservative,Verified,2025-03-27,Google,True
+CUST-00220,Jesus Solis,Male,1957-04-05,Davao City,Davao Region (Region XI),Philippines,Civil Engineer,2.6607e+06,Conservative,Verified,2023-09-01,LinkedIn,False
+CUST-00221,Mary Travis,Female,1986-04-20,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,199800.0,Conservative,Pending,2024-01-03,Google,True
+CUST-00222,Linda Dodson,Female,2003-04-11,Pasig,National Capital Region (NCR),Philippines,Software Engineer,1.3855e+06,Moderate,Verified,2023-03-27,Google,True
+CUST-00223,Stephanie Salazar,Female,1973-01-31,MNL,National Capital Region (NCR),Philippines,Data Analyst,539100.0,Conservative,Verified,2023-03-16,LinkedIn,True
+CUST-00224,Nathan Wagner,Male,1977-10-30,Ho Chi Minh City,Southeast,Vietnam,Architect,889300.0,Moderate,Verified,2023-12-25,Facebook,True
+CUST-00225,Ronald Kelley,Male,1973-12-11,Pasig,National Capital Region (NCR),Philippines,,180000.0,Aggressive,Verified,2024-05-16,Google,True
+CUST-00226,Steven Manning,Male,1968-09-29,Chiang Mai,North,Thailand,Bank Branch Officer,1.3948e+06,Conservative,Verified,2023-01-16,LinkedIn,True
+CUST-00227,John Green,Male,1981-09-05,Baguio City,Cordillera Administrative Region (CAR),Philippines,Data Analyst,877500.0,Moderate,Rejected,2025-02-09,Facebook,False
+CUST-00228,David Walsh,Male,1965-03-09,QC,National Capital Region (NCR),Philippines,Logistics Coordinator,500600.0,Aggressive,Verified,2023-04-15,Facebook,True
+CUST-00229,Pamela Boyd,Female,1986-08-20,Calamba,Calabarzon (Region IV-A),Philippines,BPO Operations Manager,797100.0,Moderate,Verified,2025-06-28,Facebook,True
+CUST-00230,Mark Hill,Male,1978-05-31,Makati,National Capital Region (NCR),Philippines,Customer Service Specialist,305400.0,Conservative,Verified,2023-09-05,Facebook,True
+CUST-00231,Angela Mitchell,Female,1996-07-28,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,346600.0,Moderate,Verified,2023-12-12,Google,True
+CUST-00232,Denise Flores,Female,1974-11-26,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Corporate Lawyer,375100.0,Moderate,Rejected,2023-05-26,Facebook,False
+CUST-00233,Joshua Taylor,Male,1991-09-25,Kowloon,Kowloon,Hong Kong,E-Commerce Merchant,180000.0,Moderate,Verified,2025-01-21,Google,True
+CUST-00234,Crystal Benson,F,1971-04-18,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,923600.0,Conservative,Verified,2024-10-28,Facebook,True
+CUST-00235,Michelle Brown,Female,1966-05-24,Ho Chi Minh City,Southeast,Vietnam,Software Engineer,1.1558e+06,Moderate,Verified,2023-03-13,Facebook,True
+CUST-00236,Jason Daniels,Male,1963-09-04,Kuala Lumpur,Federal Territories,Malaysia,Sales Executive,319000.0,Moderate,Verified,2023-04-07,Referral,True
+CUST-00237,Jason Clark,Male,1960-05-19,Pasig,National Capital Region (NCR),Philippines,BPO Operations Manager,651300.0,Conservative,Verified,2024-07-08,Facebook,False
+CUST-00238,Jennifer Stein,Female,1998-04-11,Penang,Penang,Malaysia,Sales Executive,429100.0,Moderate,Verified,2025-02-27,IB Partner,True
+CUST-00239,Lauren Dominguez,Female,1997-07-15,Angeles City,Central Luzon (Region III),Philippines,Graphic Designer,642600.0,Conservative,Verified,2023-04-11,Referral,True
+CUST-00240,Shannon Cannon,Female,1960-07-08,Taguig,National Capital Region (NCR),Philippines,SME Retail Owner,335500.0,Moderate,Verified,2023-07-21,Facebook,True
+CUST-00241,Jamie Smith,Female,1986-02-17,Kuala Lumpur,Federal Territories,Malaysia,Digital Marketing Lead,281900.0,Aggressive,Verified,2024-05-11,Facebook,False
+CUST-00242,Heather Molina,Female,2002-10-18,Johor Bahru,Johor,Malaysia,Digital Marketing Lead,1.0512e+06,Conservative,Verified,2023-04-09,,True
+CUST-00243,Scott Ashley,Male,1990-07-16,Quezon City,National Capital Region (NCR),Philippines,Digital Marketing Lead,492200.0,Moderate,Pending,05/10/2023,Google,False
+CUST-00244,Jennifer Adkins,Female,1964-09-28,Manila,National Capital Region (NCR),Philippines,Registered Nurse,2.033e+06,Moderate,Verified,2023-01-10,LinkedIn,True
+CUST-00245,Joshua Morrison,Male,1987-05-07,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,530500.0,Moderate,Verified,2024-03-30,Referral,False
+CUST-00246,Connie Robinson,Female,2000-05-31,Surabaya,East Java,Indonesia,E-Commerce Merchant,273800.0,Aggressive,Verified,2024-10-13,Google,True
+CUST-00247,Jeffrey Johnson,Male,1970-02-07,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,1.1839e+06,Moderate,Verified,2024-01-11,Referral,True
+CUST-00248,George Shelton,Male,1994-11-17,Calamba,Calabarzon (Region IV-A),Philippines,Graphic Designer,789300.0,Conservative,Pending,2023-08-22,Organic,True
+CUST-00249,Jennifer Martin,Female,1987-06-13,Angeles City,Central Luzon (Region III),Philippines,Bank Branch Officer,842600.0,Aggressive,Verified,2024-01-22,Google,True
+CUST-00250,John Anderson,Male,2003-11-02,Taguig,National Capital Region (NCR),Philippines,Graphic Designer,1.155e+06,Moderate,Pending,2023-05-31,Referral,False
+CUST-00251,Lisa Johnson,Female,1975-09-29,Angeles City,Central Luzon (Region III),Philippines,Data Analyst,329800.0,Moderate,Verified,2023-04-12,LinkedIn,False
+CUST-00252,James Elliott,Male,1983-02-08,Surabaya,East Java,Indonesia,Virtual Assistant,471400.0,Conservative,Verified,2023-06-15,Organic,True
+CUST-00253,Alyssa Day,Female,1963-04-18,Manila,National Capital Region (NCR),Philippines,Corporate Lawyer,457400.0,Conservative,Pending,2025-06-16,Referral,False
+CUST-00254,Brandy Murray,Female,1988-04-25,Angeles City,Central Luzon (Region III),Philippines,Digital Marketing Lead,213700.0,Moderate,Verified,2024-10-20,IB Partner,True
+CUST-00255,Anthony Gray,Male,1994-05-29,Quezon City,National Capital Region (NCR),Philippines,Physician,429700.0,Conservative,Verified,2023-04-25,Organic,True
+CUST-00256,Christine Murphy,Female,1996-03-22,Singapore,Central,Singapore,Physician,1.2754e+06,Conservative,Verified,2023-10-02,Facebook,True
+CUST-00257,Philip Gray,Male,1994-08-14,Penang,Penang,Malaysia,Logistics Coordinator,604000.0,Aggressive,Verified,2024-01-11,LinkedIn,True
+CUST-00258,Nicole Decker,Female,1982-10-31,Baguio City,Cordillera Administrative Region (CAR),Philippines,Data Analyst,205800.0,Conservative,Pending,2023-06-15,Google,True
+CUST-00259,Darlene Miller,Female,1999-12-04,Makati,National Capital Region (NCR),Philippines,Graphic Designer,180000.0,Conservative,Verified,2025-02-14,Google,True
+CUST-00260,Alicia Ryan,Female,1985-02-13,Taguig,National Capital Region (NCR),Philippines,Corporate Lawyer,1.5945e+06,Conservative,Verified,2025-05-06,Google,True
+CUST-00261,Zachary Bell,Male,1963-11-16,Cebu City,Central Visayas (Region VII),Philippines,Financial Analyst,483400.0,Moderate,Verified,2023-08-12,Organic,True
+CUST-00262,Matthew Harrington,Male,1967-12-18,Johor Bahru,Johor,Malaysia,Customer Service Specialist,331000.0,Moderate,Pending,2023-01-16,Google,True
+CUST-00263,Marissa Webster,Female,1974-02-01,Makati,National Capital Region (NCR),Philippines,Certified Public Accountant,426600.0,Aggressive,Pending,2023-09-01,Google,True
+CUST-00264,Tiffany Gonzalez,Female,1962-01-26,Iloilo City,Western Visayas (Region VI),Philippines,Corporate Lawyer,188200.0,Conservative,Pending,2024-06-14,Facebook,True
+CUST-00265,Alex Hernandez,Male,1967-05-17,Chiang Mai,North,Thailand,Certified Public Accountant,1.3528e+06,Conservative,Verified,2025-01-06,Referral,True
+CUST-00266,Cameron Caldwell,Male,1973-05-15, Quezon City,National Capital Region (NCR),Philippines,Customer Service Specialist,393500.0,Moderate,Verified,2023-11-06,Organic,True
+CUST-00267,Justin Robinson,Male,1963-06-26,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Financial Analyst,1.3025e+06,Moderate,Verified,2023-09-07,LinkedIn,True
+CUST-00268,Melissa Wang,Female,1998-03-05,Baguio City,Cordillera Administrative Region (CAR),Philippines,Architect,532400.0,Moderate,Verified,2023-08-15,Facebook,True
+CUST-00269,Christopher Lawson,Male,1965-08-02,Davao City,Davao Region (Region XI),Philippines,Registered Nurse,1.3588e+06,Aggressive,Verified,2023-01-03,Organic,True
+CUST-00270,Paul Wilson,Male,1990-02-22,Makati,National Capital Region (NCR),Philippines,Physician,612000.0,Moderate,Verified,2023-01-13,Organic,True
+CUST-00271,Sabrina Oconnell,Female,1969-08-03,Quezon City,National Capital Region (NCR),Philippines,Corporate Lawyer,918200.0,Moderate,Verified,2024-01-25,Google,True
+CUST-00272,Brian Johnson,Male,1961-02-14,Cebu City,Central Visayas (Region VII),Philippines,Software Engineer,838200.0,Aggressive,Verified,2024-07-16,Facebook,False
+CUST-00273,Emily Byrd,Female,1980-09-20,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,785300.0,Conservative,Verified,2023-01-12,Google,True
+CUST-00274,Tyler Sanders,Male,1999-11-07,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,651200.0,Aggressive,Verified,2023-07-02,Facebook,False
+CUST-00275,Michelle Jones,Female,1986-08-18,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,438700.0,Moderate,Verified,2025-04-08,Referral,False
+CUST-00276,Melissa Burton,Female,1984-11-28,Davao City,Davao Region (Region XI),Philippines,Financial Analyst,1.8908e+06,Moderate,Pending,2025-06-20,Google,True
+CUST-00277,Ashley Barton,Female,1960-01-09,Taguig,National Capital Region (NCR),Philippines,Sales Executive,277400.0,Aggressive,Verified,2024-08-07,Organic,True
+CUST-00278,Samuel Burke,Male,1959-10-02,Cagayan de Oro,Northern Mindanao (Region X),Philippines,SME Retail Owner,515500.0,Moderate,Pending,2024-04-20,Referral,True
+CUST-00279,Barbara Riggs,Female,1977-04-26,Bandung,West Java,Indonesia,Certified Public Accountant,519200.0,Moderate,Verified,2024-06-15,Organic,True
+CUST-00280,Rachel Reed,Female,1959-05-15,Surabaya,East Java,Indonesia,Certified Public Accountant,675800.0,Conservative,Verified,2023-12-04,Organic,True
+CUST-00281,Jeffrey Wood,Male,1983-07-12,Manila,National Capital Region (NCR),Philippines,Corporate Lawyer,383800.0,Moderate,Verified,2023-07-03,Facebook,False
+CUST-00282,Jonathan Peterson,Male,1984-09-14,Angeles City,Central Luzon (Region III),Philippines,Architect,636700.0,Moderate,Verified,2023-12-09,Facebook,True
+CUST-00283,Samuel Short,Male,1964-09-23,Manila,National Capital Region (NCR),Philippines,Digital Marketing Lead,458300.0,Conservative,Verified,2024-09-29,LinkedIn,True
+CUST-00284,Ashley Yu,Female,1972-09-02,Angeles City,Central Luzon (Region III),Philippines,Certified Public Accountant,180000.0,Moderate,Verified,2024-08-26,LinkedIn,True
+CUST-00285,Madison Poole,Female,1979-06-26,Manila,National Capital Region (NCR),Philippines,BPO Operations Manager,517400.0,Moderate,Verified,2024-09-08,Referral,True
+CUST-00286,Michelle Graham,Female,1982-07-26,Davao City,Davao Region (Region XI),Philippines,Architect,243200.0,Moderate,Verified,2024-07-08,Google,True
+CUST-00287,Morgan Sheppard,Female,1970-11-17,Quezon City,National Capital Region (NCR),Philippines,Logistics Coordinator,180000.0,Conservative,Verified,2023-02-25,Google,False
+CUST-00288,Debra Morton,Female,1968-08-18,QUEZON CITY,National Capital Region (NCR),Philippines,Graphic Designer,564100.0,Moderate,Verified,2024-07-24,LinkedIn,True
+CUST-00289,Joshua Webb,Male,1980-12-22,Cagayan de Oro,Northern Mindanao (Region X),Philippines,SME Retail Owner,716200.0,Conservative,Verified,03/13/2025,LinkedIn,True
+CUST-00290,Jeffrey Simon,Male,2002-07-15,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Sales Executive,735400.0,Conservative,Verified,2024-08-14,Facebook,True
+CUST-00291,Debra Christian,Female,1999-03-27,Kuala Lumpur,Federal Territories,Malaysia,BPO Operations Manager,755900.0,Moderate,Verified,2024-06-11,Facebook,True
+CUST-00292,Ronald Miller,Male,1997-03-31,Angeles City,Central Luzon (Region III),Philippines,E-Commerce Merchant,180000.0,Conservative,Verified,2023-07-24,Facebook,True
+CUST-00293,Sierra Sanchez,Female,1982-04-25,Bangkok,Central,Thailand,High School Teacher,203700.0,Conservative,Verified,2024-12-22,IB Partner,True
+CUST-00294,Julie Bishop,Female,1975-03-04,Taguig,National Capital Region (NCR),Philippines,Virtual Assistant,1.9669e+06,Moderate,Verified,2024-02-16,Organic,True
+CUST-00295,James Johnson,Male,1966-04-08,Jakarta,DKI Jakarta,Indonesia,Logistics Coordinator,252200.0,Moderate,Rejected,2023-08-28,LinkedIn,False
+CUST-00296,Sarah White,Female,1993-02-04,Chiang Mai,North,Thailand,Sales Executive,778700.0,Aggressive,Rejected,2024-03-22,Facebook,False
+CUST-00297,Daniel Salinas,Male,1967-01-27,Hong Kong,Hong Kong Island,Hong Kong,Civil Engineer,322200.0,Aggressive,Verified,2023-04-22,Google,True
+CUST-00298,Gina Beard,Female,1972-09-25,Penang,Penang,Malaysia,Certified Public Accountant,542600.0,Moderate,Verified,2025-04-23,Facebook,True
+CUST-00299,Meredith Hill,Female,2001-08-04,Singapore,Central,Singapore,Software Engineer,334200.0,Aggressive,Verified,2024-10-01,Referral,True
+CUST-00300,Alexandra Vaughan,Female,1987-07-10,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,753000.0,Aggressive,Verified,2023-10-25,Facebook,False
+CUST-00301,Bradley Cortez,Male,1989-10-20,Singapore,Central,Singapore,SME Retail Owner,564100.0,Moderate,Verified,2024-12-24,Organic,True
+CUST-00302,John Chang,male,1962-05-17,Manila,National Capital Region (NCR),Philippines,Virtual Assistant,379000.0,Moderate,Verified,2023-02-19,Facebook,True
+CUST-00303,Michael Brewer,Male,1960-10-01,Pasig,National Capital Region (NCR),Philippines,E-Commerce Merchant,251700.0,Conservative,Verified,2023-12-18,Google,True
+CUST-00304,John Mcguire,Male,1965-07-16,Cagayan de Oro,Northern Mindanao (Region X),Philippines,SME Retail Owner,616700.0,Moderate,Verified,2024-08-16,IB Partner,True
+CUST-00305,Brandon Walker,Male,1979-03-22,Bandung,West Java,Indonesia,Financial Analyst,225300.0,Moderate,Verified,2023-01-22,Google,True
+CUST-00306,Michael Torres,Male,1980-11-14,Pasig,National Capital Region (NCR),Philippines,Logistics Coordinator,687400.0,Conservative,Verified,2024-10-07,Facebook,True
+CUST-00307,Lauren Kennedy,Female,1989-05-22,Taguig,National Capital Region (NCR),Philippines,High School Teacher,3.0664e+06,Conservative,Verified,15/01/2025,Organic,True
+CUST-00308,Joseph Coleman,Male,1967-09-19,Baguio City,Cordillera Administrative Region (CAR),Philippines,E-Commerce Merchant,1.2874e+06,Aggressive,Verified,2024-06-25,Google,True
+CUST-00309,Patrick Rivera,Male,1999-12-19,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Software Engineer,837800.0,Moderate,Verified,2023-07-07,Referral,True
+CUST-00310,Michele Nelson,Female,1991-04-14,Baguio City,Cordillera Administrative Region (CAR),Philippines,Physician,484900.0,Conservative,Verified,2024-11-13,Google,True
+CUST-00311,Danielle Martinez,Female,1997-09-01,Calamba,Calabarzon (Region IV-A),Philippines,Physician,180000.0,Conservative,Verified,2023-11-05,Organic,True
+CUST-00312,Cheryl Wilson,Female,1980-10-20,Baguio City,Cordillera Administrative Region (CAR),Philippines,,209200.0,Moderate,Pending,2024-11-01,Referral,True
+CUST-00313,Kimberly Gill,Female,1989-12-09,Angeles City,Central Luzon (Region III),Philippines,Certified Public Accountant,1.2297e+06,Aggressive,Verified,2024-07-26,Google,True
+CUST-00314,Cathy Robinson,Female,1994-09-29,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,300400.0,Moderate,Verified,2023-03-27,Referral,True
+CUST-00315,Kari Hardy,Female,1986-05-04,Pasig,National Capital Region (NCR),Philippines,Graphic Designer,319500.0,Moderate,Verified,2023-04-02,Facebook,True
+CUST-00316,William Warren,Male,1963-08-02,Taguig,National Capital Region (NCR),Philippines,E-Commerce Merchant,459300.0,Conservative,Verified,2023-01-14,LinkedIn,True
+CUST-00317,Diane Garcia,Female,1977-10-23,Makati,National Capital Region (NCR),Philippines,Bank Branch Officer,249600.0,Conservative,Verified,2023-03-07,Facebook,True
+CUST-00318,Cory Perez,Male,1965-05-12,Cagayan de Oro,Northern Mindanao (Region X),Philippines,SME Retail Owner,223200.0,Moderate,Verified,2023-09-30,Referral,False
+CUST-00319,Christopher Smith,Male,1961-02-03,Cagayan de Oro,Northern Mindanao (Region X),Philippines,,496700.0,Aggressive,Verified,2023-01-24,Referral,False
+CUST-00320,Joseph Hill,Male,1961-08-24,Da Nang,South Central,Vietnam,SME Retail Owner,280300.0,Moderate,Verified,2025-05-04,Referral,True
+CUST-00321,William Tran,Male,1987-07-14,Bangkok,Central,Thailand,E-Commerce Merchant,310600.0,Moderate,Verified,2025-04-15,Referral,True
+CUST-00322,Melissa Martinez,Female,1962-10-21,Cebu City,Central Visayas (Region VII),Philippines,Certified Public Accountant,302200.0,Moderate,Verified,2023-06-07,Google,True
+CUST-00323,Sean Henry,Male,1961-04-22,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,733200.0,Moderate,Verified,2023-10-11,Referral,True
+CUST-00324,Shane Andrews,Male,1958-12-13,Calamba,Calabarzon (Region IV-A),Philippines,Virtual Assistant,439000.0,Moderate,Verified,2024-11-07,Facebook,True
+CUST-00325,John Alexander,Male,1987-07-14,Jakarta,DKI Jakarta,Indonesia,Bank Branch Officer,455200.0,Moderate,Verified,2024-08-24,Organic,False
+CUST-00326,Cathy Williams,Female,1993-04-17,Quezon City,National Capital Region (NCR),Philippines,,771400.0,Moderate,Verified,2024-06-13,IB Partner,False
+CUST-00327,Todd Woods,Male,1976-07-29,Penang,Penang,Malaysia,Graphic Designer,466700.0,Moderate,Verified,2025-06-20,Referral,True
+CUST-00328,Samantha Morales,female,1960-04-02,Calamba,Calabarzon (Region IV-A),Philippines,Physician,425400.0,Aggressive,Verified,2024-07-27,Referral,True
+CUST-00329,Angela Soto,Female,1961-09-19,Calamba,Calabarzon (Region IV-A),Philippines,BPO Operations Manager,707800.0,Moderate,Verified,2024-09-01,Facebook,True
+CUST-00330,Anthony Hernandez,Male,1977-03-10,Quezon City,National Capital Region (NCR),Philippines,Certified Public Accountant,809700.0,Conservative,Verified,2024-04-02,Facebook,True
+CUST-00331,Kristine Torres,Female,1997-01-03,Singapore,Central,Singapore,E-Commerce Merchant,465100.0,Conservative,Verified,2024-04-23,Referral,True
+CUST-00332,Xavier Wilson,Male,1984-03-05,Taguig,National Capital Region (NCR),Philippines,Certified Public Accountant,543000.0,Moderate,Verified,2023-09-23,IB Partner,False
+CUST-00333,Phillip Obrien,Male,1970-06-24,Quezon City,National Capital Region (NCR),Philippines,SME Retail Owner,302100.0,Moderate,Verified,2024-04-19,LinkedIn,True
+CUST-00334,Rachel Perez,Female,1977-09-12,Jakarta,DKI Jakarta,Indonesia,Data Analyst,286300.0,Moderate,Verified,2025-04-16,Referral,True
+CUST-00335,Kelly Hayes,Female,1987-10-17,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,867200.0,Moderate,Verified,2023-12-10,IB Partner,True
+CUST-00336,Jeremy Dalton,Male,1987-12-05,Taguig,National Capital Region (NCR),Philippines,Registered Nurse,695600.0,Conservative,Verified,2023-05-02,Referral,True
+CUST-00337,Wanda Torres,Female,2001-03-18,Manila,National Capital Region (NCR),Philippines,Sales Executive,700500.0,Moderate,Verified,2024-06-30,Facebook,True
+CUST-00338,Marc Lynch,Male,1990-06-19,Singapore,Central,Singapore,E-Commerce Merchant,622200.0,Moderate,Verified,2024-12-16,Referral,True
+CUST-00339,Natalie Meza,Female,1972-07-30,Davao City,Davao Region (Region XI),Philippines,Logistics Coordinator,530400.0,Moderate,Verified,2025-05-23,Facebook,True
+CUST-00340,Christine Clark,Female,1992-09-07,Ho Chi Minh City,Southeast,Vietnam,Corporate Lawyer,825300.0,Moderate,Verified,2024-05-08,Organic,True
+CUST-00341,Mary Moore,Female,1957-05-12,Makati,National Capital Region (NCR),Philippines,Registered Nurse,970800.0,Conservative,Verified,2024-12-18,Referral,True
+CUST-00342,Carrie Jones,Female,2000-02-23,Ho Chi Minh City,Southeast,Vietnam,Civil Engineer,955200.0,Moderate,Verified,2023-08-17,Google,True
+CUST-00343,Aaron Hayes,Male,1976-05-13,Kuala Lumpur,Federal Territories,Malaysia,Digital Marketing Lead,480000.0,Aggressive,Verified,2024-01-22,Referral,True
+CUST-00344,Linda Carter,Female,1980-09-11,Cebu City,Central Visayas (Region VII),Philippines,Corporate Lawyer,1.32e+06,Aggressive,Verified,2024-01-17,Organic,True
+CUST-00345,Crystal Mann,Female,1964-11-17,Johor Bahru,Johor,Malaysia,Data Analyst,600400.0,Moderate,Verified,2023-10-30,Google,True
+CUST-00346,Michele Gibson,Female,1962-04-28,Johor Bahru,Johor,Malaysia,BPO Operations Manager,790200.0,Conservative,Verified,2024-10-14,Referral,True
+CUST-00347,Michael Bradshaw,Male,1978-06-29,Ho Chi Minh City,Southeast,Vietnam,E-Commerce Merchant,622700.0,Moderate,Verified,2025-03-15,Facebook,True
+CUST-00348,Richard Weber, Male,1974-06-03,Manila,National Capital Region (NCR),Philippines,Software Engineer,608000.0,Moderate,Verified,2023-10-25,Organic,True
+CUST-00349,Matthew Peck,Male,1971-03-11,Pasig,National Capital Region (NCR),Philippines,SME Retail Owner,311700.0,Moderate,Verified,2023-05-04,Google,True
+CUST-00350,Jeffery Stephens,Male,1979-07-20,Iloilo City,Western Visayas (Region VI),Philippines,Logistics Coordinator,828100.0,Aggressive,Verified,01/21/2025,Referral,True
+CUST-00351,Matthew Kerr,Male,1995-05-03,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Data Analyst,3.5583e+06,Conservative,Verified,2025-02-12,Organic,True
+CUST-00352,Ronald Jones,Male,1983-11-21,Baguio City,Cordillera Administrative Region (CAR),Philippines,Graphic Designer,398400.0,Conservative,Verified,2025-05-01,Facebook,True
+CUST-00353,Carol Parker,Female,1992-09-03,Pasig,National Capital Region (NCR),Philippines,High School Teacher,539400.0,Conservative,Verified,2023-08-21,Referral,True
+CUST-00354,Paul Carroll,Male,1982-03-17,Makati,National Capital Region (NCR),Philippines,Bank Branch Officer,379500.0,Conservative,Verified,2024-10-17,Google,True
+CUST-00355,Donna Martinez,Female,1975-02-16,Manila,National Capital Region (NCR),Philippines,High School Teacher,368900.0,Aggressive,Verified,2024-10-13,Referral,True
+CUST-00356,Melissa Lyons,Female,1994-03-10,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,1.4692e+06,Moderate,Verified,2024-12-20,Referral,True
+CUST-00357,Terri Mason,Female,1992-04-21,Singapore,Central,Singapore,BPO Operations Manager,325300.0,Conservative,Verified,2025-01-04,Facebook,True
+CUST-00358,Johnny Miller,Male,1965-05-14,Kuala Lumpur,Federal Territories,Malaysia,Graphic Designer,372400.0,Moderate,Verified,2025-05-17,Facebook,True
+CUST-00359,Andrew Reynolds,Male,1986-04-12,Calamba,Calabarzon (Region IV-A),Philippines,Software Engineer,180000.0,Moderate,Verified,2024-03-10,Facebook,False
+CUST-00360,Erica Wright,Female,1994-09-13,Taguig,National Capital Region (NCR),Philippines,Financial Analyst,307100.0,Moderate,Verified,2023-03-11,Facebook,False
+CUST-00361,Anna Hayden,Female,1970-07-10,Da Nang,South Central,Vietnam,Software Engineer,180000.0,Conservative,Pending,2023-06-25,IB Partner,True
+CUST-00362,Russell Johnston,Male,1970-05-12,Davao City,Davao Region (Region XI),Philippines,Virtual Assistant,789900.0,Moderate,Verified,2025-03-18,Google,True
+CUST-00363,Trevor Key,Male,1965-03-20,Davao City,Davao Region (Region XI),Philippines,,3.4497e+06,Conservative,Verified,2025-02-08,Referral,True
+CUST-00364,Megan Adams,Female,1968-04-28,Cebu City,Central Visayas (Region VII),Philippines,Certified Public Accountant,400600.0,Aggressive,Verified,2023-01-11,Referral,True
+CUST-00365,Amanda Avila,Female,1957-06-05,Baguio City,Cordillera Administrative Region (CAR),Philippines,Physician,180000.0,Conservative,Rejected,2023-12-01,LinkedIn,False
+CUST-00366,John Pearson,Male,1977-01-07,Manila,National Capital Region (NCR),Philippines,Architect,947900.0,Moderate,Verified,2023-08-12,Facebook,True
+CUST-00367,Thomas White,Male,1990-07-19,Singapore,Central,Singapore,BPO Operations Manager,313500.0,Aggressive,Verified,2023-10-20,Facebook,False
+CUST-00368,Kevin Walters,Male,1963-06-28,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,1.2436e+06,Conservative,Verified,2024-08-04,Google,True
+CUST-00369,Katherine Davis,Female,1991-08-01,Cebu City,Central Visayas (Region VII),Philippines,SME Retail Owner,424300.0,Conservative,Verified,2024-04-09,Referral,True
+CUST-00370,Gregory Cook,Male,1990-05-08,Chiang Mai,North,Thailand,Bank Branch Officer,334500.0,Aggressive,Verified,2024-03-14,LinkedIn,False
+CUST-00371,Michael Hodge,Male,1965-02-08,Singapore,Central,Singapore,Civil Engineer,455400.0,Moderate,Verified,2024-02-01,Organic,True
+CUST-00372,Erin Steele,Female,1962-08-11,Davao City,Davao Region (Region XI),Philippines,Sales Executive,860500.0,Moderate,Verified,2024-08-07,Organic,True
+CUST-00373,Dwayne Landry,Male,1988-01-30,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Software Engineer,440400.0,Conservative,Verified,2024-09-14,Facebook,True
+CUST-00374,Robert Pierce, Male,1969-10-04,Iloilo City,Western Visayas (Region VI),Philippines,Logistics Coordinator,366700.0,Conservative,Verified,2023-02-09,Facebook,False
+CUST-00375,Jesse Edwards,Male,1960-09-11,Taguig,National Capital Region (NCR),Philippines,BPO Operations Manager,449000.0,Moderate,Verified,2023-05-05,Facebook,True
+CUST-00376,Frank Cordova,Male,1966-07-03,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,216500.0,Aggressive,Verified,2023-11-07,LinkedIn,True
+CUST-00377,Jared Robertson,Male,2003-10-14,Da Nang,South Central,Vietnam,Registered Nurse,673300.0,Conservative,Verified,2024-02-01,Organic,True
+CUST-00378,William Sandoval,Male,1972-10-21,Makati,National Capital Region (NCR),Philippines,Customer Service Specialist,180000.0,Aggressive,Verified,2025-06-26,IB Partner,True
+CUST-00379,Kimberly Gutierrez,Female,1996-01-15,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,380000.0,Moderate,Verified,2025-03-23,Referral,True
+CUST-00380,Chelsea Cox,Female,1964-04-07,Singapore,Central,Singapore,Certified Public Accountant,861500.0,Conservative,Verified,2024-08-14,Organic,True
+CUST-00381,Peter Garrett,Male,2000-11-13,Davao City,Davao Region (Region XI),Philippines,Virtual Assistant,631600.0,Conservative,Verified,2023-02-02,Google,True
+CUST-00382,Olivia Harris,Female,1957-05-17,Da Nang,South Central,Vietnam,Software Engineer,767900.0,Conservative,Verified,2023-04-02,Organic,True
+CUST-00383,Joshua Pennington,Male,1995-09-09,Johor Bahru,Johor,Malaysia,Certified Public Accountant,491800.0,Moderate,Verified,2024-02-21,Google,True
+CUST-00384,Jessica Wolfe,Female,1984-04-14,Cebu City,Central Visayas (Region VII),Philippines,High School Teacher,1.1387e+06,Moderate,Verified,2024-06-18,Facebook,True
+CUST-00385,Bryan Dudley,Male,1993-01-09,Taguig,National Capital Region (NCR),Philippines,Virtual Assistant,964000.0,Moderate,Verified,2024-08-24,Facebook,True
+CUST-00386,Lisa Allen,Female,1965-10-16,Tokyo,Kanto,Japan,Financial Analyst,696200.0,Conservative,Verified,2023-05-10,IB Partner,True
+CUST-00387,Christopher Pierce,Male,1985-07-15,Singapore,Central,Singapore,Bank Branch Officer,965800.0,Moderate,Verified,2025-03-19,Referral,True
+CUST-00388,Kristen Davis,Female,1969-01-17,Hanoi,Red River Delta,Vietnam,Registered Nurse,856200.0,Moderate,Verified,2024-03-25,Referral,True
+CUST-00389,Willie Durham,Male,2000-11-10,Makati,National Capital Region (NCR),Philippines,Financial Analyst,381200.0,Moderate,Verified,2024-06-24,Referral,True
+CUST-00390,Julia Wilson,Female,1982-10-01,Surabaya,East Java,Indonesia,Certified Public Accountant,206100.0,Moderate,Verified,2023-02-05,Referral,True
+CUST-00391,Ronnie Jimenez,Male,1961-03-24,Makati,National Capital Region (NCR),Philippines,Physician,684100.0,Conservative,Verified,2025-01-21,IB Partner,True
+CUST-00392,Michelle Hicks,Female,1960-06-25,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,745100.0,Moderate,Verified,2024-05-09,Facebook,True
+CUST-00393,Donald Davenport,Male,1994-03-20,Baguio City,Cordillera Administrative Region (CAR),Philippines,Software Engineer,1.079e+06,Moderate,Verified,2023-07-22,Facebook,True
+CUST-00394,Veronica Sanchez,Female,1985-06-29,Angeles City,Central Luzon (Region III),Philippines,BPO Operations Manager,271900.0,Moderate,Verified,2023-10-18,LinkedIn,True
+CUST-00395,Kristen Reyes,Female,1984-10-20,Quezon City,National Capital Region (NCR),Philippines,Customer Service Specialist,277500.0,Conservative,Verified,2023-11-18,Google,False
+CUST-00396,Tammy Romero,Female,1977-06-17,Baguio City,Cordillera Administrative Region (CAR),Philippines,BPO Operations Manager,702700.0,Moderate,Verified,2023-01-25,Facebook,True
+CUST-00397,Shawn Shields,M,1978-10-12,Kuala Lumpur,Federal Territories,Malaysia,Graphic Designer,489700.0,Moderate,Verified,2025-05-08,Facebook,True
+CUST-00398,Donald Tyler,Male,1999-01-16,Pasig,National Capital Region (NCR),Philippines,Corporate Lawyer,180000.0,Moderate,Pending,2025-01-01,Facebook,True
+CUST-00399,Jason Villa,Male,1968-03-13,Makati,National Capital Region (NCR),Philippines,Physician,663400.0,Aggressive,Verified,2025-03-18,Facebook,True
+CUST-00400,Jordan Hoover,Male,1993-05-31,Quezon City,National Capital Region (NCR),Philippines,Virtual Assistant,180000.0,Aggressive,Verified,2023-11-19,Facebook,True
+CUST-00401,Diane Evans,Female,1989-03-24,Makati,National Capital Region (NCR),Philippines,Graphic Designer,270300.0,Conservative,Verified,2024-05-23,Facebook,True
+CUST-00402,Laurie Duarte,Female,1964-07-13,Bangkok,Central,Thailand,Architect,1.2887e+06,Moderate,Verified,2024-02-22,LinkedIn,True
+CUST-00403,Katherine Hernandez,Female,1971-08-18,Johor Bahru,Johor,Malaysia,Registered Nurse,1.7779e+06,Moderate,Verified,2024-03-09,Organic,True
+CUST-00404,Joshua Reed,Male,1985-05-24,Manila,National Capital Region (NCR),Philippines,Architect,224900.0,Aggressive,Verified,2024-06-20,Organic,True
+CUST-00405,Kristen Daniels,Female,1961-02-28,Tokyo,Kanto,Japan,Corporate Lawyer,410900.0,Conservative,Pending,2024-02-15,Referral,True
+CUST-00406,Jordan Morris,Female,1985-07-05,Bandung,West Java,Indonesia,Registered Nurse,529100.0,Conservative,Verified,2024-12-05,Referral,True
+CUST-00407,Chelsea Terry,Female,1977-06-16,Angeles City,Central Luzon (Region III),Philippines,BPO Operations Manager,1.7259e+06,Moderate,Verified,2023-02-23,IB Partner,False
+CUST-00408,Kenneth Hall,Male,1992-06-19,Johor Bahru,Johor,Malaysia,Logistics Coordinator,367600.0,Conservative,Verified,2023-06-25,LinkedIn,True
+CUST-00409,Reginald Williams,Male,1995-06-01,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,371700.0,Moderate,Verified,2025-03-23,Google,True
+CUST-00410,Natasha Thornton,Female,1980-12-05,Osaka,Kansai,Japan,Sales Executive,1.4735e+06,Moderate,Verified,2025-03-14,Facebook,True
+CUST-00411,Robert Hughes,Male,1977-07-29,Iloilo City,Western Visayas (Region VI),Philippines,BPO Operations Manager,398400.0,Conservative,Verified,2025-01-15,Referral,True
+CUST-00412,Matthew Hoover,Male,1966-03-04,Makati,National Capital Region (NCR),Philippines,E-Commerce Merchant,839900.0,Moderate,Verified,2023-12-02,Google,True
+CUST-00413,Veronica Simpson,Female,1985-08-29,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,188300.0,Aggressive,Verified,2024-02-20,Google,False
+CUST-00414,Amanda Shaw,Female,1961-12-22,Phuket,South,Thailand,BPO Operations Manager,457500.0,Aggressive,Verified,2023-01-24,Facebook,True
+CUST-00415,Leslie Kane,Female,1975-06-29,Pasig,National Capital Region (NCR),Philippines,BPO Operations Manager,180000.0,Moderate,Verified,2023-09-12,IB Partner,True
+CUST-00416,Shelly Alexander,Female,2000-09-22,Makati,National Capital Region (NCR),Philippines,Certified Public Accountant,250800.0,Conservative,Verified,2024-10-23,Google,True
+CUST-00417,Joseph Bryant,Male,1969-04-21,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,909500.0,Conservative,Verified,2023-11-09,Google,False
+CUST-00418,Nathan Ortiz,Male,1977-01-07,Singapore,Central,Singapore,BPO Operations Manager,496900.0,Aggressive,Verified,2024-03-13,Facebook,True
+CUST-00419,Mary Moore,Female,1985-09-24,Angeles City,Central Luzon (Region III),Philippines,Bank Branch Officer,413700.0,Moderate,Verified,2023-04-23,LinkedIn,True
+CUST-00420,Julie Costa,Female,1982-01-26,Phuket,South,Thailand,Sales Executive,308900.0,Moderate,Verified,28/03/2024,LinkedIn,True
+CUST-00421,George Schwartz,Male,1989-11-04,Angeles City,Central Luzon (Region III),Philippines,SME Retail Owner,442400.0,Aggressive,Verified,2024-10-19,Facebook,True
+CUST-00422,Marie Christian,Female,1975-03-02,Calamba,Calabarzon (Region IV-A),Philippines,Architect,630800.0,Conservative,Verified,2024-06-05,Google,True
+CUST-00423,Samuel Villarreal,Male,1977-05-22,Cebu City,Central Visayas (Region VII),Philippines,E-Commerce Merchant,1.0029e+06,Moderate,Verified,2024-05-22,Google,True
+CUST-00424,Jamie Stewart,Female,1983-01-04,Makati,National Capital Region (NCR),Philippines,E-Commerce Merchant,180000.0,Conservative,Verified,2025-04-13,Organic,True
+CUST-00425,Nathan Malone,Male,1990-08-16,Iloilo City,Western Visayas (Region VI),Philippines,Certified Public Accountant,292000.0,Conservative,Pending,2023-08-02,Facebook,False
+CUST-00426,Shane Johnson,Male,1985-04-18,Kuala Lumpur,Federal Territories,Malaysia,Logistics Coordinator,572700.0,Moderate,Verified,2023-09-30,Organic,True
+CUST-00427,Barry Welch,Male,1980-08-20,Cebu City,Central Visayas (Region VII),Philippines,High School Teacher,480600.0,Moderate,Verified,2024-07-21,Referral,True
+CUST-00428,Thomas Bright,Male,1981-11-08,Surabaya,East Java,Indonesia,Architect,676200.0,Aggressive,Verified,2024-03-13,Facebook,True
+CUST-00429,Nicole Hamilton,F,1989-06-29,Angeles City,Central Luzon (Region III),Philippines,Physician,616600.0,Moderate,Verified,2025-06-11,Facebook,True
+CUST-00430,Brett Schultz,Male,1976-09-06,Kuala Lumpur,Federal Territories,Malaysia,E-Commerce Merchant,417800.0,Aggressive,Verified,2023-02-24,Facebook,True
+CUST-00431,Shane Wallace,Male,1993-05-18,Bangkok,Central,Thailand,Virtual Assistant,359200.0,Moderate,Verified,2023-04-22,Referral,True
+CUST-00432,Melissa Berger,Female,1980-06-27,Singapore,Central,Singapore,Software Engineer,435000.0,Moderate,Verified,2023-11-08,Referral,False
+CUST-00433,Amber Flynn,Female,1998-04-23,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Registered Nurse,1.1226e+06,Aggressive,Verified,2024-02-22,LinkedIn,True
+CUST-00434,Edward Brooks,Male,1981-11-04,Kuala Lumpur,Federal Territories,Malaysia,,312500.0,Moderate,Verified,2025-03-22,,True
+CUST-00435,Charles Schmidt,Male,1967-03-13,Davao City,Davao Region (Region XI),Philippines,Logistics Coordinator,492500.0,Moderate,Verified,2024-03-26,IB Partner,True
+CUST-00436,Keith Sparks,Male,1965-08-10,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Financial Analyst,582300.0,Conservative,Verified,2024-02-03,Facebook,True
+CUST-00437,Carolyn Miller,Female,1971-05-23,Davao City,Davao Region (Region XI),Philippines,E-Commerce Merchant,1.4852e+06,Conservative,Verified,2023-06-01,Google,False
+CUST-00438,Seth Harvey,Male,1968-12-30,Pasig,National Capital Region (NCR),Philippines,Software Engineer,419100.0,Aggressive,Verified,2024-01-31,IB Partner,True
+CUST-00439,David Durham,Male,2000-12-02,Singapore,Central,Singapore,Software Engineer,986600.0,Moderate,Verified,2024-04-29,Organic,True
+CUST-00440,Charles Murray,Male,1987-12-26,Baguio City,Cordillera Administrative Region (CAR),Philippines,Data Analyst,1.188e+06,Moderate,Verified,2024-06-15,Google,True
+CUST-00441,Dawn Scott,Female,1973-04-16,Surabaya,East Java,Indonesia,Sales Executive,492200.0,Conservative,Verified,2024-07-06,LinkedIn,False
+CUST-00442,Adam Ballard,Male,1966-06-02,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Corporate Lawyer,445400.0,Moderate,Verified,2024-01-27,Facebook,True
+CUST-00443,Stephanie Byrd,Female,1976-08-23,Singapore,Central,Singapore,Graphic Designer,411000.0,Moderate,Verified,2023-05-24,Facebook,True
+CUST-00444,Christopher Alexander,Male,1963-12-04,Cebu City,Central Visayas (Region VII),Philippines,SME Retail Owner,431900.0,Conservative,Verified,2023-05-20,Referral,True
+CUST-00445,Haley Matthews,Female,1991-03-12,manila ,National Capital Region (NCR),Philippines,Bank Branch Officer,918900.0,Moderate,Rejected,2023-05-21,Facebook,False
+CUST-00446,Mark Coleman,Male,1996-10-22,Singapore,Central,Singapore,Physician,601400.0,Moderate,Verified,2024-07-17,Referral,True
+CUST-00447,David Bruce,Male,1999-12-18,Osaka,Kansai,Japan,Bank Branch Officer,603200.0,Aggressive,Verified,19/02/2025,Facebook,False
+CUST-00448,Curtis Cruz,Male,1976-08-26,Manila,National Capital Region (NCR),Philippines,Certified Public Accountant,239200.0,Conservative,Verified,2025-03-15,Organic,True
+CUST-00449,Karen Young,Female,1972-10-10,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,266200.0,Moderate,Verified,2023-10-11,Organic,True
+CUST-00450,Laura Andrews,Female,1990-08-14,Iloilo City,Western Visayas (Region VI),Philippines,BPO Operations Manager,2.2079e+06,Conservative,Verified,03/14/2023,LinkedIn,True
+CUST-00451,Willie Phillips,Male,1967-03-19,Pasig,National Capital Region (NCR),Philippines,Architect,455500.0,Moderate,Verified,2024-07-28,LinkedIn,True
+CUST-00452,William Barrett,Male,1969-04-20,Surabaya,East Java,Indonesia,BPO Operations Manager,303500.0,Moderate,Verified,2023-02-04,Facebook,True
+CUST-00453,Denise Knight,Female,1987-02-07,Singapore,Central,Singapore,Corporate Lawyer,1.3602e+06,Moderate,Verified,2024-07-24,Facebook,True
+CUST-00454,Melissa Garner,Female,1992-10-20,Iloilo City,Western Visayas (Region VI),Philippines,Logistics Coordinator,622600.0,Conservative,Verified,16/12/2023,Google,True
+CUST-00455,Anthony Obrien,Male,1969-02-25,Taguig,National Capital Region (NCR),Philippines,Registered Nurse,761600.0,Aggressive,Verified,2025-02-03,Google,True
+CUST-00456,Jonathan Strong,Male,1972-06-26,Taguig,National Capital Region (NCR),Philippines,,468000.0,Conservative,Verified,2024-07-23,Referral,True
+CUST-00457,Donna Lindsey,Female,1995-12-31,Tokyo,Kanto,Japan,Registered Nurse,413900.0,Moderate,Verified,2024-11-05,Referral,True
+CUST-00458,Lisa Gomez,Female,1992-01-14,Taguig,National Capital Region (NCR),Philippines,Registered Nurse,458000.0,Aggressive,Verified,2024-01-05,Referral,True
+CUST-00459,Mallory Oliver,Female,1981-03-12,Johor Bahru,Johor,Malaysia,High School Teacher,200700.0,Moderate,Verified,2025-02-04,Facebook,False
+CUST-00460,Megan Le,Female,1980-01-05,Quezon City,National Capital Region (NCR),Philippines,SME Retail Owner,484200.0,Aggressive,Verified,2024-04-23,Referral,True
+CUST-00461,Matthew Massey,Male,1996-03-22,Baguio City,Cordillera Administrative Region (CAR),Philippines,,628600.0,Moderate,Verified,2024-07-23,Referral,True
+CUST-00462,Mark Berger,Male,1959-06-18,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,1.8091e+06,Aggressive,Verified,2023-11-25,Google,False
+CUST-00463,Matthew Parker,Male,1985-10-06,Hanoi,Red River Delta,Vietnam,Sales Executive,545000.0,Moderate,Verified,2024-02-14,IB Partner,True
+CUST-00464,Jeremiah Riley,Male,1986-02-09, Quezon City,National Capital Region (NCR),Philippines,Software Engineer,180000.0,Moderate,Verified,2025-02-04,Google,True
+CUST-00465,Nicholas Davis,Male,2001-03-05,Pasig,National Capital Region (NCR),Philippines,Digital Marketing Lead,482200.0,Conservative,Verified,2023-12-25,LinkedIn,False
+CUST-00466,Edward Burgess,Male,1962-11-20,Baguio City,Cordillera Administrative Region (CAR),Philippines,High School Teacher,3.3113e+06,Moderate,Verified,2023-01-20,LinkedIn,False
+CUST-00467,Christopher Anderson,Male,1992-12-22,Taguig,National Capital Region (NCR),Philippines,Physician,926500.0,Conservative,Verified,2023-12-12,,True
+CUST-00468,Kimberly Mata,Female,1957-08-30,Ho Chi Minh City,Southeast,Vietnam,E-Commerce Merchant,296100.0,Aggressive,Verified,2023-12-24,Google,True
+CUST-00469,Joseph Mcintyre,Male,1980-09-20,Davao City,Davao Region (Region XI),Philippines,Digital Marketing Lead,768300.0,Conservative,Verified,2024-01-17,Referral,False
+CUST-00470,Ronald Scott,Male,1962-12-05,Quezon City,National Capital Region (NCR),Philippines,,310300.0,Conservative,Verified,2023-03-06,Google,True
+CUST-00471,Samantha Olson,Female,1995-08-10,Taguig,National Capital Region (NCR),Philippines,Graphic Designer,204700.0,Aggressive,Verified,2023-04-28,Facebook,True
+CUST-00472,Renee Francis,Female,1996-03-24,Cebu City,Central Visayas (Region VII),Philippines,Financial Analyst,405600.0,Conservative,Verified,2023-10-23,Organic,True
+CUST-00473,Gina Wilson,Female,1966-05-23,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,547000.0,Moderate,Verified,2024-01-22,IB Partner,True
+CUST-00474,Tonya Taylor,Female,1965-07-09,Iloilo City,Western Visayas (Region VI),Philippines,High School Teacher,180000.0,Moderate,Verified,2023-01-27,Facebook,True
+CUST-00475,Tracy Dalton,Female,1978-07-06,Cagayan de Oro,Northern Mindanao (Region X),Philippines,High School Teacher,235300.0,Conservative,Verified,2023-12-21,Facebook,True
+CUST-00476,Nathaniel Whitney,Male,2002-07-05,Calamba,Calabarzon (Region IV-A),Philippines,BPO Operations Manager,517600.0,Conservative,Verified,2023-10-19,Facebook,True
+CUST-00477,Walter Ballard,Male,1959-09-11,MNL,National Capital Region (NCR),Philippines,High School Teacher,389400.0,Moderate,Verified,01/02/2023,LinkedIn,True
+CUST-00478,Holly Gibbs,Female,1985-07-18,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,672300.0,Conservative,Verified,2023-08-17,Google,True
+CUST-00479,Adrian Herrera,Male,1960-01-22,Manila,National Capital Region (NCR),Philippines,High School Teacher,225000.0,Conservative,Verified,2023-09-08,Facebook,True
+CUST-00480,Jesse Chambers,Male,1963-02-14,Manila,National Capital Region (NCR),Philippines,Corporate Lawyer,835300.0,Conservative,Verified,2023-05-11,LinkedIn,True
+CUST-00481,Michael Richards,Male,1964-01-10,Makati,National Capital Region (NCR),Philippines,Data Analyst,229800.0,Moderate,Verified,2024-11-15,Referral,True
+CUST-00482,Rodney Bentley,Male,1971-09-02,Iloilo City,Western Visayas (Region VI),Philippines,Graphic Designer,1.5707e+06,Moderate,Verified,2023-03-07,Referral,True
+CUST-00483,Brian Hall,Male,1972-05-25,Calamba,Calabarzon (Region IV-A),Philippines,Virtual Assistant,180000.0,Conservative,Verified,2024-06-10,Referral,True
+CUST-00484,Alexander Henson,Male,1978-12-30,Baguio City,Cordillera Administrative Region (CAR),Philippines,Corporate Lawyer,244500.0,Moderate,Verified,2024-08-29,Google,True
+CUST-00485,Kristina Herman,female,2002-11-08,Iloilo City,Western Visayas (Region VI),Philippines,Bank Branch Officer,682700.0,Moderate,Verified,2025-01-04,Referral,True
+CUST-00486,Connie Brown,Female,1985-10-20,Baguio City,Cordillera Administrative Region (CAR),Philippines,Corporate Lawyer,1.5939e+06,Conservative,Verified,2024-05-12,Facebook,True
+CUST-00487,Rodney Blankenship,Male,1969-09-15,Makati,National Capital Region (NCR),Philippines,Logistics Coordinator,636800.0,Moderate,Verified,2024-05-09,Referral,True
+CUST-00488,Elizabeth Ortiz,female,1965-11-13,Calamba,Calabarzon (Region IV-A),Philippines,Sales Executive,753700.0,Aggressive,Rejected,2024-11-24,Organic,False
+CUST-00489,Charles Shah,Male,1977-09-26,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,520200.0,Moderate,Pending,2025-02-17,Google,True
+CUST-00490,Elizabeth Vasquez,Female,1970-09-10,Quezon City,National Capital Region (NCR),Philippines,Corporate Lawyer,255800.0,Moderate,Verified,2023-07-12,Organic,True
+CUST-00491,Anne Clay,Female,2002-12-30,Singapore,Central,Singapore,Bank Branch Officer,368300.0,Moderate,Verified,2024-12-26,Google,True
+CUST-00492,Chad Chavez,Male,1982-01-07,Cebu City,Central Visayas (Region VII),Philippines,Civil Engineer,225500.0,Conservative,Verified,2024-02-26,LinkedIn,True
+CUST-00493,Meagan Paul,Female,1980-03-03,Baguio City,Cordillera Administrative Region (CAR),Philippines,BPO Operations Manager,215400.0,Aggressive,Verified,2023-03-31,Referral,True
+CUST-00494,Theresa Barnes,Female,1962-02-06,Cebu City,Central Visayas (Region VII),Philippines,Software Engineer,675500.0,Aggressive,Verified,2024-07-11,LinkedIn,True
+CUST-00495,Natalie Moore,Female,1989-05-29,Johor Bahru,Johor,Malaysia,Digital Marketing Lead,239500.0,Aggressive,Verified,2025-06-09,Facebook,False
+CUST-00496,Jennifer Garcia,Female,1993-03-21,Angeles City,Central Luzon (Region III),Philippines,BPO Operations Manager,638800.0,Conservative,Verified,2023-05-09,,True
+CUST-00497,Katherine Russell,Female,1987-06-20,Cebu City,Central Visayas (Region VII),Philippines,Digital Marketing Lead,212100.0,Moderate,Verified,2023-01-14,Facebook,True
+CUST-00498,Trevor Johnson,Male,1996-01-06,Manila,National Capital Region (NCR),Philippines,Registered Nurse,628800.0,Conservative,Verified,2025-04-14,Facebook,True
+CUST-00499,Jacqueline Ramos,Female,1977-10-16,Pasig,National Capital Region (NCR),Philippines,Architect,368700.0,Moderate,Verified,2024-06-27,IB Partner,True
+CUST-00500,Tiffany Foley,Female,1973-10-29,Makati,National Capital Region (NCR),Philippines,BPO Operations Manager,1.3377e+06,Moderate,Verified,2023-07-19,IB Partner,False
+CUST-00501,Ariana Jennings,Female,1966-05-23,Singapore,Central,Singapore,Sales Executive,640600.0,Moderate,Verified,2024-12-22,LinkedIn,True
+CUST-00502,Joshua Levine,Male,1958-05-14,Surabaya,East Java,Indonesia,Financial Analyst,1.191e+06,Conservative,Verified,2023-12-25,Facebook,False
+CUST-00503,Heather Sanders,Female,2000-07-24,Chiang Mai,North,Thailand,Certified Public Accountant,307500.0,Aggressive,Pending,2023-10-30,Organic,True
+CUST-00504,Colton Martinez,Male,1992-05-28,Cebu City,Central Visayas (Region VII),Philippines,Logistics Coordinator,534000.0,Conservative,Verified,2023-09-22,LinkedIn,True
+CUST-00505,Sarah Gibson,Female,1989-11-23,Makati,National Capital Region (NCR),Philippines,Architect,263800.0,Conservative,Verified,2024-06-29,Referral,True
+CUST-00506,Matthew May,Male,1992-04-16,Kuala Lumpur,Federal Territories,Malaysia,Graphic Designer,388000.0,Aggressive,Verified,2023-05-03,Google,False
+CUST-00507,Linda Smith,Female,1965-02-28,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Architect,430100.0,Moderate,Pending,2023-11-26,Google,True
+CUST-00508,Rachel Sanchez,Female,1997-06-19,Kuala Lumpur,Federal Territories,Malaysia,High School Teacher,313800.0,Moderate,Pending,2023-10-05,Facebook,True
+CUST-00509,Cameron Cunningham,Male,2002-08-15,Makati,National Capital Region (NCR),Philippines,E-Commerce Merchant,224900.0,Moderate,Verified,2023-02-25,Google,True
+CUST-00510,Barry Hubbard,Male,1963-08-08,Calamba,Calabarzon (Region IV-A),Philippines,Registered Nurse,196600.0,Conservative,Verified,2024-11-26,LinkedIn,True
+CUST-00511,Daniel Robinson,Male,1958-11-10,QUEZON CITY,National Capital Region (NCR),Philippines,Customer Service Specialist,180000.0,Conservative,Verified,2023-01-08,Facebook,True
+CUST-00512,Sheila Murphy,Female,1993-05-21,Surabaya,East Java,Indonesia,Logistics Coordinator,250600.0,Moderate,Verified,2025-05-24,Referral,True
+CUST-00513,Brittany Lester,Female,1988-05-20,Makati,National Capital Region (NCR),Philippines,SME Retail Owner,787600.0,Moderate,Verified,2023-03-28,Google,True
+CUST-00514,Aaron Garrison,Male,1980-05-20,Quezon City,National Capital Region (NCR),Philippines,Financial Analyst,180000.0,Moderate,Verified,2023-11-23,LinkedIn,True
+CUST-00515,Charles Anderson,Male,1979-04-26,Cebu City,Central Visayas (Region VII),Philippines,Sales Executive,202700.0,Conservative,Verified,2023-03-31,IB Partner,True
+CUST-00516,David Thompson,Male,1957-06-24,Davao City,Davao Region (Region XI),Philippines,Software Engineer,1.7372e+06,Moderate,Verified,2023-12-01,Organic,True
+CUST-00517,Matthew Johnson,Male,1985-01-13,Makati,National Capital Region (NCR),Philippines,Bank Branch Officer,333400.0,Aggressive,Verified,2024-07-10,Google,False
+CUST-00518,Alexis Tyler,Female,2003-06-13,Singapore,Central,Singapore,SME Retail Owner,639400.0,Conservative,Verified,2023-03-21,Google,True
+CUST-00519,Cynthia Morris,Female,1984-02-29,Manila,National Capital Region (NCR),Philippines,BPO Operations Manager,795500.0,Conservative,Verified,2024-04-24,Google,True
+CUST-00520,Christopher Williams,Male,1977-11-18,Kuala Lumpur,Federal Territories,Malaysia,Virtual Assistant,806500.0,Moderate,Verified,2024-12-04,Google,True
+CUST-00521,Natalie Fox,Female,1979-09-28,Surabaya,East Java,Indonesia,Bank Branch Officer,182600.0,Aggressive,Verified,2024-02-19,Facebook,True
+CUST-00522,Patrick Alvarez,Male,1979-12-16,Calamba,Calabarzon (Region IV-A),Philippines,SME Retail Owner,439300.0,Moderate,Verified,2023-04-13,Google,False
+CUST-00523,Paula Palmer,Female,1960-09-07,Makati,National Capital Region (NCR),Philippines,Data Analyst,180000.0,Moderate,Verified,2024-09-22,LinkedIn,True
+CUST-00524,Brian Gordon,Male,1966-02-04,Taguig,National Capital Region (NCR),Philippines,Bank Branch Officer,2.7128e+06,Moderate,Verified,2023-06-19,Google,True
+CUST-00525,Theresa Williams,Female,1992-03-12,Pasig,National Capital Region (NCR),Philippines,Software Engineer,180000.0,Conservative,Verified,2023-01-16,Organic,False
+CUST-00526,Rachel Camacho,Female,1987-05-02,Pasig,National Capital Region (NCR),Philippines,Graphic Designer,252100.0,Moderate,Verified,2024-02-02,Google,True
+CUST-00527,Joseph Ellis,Male,1972-08-30,Ho Chi Minh City,Southeast,Vietnam,SME Retail Owner,253300.0,Conservative,Verified,2023-09-04,Referral,True
+CUST-00528,Tracey Brown,Female,1984-09-29,Tokyo,Kanto,Japan,E-Commerce Merchant,185800.0,Moderate,Verified,2023-01-26,Facebook,True
+CUST-00529,Karen Morales,Female,1983-11-24,Singapore,Central,Singapore,Certified Public Accountant,1.2895e+06,Conservative,Verified,2024-12-09,Facebook,True
+CUST-00530,Michael Henry,Male,1996-02-18,Davao City,Davao Region (Region XI),Philippines,Registered Nurse,2.6691e+06,Conservative,Verified,2024-06-30,Referral,True
+CUST-00531,Theodore Jones,male,1992-01-27,Pasig,National Capital Region (NCR),Philippines,Graphic Designer,371900.0,Moderate,Verified,2025-04-08,Referral,False
+CUST-00532,Angela Franklin, Female,1969-03-23,Singapore,Central,Singapore,Bank Branch Officer,209400.0,Moderate,Verified,2024-03-13,Facebook,True
+CUST-00533,Austin Hill,Male,1964-06-05,Pasig,National Capital Region (NCR),Philippines,Architect,180000.0,Moderate,Verified,2024-02-04,Facebook,True
+CUST-00534,Mark Kelley,Male,1967-03-01,Taguig,National Capital Region (NCR),Philippines,E-Commerce Merchant,435400.0,Moderate,Pending,2025-02-06,Facebook,True
+CUST-00535,Frederick Vang,Male,1989-07-24,Angeles City,Central Luzon (Region III),Philippines,Physician,414500.0,Aggressive,Rejected,2023-03-16,LinkedIn,False
+CUST-00536,Kerry Chavez,Female,1997-08-07,Iloilo City,Western Visayas (Region VI),Philippines,Certified Public Accountant,330100.0,Aggressive,Pending,2023-11-26,LinkedIn,True
+CUST-00537,Larry Garcia,Male,1996-07-08,Cebu City,Central Visayas (Region VII),Philippines,SME Retail Owner,597500.0,Aggressive,Verified,2024-12-28,Referral,True
+CUST-00538,Michael Farrell,Male,1985-07-16,Makati,National Capital Region (NCR),Philippines,Sales Executive,672500.0,Moderate,Verified,2023-09-24,Facebook,True
+CUST-00539,Marilyn Mack,Female,1979-09-13,Baguio City,Cordillera Administrative Region (CAR),Philippines,Virtual Assistant,640300.0,Moderate,Verified,2025-03-17,Facebook,True
+CUST-00540,Nathan Lewis,Male,1962-01-30,Johor Bahru,Johor,Malaysia,Physician,414600.0,Moderate,Verified,2023-09-16,Facebook,True
+CUST-00541,Jocelyn Perez,Female,1961-10-20,Tokyo,Kanto,Japan,Certified Public Accountant,243000.0,Moderate,Verified,2024-01-12,Referral,True
+CUST-00542,Gerald Chavez,Male,2003-11-22,Angeles City,Central Luzon (Region III),Philippines,Civil Engineer,808400.0,Moderate,Verified,2025-03-28,Facebook,False
+CUST-00543,Jennifer Davis,Female,1970-10-14,Johor Bahru,Johor,Malaysia,Digital Marketing Lead,518400.0,Moderate,Pending,2023-08-10,Referral,True
+CUST-00544,Jessica Ortega,Female,1989-12-26,Tokyo,Kanto,Japan,Registered Nurse,940400.0,Conservative,Verified,2025-05-31,IB Partner,True
+CUST-00545,James Hernandez,Male,1994-09-23,Baguio City,Cordillera Administrative Region (CAR),Philippines,Registered Nurse,879600.0,Conservative,Verified,2023-02-10,Google,True
+CUST-00546,Tammy Jones,female,1977-12-13,Quezon City,National Capital Region (NCR),Philippines,Data Analyst,195500.0,Aggressive,Verified,2023-08-31,Organic,False
+CUST-00547,Ronald Davis,Male,2002-06-05,Manila,National Capital Region (NCR),Philippines,Financial Analyst,193800.0,Conservative,Verified,2024-06-22,Facebook,True
+CUST-00548,Brent Rodgers,Male,1988-04-29,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,307500.0,Moderate,Verified,2024-06-25,Facebook,True
+CUST-00549,Robert Hawkins,Male,1978-01-30,Singapore,Central,Singapore,Data Analyst,250600.0,Moderate,Rejected,2025-04-08,IB Partner,False
+CUST-00550,Laurie Hoffman,Female,1991-03-30,Cebu City,Central Visayas (Region VII),Philippines,Certified Public Accountant,859000.0,Conservative,Verified,2025-05-24,Referral,True
+CUST-00551,Gary Martinez,Male,1976-02-24,Iloilo City,Western Visayas (Region VI),Philippines,Software Engineer,652700.0,Aggressive,Pending,2024-09-09,Google,True
+CUST-00552,Hayden Ortega,Male,1982-05-31,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,1.0854e+06,Conservative,Verified,2024-08-24,IB Partner,False
+CUST-00553,Paul Parrish,Male,1966-06-22,Quezon City,National Capital Region (NCR),Philippines,Civil Engineer,673100.0,Aggressive,Verified,2023-10-17,,True
+CUST-00554,Nathan Schmitt,Male,1995-06-29,Bangkok,Central,Thailand,Architect,592400.0,Aggressive,Verified,2025-01-03,Referral,True
+CUST-00555,Kyle Bell,Male,2001-05-03,Calamba,Calabarzon (Region IV-A),Philippines,Digital Marketing Lead,1.1622e+06,Conservative,Verified,2024-08-08,Google,True
+CUST-00556,Kenneth Lewis,Male,1979-02-22,Angeles City,Central Luzon (Region III),Philippines,SME Retail Owner,707400.0,Conservative,Verified,2023-01-22,Facebook,True
+CUST-00557,Matthew Walker,Male,1991-12-14,Baguio City,Cordillera Administrative Region (CAR),Philippines,Digital Marketing Lead,538400.0,Moderate,Verified,2025-01-28,Facebook,True
+CUST-00558,Brian Bruce,Male,1970-10-29,Quezon City,National Capital Region (NCR),Philippines,Financial Analyst,1.4066e+06,Moderate,Rejected,2023-11-24,Facebook,False
+CUST-00559,Holly Farmer,Female,1999-08-21,Baguio City,Cordillera Administrative Region (CAR),Philippines,,555900.0,Conservative,Verified,2024-03-09,,True
+CUST-00560,Kenneth Aguirre,Male,1976-12-30,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Virtual Assistant,417900.0,Aggressive,Verified,2024-03-18,,True
+CUST-00561,Sarah Villegas,Female,1957-07-12,Davao City,Davao Region (Region XI),Philippines,E-Commerce Merchant,290800.0,Conservative,Verified,2025-01-16,,True
+CUST-00562,Robert Austin,Male,1999-08-24,Quezon City,National Capital Region (NCR),Philippines,Customer Service Specialist,829100.0,Aggressive,Verified,2023-09-02,Facebook,True
+CUST-00563,Marvin Johnson,Male,1989-11-04,Bandung,West Java,Indonesia,Corporate Lawyer,1.1921e+06,Conservative,Verified,2023-12-24,Google,True
+CUST-00564,Timothy Gallegos,Male,1964-05-11,Cebu City,Central Visayas (Region VII),Philippines,High School Teacher,496600.0,Aggressive,Verified,2023-02-05,,True
+CUST-00565,Derek White,Male,1978-12-16,Manila,National Capital Region (NCR),Philippines,Logistics Coordinator,1.2509e+06,Conservative,Verified,2023-11-14,Referral,True
+CUST-00566,Michael Parker,Male,1995-10-20,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,180000.0,Moderate,Verified,2023-03-22,Referral,True
+CUST-00567,Gina Smith,Female,1994-01-03,Singapore,Central,Singapore,Graphic Designer,495000.0,Moderate,Verified,2024-06-15,Organic,True
+CUST-00568,Sergio Knight,Male,1968-02-05,Pasig,National Capital Region (NCR),Philippines,SME Retail Owner,500200.0,Conservative,Verified,2024-02-28,Organic,False
+CUST-00569,Jennifer Thomas,Female,1963-08-02,Manila,National Capital Region (NCR),Philippines,Registered Nurse,313500.0,Aggressive,Verified,2025-04-10,Organic,True
+CUST-00570,Madeline Johnson,Female,1987-01-31,Taguig,National Capital Region (NCR),Philippines,Registered Nurse,2.6e+06,Conservative,Verified,06/09/2025,Referral,True
+CUST-00571,Paul Lewis,Male,1981-10-06,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,491400.0,Moderate,Verified,2023-02-19,Facebook,True
+CUST-00572,Jason Peterson,Male,1967-04-03,Bandung,West Java,Indonesia,High School Teacher,389500.0,Moderate,Verified,2024-04-15,,True
+CUST-00573,Jacob Griffith,Male,1995-09-16,Quezon City,National Capital Region (NCR),Philippines,SME Retail Owner,523200.0,Moderate,Verified,2024-04-26,Referral,True
+CUST-00574,Ricardo Bradley,Male,1994-05-01,Singapore,Central,Singapore,Virtual Assistant,180000.0,Conservative,Verified,2023-12-17,Organic,True
+CUST-00575,Bradley Williams,Male,1967-08-24,Surabaya,East Java,Indonesia,SME Retail Owner,306600.0,Conservative,Verified,2025-01-26,Facebook,False
+CUST-00576,Brooke Williamson,Female,1995-04-02,Calamba,Calabarzon (Region IV-A),Philippines,Bank Branch Officer,1.0031e+06,Conservative,Verified,2023-12-26,Google,True
+CUST-00577,Megan Nelson,Female,1967-10-25,Phuket,South,Thailand,Sales Executive,335100.0,Moderate,Verified,2023-02-20,Organic,True
+CUST-00578,Matthew Tucker,Male,1980-09-03,Angeles City,Central Luzon (Region III),Philippines,Customer Service Specialist,292500.0,Conservative,Verified,2024-05-14,IB Partner,True
+CUST-00579,Jessica Nelson,Female,1957-07-08,Jakarta,DKI Jakarta,Indonesia,Virtual Assistant,1.2523e+06,Aggressive,Verified,2023-07-03,Google,True
+CUST-00580,Nicole Wilson,Female,2002-06-21,Baguio City,Cordillera Administrative Region (CAR),Philippines,Physician,1.2787e+06,Moderate,Verified,2023-11-20,IB Partner,False
+CUST-00581,Jeffrey Campbell,Male,1959-08-04,Angeles City,Central Luzon (Region III),Philippines,Registered Nurse,730600.0,Moderate,Verified,2024-04-02,Facebook,True
+CUST-00582,Meghan Tucker,Female,1993-06-09,Taguig,National Capital Region (NCR),Philippines,Architect,377200.0,Moderate,Verified,2024-10-20,Referral,True
+CUST-00583,Mary Williams,Female,2002-05-16,Cebu City,Central Visayas (Region VII),Philippines,Data Analyst,436800.0,Conservative,Verified,2023-09-11,Facebook,False
+CUST-00584,Jennifer Greene,Female,1970-01-05,Davao City,Davao Region (Region XI),Philippines,High School Teacher,297500.0,Moderate,Verified,2023-12-13,IB Partner,True
+CUST-00585,Aimee Turner,Female,1979-01-03,Chiang Mai,North,Thailand,Civil Engineer,261300.0,Conservative,Pending,2023-03-03,Organic,True
+CUST-00586,Daniel Taylor,M,1964-09-08,Taguig,National Capital Region (NCR),Philippines,SME Retail Owner,252700.0,Moderate,Verified,2023-12-16,Facebook,True
+CUST-00587,David Murphy,Male,1998-12-06,Angeles City,Central Luzon (Region III),Philippines,Corporate Lawyer,337600.0,Moderate,Verified,2024-06-12,Facebook,True
+CUST-00588,Aimee Burgess,Female,2000-03-23,Angeles City,Central Luzon (Region III),Philippines,Physician,254300.0,Moderate,Verified,2024-07-16,Referral,True
+CUST-00589,Christopher James,Male,1977-05-17,Pasig,National Capital Region (NCR),Philippines,E-Commerce Merchant,180000.0,Aggressive,Verified,2023-09-25,Facebook,True
+CUST-00590,Michael Mason,Male,1962-08-03,Baguio City,Cordillera Administrative Region (CAR),Philippines,Software Engineer,596700.0,Conservative,Verified,2023-02-25,Organic,True
+CUST-00591,Sandra Drake,Female,1984-12-17,Chiang Mai,North,Thailand,SME Retail Owner,602900.0,Moderate,Verified,2024-06-09,Facebook,True
+CUST-00592,Benjamin Hensley,Male,1966-07-24,Baguio City,Cordillera Administrative Region (CAR),Philippines,Bank Branch Officer,1.634e+06,Conservative,Verified,2024-08-20,LinkedIn,True
+CUST-00593,Andrew Smith,Male,1961-06-15,Iloilo City,Western Visayas (Region VI),Philippines,BPO Operations Manager,326300.0,Moderate,Verified,2023-03-19,Google,True
+CUST-00594,Tammy Atkins,Female,1963-03-04,Cebu City,Central Visayas (Region VII),Philippines,Registered Nurse,628700.0,Moderate,Verified,2024-04-05,Referral,True
+CUST-00595,Kenneth Berry,Male,1980-02-16,Quezon City,National Capital Region (NCR),Philippines,Bank Branch Officer,635800.0,Conservative,Verified,2023-03-28,Facebook,True
+CUST-00596,Michael Butler,Male,1971-03-20,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,432500.0,Moderate,Verified,2024-02-17,IB Partner,True
+CUST-00597,Ashley Smith,Female,1979-05-01,Singapore,Central,Singapore,SME Retail Owner,852700.0,Moderate,Verified,2024-08-06,Google,True
+CUST-00598,Frederick Solis,Male,1972-05-09,Taguig,National Capital Region (NCR),Philippines,High School Teacher,870800.0,Conservative,Verified,2024-10-17,Referral,True
+CUST-00599,Luke Collier,Male,1977-05-20,Tokyo,Kanto,Japan,Certified Public Accountant,642200.0,Aggressive,Verified,2024-10-12,Referral,True
+CUST-00600,Thomas Davis,Male,1979-05-11,Makati,National Capital Region (NCR),Philippines,Software Engineer,432000.0,Moderate,Verified,2024-11-21,Organic,True
+CUST-00601,Sarah Sanchez,Female,1983-07-03,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,403100.0,Aggressive,Verified,2023-08-08,Organic,False
+CUST-00602,Kevin Warren,Male,1973-05-11,Singapore,Central,Singapore,BPO Operations Manager,202800.0,Moderate,Verified,2025-02-09,LinkedIn,True
+CUST-00603,James Collins,Male,1968-09-27,Bangkok,Central,Thailand,Certified Public Accountant,297100.0,Aggressive,Verified,2023-11-15,Google,True
+CUST-00604,Gerald Cook,Male,1960-11-06,Singapore,Central,Singapore,E-Commerce Merchant,336700.0,Conservative,Verified,2023-12-08,Organic,True
+CUST-00605,Christopher Dixon,Male,1975-03-21,Kowloon,Kowloon,Hong Kong,SME Retail Owner,239400.0,Moderate,Verified,2024-12-18,Referral,True
+CUST-00606,Ashley Hicks,Female,1999-04-19,Johor Bahru,Johor,Malaysia,BPO Operations Manager,693300.0,Moderate,Verified,2023-10-25,LinkedIn,True
+CUST-00607,Taylor Bailey,Male,1976-06-04,Jakarta,DKI Jakarta,Indonesia,Software Engineer,1.1597e+06,Moderate,Verified,2023-03-10,Referral,True
+CUST-00608,Monica Fuentes,Female,1989-03-10,Iloilo City,Western Visayas (Region VI),Philippines,Physician,277200.0,Moderate,Verified,2024-10-12,Google,True
+CUST-00609,Robert Young,Male,2002-10-05,Singapore,Central,Singapore,Bank Branch Officer,623300.0,Aggressive,Rejected,2024-08-26,IB Partner,False
+CUST-00610,Charles Gonzalez,Male,2000-08-13,Davao City,Davao Region (Region XI),Philippines,Virtual Assistant,254400.0,Moderate,Verified,2024-06-14,IB Partner,True
+CUST-00611,Lindsey Wolf,Female,1976-03-31,Pasig,National Capital Region (NCR),Philippines,BPO Operations Manager,417800.0,Moderate,Verified,2023-05-11,Google,True
+CUST-00612,Matthew Thompson,Male,1959-08-23,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Digital Marketing Lead,321400.0,Moderate,Verified,2024-07-29,Google,False
+CUST-00613,Raymond Snyder,Male,1980-04-09,Hong Kong,Hong Kong Island,Hong Kong,Physician,774000.0,Aggressive,Verified,2023-06-30,Organic,True
+CUST-00614,Nicole Wolf,Female,1983-02-08,Tokyo,Kanto,Japan,Certified Public Accountant,324000.0,Aggressive,Verified,2024-05-21,IB Partner,True
+CUST-00615,Jerry Glass,Male,1999-11-09,Cebu City,Central Visayas (Region VII),Philippines,Architect,1.0227e+06,Moderate,Verified,2024-04-07,LinkedIn,True
+CUST-00616,Kristy Reid,Female,1972-04-19,Singapore,Central,Singapore,Graphic Designer,434900.0,Conservative,Verified,2024-12-04,Facebook,True
+CUST-00617,Lori Lin,Female,2001-05-31,Singapore,Central,Singapore,Virtual Assistant,330500.0,Conservative,Verified,2025-06-08,Referral,True
+CUST-00618,Mark Hernandez,Male,1964-07-06,Baguio City,Cordillera Administrative Region (CAR),Philippines,Architect,219200.0,Moderate,Verified,2023-06-23,Organic,True
+CUST-00619,Barry Ramos,Male,1965-09-03,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,610600.0,Aggressive,Verified,2023-04-15,LinkedIn,True
+CUST-00620,Eric Hill,Male,1957-06-22,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,944800.0,Moderate,Pending,2024-05-21,LinkedIn,True
+CUST-00621,Anthony Romero,Male,1990-09-01,Singapore,Central,Singapore,Corporate Lawyer,619000.0,Conservative,Rejected,2025-05-17,Google,False
+CUST-00622,Eric Hayes,Male,1996-06-02,Angeles City,Central Luzon (Region III),Philippines,Architect,2.3558e+06,Conservative,Verified,2023-05-25,Referral,True
+CUST-00623,Amy Decker,Female,1989-12-13,Osaka,Kansai,Japan,Virtual Assistant,1.359e+06,Moderate,Verified,2024-03-20,Referral,True
+CUST-00624,Billy Lin,Male,1966-06-20,Angeles City,Central Luzon (Region III),Philippines,High School Teacher,417000.0,Aggressive,Verified,2024-01-07,LinkedIn,True
+CUST-00625,Savannah Gilbert,Female,1993-09-28,Kowloon,Kowloon,Hong Kong,Certified Public Accountant,414000.0,Conservative,Verified,2023-10-17,Referral,True
+CUST-00626,Jonathon Ford,Male,1962-05-04,Pasig,National Capital Region (NCR),Philippines,Sales Executive,707400.0,Moderate,Verified,2024-08-27,Google,True
+CUST-00627,Julian Conner,Male,1996-10-10,Johor Bahru,Johor,Malaysia,,290700.0,Moderate,Verified,2023-09-27,LinkedIn,True
+CUST-00628,Steven Cole,Male,2001-09-21,Taguig,National Capital Region (NCR),Philippines,Logistics Coordinator,1.1361e+06,Aggressive,Pending,2024-03-25,Organic,True
+CUST-00629,Rhonda Pearson,Female,1993-09-18,Taguig,National Capital Region (NCR),Philippines,High School Teacher,657300.0,Conservative,Verified,2025-02-09,Referral,False
+CUST-00630,Frank Alvarez,Male,1968-08-07,Penang,Penang,Malaysia,Logistics Coordinator,611900.0,Aggressive,Verified,2023-12-12,LinkedIn,True
+CUST-00631,Chris Brown,Male,1975-09-24,Phuket,South,Thailand,High School Teacher,820100.0,Moderate,Verified,2023-01-20,Facebook,True
+CUST-00632,Ashley Nolan,Female,1987-05-11,Penang,Penang,Malaysia,Bank Branch Officer,1.6587e+06,Aggressive,Verified,2025-03-17,Facebook,True
+CUST-00633,Gwendolyn Klein,Female,1973-03-16,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,577400.0,Conservative,Verified,2023-09-08,,True
+CUST-00634,Jonathan Thompson,Male,1973-07-22,Cebu City,Central Visayas (Region VII),Philippines,Physician,476000.0,Moderate,Verified,2024-12-05,Facebook,True
+CUST-00635,Danielle Kim,Female,1977-12-18,Taguig,National Capital Region (NCR),Philippines,Civil Engineer,1.4339e+06,Moderate,Verified,2024-11-25,IB Partner,True
+CUST-00636,Jeffrey Mills,Male,1979-11-16,Iloilo City,Western Visayas (Region VI),Philippines,Data Analyst,992500.0,Moderate,Verified,2024-04-24,Organic,False
+CUST-00637,Christopher Watson,Male,1999-04-02,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,413200.0,Moderate,Verified,2023-03-22,Facebook,True
+CUST-00638,Douglas Ortiz,male,1991-10-27,Singapore,Central,Singapore,Virtual Assistant,515800.0,Moderate,Verified,2025-05-15,Organic,True
+CUST-00639,George Harper, Male,1979-03-27,Singapore,Central,Singapore,Architect,587000.0,Moderate,Verified,2024-09-12,Google,True
+CUST-00640,Richard Holland,Male,1997-09-01,Surabaya,East Java,Indonesia,Registered Nurse,657400.0,Conservative,Verified,2024-01-22,LinkedIn,True
+CUST-00641,Andrea Davis, Female,1981-09-01,Singapore,Central,Singapore,Sales Executive,204300.0,Moderate,Verified,16/02/2025,Organic,True
+CUST-00642,Michael Mitchell,Male,1998-07-11,Penang,Penang,Malaysia,E-Commerce Merchant,180100.0,Conservative,Verified,2024-12-18,Google,True
+CUST-00643,Misty Douglas,Female,1967-01-17,Taguig,National Capital Region (NCR),Philippines,Physician,281100.0,Aggressive,Verified,2024-11-23,Facebook,True
+CUST-00644,Susan Marks,Female,1999-03-02,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,266700.0,Aggressive,Verified,2023-06-02,Facebook,True
+CUST-00645,Felicia Aguilar,Female,1999-09-03,Pasig,National Capital Region (NCR),Philippines,Software Engineer,331800.0,Conservative,Verified,2024-07-30,Referral,True
+CUST-00646,Brenda Bailey,female,1974-01-23,Jakarta,DKI Jakarta,Indonesia,SME Retail Owner,791400.0,Conservative,Verified,2023-09-18,IB Partner,True
+CUST-00647,Tracy Hale,Female,1993-08-29,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,458200.0,Conservative,Verified,2023-03-13,Google,True
+CUST-00648,Jenna Larson,Female,1987-07-07,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,587500.0,Moderate,Verified,2023-11-04,,True
+CUST-00649,Todd Collins,Male,1989-04-04,quezon city,National Capital Region (NCR),Philippines,Certified Public Accountant,223600.0,Aggressive,Verified,2023-04-05,Facebook,True
+CUST-00650,James Conner,Male,1993-11-04,Taguig,National Capital Region (NCR),Philippines,Certified Public Accountant,375500.0,Moderate,Verified,2023-04-07,Organic,False
+CUST-00651,Robert Santiago,Male,1968-03-28,Quezon City,National Capital Region (NCR),Philippines,Bank Branch Officer,766300.0,Conservative,Pending,2024-10-24,Referral,True
+CUST-00652,Sandra Rodgers,Female,1971-07-10,Chiang Mai,North,Thailand,Sales Executive,770300.0,Conservative,Verified,2024-04-02,LinkedIn,True
+CUST-00653,Michael Fox,Male,1992-10-20,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Software Engineer,314000.0,Conservative,Verified,2023-12-29,Google,True
+CUST-00654,Maria Henderson,Female,1971-10-05,Angeles City,Central Luzon (Region III),Philippines,Sales Executive,573700.0,Aggressive,Verified,2023-06-25,Facebook,True
+CUST-00655,Ivan Cox,Male,1970-07-05,Surabaya,East Java,Indonesia,Registered Nurse,2.2926e+06,Moderate,Verified,2024-12-03,Facebook,True
+CUST-00656,Catherine Lewis,Female,1978-09-11,Calamba,Calabarzon (Region IV-A),Philippines,Civil Engineer,507900.0,Moderate,Verified,07/31/2024,Referral,True
+CUST-00657,Travis Tucker,Male,1976-11-07,Jakarta,DKI Jakarta,Indonesia,Software Engineer,320800.0,Moderate,Verified,2024-06-17,Referral,True
+CUST-00658,Darrell Taylor,Male,1960-02-08,Baguio City,Cordillera Administrative Region (CAR),Philippines,BPO Operations Manager,456700.0,Aggressive,Verified,2023-06-23,LinkedIn,True
+CUST-00659,Billy Richard,Male,1982-09-13,Davao City,Davao Region (Region XI),Philippines,Registered Nurse,547300.0,Moderate,Verified,2023-04-23,LinkedIn,True
+CUST-00660,Brian Wise,Male,1985-12-01,Baguio City,Cordillera Administrative Region (CAR),Philippines,Civil Engineer,463800.0,Aggressive,Verified,2023-04-23,Facebook,False
+CUST-00661,Russell Stephenson,Male,1978-09-14,Baguio City,Cordillera Administrative Region (CAR),Philippines,Physician,503200.0,Aggressive,Verified,2023-01-23,,False
+CUST-00662,Andrew Rogers,Male,1964-10-04,Surabaya,East Java,Indonesia,Financial Analyst,192600.0,Moderate,Verified,2025-06-01,Facebook,True
+CUST-00663,Ralph Anderson,Male,1970-09-10,Taguig,National Capital Region (NCR),Philippines,Sales Executive,267100.0,Aggressive,Pending,2023-12-02,Facebook,True
+CUST-00664,James Martin,Male,2000-06-27,Davao City,Davao Region (Region XI),Philippines,,464400.0,Conservative,Verified,2024-08-22,LinkedIn,True
+CUST-00665,Ronald Wise,Male,1982-06-13,Baguio City,Cordillera Administrative Region (CAR),Philippines,Logistics Coordinator,459400.0,Moderate,Verified,2025-05-03,LinkedIn,True
+CUST-00666,Robert Martin,Male,1969-04-09,Singapore,Central,Singapore,High School Teacher,349800.0,Conservative,Verified,2023-10-20,LinkedIn,True
+CUST-00667,Jeffrey Jenkins,Male,1993-07-02,Johor Bahru,Johor,Malaysia,Data Analyst,455700.0,Moderate,Verified,2024-03-22,Facebook,True
+CUST-00668,Michael Young,Male,1957-08-05,Osaka,Kansai,Japan,Physician,535800.0,Conservative,Verified,2024-02-26,Google,True
+CUST-00669,Jeremy Mitchell,Male,1966-01-23,Makati,National Capital Region (NCR),Philippines,Digital Marketing Lead,941100.0,Conservative,Verified,2023-01-31,Referral,True
+CUST-00670,Paul Cole,Male,1964-04-03,Iloilo City,Western Visayas (Region VI),Philippines,Physician,480500.0,Conservative,Verified,2024-11-30,IB Partner,True
+CUST-00671,Joseph Collins,Male,2000-03-07,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,674300.0,Moderate,Verified,2024-06-07,Google,False
+CUST-00672,Rhonda Harrison,Female,1976-10-16,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Architect,355700.0,Moderate,Verified,2023-12-05,IB Partner,False
+CUST-00673,Sandy Richardson,Female,1979-03-25,Osaka,Kansai,Japan,Financial Analyst,758400.0,Moderate,Verified,2024-10-31,Facebook,True
+CUST-00674,Theresa Joyce,Female,1974-07-31,Singapore,Central,Singapore,Graphic Designer,663600.0,Moderate,Pending,2023-01-14,Referral,True
+CUST-00675,Joel Campbell,Male,1964-01-31,Manila,National Capital Region (NCR),Philippines,Architect,926100.0,Aggressive,Verified,2024-08-11,LinkedIn,True
+CUST-00676,Janet Rose,Female,1987-06-05,Iloilo City,Western Visayas (Region VI),Philippines,Physician,835000.0,Aggressive,Verified,2025-02-23,Referral,True
+CUST-00677,Vincent Montoya,Male,1978-12-09,Phuket,South,Thailand,,767100.0,Conservative,Verified,2024-10-23,Google,True
+CUST-00678,Rebecca Taylor, Female,1972-02-08,Calamba,Calabarzon (Region IV-A),Philippines,Physician,480700.0,Moderate,Verified,2024-07-18,Google,False
+CUST-00679,Danielle Davidson,Female,1968-08-23,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,607200.0,Moderate,Pending,2023-03-24,IB Partner,True
+CUST-00680,Shelly Spencer,Female,1967-11-01,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,1.0594e+06,Moderate,Verified,2024-11-09,Facebook,True
+CUST-00681,Ashley Singleton,Female,1988-03-11,Angeles City,Central Luzon (Region III),Philippines,Registered Nurse,329900.0,Moderate,Verified,2024-11-14,IB Partner,False
+CUST-00682,Samuel Mitchell,Male,1957-02-18,Angeles City,Central Luzon (Region III),Philippines,Corporate Lawyer,335300.0,Moderate,Verified,2024-03-25,Referral,True
+CUST-00683,Pamela Nelson,Female,2003-07-26,Davao City,Davao Region (Region XI),Philippines,Physician,581500.0,Conservative,Verified,2024-06-14,Referral,True
+CUST-00684,Susan Hernandez,Female,1980-11-20,Angeles City,Central Luzon (Region III),Philippines,Virtual Assistant,681700.0,Moderate,Verified,2024-07-17,Google,True
+CUST-00685,Jeffrey Potts,Male,1975-06-05,Manila,National Capital Region (NCR),Philippines,Civil Engineer,293500.0,Moderate,Rejected,2023-04-21,Facebook,False
+CUST-00686,Courtney Hayes,female,2001-02-20,Iloilo City,Western Visayas (Region VI),Philippines,SME Retail Owner,488500.0,Moderate,Verified,2023-08-23,IB Partner,True
+CUST-00687,Gregory Johnson,Male,1982-10-30,Manila,National Capital Region (NCR),Philippines,Customer Service Specialist,482200.0,Aggressive,Verified,2024-12-22,Organic,True
+CUST-00688,Amy Shaw,Female,1976-01-13,Da Nang,South Central,Vietnam,Architect,180000.0,Conservative,Verified,2025-06-06,IB Partner,True
+CUST-00689,Cynthia Vang,Female,1975-06-25,Singapore,Central,Singapore,BPO Operations Manager,442700.0,Conservative,Verified,2023-09-04,IB Partner,True
+CUST-00690,James Johnson,Male,1998-06-06,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Logistics Coordinator,461900.0,Conservative,Rejected,2024-01-01,Google,False
+CUST-00691,Tara Combs,Female,1990-12-26,Calamba,Calabarzon (Region IV-A),Philippines,Virtual Assistant,460900.0,Conservative,Verified,2025-04-13,Referral,True
+CUST-00692,Matthew Moody,Male,1992-07-10,Chiang Mai,North,Thailand,Software Engineer,1.3462e+06,Conservative,Verified,2023-05-28,Organic,True
+CUST-00693,Brenda Mitchell,Female,1973-12-18,Manila,National Capital Region (NCR),Philippines,Corporate Lawyer,224900.0,Moderate,Verified,2023-08-26,Facebook,True
+CUST-00694,Sandra Horton,Female,1988-07-29,Manila,National Capital Region (NCR),Philippines,BPO Operations Manager,293400.0,Moderate,Verified,2023-02-20,Organic,True
+CUST-00695,Brenda Thornton,Female,1977-03-06,Chiang Mai,North,Thailand,Digital Marketing Lead,180000.0,Moderate,Verified,2023-08-02,Referral,True
+CUST-00696,Joan Smith,Female,1969-09-07,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Software Engineer,370600.0,Moderate,Verified,2024-08-02,Google,True
+CUST-00697,Bobby Scott,Male,1966-07-28,Singapore,Central,Singapore,Physician,392800.0,Conservative,Verified,2023-11-14,Referral,True
+CUST-00698,Ruben Dunn,Male,1995-05-21,Quezon City,National Capital Region (NCR),Philippines,,363400.0,Moderate,Verified,2025-06-14,Referral,True
+CUST-00699,Nicholas Rose,Male,1961-07-31,Calamba,Calabarzon (Region IV-A),Philippines,Virtual Assistant,1.0917e+06,Conservative,Verified,2025-03-23,Facebook,True
+CUST-00700,Brian Roberts,Male,1996-03-26,Makati,National Capital Region (NCR),Philippines,BPO Operations Manager,922800.0,Aggressive,Verified,2025-03-27,Referral,True
+CUST-00701,Eric Williams,Male,2002-12-28,Cebu City,Central Visayas (Region VII),Philippines,Registered Nurse,542000.0,Conservative,Verified,2024-10-23,Referral,True
+CUST-00702,Jason Bauer,Male,2001-11-27,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,399500.0,Moderate,Verified,2024-10-01,Facebook,True
+CUST-00703,Jim Rodriguez,male,1994-07-30,Cebu City,Central Visayas (Region VII),Philippines,Bank Branch Officer,1.0328e+06,Aggressive,Verified,2024-04-09,Facebook,True
+CUST-00704,Taylor Carlson,Male,1963-01-02,Surabaya,East Java,Indonesia,Corporate Lawyer,507200.0,Moderate,Verified,06/21/2025,Google,True
+CUST-00705,Alexis Robertson,Female,1994-04-03,manila,National Capital Region (NCR),Philippines,Data Analyst,294700.0,Moderate,Verified,2023-03-28,Referral,True
+CUST-00706,David Thomas,Male,1971-06-12,Davao City,Davao Region (Region XI),Philippines,Data Analyst,180000.0,Moderate,Verified,20/10/2024,Organic,True
+CUST-00707,Jessica Mendez,F,1984-05-12,Johor Bahru,Johor,Malaysia,Graphic Designer,380800.0,Conservative,Verified,2023-05-08,Facebook,True
+CUST-00708,David Butler,Male,2002-02-21,Johor Bahru,Johor,Malaysia,Sales Executive,858700.0,Moderate,Verified,2023-11-06,Google,True
+CUST-00709,Matthew Miller,Male,1983-02-27,Taguig,National Capital Region (NCR),Philippines,Civil Engineer,2.417e+06,Aggressive,Verified,2023-08-21,Facebook,True
+CUST-00710,William Jones, Male,2002-09-09,Calamba,Calabarzon (Region IV-A),Philippines,SME Retail Owner,536000.0,Aggressive,Verified,2024-07-01,Google,True
+CUST-00711,Joseph Romero,Male,1981-08-27,Osaka,Kansai,Japan,Physician,305500.0,Moderate,Verified,2024-12-18,Google,True
+CUST-00712,William Spencer,Male,1977-10-11,Angeles City,Central Luzon (Region III),Philippines,BPO Operations Manager,229600.0,Moderate,Verified,2023-03-14,Google,True
+CUST-00713,James Harrison,Male,1979-07-13,Penang,Penang,Malaysia,Certified Public Accountant,748100.0,Moderate,Verified,2024-07-02,Referral,True
+CUST-00714,Mark Zavala,Male,1990-10-01,Phuket,South,Thailand,Logistics Coordinator,180000.0,Moderate,Rejected,2023-07-21,Google,False
+CUST-00715,David Smith,Male,1968-01-06,Penang,Penang,Malaysia,Customer Service Specialist,747300.0,Conservative,Verified,2023-03-12,Facebook,True
+CUST-00716,Rachel Cooper,Female,1975-12-29, Manila,National Capital Region (NCR),Philippines,Registered Nurse,896300.0,Conservative,Verified,2024-01-16,Referral,True
+CUST-00717,Nicholas Fuller,Male,1992-01-20,Taguig,National Capital Region (NCR),Philippines,BPO Operations Manager,691500.0,Conservative,Verified,2024-06-13,Referral,True
+CUST-00718,Patricia Moss,Female,1983-08-10,Cagayan de Oro,Northern Mindanao (Region X),Philippines,BPO Operations Manager,442700.0,Moderate,Verified,2023-07-03,Google,True
+CUST-00719,Gary Williams,Male,1998-12-03,Quezon City,National Capital Region (NCR),Philippines,Graphic Designer,754800.0,Conservative,Verified,2023-12-22,Referral,True
+CUST-00720,Kimberly Li,Female,1960-08-26,Hanoi,Red River Delta,Vietnam,Virtual Assistant,577400.0,Conservative,Verified,18/05/2025,LinkedIn,True
+CUST-00721,Carrie Maxwell,Female,1968-08-25,Baguio City,Cordillera Administrative Region (CAR),Philippines,Virtual Assistant,302800.0,Conservative,Verified,2023-11-12,Referral,True
+CUST-00722,Julie Dominguez,Female,1990-07-02,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,1.809e+06,Aggressive,Verified,2025-06-25,Facebook,True
+CUST-00723,Lynn Cain,Female,1972-04-26,Cebu City,Central Visayas (Region VII),Philippines,Architect,404700.0,Conservative,Verified,2025-01-29,Facebook,True
+CUST-00724,Arthur Parsons,Male,1972-02-14,Ho Chi Minh City,Southeast,Vietnam,Civil Engineer,871100.0,Conservative,Verified,2023-12-04,Facebook,True
+CUST-00725,Jimmy Carter,Male,1975-05-20,Davao City,Davao Region (Region XI),Philippines,Graphic Designer,180000.0,Moderate,Verified,2024-06-09,Google,True
+CUST-00726,Andrew Gonzalez,Male,2001-06-24,Makati,National Capital Region (NCR),Philippines,Logistics Coordinator,1.2244e+06,Conservative,Verified,2024-10-08,Organic,True
+CUST-00727,Amanda Mahoney,Female,1962-10-03,Angeles City,Central Luzon (Region III),Philippines,Registered Nurse,1.3955e+06,Aggressive,Verified,2024-02-28,LinkedIn,True
+CUST-00728,Kaylee Hays,Female,1959-02-15,Manila,National Capital Region (NCR),Philippines,Bank Branch Officer,524500.0,Aggressive,Verified,2024-01-07,Referral,True
+CUST-00729,Joshua King,Male,1958-04-07,Angeles City,Central Luzon (Region III),Philippines,High School Teacher,751600.0,Moderate,Verified,2023-10-28,Facebook,True
+CUST-00730,Nicole Lee,Female,1957-12-15,Baguio City,Cordillera Administrative Region (CAR),Philippines,Sales Executive,751500.0,Moderate,Verified,2023-05-08,Organic,True
+CUST-00731,Howard Norman,Male,1960-05-24,Calamba,Calabarzon (Region IV-A),Philippines,Digital Marketing Lead,332000.0,Moderate,Verified,2023-01-23,Facebook,True
+CUST-00732,Sharon Rivera,Female,1969-04-22,Calamba,Calabarzon (Region IV-A),Philippines,Bank Branch Officer,745700.0,Conservative,Verified,2023-11-03,Referral,True
+CUST-00733,Belinda Richardson,Female,2001-05-07,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,296600.0,Conservative,Verified,2024-12-25,Organic,True
+CUST-00734,Steve Paul,Male,1982-03-03,Angeles City,Central Luzon (Region III),Philippines,Civil Engineer,339800.0,Conservative,Verified,2023-08-01,Referral,False
+CUST-00735,Stephanie Hughes,Female,1992-07-03,Iloilo City,Western Visayas (Region VI),Philippines,BPO Operations Manager,1.1061e+06,Conservative,Verified,2023-06-13,Facebook,False
+CUST-00736,Valerie Crawford,Female,1993-09-08,Angeles City,Central Luzon (Region III),Philippines,Bank Branch Officer,997300.0,Moderate,Verified,2023-10-26,Facebook,True
+CUST-00737,Jonathan Glass,Male,1965-01-02,Calamba,Calabarzon (Region IV-A),Philippines,Customer Service Specialist,318000.0,Conservative,Verified,2024-06-29,Google,True
+CUST-00738,Joseph Owen,Male,1965-11-09,Davao City,Davao Region (Region XI),Philippines,Data Analyst,312100.0,Conservative,Verified,2023-07-15,Facebook,True
+CUST-00739,Nicholas Miller,Male,1979-07-01,Pasig,National Capital Region (NCR),Philippines,High School Teacher,331400.0,Moderate,Verified,2023-07-20,Google,True
+CUST-00740,Lindsey Short,Female,1969-06-07,Quezon City,National Capital Region (NCR),Philippines,Digital Marketing Lead,845900.0,Moderate,Verified,2023-04-13,Referral,True
+CUST-00741,Joshua Morris,Male,1997-12-10,Quezon City,National Capital Region (NCR),Philippines,BPO Operations Manager,260400.0,Conservative,Verified,2023-10-30,Referral,True
+CUST-00742,Angela Guerrero,Female,1993-08-05,Pasig,National Capital Region (NCR),Philippines,Corporate Lawyer,655100.0,Conservative,Verified,2023-07-18,Facebook,True
+CUST-00743,Elizabeth Morrison,Female,1963-08-09,Bandung,West Java,Indonesia,Physician,854100.0,Conservative,Verified,2025-01-27,Organic,True
+CUST-00744,Jeffery Norris,Male,1982-10-29,Davao City,Davao Region (Region XI),Philippines,SME Retail Owner,484100.0,Conservative,Verified,2025-04-05,Referral,True
+CUST-00745,Gregory Williams,Male,1978-05-06,Cebu City,Central Visayas (Region VII),Philippines,E-Commerce Merchant,1.0216e+06,Aggressive,Pending,2023-12-04,LinkedIn,True
+CUST-00746,Sheila Gomez,Female,1982-04-13,Makati,National Capital Region (NCR),Philippines,Software Engineer,417900.0,Aggressive,Verified,2023-03-19,Referral,True
+CUST-00747,Yvette Hill,Female,1994-07-10,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,444400.0,Moderate,Verified,2023-10-23,Facebook,True
+CUST-00748,William Gould,Male,1965-03-15,Iloilo City,Western Visayas (Region VI),Philippines,Digital Marketing Lead,264500.0,Moderate,Verified,2024-02-27,Referral,True
+CUST-00749,Benjamin Walsh,Male,1968-05-27,Johor Bahru,Johor,Malaysia,Physician,1.0265e+06,Moderate,Verified,2024-04-26,Google,True
+CUST-00750,Jack Owen,Male,1971-11-25,Bandung,West Java,Indonesia,Financial Analyst,305200.0,Moderate,Verified,2023-10-05,Referral,True
+CUST-00751,Meghan Cisneros,Female,1987-06-06,Iloilo City,Western Visayas (Region VI),Philippines,Certified Public Accountant,652000.0,Conservative,Verified,2023-11-19,LinkedIn,True
+CUST-00752,Charles Lawson,Male,1973-10-23,Calamba,Calabarzon (Region IV-A),Philippines,Financial Analyst,489700.0,Conservative,Verified,2023-09-16,Organic,True
+CUST-00753,Rachael Johnson,F,1959-03-31,Cebu City,Central Visayas (Region VII),Philippines,Virtual Assistant,251200.0,Moderate,Verified,2024-04-16,LinkedIn,True
+CUST-00754,Austin Osborne,Male,1973-07-01,Angeles City,Central Luzon (Region III),Philippines,Data Analyst,339700.0,Moderate,Verified,2024-09-26,Google,True
+CUST-00755,Holly Reyes,Female,1980-10-20,Pasig,National Capital Region (NCR),Philippines,High School Teacher,1.3163e+06,Conservative,Verified,2023-02-09,Google,True
+CUST-00756,Keith Jacobs,Male,1991-04-26,Quezon City,National Capital Region (NCR),Philippines,Customer Service Specialist,589600.0,Conservative,Verified,2024-03-12,Google,True
+CUST-00757,Michael Rush,Male,1979-06-19,Cebu City,Central Visayas (Region VII),Philippines,Bank Branch Officer,258800.0,Moderate,Verified,2024-08-13,Referral,True
+CUST-00758,Jacqueline Hines,Female,1986-07-24,Ho Chi Minh City,Southeast,Vietnam,SME Retail Owner,632600.0,Conservative,Verified,2024-09-04,LinkedIn,True
+CUST-00759,Laura Moreno,Female,1975-04-23,QC,National Capital Region (NCR),Philippines,Corporate Lawyer,465400.0,Moderate,Verified,2024-05-28,Organic,True
+CUST-00760,James Banks,Male,2001-11-15,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,5.383e+06,Moderate,Verified,2024-04-23,Facebook,True
+CUST-00761,David Wilson,M,1995-02-01,Singapore,Central,Singapore,Certified Public Accountant,624000.0,Moderate,Pending,2024-09-12,,True
+CUST-00762,Noah Porter,Male,1967-01-22,Baguio City,Cordillera Administrative Region (CAR),Philippines,Virtual Assistant,396800.0,Conservative,Pending,2023-12-11,Organic,True
+CUST-00763,James Hoffman,Male,1986-02-19,Makati,National Capital Region (NCR),Philippines,Logistics Coordinator,1.35e+06,Conservative,Verified,2024-05-31,Referral,True
+CUST-00764,Dennis Green,Male,1983-09-06,Calamba,Calabarzon (Region IV-A),Philippines,Bank Branch Officer,180000.0,Aggressive,Verified,2023-10-19,Organic,True
+CUST-00765,Jill Davies,Female,1978-06-22,Bangkok,Central,Thailand,Financial Analyst,548100.0,Moderate,Verified,2024-02-03,Facebook,True
+CUST-00766,Dustin Hendricks,Male,1983-06-09,Taguig,National Capital Region (NCR),Philippines,Certified Public Accountant,1.9951e+06,Conservative,Verified,2023-04-24,Facebook,True
+CUST-00767,Katherine Martinez,Female,1968-05-21,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Certified Public Accountant,475000.0,Conservative,Verified,2023-11-15,Referral,True
+CUST-00768,Samuel Hayes,Male,1992-06-29,Taguig,National Capital Region (NCR),Philippines,,180000.0,Aggressive,Verified,2023-05-10,Google,True
+CUST-00769,Steven Wallace,Male,1968-05-25,Cagayan de Oro,Northern Mindanao (Region X),Philippines,E-Commerce Merchant,392700.0,Moderate,Pending,2023-07-26,Referral,True
+CUST-00770,Anita Fleming,Female,1994-03-08,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,1.382e+06,Aggressive,Pending,2024-01-18,IB Partner,True
+CUST-00771,Ryan Flores,Male,1986-08-12,Manila,National Capital Region (NCR),Philippines,Physician,663800.0,Moderate,Verified,2024-03-31,Facebook,True
+CUST-00772,Hannah Brown,Female,1976-05-29,Manila,National Capital Region (NCR),Philippines,E-Commerce Merchant,290600.0,Moderate,Verified,2025-05-08,Referral,True
+CUST-00773,Joshua Vance,Male,1962-05-29,Angeles City,Central Luzon (Region III),Philippines,Bank Branch Officer,322600.0,Moderate,Verified,2023-01-24,Google,True
+CUST-00774,Sarah Joseph,Female,1993-02-04,Surabaya,East Java,Indonesia,Graphic Designer,351300.0,Conservative,Verified,2025-03-29,Facebook,True
+CUST-00775,Tammy Little,Female,1976-06-06,Davao City,Davao Region (Region XI),Philippines,Registered Nurse,657100.0,Moderate,Verified,2023-10-27,LinkedIn,True
+CUST-00776,Rebecca Hicks,Female,2001-01-01,Surabaya,East Java,Indonesia,High School Teacher,1.2769e+06,Moderate,Verified,2024-10-21,Referral,False
+CUST-00777,Bryan Harris,Male,2000-06-23,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,1.0514e+06,Conservative,Verified,2024-09-09,IB Partner,True
+CUST-00778,Charles Tyler,Male,1967-12-21,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Graphic Designer,700900.0,Aggressive,Verified,2025-06-03,Google,True
+CUST-00779,Alexander Spencer,Male,1970-04-02,Singapore,Central,Singapore,Virtual Assistant,207800.0,Moderate,Verified,2023-04-10,Facebook,True
+CUST-00780,Jackie Lara,Female,1986-05-03,Surabaya,East Java,Indonesia,Financial Analyst,208400.0,Conservative,Verified,2025-05-31,Facebook,False
+CUST-00781,Juan Salazar,Male,1974-10-04,Quezon City,National Capital Region (NCR),Philippines,,738700.0,Moderate,Verified,2023-02-27,Facebook,True
+CUST-00782,Brandon Parker,Male,1986-02-28,Chiang Mai,North,Thailand,Software Engineer,205900.0,Aggressive,Verified,2025-03-10,IB Partner,True
+CUST-00783,Zachary Higgins,Male,1990-12-30,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Data Analyst,440900.0,Aggressive,Verified,2024-08-17,Google,True
+CUST-00784,Joseph Hammond,Male,1983-10-05,Quezon City,National Capital Region (NCR),Philippines,Registered Nurse,632100.0,Moderate,Verified,2024-03-15,Referral,True
+CUST-00785,Rodney Jones,Male,1989-05-16,Tokyo,Kanto,Japan,Customer Service Specialist,237100.0,Aggressive,Verified,2023-12-29,Facebook,True
+CUST-00786,William Day,Male,1965-09-26,Baguio City,Cordillera Administrative Region (CAR),Philippines,Software Engineer,256100.0,Aggressive,Verified,2023-03-27,Organic,True
+CUST-00787,Jerry Frazier,Male,1984-09-06,Penang,Penang,Malaysia,Software Engineer,482100.0,Aggressive,Verified,2024-12-31,Facebook,True
+CUST-00788,Haley Humphrey,Female,1988-12-13,QUEZON CITY,National Capital Region (NCR),Philippines,Virtual Assistant,724000.0,Aggressive,Verified,2024-10-25,LinkedIn,True
+CUST-00789,Richard Bowman,Male,1978-11-02,Kuala Lumpur,Federal Territories,Malaysia,Digital Marketing Lead,1.0579e+06,Moderate,Verified,2025-05-03,LinkedIn,True
+CUST-00790,Christopher Burch,Male,1968-05-31,Davao City,Davao Region (Region XI),Philippines,Physician,776700.0,Moderate,Verified,2024-10-27,Referral,True
+CUST-00791,Jessica Bartlett,Female,1991-03-02,Cebu City,Central Visayas (Region VII),Philippines,SME Retail Owner,540400.0,Moderate,Verified,2025-05-21,Google,False
+CUST-00792,Amy Martinez,Female,1959-11-22,Angeles City,Central Luzon (Region III),Philippines,Financial Analyst,309500.0,Moderate,Verified,2025-03-18,Facebook,True
+CUST-00793,Christian Martin,Male,1982-04-01,Davao City,Davao Region (Region XI),Philippines,High School Teacher,248100.0,Conservative,Verified,2024-01-23,Referral,True
+CUST-00794,Erica Fletcher,Female,1972-12-23,Angeles City,Central Luzon (Region III),Philippines,High School Teacher,363200.0,Moderate,Verified,2024-10-03,IB Partner,True
+CUST-00795,Hannah Everett,Female,1959-01-22,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,679300.0,Aggressive,Verified,2023-08-29,Google,True
+CUST-00796,Steven Singleton,Male,1983-09-29,Cebu City,Central Visayas (Region VII),Philippines,Physician,646200.0,Moderate,Verified,2024-12-25,Organic,True
+CUST-00797,Danielle Reid,Female,1994-08-20, Quezon City,National Capital Region (NCR),Philippines,High School Teacher,180000.0,Aggressive,Verified,2024-07-08,Google,True
+CUST-00798,Krista Martinez,Female,1968-11-23,Davao City,Davao Region (Region XI),Philippines,E-Commerce Merchant,301300.0,Moderate,Verified,2024-02-06,Facebook,True
+CUST-00799,Eric Ferguson,Male,2003-09-16,Singapore,Central,Singapore,Certified Public Accountant,1.166e+06,Conservative,Verified,2024-07-26,LinkedIn,False
+CUST-00800,Jonathan Jackson,Male,1982-07-06,Singapore,Central,Singapore,E-Commerce Merchant,542500.0,Conservative,Verified,2023-09-10,Google,True
+CUST-00801,Teresa Moore,Female,1957-12-28,Singapore,Central,Singapore,Customer Service Specialist,196100.0,Aggressive,Verified,2024-07-20,Facebook,True
+CUST-00802,Mary Le,Female,1984-07-21,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,2.5509e+06,Moderate,Pending,2024-03-08,Referral,True
+CUST-00803,Larry Kirby,Male,1971-11-21,Chiang Mai,North,Thailand,Certified Public Accountant,504000.0,Moderate,Verified,2023-10-21,Google,True
+CUST-00804,Justin Bryan,Male,1979-05-07,Pasig,National Capital Region (NCR),Philippines,Virtual Assistant,667500.0,Moderate,Pending,2025-06-07,LinkedIn,True
+CUST-00805,Alyssa Williams,Female,1993-12-08,Makati,National Capital Region (NCR),Philippines,SME Retail Owner,674500.0,Moderate,Verified,2023-02-28,Facebook,True
+CUST-00806,Martin Ray,Male,1989-02-04,QC,National Capital Region (NCR),Philippines,High School Teacher,400300.0,Moderate,Pending,2024-11-21,Organic,True
+CUST-00807,Marilyn Wang,Female,1979-06-06,Davao City,Davao Region (Region XI),Philippines,Customer Service Specialist,313400.0,Aggressive,Pending,2023-07-11,Referral,True
+CUST-00808,Jason Fowler,Male,1999-02-14,Angeles City,Central Luzon (Region III),Philippines,High School Teacher,2.1754e+06,Moderate,Rejected,2023-07-22,Facebook,False
+CUST-00809,Kathleen Burton,Female,1984-07-13,Makati,National Capital Region (NCR),Philippines,Registered Nurse,1.0168e+06,Aggressive,Verified,2023-05-21,Facebook,True
+CUST-00810,Donna Frye,Female,1984-07-14,Tokyo,Kanto,Japan,Virtual Assistant,898900.0,Moderate,Verified,2023-04-04,LinkedIn,True
+CUST-00811,Karen Ballard,Female,1964-10-21,Makati,National Capital Region (NCR),Philippines,E-Commerce Merchant,760600.0,Aggressive,Verified,2023-04-23,Referral,True
+CUST-00812,Melinda Evans,Female,1998-03-15,Baguio City,Cordillera Administrative Region (CAR),Philippines,Virtual Assistant,259800.0,Conservative,Verified,2025-01-28,Referral,True
+CUST-00813,Angel Brown,Female,1964-06-09,Tokyo,Kanto,Japan,High School Teacher,1.2253e+06,Conservative,Verified,2025-04-23,Facebook,True
+CUST-00814,Jessica Washington,Female,1984-09-27,Angeles City,Central Luzon (Region III),Philippines,E-Commerce Merchant,289700.0,Conservative,Pending,06/16/2024,Google,True
+CUST-00815,Christina Lawson,Female,1973-06-05,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,623200.0,Moderate,Verified,2023-01-13,LinkedIn,True
+CUST-00816,Erik Higgins,Male,1977-11-10,Bangkok,Central,Thailand,Sales Executive,180000.0,Moderate,Verified,2025-02-26,Referral,True
+CUST-00817,Morgan Valencia,Female,1989-12-09,Surabaya,East Java,Indonesia,Financial Analyst,1e+09,Moderate,Verified,2024-07-02,IB Partner,False
+CUST-00818,William Anderson,Male,1960-04-21,Iloilo City,Western Visayas (Region VI),Philippines,Registered Nurse,638200.0,Moderate,Verified,2024-04-19,Facebook,False
+CUST-00819,Jacqueline Hoffman,Female,1993-06-23,Angeles City,Central Luzon (Region III),Philippines,Financial Analyst,296500.0,Conservative,Verified,2025-05-13,Facebook,True
+CUST-00820,Emma Owens,Female,2002-04-26,Calamba,Calabarzon (Region IV-A),Philippines,Civil Engineer,180000.0,Moderate,Verified,2024-01-09,Google,False
+CUST-00821,Derek Wright,Male,1968-10-14,Calamba,Calabarzon (Region IV-A),Philippines,Software Engineer,742400.0,Aggressive,Verified,2023-11-25,LinkedIn,True
+CUST-00822,Brent Roberts,Male,1974-10-30,Iloilo City,Western Visayas (Region VI),Philippines,Customer Service Specialist,2.1731e+06,Conservative,Verified,2024-12-11,Facebook,False
+CUST-00823,James Gilbert,Male,1962-03-11,Pasig,National Capital Region (NCR),Philippines,Data Analyst,1.3223e+06,Conservative,Verified,2024-04-25,Google,False
+CUST-00824,Danielle Grimes,Female,1982-07-09,Cebu City,Central Visayas (Region VII),Philippines,Software Engineer,431500.0,Conservative,Verified,2024-10-15,Referral,True
+CUST-00825,Christopher Murphy,Male,2003-03-25,Kuala Lumpur,Federal Territories,Malaysia,Customer Service Specialist,517100.0,Moderate,Verified,2024-09-25,Google,True
+CUST-00826,Kenneth Edwards,Male,2003-01-25,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,940000.0,Conservative,Verified,2025-02-03,Google,True
+CUST-00827,Pamela Jimenez,Female,1983-09-02,Pasig,National Capital Region (NCR),Philippines,Software Engineer,1.1025e+06,Moderate,Pending,2023-10-16,IB Partner,True
+CUST-00828,Kayla Jimenez,Female,1992-04-19,Manila,National Capital Region (NCR),Philippines,,406900.0,Moderate,Verified,2023-03-07,Referral,False
+CUST-00829,Eric Johnson,Male,1960-09-15,Jakarta,DKI Jakarta,Indonesia,Financial Analyst,526100.0,Moderate,Verified,2024-03-11,Google,True
+CUST-00830,Tony Wagner,Male,1998-06-15,Davao City,Davao Region (Region XI),Philippines,Data Analyst,630600.0,Moderate,Verified,2024-08-12,Google,True
+CUST-00831,Tracy Lewis,Female,1962-08-25,Pasig,National Capital Region (NCR),Philippines,Logistics Coordinator,749100.0,Conservative,Verified,2025-01-14,Referral,True
+CUST-00832,Heather Williams,Female,1993-11-01,Angeles City,Central Luzon (Region III),Philippines,Civil Engineer,469500.0,Aggressive,Verified,2023-09-01,Facebook,True
+CUST-00833,Kathleen Khan,Female,1998-05-30,Cebu City,Central Visayas (Region VII),Philippines,,473700.0,Moderate,Verified,2024-11-10,IB Partner,False
+CUST-00834,Matthew Ruiz,Male,1991-02-14,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,1.3136e+06,Moderate,Verified,2025-01-28,Facebook,False
+CUST-00835,Joshua Boone,Male,1997-04-01,Singapore,Central,Singapore,E-Commerce Merchant,1.17e+06,Conservative,Verified,2025-01-06,LinkedIn,True
+CUST-00836,Jeffrey Khan,Male,1985-03-03,Iloilo City,Western Visayas (Region VI),Philippines,Corporate Lawyer,711200.0,Moderate,Verified,2025-01-06,Facebook,False
+CUST-00837,Monica Gallagher,Female,1988-06-30,Singapore,Central,Singapore,Data Analyst,1.6545e+06,Aggressive,Verified,2025-06-18,LinkedIn,True
+CUST-00838,Jacob Morales,Male,1979-03-04,Tokyo,Kanto,Japan,Physician,395200.0,Conservative,Verified,2024-08-25,Facebook,False
+CUST-00839,Kelly Lee,Male,1978-10-17,Makati,National Capital Region (NCR),Philippines,SME Retail Owner,1.5498e+06,Conservative,Verified,2023-12-04,IB Partner,True
+CUST-00840,Kristen Jones,Female,2003-12-22,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Architect,743300.0,Conservative,Verified,2024-02-02,Google,True
+CUST-00841,Kathy Duran,Female,1998-02-25,Davao City,Davao Region (Region XI),Philippines,Software Engineer,4.7531e+06,Moderate,Verified,2024-11-11,Facebook,True
+CUST-00842,Diana Hays,Female,1996-06-01,Kuala Lumpur,Federal Territories,Malaysia,SME Retail Owner,228500.0,Aggressive,Verified,2023-08-04,Google,True
+CUST-00843,Michael Wilson,Male,1994-11-15,Davao City,Davao Region (Region XI),Philippines,Registered Nurse,321700.0,Moderate,Verified,2024-07-03,Google,True
+CUST-00844,William Long,Male,1999-08-16,Calamba,Calabarzon (Region IV-A),Philippines,Customer Service Specialist,683400.0,Moderate,Verified,2024-06-05,Referral,True
+CUST-00845,Robert Morgan,Male,1989-03-29,Pasig,National Capital Region (NCR),Philippines,Physician,673400.0,Aggressive,Verified,2024-08-30,Facebook,True
+CUST-00846,Todd Fischer,Male,1978-03-15,Jakarta,DKI Jakarta,Indonesia,Corporate Lawyer,1.9359e+06,Moderate,Pending,2024-01-19,LinkedIn,True
+CUST-00847,Curtis Hicks,Male,1989-07-05,Taguig,National Capital Region (NCR),Philippines,E-Commerce Merchant,326300.0,Conservative,Verified,2024-11-05,LinkedIn,True
+CUST-00848,Jonathan Williams,Male,1988-07-24,Angeles City,Central Luzon (Region III),Philippines,High School Teacher,951100.0,Conservative,Verified,2023-03-07,,True
+CUST-00849,Breanna Cook,Female,1981-12-18,Baguio City,Cordillera Administrative Region (CAR),Philippines,Data Analyst,1.1331e+06,Moderate,Verified,2024-11-14,Organic,True
+CUST-00850,Kara Bryant,Female,1978-04-06,Kowloon,Kowloon,Hong Kong,Digital Marketing Lead,830000.0,Aggressive,Verified,2025-01-09,Facebook,True
+CUST-00851,Lisa Robertson,Female,1988-06-22,Calamba,Calabarzon (Region IV-A),Philippines,High School Teacher,267400.0,Moderate,Verified,2025-03-17,Facebook,True
+CUST-00852,Garrett Austin,Male,1993-08-07,Quezon City,National Capital Region (NCR),Philippines,E-Commerce Merchant,1.3388e+06,Moderate,Verified,2025-04-20,Google,True
+CUST-00853,Christopher Ewing,Male,1984-10-16,Jakarta,DKI Jakarta,Indonesia,Architect,1.1858e+06,Aggressive,Verified,2023-11-15,Facebook,True
+CUST-00854,Patrick Evans,Male,2002-11-18,Bangkok,Central,Thailand,Data Analyst,772800.0,Conservative,Verified,2023-02-12,Facebook,True
+CUST-00855,George Clayton,Male,1980-11-18,Manila,National Capital Region (NCR),Philippines,Corporate Lawyer,590600.0,Moderate,Verified,2024-08-18,Google,True
+CUST-00856,Joseph Erickson,Male,1959-10-21,Calamba,Calabarzon (Region IV-A),Philippines,Corporate Lawyer,599400.0,Conservative,Pending,2023-03-24,Referral,True
+CUST-00857,Elijah Cabrera,Male,1985-04-30,Singapore,Central,Singapore,Data Analyst,487200.0,Aggressive,Verified,2023-09-13,Facebook,True
+CUST-00858,Isabella Nunez,Female,1998-12-06,Bandung,West Java,Indonesia,Civil Engineer,794700.0,Moderate,Verified,2024-10-01,LinkedIn,False
+CUST-00859,William Silva,Male,1970-10-23,Quezon City,National Capital Region (NCR),Philippines,Registered Nurse,525000.0,Conservative,Verified,2024-06-25,Google,True
+CUST-00860,Rebecca Swanson,Female,1998-01-22,Cagayan de Oro,Northern Mindanao (Region X),Philippines,SME Retail Owner,288700.0,Conservative,Verified,2024-07-06,Organic,True
+CUST-00861,Michael Johnson,Male,1994-12-04,Singapore,Central,Singapore,Customer Service Specialist,251900.0,Moderate,Pending,2024-11-15,Google,True
+CUST-00862,John Coffey,Male,1997-02-18,Singapore,Central,Singapore,Registered Nurse,308200.0,Moderate,Verified,2023-05-31,Referral,True
+CUST-00863,Richard Parsons,Male,1962-07-07,Penang,Penang,Malaysia,Financial Analyst,597800.0,Moderate,Verified,2024-12-21,Facebook,True
+CUST-00864,Kenneth Griffith,Male,1957-12-06,Manila,National Capital Region (NCR),Philippines,E-Commerce Merchant,504700.0,Conservative,Verified,2024-06-18,LinkedIn,True
+CUST-00865,Kevin Jackson,Male,1977-04-06,Calamba,Calabarzon (Region IV-A),Philippines,Digital Marketing Lead,595100.0,Aggressive,Verified,2024-01-18,Facebook,False
+CUST-00866,Lori Harvey,Female,1975-01-04,Phuket,South,Thailand,Architect,722600.0,Moderate,Pending,2024-02-27,Facebook,False
+CUST-00867,Ryan Hernandez,Male,1973-09-14,Surabaya,East Java,Indonesia,Sales Executive,335500.0,Moderate,Verified,2024-04-08,Organic,True
+CUST-00868,Michael Johnson,Male,1975-05-10,Johor Bahru,Johor,Malaysia,Software Engineer,1.3926e+06,Moderate,Verified,2024-05-16,LinkedIn,True
+CUST-00869,Tiffany Rodriguez,Female,1978-06-18,Pasig,National Capital Region (NCR),Philippines,Digital Marketing Lead,428500.0,Aggressive,Verified,2023-11-01,Google,True
+CUST-00870,Albert Edwards,Male,1957-09-04,Baguio City,Cordillera Administrative Region (CAR),Philippines,Logistics Coordinator,382800.0,Aggressive,Verified,2023-07-23,Facebook,True
+CUST-00871,Brittany Vaughn,Female,1969-08-02,Singapore,Central,Singapore,Customer Service Specialist,713600.0,Moderate,Verified,2023-06-03,Facebook,True
+CUST-00872,Jason Hampton,Male,1999-11-12,Cebu City,Central Visayas (Region VII),Philippines,Corporate Lawyer,180000.0,Moderate,Pending,2023-11-07,Referral,True
+CUST-00873,Tami Salas,Female,1985-08-11,Kowloon,Kowloon,Hong Kong,Customer Service Specialist,300300.0,Moderate,Verified,2023-08-26,LinkedIn,True
+CUST-00874,Noah Brown,Male,1958-04-01,manila,National Capital Region (NCR),Philippines,BPO Operations Manager,1.0016e+06,Aggressive,Verified,2024-04-15,Referral,True
+CUST-00875,Charles Clark,Male,1985-01-22,Singapore,Central,Singapore,Logistics Coordinator,180000.0,Moderate,Verified,2025-04-10,Facebook,True
+CUST-00876,Erika Bates,Female,1994-06-09,Jakarta,DKI Jakarta,Indonesia,Registered Nurse,1.099e+06,Conservative,Verified,2023-04-09,Facebook,True
+CUST-00877,Kelly Edwards,Female,1963-03-25,Angeles City,Central Luzon (Region III),Philippines,BPO Operations Manager,1.4363e+06,Conservative,Verified,2023-10-09,Google,True
+CUST-00878,Christopher Barr,Male,1974-10-03,Taguig,National Capital Region (NCR),Philippines,E-Commerce Merchant,399800.0,Aggressive,Verified,14/02/2023,Google,True
+CUST-00879,Gloria Gomez,Female,1977-08-06,Taguig,National Capital Region (NCR),Philippines,Physician,626800.0,Aggressive,Verified,2025-06-07,Facebook,True
+CUST-00880,Raymond Le,Male,1984-04-15,Baguio City,Cordillera Administrative Region (CAR),Philippines,Sales Executive,1.1002e+06,Aggressive,Verified,2024-09-30,Facebook,False
+CUST-00881,Mason Steele,Male,1998-03-06,Makati,National Capital Region (NCR),Philippines,Customer Service Specialist,374200.0,Moderate,Verified,2023-08-08,Facebook,True
+CUST-00882,Leonard Lee,Male,1985-12-26,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,927400.0,Aggressive,Verified,2024-01-13,Facebook,True
+CUST-00883,Danielle Grant,Female,1983-06-22,Ho Chi Minh City,Southeast,Vietnam,Data Analyst,325700.0,Aggressive,Verified,2024-10-20,Google,True
+CUST-00884,Danny Dudley,Male,1960-04-12,Makati,National Capital Region (NCR),Philippines,Bank Branch Officer,371500.0,Moderate,Verified,2025-05-22,Facebook,True
+CUST-00885,Elizabeth Roberts,Female,1989-08-02,Angeles City,Central Luzon (Region III),Philippines,,298500.0,Conservative,Verified,2024-06-06,Google,False
+CUST-00886,Daniel Bush,Male,1997-01-03,Makati,National Capital Region (NCR),Philippines,Data Analyst,648900.0,Aggressive,Verified,2023-09-04,LinkedIn,True
+CUST-00887,Emily Bailey,female,1983-12-09,Quezon City,National Capital Region (NCR),Philippines,Physician,1.1297e+06,Conservative,Rejected,2024-09-26,IB Partner,False
+CUST-00888,Taylor Pope,Female,1957-03-10,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Corporate Lawyer,453500.0,Moderate,Verified,2024-09-16,IB Partner,True
+CUST-00889,Donald Martinez,Male,1981-05-15,Calamba,Calabarzon (Region IV-A),Philippines,Software Engineer,216500.0,Moderate,Verified,2024-08-09,Facebook,True
+CUST-00890,Michael James,Male,1986-03-19,Quezon City,National Capital Region (NCR),Philippines,Customer Service Specialist,246200.0,Moderate,Verified,2023-02-11,Facebook,False
+CUST-00891,William Cardenas,Male,1972-09-11,Cagayan de Oro,Northern Mindanao (Region X),Philippines,Bank Branch Officer,672200.0,Conservative,Verified,2024-10-05,Referral,True
+CUST-00892,Tina Ballard,Female,1973-07-19,Hanoi,Red River Delta,Vietnam,Bank Branch Officer,1.8013e+06,Moderate,Verified,2023-01-18,LinkedIn,True
+CUST-00893,Dylan Roberts,Male,1989-12-17,Baguio City,Cordillera Administrative Region (CAR),Philippines,Civil Engineer,671800.0,Conservative,Verified,2025-04-04,Facebook,True
+CUST-00894,Michelle Reed,Female,1958-07-23,Quezon City,National Capital Region (NCR),Philippines,Data Analyst,395100.0,Aggressive,Verified,2025-03-14,Referral,True
+CUST-00895,Jeremy Scott,Male,1976-03-03,Singapore,Central,Singapore,Financial Analyst,865500.0,Conservative,Verified,05/28/2024,Referral,True
+CUST-00896,Karen Harris,Female,2001-04-24,Bandung,West Java,Indonesia,SME Retail Owner,436800.0,Moderate,Verified,2024-08-11,Facebook,True
+CUST-00897,Joshua Fitzpatrick,Male,1984-11-16,Iloilo City,Western Visayas (Region VI),Philippines,Customer Service Specialist,397400.0,Aggressive,Verified,2023-03-03,LinkedIn,True
+CUST-00898,Michael Taylor,Male,1960-09-03,Calamba,Calabarzon (Region IV-A),Philippines,Data Analyst,267900.0,Conservative,Verified,2025-03-07,Google,True
+CUST-00899,Lisa Matthews,Female,1985-07-17,Pasig,National Capital Region (NCR),Philippines,Logistics Coordinator,1.3394e+06,Conservative,Verified,2023-09-04,Google,True
+CUST-00900,David Santiago,Male,1977-05-08,Angeles City,Central Luzon (Region III),Philippines,Registered Nurse,180000.0,Aggressive,Verified,2023-08-27,Organic,True
+CUST-00901,Kiara Little,Female,1975-03-31,Iloilo City,Western Visayas (Region VI),Philippines,Graphic Designer,884300.0,Conservative,Verified,2024-10-07,Facebook,True
+CUST-00902,Anthony Gutierrez,Male,1970-12-08,QC,National Capital Region (NCR),Philippines,E-Commerce Merchant,375000.0,Conservative,Verified,2025-05-05,Facebook,True
+CUST-00903,Mitchell Garcia,Male,1963-01-18,Angeles City,Central Luzon (Region III),Philippines,Architect,388900.0,Moderate,Rejected,2024-03-26,Referral,False
+CUST-00904,Patricia Smith,Female,1997-01-04,Baguio City,Cordillera Administrative Region (CAR),Philippines,Registered Nurse,1.6246e+06,Aggressive,Verified,04/07/2024,Google,True
+CUST-00905,Krista Hickman,Female,1979-10-01,Ho Chi Minh City,Southeast,Vietnam,Data Analyst,316300.0,Moderate,Verified,2024-05-14,Google,True
+CUST-00906,Jennifer Donovan,Female,1978-12-19,Davao City,Davao Region (Region XI),Philippines,Data Analyst,323700.0,Moderate,Verified,2023-09-23,Facebook,True
+CUST-00907,Shawn Woods,Male,1996-11-10,Pasig,National Capital Region (NCR),Philippines,Data Analyst,470400.0,Aggressive,Verified,2024-06-27,IB Partner,True
+CUST-00908,Curtis Maynard,Male,1972-05-20,Davao City,Davao Region (Region XI),Philippines,BPO Operations Manager,681100.0,Moderate,Verified,2025-05-25,Referral,True
+CUST-00909,Frank Brewer,Male,1998-06-21,Angeles City,Central Luzon (Region III),Philippines,Physician,380600.0,Moderate,Verified,2023-12-15,Referral,True
+CUST-00910,Terry Davis,Male,1982-08-04,Calamba,Calabarzon (Region IV-A),Philippines,SME Retail Owner,180000.0,Moderate,Verified,2024-12-05,Google,False
+CUST-00911,Kenneth Nichols,Male,1988-07-04,Singapore,Central,Singapore,Sales Executive,285300.0,Moderate,Verified,2024-12-06,IB Partner,True
+CUST-00912,Nathaniel Zuniga,Male,1996-09-27,Jakarta,DKI Jakarta,Indonesia,Digital Marketing Lead,1.2285e+06,Moderate,Verified,2025-02-14,Google,True
+CUST-00913,Thomas Thompson,Male,1965-05-25,Phuket,South,Thailand,Civil Engineer,540800.0,Moderate,Verified,2024-10-21,IB Partner,False
+CUST-00914,Stephen Thompson,Male,1992-07-21,Tokyo,Kanto,Japan,Sales Executive,698500.0,Conservative,Verified,2025-04-19,Facebook,True
+CUST-00915,Thomas Osborn,Male,1992-01-12,Osaka,Kansai,Japan,BPO Operations Manager,430300.0,Moderate,Verified,2024-10-12,Google,True
+CUST-00916,James Simpson,Male,1963-11-21,Da Nang,South Central,Vietnam,Graphic Designer,328300.0,Conservative,Verified,2025-06-08,Organic,True
+CUST-00917,Taylor Hayden,Female,1962-10-23,Cebu City,Central Visayas (Region VII),Philippines,Logistics Coordinator,1.6084e+06,Moderate,Verified,2024-10-13,Google,True
+CUST-00918,Tammy Mcdowell,Female,2002-05-26,Cebu City,Central Visayas (Region VII),Philippines,BPO Operations Manager,452300.0,Conservative,Verified,2025-02-01,Referral,True
+CUST-00919,Adam Bradley,Male,1990-12-20,Cebu City,Central Visayas (Region VII),Philippines,BPO Operations Manager,380200.0,Moderate,Verified,2025-03-22,IB Partner,True
+CUST-00920,Ashley Bird,Female,1970-09-22,Calamba,Calabarzon (Region IV-A),Philippines,Customer Service Specialist,1.0831e+06,Moderate,Verified,2025-06-14,Facebook,True
+CUST-00921,Dominique Hays,Female,1967-06-22,Pasig,National Capital Region (NCR),Philippines,SME Retail Owner,314500.0,Moderate,Pending,2024-06-26,Referral,True
+CUST-00922,Joshua Snyder,Male,1957-01-29,Jakarta,DKI Jakarta,Indonesia,Customer Service Specialist,343000.0,Conservative,Verified,2024-10-09,Organic,True
+CUST-00923,Todd Rosales,Male,1977-12-19,Pasig,National Capital Region (NCR),Philippines,Physician,517600.0,Conservative,Verified,2025-05-31,Organic,True
+CUST-00924,John Lee,Male,2003-09-01,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,514100.0,Aggressive,Verified,2023-12-13,IB Partner,True
+CUST-00925,Brian Martin,Male,1962-12-26,Pasig,National Capital Region (NCR),Philippines,SME Retail Owner,613300.0,Conservative,Verified,2023-04-19,Organic,True
+CUST-00926,Judy Scott,Female,1996-06-15,Quezon City,National Capital Region (NCR),Philippines,E-Commerce Merchant,2.1315e+06,Aggressive,Verified,2025-03-16,Facebook,True
+CUST-00927,Charlotte Doyle,Female,1998-05-06,quezon city,National Capital Region (NCR),Philippines,Registered Nurse,646100.0,Moderate,Verified,2024-07-29,IB Partner,True
+CUST-00928,Richard Bradley,Male,1972-05-10,Bandung,West Java,Indonesia,Civil Engineer,180000.0,Conservative,Pending,2024-01-26,Referral,True
+CUST-00929,Nicole Thompson,Female,1975-08-29,Manila,National Capital Region (NCR),Philippines,Virtual Assistant,641700.0,Moderate,Verified,2024-10-15,Google,True
+CUST-00930,Scott Prince,Male,2001-03-14,Singapore,Central,Singapore,Certified Public Accountant,527400.0,Moderate,Verified,2023-01-30,Referral,True
+CUST-00931,Samantha Robertson,Female,1996-01-25,Davao City,Davao Region (Region XI),Philippines,Financial Analyst,529400.0,Conservative,Verified,2024-03-10,LinkedIn,True
+CUST-00932,Angie Caldwell,Female,1976-04-26,Baguio City,Cordillera Administrative Region (CAR),Philippines,,607600.0,Aggressive,Verified,2023-08-30,Google,True
+CUST-00933,Cody Taylor,Male,1992-01-10,Cagayan de Oro,Northern Mindanao (Region X),Philippines,E-Commerce Merchant,504100.0,Conservative,Verified,2023-09-20,Organic,True
+CUST-00934,Franklin Wright,Male,1971-11-22,Singapore,Central,Singapore,BPO Operations Manager,495900.0,Moderate,Verified,2025-06-02,Facebook,True
+CUST-00935,Debbie Young,female,1984-09-05,Singapore,Central,Singapore,Customer Service Specialist,779900.0,Moderate,Verified,2024-05-16,Facebook,True
+CUST-00936,Nicole Finley,Female,1976-05-24,Cebu City,Central Visayas (Region VII),Philippines,Customer Service Specialist,355500.0,Moderate,Verified,2023-05-08,Referral,False
+CUST-00937,Eric Sharp,Male,1981-09-17,Ho Chi Minh City,Southeast,Vietnam,E-Commerce Merchant,269800.0,Aggressive,Verified,2023-11-29,Facebook,True
+CUST-00938,Adam Valdez,M,1986-11-13,Angeles City,Central Luzon (Region III),Philippines,Corporate Lawyer,4.0175e+06,Conservative,Verified,10/08/2023,Google,True
+CUST-00939,Michael Brown,Male,1987-12-09,Phuket,South,Thailand,Civil Engineer,315900.0,Aggressive,Verified,2025-04-08,Referral,True
+CUST-00940,Bailey Parker,Female,1971-04-09,Iloilo City,Western Visayas (Region VI),Philippines,Bank Branch Officer,550200.0,Moderate,Verified,2023-09-23,Google,True
+CUST-00941,Jennifer Shaw,Female,1979-11-10,Quezon City,National Capital Region (NCR),Philippines,Logistics Coordinator,185900.0,Aggressive,Verified,2023-11-22,Facebook,True
+CUST-00942,Stephanie Padilla,Female,1976-02-08,Jakarta,DKI Jakarta,Indonesia,High School Teacher,556400.0,Aggressive,Verified,2023-11-01,Facebook,False
+CUST-00943,Emily Wilson,Female,1976-11-26,Taguig,National Capital Region (NCR),Philippines,Certified Public Accountant,272500.0,Aggressive,Verified,2023-06-10,Google,True
+CUST-00944,Sydney Phillips,Female,1994-04-07,Quezon City,National Capital Region (NCR),Philippines,High School Teacher,380500.0,Moderate,Verified,2024-12-11,Referral,False
+CUST-00945,Lisa Robinson,Female,1961-02-15,Calamba,Calabarzon (Region IV-A),Philippines,Corporate Lawyer,1.0462e+06,Moderate,Verified,2024-06-09,Facebook,True
+CUST-00946,Casey Hernandez,Male,1977-07-27,Makati,National Capital Region (NCR),Philippines,Architect,708500.0,Moderate,Verified,2024-02-03,Facebook,True
+CUST-00947,Nicole Obrien,Female,1970-04-17,Singapore,Central,Singapore,Civil Engineer,756500.0,Moderate,Verified,2023-12-27,Facebook,True
+CUST-00948,Jason Dunn,Male,1962-08-06,Jakarta,DKI Jakarta,Indonesia,Digital Marketing Lead,180000.0,Moderate,Pending,2024-08-30,Google,False
+CUST-00949,John Medina,Male,1960-08-02,Bandung,West Java,Indonesia,Logistics Coordinator,1.7924e+06,Moderate,Verified,2023-03-29,Facebook,True
+CUST-00950,Mary Robinson,Female,1972-09-12,Baguio City,Cordillera Administrative Region (CAR),Philippines,BPO Operations Manager,228600.0,Conservative,Verified,2025-04-28,Referral,True
+CUST-00951,Danielle Fischer,Female,1967-01-19,Makati,National Capital Region (NCR),Philippines,Certified Public Accountant,1.4534e+06,Aggressive,Verified,2024-05-29,Google,True
+CUST-00952,Shelley Miller,Female,1981-11-10,Pasig,National Capital Region (NCR),Philippines,High School Teacher,1.0296e+06,Conservative,Verified,2023-07-27,Google,True
+CUST-00953,Jeremy Padilla,Male,1969-05-14,Davao City,Davao Region (Region XI),Philippines,Architect,761200.0,Aggressive,Verified,2024-05-04,Google,True
+CUST-00954,Angela Elliott,Female,1988-11-30,Iloilo City,Western Visayas (Region VI),Philippines,Virtual Assistant,287400.0,Conservative,Verified,2025-02-15,Facebook,True
+CUST-00955,Antonio Kelley,Male,1970-08-03,Da Nang,South Central,Vietnam,Civil Engineer,569800.0,Conservative,Verified,2023-06-07,IB Partner,True
+CUST-00956,Jonathan Armstrong,Male,1999-12-26,Bandung,West Java,Indonesia,Virtual Assistant,373200.0,Aggressive,Pending,2024-04-22,Referral,True
+CUST-00957,Chris Murphy,Male,1961-01-28,Singapore,Central,Singapore,Civil Engineer,524300.0,Aggressive,Verified,2024-06-28,Referral,True
+CUST-00958,Joseph Wilson,Male,1992-07-12,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,433700.0,Moderate,Verified,2025-01-07,Organic,True
+CUST-00959,Daniel Aguilar,Male,1973-03-07, Manila,National Capital Region (NCR),Philippines,High School Teacher,180000.0,Aggressive,Verified,2024-05-31,Google,True
+CUST-00960,Ann Dixon,Female,2003-06-30,Makati,National Capital Region (NCR),Philippines,High School Teacher,1.1022e+06,Conservative,Verified,2024-12-05,Google,True
+CUST-00961,Robert Chavez,Male,1996-09-14,Davao City,Davao Region (Region XI),Philippines,Virtual Assistant,486400.0,Aggressive,Verified,2025-03-22,Organic,True
+CUST-00962,Jose Bryant,Male,1957-09-05,Manila,National Capital Region (NCR),Philippines,SME Retail Owner,369700.0,Moderate,Verified,2023-11-26,Facebook,False
+CUST-00963,Amy Ford,Female,1964-11-16,Pasig,National Capital Region (NCR),Philippines,Graphic Designer,351200.0,Moderate,Verified,2024-10-03,Organic,True
+CUST-00964,Robert Cummings,Male,1993-07-27,Quezon City,National Capital Region (NCR),Philippines,Certified Public Accountant,655900.0,Moderate,Verified,2023-08-15,Google,True
+CUST-00965,Jennifer Velasquez,Female,1997-11-15,Da Nang,South Central,Vietnam,Software Engineer,279900.0,Conservative,Verified,2025-02-08,Referral,True
+CUST-00966,Nichole Lane,Female,1965-09-29,Manila,National Capital Region (NCR),Philippines,Software Engineer,180000.0,Moderate,Verified,2025-05-16,Facebook,True
+CUST-00967,Andrew Cooper,Male,1957-07-06,Ho Chi Minh City,Southeast,Vietnam,Customer Service Specialist,678000.0,Moderate,Verified,2023-09-26,Facebook,True
+CUST-00968,Amy Mcknight,Female,1996-02-05,Makati,National Capital Region (NCR),Philippines,Financial Analyst,731600.0,Conservative,Verified,2024-05-26,IB Partner,True
+CUST-00969,Taylor Jones,Female,1972-11-01,Quezon City,National Capital Region (NCR),Philippines,Registered Nurse,448800.0,Aggressive,Verified,2025-01-19,Facebook,True
+CUST-00970,Taylor Johnson,Female,1990-09-12,Davao City,Davao Region (Region XI),Philippines,Customer Service Specialist,235500.0,Moderate,Verified,2024-10-04,Facebook,True
+CUST-00971,Jennifer Mack,Female,1969-01-21,Pasig,National Capital Region (NCR),Philippines,Registered Nurse,546100.0,Conservative,Verified,17/01/2025,Google,True
+CUST-00972,Pamela Good,Female,1984-05-16,Calamba,Calabarzon (Region IV-A),Philippines,Virtual Assistant,189900.0,Moderate,Verified,2025-03-04,LinkedIn,True
+CUST-00973,Maria Fisher,Female,1998-02-17,Taguig,National Capital Region (NCR),Philippines,Software Engineer,255600.0,Conservative,Verified,2023-06-29,Facebook,True
+CUST-00974,Willie Reyes,Male,1988-10-12,Chiang Mai,North,Thailand,E-Commerce Merchant,308500.0,Conservative,Verified,2024-11-20,LinkedIn,True
+CUST-00975,Sheila Knox,Female,1978-09-20,Iloilo City,Western Visayas (Region VI),Philippines,E-Commerce Merchant,912400.0,Moderate,Verified,2024-12-17,Google,True
+CUST-00976,Jaime Vega,Female,1966-07-10,Iloilo City,Western Visayas (Region VI),Philippines,Graphic Designer,401700.0,Conservative,Verified,2023-01-03,Organic,True
+CUST-00977,Mary Ryan,F,2003-01-12,Baguio City,Cordillera Administrative Region (CAR),Philippines,SME Retail Owner,379100.0,Conservative,Verified,2024-10-04,Facebook,False
+CUST-00978,Martha Bailey,Female,1959-01-14,Makati,National Capital Region (NCR),Philippines,Virtual Assistant,1.9419e+06,Moderate,Verified,2024-07-24,Facebook,True
+CUST-00979,Christopher Medina,Male,1973-07-05,Davao City,Davao Region (Region XI),Philippines,Corporate Lawyer,653200.0,Conservative,Verified,2025-06-01,Google,True
+CUST-00980,Kendra Luna,Female,1962-11-28,Baguio City,Cordillera Administrative Region (CAR),Philippines,Bank Branch Officer,647300.0,Aggressive,Verified,2023-02-09,Facebook,True
+CUST-00981,Courtney Smith,Female,1960-05-02,Osaka,Kansai,Japan,Software Engineer,399800.0,Aggressive,Verified,2025-05-29,Google,True
+CUST-00982,Alexander Evans,Male,1996-10-21,Penang,Penang,Malaysia,E-Commerce Merchant,342700.0,Conservative,Verified,2024-06-04,Facebook,True
+CUST-00983,Michael Stephens,Male,1999-08-14,Singapore,Central,Singapore,Bank Branch Officer,180000.0,Moderate,Pending,2023-09-07,LinkedIn,True
+CUST-00984,Kim Morrow,Female,1967-07-16,Iloilo City,Western Visayas (Region VI),Philippines,High School Teacher,993300.0,Conservative,Verified,2023-12-19,Organic,True
+CUST-00985,David Reed,Male,1995-03-12,Calamba,Calabarzon (Region IV-A),Philippines,Sales Executive,697200.0,Moderate,Verified,2024-11-29,Organic,True
+CUST-00986,Desiree Pineda,Female,1997-01-25,Chiang Mai,North,Thailand,Software Engineer,455100.0,Conservative,Verified,2025-06-26,IB Partner,False
+CUST-00987,Neil Rodriguez,Male,1982-01-05,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,468200.0,Aggressive,Rejected,2023-10-16,Organic,False
+CUST-00988,Robert Barnes,Male,1961-02-12,Quezon City,National Capital Region (NCR),Philippines,Software Engineer,848000.0,Conservative,Verified,2025-06-15,Referral,True
+CUST-00989,Pamela Stephenson,Female,1966-08-26,Pasig,National Capital Region (NCR),Philippines,Certified Public Accountant,180000.0,Moderate,Verified,2024-07-27,Referral,True
+CUST-00990,Alexis Harris,Female,1979-09-11,Kuala Lumpur,Federal Territories,Malaysia,Architect,344200.0,Conservative,Verified,2023-06-24,Organic,True
+CUST-00991,Ashlee Johnson,Female,1994-10-16,Quezon City,National Capital Region (NCR),Philippines,Sales Executive,237400.0,Conservative,Verified,2024-06-28,IB Partner,True
+CUST-00992,Linda Warner,Female,1988-03-21,Singapore,Central,Singapore,Graphic Designer,1.7145e+06,Moderate,Verified,2024-12-31,IB Partner,True
+CUST-00993,Amber Yang,Female,1971-09-06,Penang,Penang,Malaysia,SME Retail Owner,932300.0,Moderate,Verified,2023-02-19,LinkedIn,True
+CUST-00994,Jennifer Young,Female,1996-08-23,Makati,National Capital Region (NCR),Philippines,Corporate Lawyer,180000.0,Aggressive,Verified,2023-03-13,Facebook,True
+CUST-00995,Claudia Shields,Female,1979-05-22,Chiang Mai,North,Thailand,Certified Public Accountant,183600.0,Conservative,Verified,2023-01-05,IB Partner,True
+CUST-00996,Amy Gordon,Female,2003-06-19,Cebu City,Central Visayas (Region VII),Philippines,Corporate Lawyer,469800.0,Conservative,Verified,2024-06-03,IB Partner,False
+CUST-00997,Donna Cabrera,Female,1988-10-01,Iloilo City,Western Visayas (Region VI),Philippines,Software Engineer,372800.0,Moderate,Verified,2023-02-22,Google,True
+CUST-00998,Nicholas Flores,Male,1992-05-16,Angeles City,Central Luzon (Region III),Philippines,Software Engineer,208900.0,Moderate,Verified,2025-04-29,Organic,True
+CUST-00999,Kyle Chambers,Male,1972-01-11,Osaka,Kansai,Japan,BPO Operations Manager,1.9289e+06,Aggressive,Rejected,2023-04-27,Google,False
+CUST-01000,Frank Turner,Male,1961-02-01,Pasig,National Capital Region (NCR),Philippines,Graphic Designer,635700.0,Aggressive,Verified,2023-03-07,IB Partner,True
+CUST-00745,Gregory Williams,Male,1978-05-06,Cebu City,Central Visayas (Region VII),Philippines,E-Commerce Merchant,1.0216e+06,Aggressive,Pending,2023-12-04,LinkedIn,True
+CUST-00742,Angela Guerrero,Female,1993-08-05,Pasig,National Capital Region (NCR),Philippines,Corporate Lawyer,655100.0,Conservative,Verified,2023-07-18,Facebook,True
+CUST-00922,Joshua Snyder,Male,1957-01-29,Jakarta,DKI Jakarta,Indonesia,Customer Service Specialist,343000.0,Conservative,Verified,2024-10-09,Organic,True
+CUST-00682,Samuel Mitchell,Male,1957-02-18,Angeles City,Central Luzon (Region III),Philippines,Corporate Lawyer,335300.0,Moderate,Verified,2024-03-25,Referral,True

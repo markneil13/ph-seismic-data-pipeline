@@ -1,0 +1,116 @@
+2026-10-24 23:13:07 | INFO    | [config] Initialized file logging -> C:\Users\marki\Desktop\uncloud\Personal\AI Pursuits\data engineering lol\northbay_pipeline\logs\pipeline_20261024_231307.log
+2026-10-24 23:13:07 | INFO    | [run_pipeline] ********************************************************************************
+2026-10-24 23:13:07 | INFO    | [run_pipeline] STARTING NORTHBAY CAPITAL LOCAL ETL PIPELINE
+2026-10-24 23:13:07 | INFO    | [run_pipeline] Source file: northbay_finance_dataset.xlsx
+2026-10-24 23:13:07 | INFO    | [run_pipeline] Target DB  : C:\Users\marki\Desktop\uncloud\Personal\AI Pursuits\data engineering lol\northbay_pipeline\output\northbay.db
+2026-10-24 23:13:07 | INFO    | [run_pipeline] ********************************************************************************
+2026-10-24 23:13:07 | INFO    | [extract] ============================================================
+2026-10-24 23:13:07 | INFO    | [extract] STEP 1: EXTRACT - Loading raw sheets from Excel
+2026-10-24 23:13:07 | INFO    | [extract] ============================================================
+2026-10-24 23:13:07 | INFO    | [extract] Connecting to source workbook: northbay_finance_dataset.xlsx
+2026-10-24 23:13:07 | INFO    | [extract] Reading sheet: 'customers'...
+2026-10-24 23:13:09 | INFO    | [extract]    -> Successfully extracted 'customers': 1,004 rows, 14 columns.
+2026-10-24 23:13:09 | INFO    | [extract] Reading sheet: 'accounts'...
+2026-10-24 23:13:09 | INFO    | [extract]    -> Successfully extracted 'accounts': 1,400 rows, 8 columns.
+2026-10-24 23:13:09 | INFO    | [extract] Reading sheet: 'transactions'...
+2026-10-24 23:13:12 | INFO    | [extract]    -> Successfully extracted 'transactions': 8,820 rows, 9 columns.
+2026-10-24 23:13:12 | INFO    | [extract] Reading sheet: 'index_prices'...
+2026-10-24 23:13:13 | INFO    | [extract]    -> Successfully extracted 'index_prices': 3,192 rows, 7 columns.
+2026-10-24 23:13:13 | INFO    | [extract] Reading sheet: 'trades'...
+2026-10-24 23:13:16 | INFO    | [extract]    -> Successfully extracted 'trades': 5,010 rows, 16 columns.
+2026-10-24 23:13:16 | INFO    | [extract] Reading sheet: 'loans'...
+2026-10-24 23:13:17 | INFO    | [extract]    -> Successfully extracted 'loans': 600 rows, 12 columns.
+2026-10-24 23:13:17 | INFO    | [extract] Reading sheet: 'data_dictionary'...
+2026-10-24 23:13:17 | INFO    | [extract]    -> Successfully extracted 'data_dictionary': 66 rows, 5 columns.
+2026-10-24 23:13:17 | INFO    | [extract] Extraction complete! Total data records extracted: 20,026 rows across 7 sheets.
+2026-10-24 23:13:17 | INFO    | [validate] ============================================================
+2026-10-24 23:13:17 | INFO    | [validate] VALIDATE (RAW DATA) - Running Quality Checks
+2026-10-24 23:13:17 | INFO    | [validate] ============================================================
+2026-10-24 23:13:17 | INFO    | [validate] [customers] Row count: 1,004
+2026-10-24 23:13:17 | WARNING | [validate]    -> Found 4 exact duplicate rows, 4 PK collisions
+2026-10-24 23:13:17 | WARNING | [validate]    -> Missing values in 2 columns: ['occupation', 'acquisition_channel']
+2026-10-24 23:13:17 | WARNING | [validate]    -> Text formatting anomalies: {'city_inconsistencies': 20, 'gender_inconsistencies': 45}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Mixed/non-ISO date format issues: {'signup_date': 25}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Statistical outliers detected in: ['annual_income_php']
+2026-10-24 23:13:17 | INFO    | [validate] [accounts] Row count: 1,400
+2026-10-24 23:13:17 | WARNING | [validate]    -> Missing values in 1 columns: ['close_date']
+2026-10-24 23:13:17 | INFO    | [validate] [transactions] Row count: 8,820
+2026-10-24 23:13:17 | WARNING | [validate]    -> Found 18 exact duplicate rows, 20 PK collisions
+2026-10-24 23:13:17 | WARNING | [validate]    -> Missing values in 2 columns: ['payment_method', 'description']
+2026-10-24 23:13:17 | WARNING | [validate]    -> Negative values found in: {'amount': 6}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Text formatting anomalies: {'payment_method_inconsistencies': 174}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Mixed/non-ISO date format issues: {'timestamp': 60}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Statistical outliers detected in: ['amount']
+2026-10-24 23:13:17 | INFO    | [validate] [index_prices] Row count: 3,192
+2026-10-24 23:13:17 | INFO    | [validate] [trades] Row count: 5,010
+2026-10-24 23:13:17 | WARNING | [validate]    -> Found 10 exact duplicate rows, 10 PK collisions
+2026-10-24 23:13:17 | WARNING | [validate]    -> Missing values in 2 columns: ['swap_fee', 'close_reason']
+2026-10-24 23:13:17 | WARNING | [validate]    -> Negative values found in: {'lot_size': 3}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Statistical outliers detected in: ['lot_size', 'profit_loss']
+2026-10-24 23:13:17 | INFO    | [validate] [loans] Row count: 600
+2026-10-24 23:13:17 | WARNING | [validate]    -> Missing values in 1 columns: ['credit_score']
+2026-10-24 23:13:17 | WARNING | [validate]    -> Negative values found in: {'principal': 2}
+2026-10-24 23:13:17 | WARNING | [validate]    -> Statistical outliers detected in: ['principal']
+2026-10-24 23:13:17 | INFO    | [validate] Referential integrity check passed: 0 broken foreign keys found.
+2026-10-24 23:13:17 | INFO    | [validate] Validation (RAW) complete. Total identified anomalies: 2928
+2026-10-24 23:13:17 | INFO    | [transform] ============================================================
+2026-10-24 23:13:17 | INFO    | [transform] STEP 3: TRANSFORM - Cleaning, Imputing, and Reshaping Data
+2026-10-24 23:13:17 | INFO    | [transform] ============================================================
+2026-10-24 23:13:17 | INFO    | [transform] Transforming 'customers' -> 'dim_customers'...
+2026-10-24 23:13:17 | INFO    | [transform] dim_customers prepared: 1,000 records.
+2026-10-24 23:13:17 | INFO    | [transform] Transforming 'accounts' -> 'dim_accounts'...
+2026-10-24 23:13:17 | INFO    | [transform] dim_accounts prepared: 1,400 records.
+2026-10-24 23:13:17 | INFO    | [transform] Transforming 'transactions' -> 'fact_transactions'...
+2026-10-24 23:13:17 | INFO    | [transform] fact_transactions prepared: 8,800 records (7 flagged).
+2026-10-24 23:13:17 | INFO    | [transform] Transforming 'trades' -> 'fact_trades'...
+2026-10-24 23:13:18 | INFO    | [transform] fact_trades prepared: 5,000 records (89 flagged).
+2026-10-24 23:13:18 | INFO    | [transform] Transforming 'loans' -> 'fact_loans'...
+2026-10-24 23:13:18 | INFO    | [transform] fact_loans prepared: 600 records (17 flagged).
+2026-10-24 23:13:18 | INFO    | [transform] Generating 'dim_date' dimension table...
+2026-10-24 23:13:18 | INFO    | [transform] dim_date generated: 1,461 calendar days from 2023-01-01 to 2026-12-31.
+2026-10-24 23:13:18 | INFO    | [transform] Generating 'dim_symbol' dimension table...
+2026-10-24 23:13:18 | INFO    | [transform] dim_symbol generated: 7 CFD assets.
+2026-10-24 23:13:18 | INFO    | [transform] Transformation step successfully complete.
+2026-10-24 23:13:18 | INFO    | [load] ============================================================
+2026-10-24 23:13:18 | INFO    | [load] STEP 4: LOAD - Writing Star Schema to SQLite (northbay.db)
+2026-10-24 23:13:18 | INFO    | [load] ============================================================
+2026-10-24 23:13:18 | INFO    | [load] Enforcing idempotency: dropping existing views and tables...
+2026-10-24 23:13:18 | INFO    | [load] Creating Star Schema tables with Primary and Foreign Keys...
+2026-10-24 23:13:18 | INFO    | [load] Loading 1,000 records into table: 'dim_customers'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 1,400 records into table: 'dim_accounts'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 1,461 records into table: 'dim_date'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 7 records into table: 'dim_symbol'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 8,800 records into table: 'fact_transactions'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 5,000 records into table: 'fact_trades'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 600 records into table: 'fact_loans'...
+2026-10-24 23:13:18 | INFO    | [load] Loading 3,192 records into table: 'fact_index_prices'...
+2026-10-24 23:13:18 | INFO    | [load] Building B-Tree indexes on foreign keys...
+2026-10-24 23:13:19 | INFO    | [load] Creating business SQL views...
+2026-10-24 23:13:19 | INFO    | [load] Successfully loaded Star Schema and views into C:\Users\marki\Desktop\uncloud\Personal\AI Pursuits\data engineering lol\northbay_pipeline\output\northbay.db!
+2026-10-24 23:13:19 | INFO    | [validate] ============================================================
+2026-10-24 23:13:19 | INFO    | [validate] VALIDATE (CLEAN DATA) - Running Quality Checks
+2026-10-24 23:13:19 | INFO    | [validate] ============================================================
+2026-10-24 23:13:19 | INFO    | [validate] [customers] Row count: 1,000
+2026-10-24 23:13:19 | WARNING | [validate]    -> Missing values in 2 columns: ['annual_income_php', 'raw_value']
+2026-10-24 23:13:19 | WARNING | [validate]    -> Text formatting anomalies: {'city_inconsistencies': 0, 'gender_inconsistencies': 0}
+2026-10-24 23:13:19 | WARNING | [validate]    -> Statistical outliers detected in: ['annual_income_php']
+2026-10-24 23:13:19 | INFO    | [validate] [accounts] Row count: 1,400
+2026-10-24 23:13:19 | WARNING | [validate]    -> Missing values in 1 columns: ['close_date']
+2026-10-24 23:13:19 | INFO    | [validate] [transactions] Row count: 8,800
+2026-10-24 23:13:19 | WARNING | [validate]    -> Missing values in 2 columns: ['amount', 'raw_value']
+2026-10-24 23:13:19 | WARNING | [validate]    -> Text formatting anomalies: {'payment_method_inconsistencies': 0}
+2026-10-24 23:13:19 | WARNING | [validate]    -> Statistical outliers detected in: ['amount']
+2026-10-24 23:13:19 | INFO    | [validate] [trades] Row count: 5,000
+2026-10-24 23:13:19 | WARNING | [validate]    -> Missing values in 2 columns: ['lot_size', 'raw_value']
+2026-10-24 23:13:19 | WARNING | [validate]    -> Statistical outliers detected in: ['lot_size', 'profit_loss']
+2026-10-24 23:13:19 | INFO    | [validate] [loans] Row count: 600
+2026-10-24 23:13:19 | WARNING | [validate]    -> Missing values in 4 columns: ['principal', 'credit_score', 'raw_value', 'credit_band']
+2026-10-24 23:13:19 | WARNING | [validate]    -> Statistical outliers detected in: ['principal']
+2026-10-24 23:13:19 | INFO    | [validate] [index_prices] Row count: 3,192
+2026-10-24 23:13:19 | INFO    | [validate] Referential integrity check passed: 0 broken foreign keys found.
+2026-10-24 23:13:19 | INFO    | [validate] Validation (CLEAN) complete. Total identified anomalies: 17349
+2026-10-24 23:13:19 | INFO    | [validate] Generating comprehensive Data Quality Report -> C:\Users\marki\Desktop\uncloud\Personal\AI Pursuits\data engineering lol\northbay_pipeline\output\data_quality_report.md
+2026-10-24 23:13:19 | INFO    | [validate] Data Quality Report generation complete.
+2026-10-24 23:13:19 | INFO    | [run_pipeline] ********************************************************************************
+2026-10-24 23:13:19 | INFO    | [run_pipeline] PIPELINE COMPLETED SUCCESSFULLY in 11.53 seconds!
+2026-10-24 23:13:19 | INFO    | [run_pipeline] ********************************************************************************
